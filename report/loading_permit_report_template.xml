@@ -4,10 +4,12 @@
         <template id="loading_permit_report_template">
             <t t-call="web.html_container">
                 <t t-call="web.internal_layout">
+                    <div class="page">
+
                     <div class="container mt-2">
     <div class="container iransans_font">
 
-    <div class="text-right" style="direction:rtl">
+    <div style="direction:rtl">
         <div class="text-center">
             <div>
                 <img alt="Logo" t-att-src="'/logo?company=1'" t-att-alt="''"
@@ -20,7 +22,7 @@
 
         </div>
 
-        <div class="row border border-primary py-2">
+        <div class="row border border-primary py-2 text-left">
             <div class="col-8">
                 <div class="row">
                     <div class="col-4">
@@ -42,7 +44,7 @@
             </div>
         </div>
 
-        <div class="row border border-primary">
+        <div class="row border border-primary text-left">
             <div class="col-4  px-0">
                 <div class="row border-bottom border-info   mx-0 py-2">
                     <div class="col-6" >
@@ -181,6 +183,7 @@
                     </div>
                     <div class="mb-5"></div>
                     <div class="mb-5"></div>
+                    </div>
                 </t>
             </t>
         </template>
