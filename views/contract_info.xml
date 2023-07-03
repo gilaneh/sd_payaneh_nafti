@@ -9,9 +9,12 @@
             <field name="arch" type="xml">
                 <tree>
                     <field name="registration_no" />
-<!--                    <field name="contract_no" />-->
+                    <field name="contract_no" />
 <!--                    <field name="bill_of_lading" />-->
-<!--                    <field name="buyer" />-->
+                    <field name="buyer" />
+                    <field name="delivering_amount" />
+                    <field name="delivered_amount" />
+                    <field name="remaining_amount" />
 <!--                    <field name="amount" />-->
 <!--                    <field name="unit" />-->
 <!--                    <field name="contract_type" />-->
