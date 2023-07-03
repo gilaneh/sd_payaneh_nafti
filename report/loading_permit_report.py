@@ -26,7 +26,7 @@ class ReportSdPayanehNaftiLoadingPermit(models.AbstractModel):
         issue_date = input_record.loading_date
         # print(f'\n {form_data.get("calendar")}')
         if calendar == 'fa_IR':
-            issue_date = jdatetime.date.fromgregorian(date=issue_date)
+            issue_date = jdatetime.date.fromgregorian(date=issue_date).strftime('%Y/%m/%d')
         tanker_no = {'plate_1': input_record.plate_1.name,
                      'plate_2': input_record.plate_2,
                      'plate_3': input_record.plate_3.name,
