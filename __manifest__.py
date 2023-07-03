@@ -13,7 +13,6 @@
     'website': "https://gilaneh.com",
 
     # Categories can be used to filter modules in modules listing
-    # Check https://github.com/odoo/odoo/blob/14.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     'category': 'Service Desk/Service Desk',
     'application': True,
@@ -31,16 +30,6 @@
         'views/contract_info.xml',
         'views/contract_registration.xml',
         'views/input_info.xml',
-        # 'views/anomaly.xml',
-        # 'views/permit.xml',
-        # 'views/weather.xml',
-        # 'views/drill.xml',
-        # 'views/training.xml',
-        # 'data/training_data.xml',
-        # 'views/personnel.xml',
-        # 'views/incident.xml',
-        # 'views/project.xml',
-        # 'views/actions.xml',
         'views/templates.xml',
         'report/loading_permit_report_template.xml',
         'report/loading_permit_report.xml',

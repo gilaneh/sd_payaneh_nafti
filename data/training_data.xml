@@ -4,15 +4,5 @@
 <!--         <data>-->
 
 
-        <record id="training_type_0" model="sd_payaneh_nafti.training.types">
-            <field name="name">TBM</field>
-        </record>
-        <record id="training_type_1" model="sd_payaneh_nafti.training.types">
-            <field name="name">Induction</field>
-        </record>
-        <record id="training_type_2" model="sd_payaneh_nafti.training.types">
-            <field name="name">Special</field>
-        </record>
-
          </data>
 </odoo>
