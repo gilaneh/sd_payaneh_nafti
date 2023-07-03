@@ -1,0 +1,115 @@
+<odoo>
+    <data>
+
+         <!-- ==================================================  sd_payaneh_nafti.contract_info ====================-->
+
+        <record model="ir.ui.view" id="sd_payaneh_nafti_contract_info_list">
+            <field name="name">Basic Information List</field>
+            <field name="model">sd_payaneh_nafti.contract_info</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="registration_no" />
+<!--                    <field name="contract_no" />-->
+<!--                    <field name="bill_of_lading" />-->
+<!--                    <field name="buyer" />-->
+<!--                    <field name="amount" />-->
+<!--                    <field name="unit" />-->
+<!--                    <field name="contract_type" />-->
+<!--                    <field name="loading_type" />-->
+<!--                    <field name="start_date" />-->
+<!--                    <field name="end_date" />-->
+
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="sd_payaneh_nafti_contract_info_form">
+            <field name="name">Basic Information List</field>
+            <field name="model">sd_payaneh_nafti.contract_info</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="registration_no" />
+                                <field name="contract_no" />
+                                <field name="bill_of_lading" />
+                                <field name="buyer" />
+                                <field name="destination" />
+
+                            </group>
+                            <group>
+
+                                <field name="delivering_amount" />
+                                <field name="unit" />
+                                <field name="delivered_amount" />
+                                <field name="remaining_amount" />
+                                <field name="start_date" />
+                                <field name="end_date" />
+
+                            </group>
+                        </group>
+                        <notbook>
+                            <pang string="Description">
+
+                                <field name="description" />
+
+                            </pang>
+                        </notbook>
+<!--                        <group>-->
+<!--                            <group>-->
+<!--                                <field name="first_extend_no" />-->
+<!--                                <field name="first_extend_star_date" />-->
+<!--                                <field name="first_extend_end_date" />-->
+
+
+<!--                            </group>-->
+<!--                            <group>-->
+<!--                                <field name="second_extend_no" />-->
+<!--                                <field name="second_extend_star_date" />-->
+<!--                                <field name="second_extend_end_date" />-->
+
+<!--                            </group>-->
+<!--                        </group>-->
+                    </sheet>
+
+
+                </form>
+            </field>
+        </record>
+
+        <!-- ==================================================  Search ====================-->
+
+        <record model="ir.ui.view" id="sd_payaneh_nafti_contract_info_list_search">
+            <field name="name">Basic Information List</field>
+            <field name="model">sd_payaneh_nafti.contract_info</field>
+            <field name="arch" type="xml">
+                <search string="Dealers">
+                  <field name="description" />
+                </search>
+            </field>
+        </record>
+
+
+        <!-- ==================================================  Action Window ====================-->
+
+        <record model="ir.actions.act_window" id="action_window_contract_info">
+            <field name="name">Contract Information</field>
+            <field name="res_model">sd_payaneh_nafti.contract_info</field>
+            <field name="view_mode">tree,form</field>
+
+        </record>
+
+        <!-- ==================================================  Menu ====================-->
+
+        <menuitem name="Contract Information"
+                  id="sd_payaneh_nafti.contract_info_menu"
+                  parent="sd_payaneh_nafti.process_menu"
+                  action="action_window_contract_info"/>
+
+<!--        <menuitem name="Actions"-->
+<!--                  id="sd_payaneh_nafti.actions_setting_menu"-->
+<!--                  parent="sd_payaneh_nafti.settings_menu"/>-->
+
+
+    </data>
+</odoo>

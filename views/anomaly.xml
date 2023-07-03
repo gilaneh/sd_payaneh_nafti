@@ -1,0 +1,196 @@
+<odoo>
+    <data>
+        <!-- ==================================================  sd_payaneh_nafti.anomaly ====================-->
+
+        <record model="ir.ui.view" id="sd_payaneh_nafti_anomaly_list">
+            <field name="name">sd_payaneh_nafti List</field>
+            <field name="model">sd_payaneh_nafti.anomaly</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom" delete="1" >
+                    <field name="old_record" invisible="1"/>
+                    <field name="anomaly_no" />
+                    <field name="record_date" decoration-info="old_record" decoration-bf="old_record" />
+                    <field name="project" options='{"no_open": True, "no_create": True}'/>
+                    <field name="contractor" options='{"no_open": True, "no_create": True}'/>
+                    <field name="ua_uc" />
+                    <field name="risk_level" />
+                    <field name="record_type" />
+                    <field name="reporter" options='{"no_open": True, "no_create": True}'/>
+                    <field name="assignee" options='{"no_open": True, "no_create": True}'/>
+                    <field name="description" />
+                    <field name="anomaly_state"
+                       decoration-danger="anomaly_state == 'open'" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="sd_payaneh_nafti_anomaly_form">
+            <field name="name">sd_payaneh_nafti form</field>
+            <field name="model">sd_payaneh_nafti.anomaly</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+<!--                        <field name="state" widget="statusbar" options="{'clickable': '1'}" />-->
+
+                    </header>
+<!--                    <sheet>-->
+<!--                    <field name="state" readonly="1" widget="badge" decoration-warning="state == 'open'" />-->
+<!--                        <group>-->
+<!--                            <group>-->
+                                <field name="anomaly_no" />
+                                <field name="record_date" />
+                                <field name="project" />
+                                <field name="contractor" />
+                                <field name="location_des" />
+<!--                            </group>-->
+
+<!--                            <group>-->
+<!--                                <field name="ua_uc" />-->
+<!--                                <field name="risk_level" />-->
+<!--                                <field name="record_type" />-->
+<!--                            </group>-->
+<!--                        </group>-->
+
+<!--                        <group>-->
+<!--                            <group>-->
+<!--                                <field name="assignee" />-->
+<!--                            </group>-->
+<!--                        </group>-->
+<!--                        <group>-->
+<!--                            <field name="description" placeholder='Unsafe Act/Condition...'/>-->
+<!--                        </group>-->
+<!--                        <group>-->
+<!--                            <group>-->
+<!--                                <field name="reporter" />-->
+<!--                            </group>-->
+<!--                            <group>-->
+
+<!--                            </group>-->
+<!--                        </group>-->
+
+<!--                        <separator string="Impacted Apps"/>-->
+
+<!--                        <group>-->
+<!--                            <field name="suggestion" placeholder='It is suggested that ...'/>-->
+<!--                        </group>-->
+<!--                        <group>-->
+<!--                            <field name="action_report" placeholder='To fix it we have done ...'/>-->
+<!--                        </group>-->
+
+<!--                    </sheet>-->
+                    <div class="container" groups="base.group_system">
+                        <div class="oe_chatter" >
+                            <field name="message_follower_ids" />
+                            <field name="activity_ids" />
+                            <field name="message_ids" />
+                        </div>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <!-- ==================================================  sd_payaneh_nafti.anomaly.types ====================-->
+
+        <record model="ir.ui.view" id="sd_payaneh_nafti_anomaly_types_list">
+            <field name="name">sd_payaneh_nafti List</field>
+            <field name="model">sd_payaneh_nafti.anomaly.types</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="sequence" widget="handle" />
+                    <field name="name" />
+
+                </tree>
+            </field>
+        </record>
+
+        <!-- ==================================================  sd_payaneh_nafti.anomaly.risk_level ====================-->
+
+        <record model="ir.ui.view" id="sd_payaneh_nafti_anomaly_risk_level_list">
+            <field name="name">sd_payaneh_nafti List</field>
+            <field name="model">sd_payaneh_nafti.anomaly.risk_level</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="sequence" widget="handle" />
+                    <field name="name" />
+
+                </tree>
+            </field>
+        </record>
+
+
+        <!-- ==================================================  Search ====================-->
+
+        <record model="ir.ui.view" id="sd_payaneh_nafti_anomaly_list_search">
+            <field name="name">sd_payaneh_nafti</field>
+            <field name="model">sd_payaneh_nafti.anomaly</field>
+            <field name="arch" type="xml">
+                <search string="Anomalies">
+                    <field name="anomaly_no"/>
+                    <field name="project"/>
+                    <field name="contractor"/>
+                    <field name="ua_uc"/>
+                    <field name="risk_level"/>
+                    <field name="record_type"/>
+                    <field name="anomaly_state"/>
+                    <filter string="Open" name="open_anomaly"
+                            domain="[('anomaly_state', '=', 'open')]"/>
+                    <group>
+                        <filter name="group_project" string="Project" context="{'group_by': 'project'}"/>
+                        <filter name="group_contractor" string="Contractor" context="{'group_by': 'contractor'}"/>
+                        <filter name="group_ua_uc" string="UA/UC" context="{'group_by': 'ua_uc'}"/>
+                        <filter name="group_risk_level" string="Risk Level" context="{'group_by': 'risk_level'}"/>
+                        <filter name="group_type" string="Type" context="{'group_by': 'record_type'}"/>
+                        <filter name="group_anomaly_state" string="Close/Open" context="{'group_by': 'anomaly_state'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+
+        <!-- ==================================================  Action Window ====================-->
+
+        <record model="ir.actions.act_window" id="action_window_anomaly">
+            <field name="name">Anomaly</field>
+            <field name="res_model">sd_payaneh_nafti.anomaly</field>
+            <field name="view_mode">tree</field>
+            <field name="domain">['|',
+                                    ('project.payaneh_managers_users', 'in', uid),
+                                    ('project.payaneh_officers_users', 'in', uid)]
+            </field>
+            <field name="context">{'search_default_open_anomaly': 1}</field>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="action_window_anomaly_types">
+            <field name="name">Anomaly Types</field>
+            <field name="res_model">sd_payaneh_nafti.anomaly.types</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_window_anomaly_risk_level">
+            <field name="name">Anomaly Risk Level</field>
+            <field name="res_model">sd_payaneh_nafti.anomaly.risk_level</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <!-- ==================================================  Menu ====================-->
+
+        <menuitem name="Anomaly"
+                  id="sd_payaneh_nafti.anomaly_menu"
+                  parent="sd_payaneh_nafti.process_menu"
+                  action="action_window_anomaly"/>
+
+        <menuitem name="Anomaly"
+                  id="sd_payaneh_nafti.anomaly_setting_menu"
+                  parent="sd_payaneh_nafti.settings_menu"/>
+
+        <menuitem name="Anomaly Types"
+                  id="sd_payaneh_nafti.anomaly_types_menu"
+                  parent="sd_payaneh_nafti.anomaly_setting_menu"
+                  action="action_window_anomaly_types"/>
+
+        <menuitem name="Anomaly Risk Level"
+                  id="sd_payaneh_nafti.anomaly_risk_level_menu"
+                  parent="sd_payaneh_nafti.anomaly_setting_menu"
+                  action="action_window_anomaly_risk_level"/>
+    </data>
+</odoo>

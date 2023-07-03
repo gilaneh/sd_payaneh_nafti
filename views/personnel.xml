@@ -1,0 +1,82 @@
+<odoo>
+    <data>
+
+         <!-- ==================================================  sd_payaneh_nafti.personnel ====================-->
+
+        <record model="ir.ui.view" id="sd_payaneh_nafti_personnel_list">
+            <field name="name">sd_payaneh_nafti List</field>
+            <field name="model">sd_payaneh_nafti.personnel</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom" delete="1" >
+                    <field name="record_date" />
+                    <field name="project" options='{"no_open": True, "no_create": True}'/>
+                    <field name="subcontractor"/>
+                    <field name="contractor"/>
+                    <field name="local"/>
+                    <field name="client"/>
+                    <field name="visitor"/>
+                    <field name="total" sum="Total"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="sd_payaneh_nafti_personnel_pivot">
+            <field name="name">Personnel Pivot</field>
+            <field name="model">sd_payaneh_nafti.personnel</field>
+            <field name="arch" type="xml">
+                <pivot>
+                    <field name="record_date" />
+                    <field name="project" options='{"no_open": True, "no_create": True}'/>
+                    <field name="subcontractor"/>
+                    <field name="contractor"/>
+                    <field name="local"/>
+                    <field name="client"/>
+                    <field name="visitor"/>
+                    <field name="total" sum="Total"/>
+                </pivot>
+            </field>
+        </record>
+
+        <!-- ==================================================  Search ====================-->
+
+        <record model="ir.ui.view" id="sd_payaneh_nafti_personnel_list_search">
+            <field name="name">Personnel</field>
+            <field name="model">sd_payaneh_nafti.personnel</field>
+            <field name="arch" type="xml">
+                <search string="Dealers">
+                    <field name="project"/>
+                    <group>
+                        <filter name="group_project" string="Project" context="{'group_by': 'project'}"/>
+                    </group>
+
+                </search>
+            </field>
+        </record>
+
+
+        <!-- ==================================================  Action Window ====================-->
+
+        <record model="ir.actions.act_window" id="action_window_personnel">
+            <field name="name">Personnel</field>
+            <field name="res_model">sd_payaneh_nafti.personnel</field>
+            <field name="view_mode">tree,pivot</field>
+            <field name="domain">['|',
+                                    ('project.payaneh_managers_users', 'in', uid),
+                                    ('project.payaneh_officers_users', 'in', uid)]
+            </field>
+        </record>
+
+        <!-- ==================================================  Menu ====================-->
+
+        <menuitem name="Personnel"
+                  id="sd_payaneh_nafti.personnel_menu"
+                  parent="sd_payaneh_nafti.process_menu"
+                  action="action_window_personnel"/>
+
+        <menuitem name="Personnel"
+                  id="sd_payaneh_nafti.personnel_setting_menu"
+                  parent="sd_payaneh_nafti.settings_menu"/>
+
+
+    </data>
+</odoo>

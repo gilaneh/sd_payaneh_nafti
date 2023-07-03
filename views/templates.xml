@@ -1,0 +1,59 @@
+<odoo>
+    <data>
+
+        <template id="apps">
+            <t t-call="website.layout">
+                <t t-set="title">apps</t>
+                <div class="oe_structure">
+                    <div class="container">
+                        <div class="sd_search">
+                            <form method="get" action="" autocomplete="on">
+                                <input type="text" name="search" id="search" autofocus="" t-att-value="search"
+                                       selected=""/>
+                                <input type="submit" name="Search" class="btn btn-primary"/>
+                            </form>
+                        </div>
+                        <!--                            <p t-on-click="_onClick" t-on-o-popover-compute="_onPopoverCompute" t-on-o-popover-close="_onPopoverClose">-->
+
+                        <!--                            arash-->
+
+                        <!--    <div class="popover" role="tooltip">-->
+                        <!--&lt;!&ndash;        <div class="arrow">a</div>&ndash;&gt;-->
+                        <!--        <h3 class="popover-header">b</h3>-->
+                        <!--        <div class="popover-body">c</div>-->
+                        <!--    </div>-->
+                        <!--                        </p>-->
+
+                        <div class="sd_payaneh_nafti">
+                            <t t-foreach="apps" t-as="app">
+                                <t t-if="app.active_link and app.has_access_group == 1">
+<!--                                    <div >-->
+
+                                    <a t-att-href="app.link" t-att-target="app.target" class="sd_payaneh_nafti_btn">
+                                        <!--                                    todo: image size should be limited to prevent oversize button image-->
+                                        <div class="sd_payaneh_nafti_img">
+
+                                        <!--                                        <button class="btn btn-primary">-->
+                                            <div t-if="app.image"
+                                                 t-field="app.image"
+                                                 t-class="sd_payaneh_nafti_img"
+                                                 t-options="{'widget': 'image', 'img_style': 'max-height:30%;max-width:20px;' }"/>
+                                            <t t-esc="app.name"/>
+<!--                                        </button>-->
+                                        </div>
+
+                                    </a>
+<!--                                    </div>-->
+
+                                </t>
+
+                            </t>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+
+    </data>
+</odoo>

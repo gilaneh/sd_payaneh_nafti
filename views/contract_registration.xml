@@ -1,0 +1,120 @@
+<odoo>
+    <data>
+
+         <!-- ==================================================  sd_payaneh_nafti.contract_registration ====================-->
+
+        <record model="ir.ui.view" id="sd_payaneh_nafti_contract_registration_list">
+            <field name="name">Basic Registration List</field>
+            <field name="model">sd_payaneh_nafti.contract_registration</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="registration_no" />
+                    <field name="contract_no" />
+                    <field name="bill_of_lading" />
+                    <field name="buyer" />
+                    <field name="amount" />
+                    <field name="unit" />
+                    <field name="contract_type" />
+                    <field name="loading_type" />
+                    <field name="start_date" />
+                    <field name="end_date" />
+
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="sd_payaneh_nafti_contract_registration_form">
+            <field name="name">Basic Registration List</field>
+            <field name="model">sd_payaneh_nafti.contract_registration</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="registration_no" />
+                                <field name="contract_no" />
+                                <field name="bill_of_lading" />
+                                <field name="buyer" />
+                                <field name="amount" />
+                                <field name="unit" />
+                                <field name="contract_type" />
+                                <field name="loading_type" />
+                            </group>
+                            <group>
+                                <field name="destination" />
+                                <field name="start_date" />
+                                <field name="end_date" />
+                                <field name="shipment_1" />
+                                <field name="shipment_2" />
+                                <field name="shipment_3" />
+                                <field name="shipment_4" />
+                                <field name="shipment_5" />
+
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="first_extend_no" />
+                                <field name="first_extend_star_date" />
+                                <field name="first_extend_end_date" />
+
+
+                            </group>
+                            <group>
+                                <field name="second_extend_no" />
+                                <field name="second_extend_star_date" />
+                                <field name="second_extend_end_date" />
+
+                            </group>
+                        </group>
+                    </sheet>
+
+
+                </form>
+            </field>
+        </record>
+
+        <!-- ==================================================  Search ====================-->
+
+        <record model="ir.ui.view" id="sd_payaneh_nafti_contract_registration_list_search">
+            <field name="name">Basic Registration List</field>
+            <field name="model">sd_payaneh_nafti.contract_registration</field>
+            <field name="arch" type="xml">
+                <search string="Dealers">
+                  <field name="registration_no" />
+                    <field name="contract_no" />
+                    <field name="bill_of_lading" />
+                    <field name="buyer" />
+                    <field name="amount" />
+                    <field name="unit" />
+                    <field name="contract_type" />
+                    <field name="loading_type" />
+                    <field name="start_date" />
+                    <field name="end_date" />
+                </search>
+            </field>
+        </record>
+
+
+        <!-- ==================================================  Action Window ====================-->
+
+        <record model="ir.actions.act_window" id="action_window_contract_registration">
+            <field name="name">Contract Registration</field>
+            <field name="res_model">sd_payaneh_nafti.contract_registration</field>
+            <field name="view_mode">tree,form</field>
+
+        </record>
+
+        <!-- ==================================================  Menu ====================-->
+
+        <menuitem name="Contract Registration"
+                  id="sd_payaneh_nafti.contract_registration_menu"
+                  parent="sd_payaneh_nafti.process_menu"
+                  action="action_window_contract_registration"/>
+
+<!--        <menuitem name="Actions"-->
+<!--                  id="sd_payaneh_nafti.actions_setting_menu"-->
+<!--                  parent="sd_payaneh_nafti.settings_menu"/>-->
+
+
+    </data>
+</odoo>

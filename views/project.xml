@@ -1,0 +1,147 @@
+<odoo>
+    <data>
+
+        <!-- ==================================================  sd_payaneh_nafti.project ====================-->
+
+        <record model="ir.ui.view" id="sd_payaneh_nafti_project_list">
+            <field name="name">Projects</field>
+            <field name="model">sd_payaneh_nafti.project</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="name"/>
+                    <field name="project" />
+                    <field name="record_date" />
+                    <field name="daily_work_hours" />
+                    <field name="payaneh_managers" widget="many2many_tags"/>
+<!--                    <field name="payaneh_managers_users" widget="many2many_tags"/>-->
+                    <field name="payaneh_officers" widget="many2many_tags"/>
+<!--                    <field name="payaneh_officers_users" widget="many2many_tags"/>-->
+                    <field name="contractors" widget="many2many_tags"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="sd_payaneh_nafti_project_base_info_list">
+            <field name="name">Projects Base Info</field>
+            <field name="model">sd_payaneh_nafti.project</field>
+            <field name="arch" type="xml">
+                <tree create="0" delete="0">
+                    <field name="name"/>
+                    <field name="project" />
+                    <field name="record_date" />
+                    <field name="personnel_subcontractor"/>
+                    <field name="personnel_contractor"/>
+                    <field name="personnel_local"/>
+                    <field name="personnel_client"/>
+                    <field name="write_date"/>
+                    <field name="write_uid"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="sd_payaneh_nafti_project_base_info_form">
+            <field name="name">Projects Base Info</field>
+            <field name="model">sd_payaneh_nafti.project</field>
+            <field name="arch" type="xml">
+                <form create="0" delete="0">
+                    <sheet>
+                        <div class="h3">
+                            <field name="name" readonly="1"/>
+
+                        </div>
+                        <div class="h5">
+                            <field name="project" readonly="1" options="{'no_create_edit': True, 'no_open': True}"/>
+
+                        </div>
+                        <group>
+                            <group>
+                                <field name="record_date"/>
+
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="personnel_subcontractor"/>
+                                <field name="personnel_contractor"/>
+                                <field name="personnel_local"/>
+                                <field name="personnel_client"/>
+                                <field name="total_personnel"/>
+
+                            </group>
+                            <group>
+                                <field name="fatality"/>
+                                <field name="ptd_ppd"/>
+                                <field name="lti"/>
+                                <field name="rwc"/>
+                                <field name="illness"/>
+                                <field name="mtc"/>
+                                <field name="audits"/>
+                                <field name="ua_uc"/>
+                                <field name="near_miss"/>
+                                <field name="training"/>
+                                <field name="fac"/>
+                                <field name="rva"/>
+                                <field name="fire"/>
+                                <field name="prdc"/>
+                                <field name="medical_rest"/>
+
+                            </group>
+                        </group>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+
+        <!-- ==================================================  Search ====================-->
+
+        <record model="ir.ui.view" id="sd_payaneh_nafti_project_list_search">
+            <field name="name">sd_payaneh_nafti</field>
+            <field name="model">sd_payaneh_nafti.project</field>
+            <field name="arch" type="xml">
+                <search string="Dealers">
+
+                </search>
+            </field>
+        </record>
+
+
+        <!-- ==================================================  Action Window ====================-->
+
+        <record model="ir.actions.act_window" id="sd_payaneh_nafti.action_window_projects">
+            <field name="name">Project</field>
+            <field name="res_model">sd_payaneh_nafti.project</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="sd_payaneh_nafti_project_list"/>
+        </record>
+
+        <record model="ir.actions.act_window" id="sd_payaneh_nafti.action_window_projects_base_info">
+            <field name="name">Project</field>
+            <field name="res_model">sd_payaneh_nafti.project</field>
+            <field name="view_mode">tree,form</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+        (0, 0, {'view_mode': 'tree', 'view_id': ref('sd_payaneh_nafti_project_base_info_list')}),
+        (0, 0, {'view_mode': 'form', 'view_id': ref('sd_payaneh_nafti_project_base_info_form')})
+        ]"/>
+        </record>
+
+        <!-- ==================================================  Menu ====================-->
+
+        <menuitem name="Project"
+                  id="sd_payaneh_nafti.project_setting_menu"
+                  parent="sd_payaneh_nafti.settings_menu"/>
+
+        <menuitem name="Projects"
+                  id="sd_payaneh_nafti.project_types_menu"
+                  parent="sd_payaneh_nafti.project_setting_menu"
+                  action="sd_payaneh_nafti.action_window_projects"/>
+
+        <menuitem name="Projects Base Info"
+                  id="sd_payaneh_nafti.project_base_info_menu"
+                  parent="sd_payaneh_nafti.project_setting_menu"
+                  action="sd_payaneh_nafti.action_window_projects_base_info"/>
+
+
+    </data>
+</odoo>

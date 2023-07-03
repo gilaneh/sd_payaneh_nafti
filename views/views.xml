@@ -1,0 +1,144 @@
+<odoo>
+    <data>
+
+        <!-- ==================================================  sd_payaneh_nafti.SETTINGS ====================-->
+
+
+
+
+
+
+        <record model="ir.ui.view" id="sd_payaneh_nafti_settings_list">
+            <field name="name">sd_payaneh_nafti List</field>
+            <field name="model">sd_payaneh_nafti.settings</field>
+            <field name="arch" type="xml">
+                <tree editable="top">
+                    <field name="sequence" widget="handle"/>
+                    <field name="image" widget="image" class="oe_avatar sd_payaneh_nafti_dash" groups="base.group_user"/>
+                    <field name="name"/>
+                    <field name="active_link" widget="boolean_toggle"/>
+                    <field name="link"/>
+                    <field name="target"/>
+                    <field name="access_group"/>
+<!--                    <field name="priority"/>-->
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="sd_payaneh_nafti_settings_kanban" model="ir.ui.view">
+            <field name="name">sd_payaneh_nafti.settings</field>
+            <field name="model">sd_payaneh_nafti.settings</field>
+            <field name="arch" type="xml">
+                <kanban create="0" edit="0" delete="0">
+                    <field name="name"/>
+                    <field name="link"/>
+                    <field name="image"/>
+                    <field name="sequence"/>
+                    <field name="access_group"/>
+                    <field name="has_access_group"/>
+                    <templates>
+                        <t t-name="kanban-box" t-if="record.has_access_group.value == 1" >
+<!--                        <t t-name="kanban-box" t-if="1" >-->
+                            <div class="o_kanban_record_has_image_fill o_hr_kanban_record shadow rounded sd_payaneh_nafti_dash">
+                                <a t-att-href="record.link.value" t-att-target="record.link.target">
+                                    <span class="sd_link"> </span>
+                                </a>
+                                <field name="image" widget="image"
+                                       options="{'zoom': true,'img_style': 'max-height:70px !important;max-width:70px !important;'}"/>
+
+                                <div class="oe_kanban_details">
+                                    <div style="text-align:center;">
+                                        <strong>
+                                            <t t-esc="record.name.value"/>
+                                        </strong>
+                                        <div t-if="record.sequence.value"
+                                             t-field="sequence.value"
+                                             t-options="{'widget': 'ace',
+                                         'width': 600, 'height': 120,
+                                         'img_style': 'max-height:70px;max-width:70px;',
+                                         'img_align': 'center'}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!-- ==================================================  Search ====================-->
+
+        <record model="ir.ui.view" id="sd_payaneh_nafti_list_search">
+            <field name="name">sd_payaneh_nafti</field>
+            <field name="model">sd_payaneh_nafti.settings</field>
+            <field name="arch" type="xml">
+                <search string="Dealers">
+                    <field name="name"/>
+                    <filter string="ongoing" name="ongoing"
+                            domain="[('active_link', '=', True)]"/>
+                </search>
+            </field>
+        </record>
+
+
+        <!-- ==================================================  Action Window ====================-->
+
+        <record model="ir.actions.act_window" id="sd_payaneh_nafti.action_window_services_dashboard_setup">
+            <field name="name">Dashboard Configuration</field>
+            <field name="res_model">sd_payaneh_nafti.settings</field>
+            <field name="view_mode">tree</field>
+            <field name="context">{'search_default_ongoing': 1}</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('sd_payaneh_nafti_settings_list')}),
+                ]"/>
+            <!--                (0, 0, {'view_mode': 'form', 'view_id': ref('sd_payaneh_nafti_settings_form')}),-->
+        </record>
+
+        <record model="ir.actions.act_window" id="sd_payaneh_nafti.action_window_kanban">
+            <field name="name">Dashboard</field>
+            <field name="res_model">sd_payaneh_nafti.settings</field>
+            <field name="view_mode">kanban</field>
+            <field name="domain">[('active_link', '=', True)]</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'kanban', 'view_id': ref('sd_payaneh_nafti_settings_kanban')}),
+                ]"/>
+        </record>
+
+        <!-- ==================================================  Menu ====================-->
+
+
+        <!--        <menuitem name="sd_payaneh_nafti List" id="sd_payaneh_nafti.services_list" parent="sd.services"-->
+        <!--                  action="sd_payaneh_nafti.action_window_services"/>-->
+
+
+
+        <menuitem name="Payaneh"
+                  id="sd_payaneh_nafti.payaneh_root_menu"
+                  action="sd_payaneh_nafti.action_window_kanban"/>
+
+        <menuitem name="Data"
+                  id="sd_payaneh_nafti.process_menu"
+                  parent="sd_payaneh_nafti.payaneh_root_menu"
+                  sequence="10"/>
+
+        <menuitem name="Reports"
+                  id="sd_payaneh_nafti.reports_menu"
+                  parent="sd_payaneh_nafti.payaneh_root_menu"
+                  sequence="20"/>
+
+
+        <menuitem name="Settings"
+                  id="sd_payaneh_nafti.settings_menu"
+                  parent="sd_payaneh_nafti.payaneh_root_menu"
+                  groups="sd_payaneh_nafti.group_sd_payaneh_nafti_admins"
+                  sequence="30"/>
+
+        <menuitem name="Dashboard"
+                  id="sd_payaneh_nafti.dashboard_menu"
+                  parent="sd_payaneh_nafti.settings_menu"
+                  groups="sd_payaneh_nafti.group_sd_payaneh_nafti_admins"
+                  action="sd_payaneh_nafti.action_window_services_dashboard_setup"/>
+    </data>
+</odoo>

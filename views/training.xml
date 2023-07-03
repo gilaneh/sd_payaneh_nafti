@@ -1,0 +1,88 @@
+<odoo>
+    <data>
+
+         <!-- ==================================================  sd_payaneh_nafti.training ====================-->
+
+        <record model="ir.ui.view" id="sd_payaneh_nafti_training_list">
+            <field name="name">sd_payaneh_nafti List</field>
+            <field name="model">sd_payaneh_nafti.training</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom" delete="1" >
+                    <field name="record_date" />
+                    <field name="project" options='{"no_open": True, "no_create": True}'/>
+                    <field name="record_type"/>
+                    <field name="name"/>
+                    <field name="participants"/>
+                    <field name="hours"/>
+                    <field name="minutes"/>
+                    <field name="man_hours"/>
+                </tree>
+            </field>
+        </record>
+
+         <!-- ==================================================  sd_payaneh_nafti.training.types ====================-->
+
+        <record model="ir.ui.view" id="sd_payaneh_nafti_training_types_list">
+            <field name="name">Training Types</field>
+            <field name="model">sd_payaneh_nafti.training.types</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom" >
+                    <field name="sequence" widget="handle"/>
+                    <field name="name" />
+                </tree>
+            </field>
+        </record>
+
+        <!-- ==================================================  Search ====================-->
+
+        <record model="ir.ui.view" id="sd_payaneh_nafti_training_list_search">
+            <field name="name">sd_payaneh_nafti</field>
+            <field name="model">sd_payaneh_nafti.training</field>
+            <field name="arch" type="xml">
+                <search string="Dealers">
+<!--                    <field name="project"/>-->
+<!--                    <filter string="ongoing" name="ongoing"-->
+<!--                            domain="[('active_link', '=', True)]"/>-->
+                </search>
+            </field>
+        </record>
+
+
+        <!-- ==================================================  Action Window ====================-->
+
+        <record model="ir.actions.act_window" id="action_window_training">
+            <field name="name">Training</field>
+            <field name="res_model">sd_payaneh_nafti.training</field>
+            <field name="view_mode">tree</field>
+            <field name="domain">['|',
+                                    ('project.payaneh_managers_users', 'in', uid),
+                                    ('project.payaneh_officers_users', 'in', uid)]
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_window_training_types">
+            <field name="name">Training types</field>
+            <field name="res_model">sd_payaneh_nafti.training.types</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <!-- ==================================================  Menu ====================-->
+
+        <menuitem name="Training"
+                  id="sd_payaneh_nafti.training_menu"
+                  parent="sd_payaneh_nafti.process_menu"
+                  action="action_window_training"/>
+
+
+        <menuitem name="Training"
+                  id="sd_payaneh_nafti.training_setting_menu"
+                  groups="base.group_system"
+                  parent="sd_payaneh_nafti.settings_menu"/>
+
+        <menuitem name="Training Types"
+                  id="sd_payaneh_nafti.training_types_menu"
+                  parent="sd_payaneh_nafti.training_setting_menu"
+                  groups="base.group_system"
+                  action="sd_payaneh_nafti.action_window_training_types"/>
+    </data>
+</odoo>

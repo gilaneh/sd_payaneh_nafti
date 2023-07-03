@@ -1,0 +1,84 @@
+<odoo>
+    <data>
+
+         <!-- ==================================================  sd_payaneh_nafti.weather ====================-->
+
+        <record model="ir.ui.view" id="sd_payaneh_nafti_weather_list">
+            <field name="name">sd_payaneh_nafti List</field>
+            <field name="model">sd_payaneh_nafti.weather</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom" >
+                    <field name="record_date" />
+                    <field name="project" options='{"no_open": True, "no_create": True}'/>
+                    <field name="record_type"/>
+                    <field name="max_temperature"/>
+                    <field name="min_temperature"/>
+                    <field name="wind_speed"/>
+                </tree>
+            </field>
+        </record>
+
+         <!-- ==================================================  sd_payaneh_nafti.weather.types ====================-->
+
+        <record model="ir.ui.view" id="sd_payaneh_nafti_weather_types_list">
+            <field name="name">Weather Types</field>
+            <field name="model">sd_payaneh_nafti.weather.types</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom" >
+                    <field name="sequence" widget="handle"/>
+                    <field name="name" />
+                </tree>
+            </field>
+        </record>
+
+        <!-- ==================================================  Search ====================-->
+
+        <record model="ir.ui.view" id="sd_payaneh_nafti_weather_list_search">
+            <field name="name">sd_payaneh_nafti</field>
+            <field name="model">sd_payaneh_nafti.weather</field>
+            <field name="arch" type="xml">
+                <search string="Dealers">
+<!--                    <field name="project"/>-->
+<!--                    <filter string="ongoing" name="ongoing"-->
+<!--                            domain="[('active_link', '=', True)]"/>-->
+                </search>
+            </field>
+        </record>
+
+
+        <!-- ==================================================  Action Window ====================-->
+
+        <record model="ir.actions.act_window" id="action_window_weather">
+            <field name="name">Weather</field>
+            <field name="res_model">sd_payaneh_nafti.weather</field>
+            <field name="view_mode">tree</field>
+            <field name="domain">['|',
+                                    ('project.payaneh_managers_users', 'in', uid),
+                                    ('project.payaneh_officers_users', 'in', uid)]
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_window_weather_types">
+            <field name="name">Weather types</field>
+            <field name="res_model">sd_payaneh_nafti.weather.types</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <!-- ==================================================  Menu ====================-->
+
+        <menuitem name="Weather"
+                  id="sd_payaneh_nafti.weather_menu"
+                  parent="sd_payaneh_nafti.process_menu"
+                  action="action_window_weather"/>
+
+
+        <menuitem name="Weather"
+                  id="sd_payaneh_nafti.weather_setting_menu"
+                  parent="sd_payaneh_nafti.settings_menu"/>
+
+        <menuitem name="Weather Types"
+                  id="sd_payaneh_nafti.weather_types_menu"
+                  parent="sd_payaneh_nafti.weather_setting_menu"
+                  action="sd_payaneh_nafti.action_window_weather_types"/>
+    </data>
+</odoo>

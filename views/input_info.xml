@@ -1,0 +1,207 @@
+<odoo>
+    <data>
+
+         <!-- ==================================================  sd_payaneh_nafti.input_info ====================-->
+
+        <record model="ir.ui.view" id="sd_payaneh_nafti_input_infos_list">
+            <field name="name">Input Information List</field>
+            <field name="model">sd_payaneh_nafti.input_info</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="document_no" />
+                    <field name="loading_no" />
+                    <field name="loading_date" />
+                    <field name="registration_no" />
+                    <field name="carrier" />
+                    <field name="buyer" />
+
+                </tree>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="sd_payaneh_nafti_input_info_form">
+            <field name="name">Input Information Form</field>
+            <field name="model">sd_payaneh_nafti.input_info</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="document_no" />
+                                <field name="loading_no" />
+                                <field name="loading_date" />
+                                <field name="registration_no" />
+                                <field name="carrier" />
+                                <field name="buyer" />
+
+                                <field name="driver" />
+                                <field name="card_no" />
+
+                                <label for="plate_1"/>
+                                <div class="o_row text-center">
+                                    <div class="col-3 px-2 border rounded">
+                                        <field name="plate_1" options="{'no_create_edit': True, 'no_open': True}"/>
+                                    </div>
+                                    <div class="o_row border rounded">
+
+                                        <div class="o_col px-2 ">
+                                            <field name="plate_2" />
+                                        </div>
+                                        <div class="o_col">
+                                            <field name="plate_3" options="{'no_create_edit': True, 'no_open': True}"/>
+                                        </div>
+                                        <div class="o_col px-2 ">
+                                            <field name="plate_4" />
+                                        </div>
+                                        <div class="o_col text-300" style="background-color: #10109f;">IR</div>
+                                    </div>
+
+
+                                </div>
+
+                                <field name="front_container" />
+                                <field name="middle_container" />
+                                <field name="back_container" />
+                                <field name="centralized_container" />
+                            </group>
+                            <group>
+                                <field name="sp_gr" />
+                                <field name="temperature" />
+                                <field name="pressure" />
+                                <field name="weighbridge" />
+                                <field name="miter_no" />
+                                <field name="totalizer_start" />
+                                <field name="totalizer_end" />
+                                <field name="totalizer_difference" />
+                                <field name="shipper_empty_weight" />
+                                <field name="evacuation_box_seal" />
+                                <field name="compartment_1" />
+                                <field name="compartment_2" />
+                                <field name="compartment_3" />
+
+                            </group>
+
+
+                        </group>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+
+         <!-- ==================================================  sd_payaneh_nafti.plate1 ====================-->
+
+        <record model="ir.ui.view" id="sd_payaneh_nafti_plate1_list">
+            <field name="name">Plate1 List</field>
+            <field name="model">sd_payaneh_nafti.plate1</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="name" />
+                </tree>
+            </field>
+        </record>
+
+         <!-- ==================================================  sd_payaneh_nafti.plate2 ====================-->
+
+        <record model="ir.ui.view" id="sd_payaneh_nafti_plate2_list">
+            <field name="name">Plate2 List</field>
+            <field name="model">sd_payaneh_nafti.plate2</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="name" />
+                </tree>
+            </field>
+        </record>
+
+         <!-- ==================================================  sd_payaneh_nafti.plate3 ====================-->
+
+        <record model="ir.ui.view" id="sd_payaneh_nafti_plate3_list">
+            <field name="name">Plate3 List</field>
+            <field name="model">sd_payaneh_nafti.plate3</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="name" />
+                </tree>
+            </field>
+        </record>
+
+         <!-- ==================================================  sd_payaneh_nafti.plate4 ====================-->
+
+        <record model="ir.ui.view" id="sd_payaneh_nafti_plate4_list">
+            <field name="name">Plate4 List</field>
+            <field name="model">sd_payaneh_nafti.plate4</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="name" />
+                </tree>
+            </field>
+        </record>
+
+        <!-- ==================================================  Search ====================-->
+
+        <record model="ir.ui.view" id="sd_payaneh_nafti_input_info_list_search">
+            <field name="name">Input Information List</field>
+            <field name="model">sd_payaneh_nafti.input_info</field>
+            <field name="arch" type="xml">
+                <search string="Dealers">
+                    <field name="document_no" />
+                    <field name="loading_no" />
+                    <field name="loading_date" />
+                    <field name="registration_no" />
+                    <field name="carrier" />
+                    <field name="buyer" />
+                </search>
+            </field>
+        </record>
+
+
+        <!-- ==================================================  Action Window ====================-->
+
+        <record model="ir.actions.act_window" id="action_window_input_info">
+            <field name="name">Input Information</field>
+            <field name="res_model">sd_payaneh_nafti.input_info</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_window_plate_1">
+            <field name="name">Plate 1</field>
+            <field name="res_model">sd_payaneh_nafti.plate1</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_window_plate_3">
+            <field name="name">Plate 3</field>
+            <field name="res_model">sd_payaneh_nafti.plate3</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+
+
+        <!-- ==================================================  Menu ====================-->
+
+        <menuitem name="Input Info"
+                  id="sd_payaneh_nafti.input_info_menu"
+                  parent="sd_payaneh_nafti.process_menu"
+                  action="action_window_input_info"/>
+
+        <menuitem name="Plate"
+                  id="sd_payaneh_nafti.plate_menu"
+                  parent="sd_payaneh_nafti.settings_menu"
+                  groups="sd_payaneh_nafti.group_sd_payaneh_nafti_admins"/>
+
+        <menuitem name="Plate 1"
+                  id="sd_payaneh_nafti.plate1_menu"
+                  parent="sd_payaneh_nafti.settings_menu"
+                  groups="sd_payaneh_nafti.group_sd_payaneh_nafti_admins"
+                    action="action_window_plate_1"/>
+
+        <menuitem name="Plate 3"
+                  id="sd_payaneh_nafti.plate3_menu"
+                  parent="sd_payaneh_nafti.settings_menu"
+                  groups="sd_payaneh_nafti.group_sd_payaneh_nafti_admins"
+                    action="action_window_plate_3"/>
+
+
+
+    </data>
+</odoo>
