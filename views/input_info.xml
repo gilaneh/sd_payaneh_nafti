@@ -101,17 +101,6 @@
             </field>
         </record>
 
-         <!-- ==================================================  sd_payaneh_nafti.plate2 ====================-->
-
-        <record model="ir.ui.view" id="sd_payaneh_nafti_plate2_list">
-            <field name="name">Plate2 List</field>
-            <field name="model">sd_payaneh_nafti.plate2</field>
-            <field name="arch" type="xml">
-                <tree editable="bottom">
-                    <field name="name" />
-                </tree>
-            </field>
-        </record>
 
          <!-- ==================================================  sd_payaneh_nafti.plate3 ====================-->
 
@@ -125,11 +114,11 @@
             </field>
         </record>
 
-         <!-- ==================================================  sd_payaneh_nafti.plate4 ====================-->
+         <!-- ==================================================  sd_payaneh_nafti.cargo_types ====================-->
 
-        <record model="ir.ui.view" id="sd_payaneh_nafti_plate4_list">
-            <field name="name">Plate4 List</field>
-            <field name="model">sd_payaneh_nafti.plate4</field>
+        <record model="ir.ui.view" id="sd_payaneh_nafti_cargo_types_list">
+            <field name="name">Cargo Types List</field>
+            <field name="model">sd_payaneh_nafti.cargo_types</field>
             <field name="arch" type="xml">
                 <tree editable="bottom">
                     <field name="name" />
@@ -175,6 +164,12 @@
             <field name="view_mode">tree</field>
         </record>
 
+        <record model="ir.actions.act_window" id="action_window_cargo_types">
+            <field name="name">Cargo Types</field>
+            <field name="res_model">sd_payaneh_nafti.cargo_types</field>
+            <field name="view_mode">tree</field>
+        </record>
+
 
 
         <!-- ==================================================  Menu ====================-->
@@ -200,6 +195,13 @@
                   parent="sd_payaneh_nafti.settings_menu"
                   groups="sd_payaneh_nafti.group_sd_payaneh_nafti_admins"
                     action="action_window_plate_3"/>
+
+
+        <menuitem name="Cargo Type"
+                  id="sd_payaneh_nafti.cargo_type_menu"
+                  parent="sd_payaneh_nafti.settings_menu"
+                  groups="sd_payaneh_nafti.group_sd_payaneh_nafti_admins"
+                    action="action_window_cargo_types"/>
 
 
 

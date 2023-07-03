@@ -20,3 +20,11 @@ class SdPayanehNaftiBaseInof(models.Model):
     destination = fields.Char(required=True,)
     signers = fields.Char(required=True,)
     description = fields.Char()
+
+
+class SdPayanehNaftiCargoTypes(models.Model):
+    _name = 'sd_payaneh_nafti.cargo_types'
+    _description = 'sd_payaneh_nafti.cargo_types'
+
+    name = fields.Char(required=True,)
+

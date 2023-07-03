@@ -38,6 +38,7 @@
                                 <field name="unit" />
                                 <field name="contract_type" />
                                 <field name="loading_type" />
+                                <field name="cargo_type" />
                             </group>
                             <group>
                                 <field name="destination" />
