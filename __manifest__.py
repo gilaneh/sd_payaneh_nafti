@@ -16,7 +16,7 @@
     # for the full list
     'category': 'Service Desk/Service Desk',
     'application': True,
-    'version': '1.0.7.1',
+    'version': '1.0.8',
 
     # any module necessary for this one to work correctly
     'depends': ['base', 'web', 'mail'],
@@ -34,6 +34,9 @@
         'report/loading_permit_report_template.xml',
         'report/loading_permit_report.xml',
         'wizard/loading_permit_report_wizard.xml',
+        'report/cargo_document_report_template.xml',
+        'report/cargo_document_report.xml',
+        'wizard/cargo_document_report_wizard.xml',
 
     ],
     'assets': {

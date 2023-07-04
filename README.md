@@ -1,4 +1,6 @@
 # sd_payaneh_nafti
+1.0.8
+    Added: Cargo Document report is added
 1.0.7.1
 1.0.7
 1.0.6
