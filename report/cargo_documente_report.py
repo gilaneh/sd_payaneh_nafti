@@ -35,7 +35,7 @@ class ReportSdPayanehNaftiCargoDocument(models.AbstractModel):
                      }
         driver = input_record.driver
 
-
+        driver_promise = str(' متعهد می شوم محموله مذکور را طبق مشخصات بالا تحویل گرفته و به مقصد برسانم در صورت کسری انحراف و جابجایی و هرگونه تخلف دیگر بنا بر تشخیص شرکت موظف به پرداخت خسارت و جرائم تعیین شده می باشم و بدینوسیله حق هرگونه ادعا و یا اعتراض در هر زمینه را از خود سلب می نمایم')
 
         doc_data = {
             'buyer': str(input_record.buyer.buyer),
@@ -45,6 +45,7 @@ class ReportSdPayanehNaftiCargoDocument(models.AbstractModel):
             'user_name': self.env.user.name,
             'tanker_no': tanker_no,
             'driver': driver,
+            'driver_promise': driver_promise,
             'contract_type': input_record.registration_no.contract_type,
             'cargo_type': input_record.registration_no.cargo_type.name,
             'issue_date': issue_date,
