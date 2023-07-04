@@ -27,7 +27,3 @@ class SdPayanehNaftiReportLoadingPermit(models.TransientModel):
         return self.env.ref('sd_payaneh_nafti.loading_permit_report').report_action(self, data=data)
 
 
-# #############################################################################
-class SdPayanehNaftiReportWizard(models.TransientModel):
-    _name = 'sd_payaneh_nafti.report.wizard'
-    _description = 'Loading Permit'

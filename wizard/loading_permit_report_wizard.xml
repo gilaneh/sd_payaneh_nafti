@@ -27,7 +27,7 @@
         </record>
 
         <record id="sd_payaneh_nafti_report_wizard_action" model="ir.actions.act_window">
-            <field name="name">Payaneh Daily Report</field>
+            <field name="name">Loading Permit</field>
             <field name="res_model">sd_payaneh_nafti.report.loading_permit_report</field>
             <field name="view_mode">form</field>
             <field name="target">new</field>
