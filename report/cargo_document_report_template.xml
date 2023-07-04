@@ -244,10 +244,9 @@
                                         </div>
 
                                         <div class="col-5 px-0 border-left border-right">
-<!--                                            <span>اینجانب</span>-->
-                                            <span class="p-1" t-esc="doc_data['driver']"> </span>
-<!--                                            <span>متعهد می شوم محموله مذکور را طبق مشخصات بالا تحویل گرفته و به مقصد برسانم در صورت کسری ،انحراف وجابه جایی و هرگونه تخلف دیگر بنابر تشخیص شرکت موظف به پرداخت خسارت و جرائم تعیین شده می باشم و بدینوسیله حق هرگونه ادعا و یا اعتراض در هر زمینه را از خود سلب می نمایم</span>-->
-                                        <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic beatae odit perferendis debitis, eligendi neque nihil assumenda earum aliquid. Maxime rerum obcaecati a iure autem excepturi aspernatur modi molestias beatae!</span>
+                                            <span>اینجانب</span>
+                                            <span class="p-1" style="font-weight: bold" t-esc="doc_data['driver']"> </span>
+                                        <span>متعهد می شوم محموله مذکور را طبق مشخصات بالا تحویل گرفته و به مقصد برسانم. در صورت کسری، انحراف و جابجایی و هرگونه تخلف دیگر، بنا بر تشخیص شرکت، موظف به پرداخت خسارت و جرائم تعیین شده می باشم و دینوسیله حق هرگونه ادعا و یا اعتراض در هر زمینه را از خود سلب می نمایم.</span>
                                         </div>
 
                                         <div class="col-2 p-0">
