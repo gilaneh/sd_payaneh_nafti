@@ -78,6 +78,13 @@ class SdPayanehNaftiInputInof(models.Model):
         if a and (not a.isdigit() or ( a.isdigit() and (int(a) > 100 or int(a) < 11))):
             raise ValidationError(_('Not acceptable'))
 
+    @api.constrains('document_no')
+    def _check_document_no_unique(self):
+        record_count = self.search_count([('document_no', '=', self.document_no),
+                                           ('id', '!=', self.id)])
+        if record_count > 0:
+            raise ValidationError("Record already exists!")
+
 class SdPayanehNaftiPlate1(models.Model):
     _name = 'sd_payaneh_nafti.plate1'
     _description = 'sd_payaneh_nafti.plate1'
