@@ -15,6 +15,7 @@ class ReportSdPayanehNaftiLoadingPermit(models.AbstractModel):
     @api.model
     def _get_report_values(self, docids, data=None):
         errors = []
+        doc_data = {}
         form_data = data.get('form_data')
         context = self.env.context
         time_z = pytz.timezone(context.get('tz'))
@@ -23,31 +24,34 @@ class ReportSdPayanehNaftiLoadingPermit(models.AbstractModel):
         document_no = form_data.get('document_no')[1]
         calendar = form_data.get('calendar')
         input_record = self.env['sd_payaneh_nafti.input_info'].search([('document_no', '=', int(document_no))])
-        issue_date = input_record.loading_date
-        # print(f'\n {form_data.get("calendar")}')
-        if calendar == 'fa_IR':
-            issue_date = jdatetime.date.fromgregorian(date=issue_date).strftime('%Y/%m/%d')
-        tanker_no = {'plate_1': input_record.plate_1.name,
-                     'plate_2': input_record.plate_2,
-                     'plate_3': input_record.plate_3.name,
-                     'plate_4': input_record.plate_4,
-                     }
-        doc_data = {
-            'buyer': str(input_record.buyer.buyer),
-            'contractor': str(input_record.buyer.contractor),
-            'contract_no': str(input_record.buyer.contract_no),
-            'user_name': self.env.user.name,
-            'tanker_no': tanker_no,
-            'driver': input_record.driver,
-            'contract_type': input_record.registration_no.contract_type,
-            'cargo_type': input_record.registration_no.cargo_type.name,
-            'front_container': input_record.front_container,
-            'middle_container': input_record.middle_container,
-            'back_container': input_record.back_container,
-            'total': input_record.total ,
-            'issue_date': issue_date,
-            'loading_no': input_record.loading_no,
-        }
+        if len(input_record) > 1:
+            errors.append(_('[ERROR] There is more than one record'))
+        else:
+            issue_date = input_record.loading_date
+            # print(f'\n {form_data.get("calendar")}')
+            if calendar == 'fa_IR':
+                issue_date = jdatetime.date.fromgregorian(date=issue_date).strftime('%Y/%m/%d')
+            tanker_no = {'plate_1': input_record.plate_1.name,
+                         'plate_2': input_record.plate_2,
+                         'plate_3': input_record.plate_3.name,
+                         'plate_4': input_record.plate_4,
+                         }
+            doc_data = {
+                'buyer': str(input_record.buyer.buyer),
+                'contractor': str(input_record.buyer.contractor),
+                'contract_no': str(input_record.buyer.contract_no),
+                'user_name': self.env.user.name,
+                'tanker_no': tanker_no,
+                'driver': input_record.driver,
+                'contract_type': input_record.registration_no.contract_type,
+                'cargo_type': input_record.registration_no.cargo_type.name,
+                'front_container': input_record.front_container,
+                'middle_container': input_record.middle_container,
+                'back_container': input_record.back_container,
+                'total': input_record.total ,
+                'issue_date': issue_date,
+                'loading_no': input_record.loading_no,
+            }
 
         # [DATE] ############
         # calendar = form_data.get('calendar')
@@ -69,8 +73,7 @@ class ReportSdPayanehNaftiLoadingPermit(models.AbstractModel):
             'document_no': document_no,
             'doc_data': doc_data,
             'input_record': input_record,
-            #
-            # 'errors': errors,
+            'errors': errors,
             }
 
     # ########################################################################################

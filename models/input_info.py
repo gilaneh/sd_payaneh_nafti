@@ -80,7 +80,7 @@ class SdPayanehNaftiInputInof(models.Model):
 
     @api.constrains('document_no')
     def _check_document_no_unique(self):
-        record_count = self.search_count([('document_no', '=', self.issue_date),
+        record_count = self.search_count([('document_no', '=', self.document_no),
                                            ('id', '!=', self.id)])
         if record_count > 0:
             raise ValidationError("Record already exists!")
