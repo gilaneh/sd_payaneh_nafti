@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- <data> -->
+
+        <record id="contract_registration_sequence" model="ir.sequence">
+            <field name="name">Contract Registration Sequence</field>
+            <field name="code">sd_payaneh_nafti.contract_registration</field>
+<!--            <field name="prefix">COST%(y)s-</field>-->
+            <field name="padding">4</field>
+            <field eval="True" name="use_date_range"/>
+            <field name="company_id" eval="1"/>
+        </record>
+        <record id="contract_registration_sequence_1000" model="ir.sequence.date_range">
+            <field name="date_from">2020-01-01</field>
+            <field name="date_to">2030-12-31</field>
+            <field name="number_next">1000</field>
+            <field name="sequence_id" ref="contract_registration_sequence"/>
+        </record>
+
+    </data>
+</odoo>

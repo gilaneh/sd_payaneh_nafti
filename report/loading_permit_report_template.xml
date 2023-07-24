@@ -35,7 +35,7 @@
                                         <div class="col-4">
                                             Buyer
                                         </div>
-                                        <div class="" t-esc="input_record.buyer.buyer"> </div>
+                                        <div class="" t-esc="input_record.buyer.name"> </div>
 
                                     </div>
                                 </div>
@@ -57,7 +57,7 @@
                                         <div class="col-6" >
                                             contractor name
                                         </div>
-                                        <div class="col-6"  t-esc="input_record.buyer.contractor">
+                                        <div class="col-6"  t-esc="input_record.contractor.name">
 
                                         </div>
                                     </div>

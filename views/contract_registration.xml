@@ -33,22 +33,27 @@
                                 <field name="registration_no" />
                                 <field name="contract_no" />
                                 <field name="bill_of_lading" />
-                                <field name="buyer" />
+                                <field name="buyer"
+                                       options="{ 'no_quick_create':True,'no_create_edit': True, 'no_open': True}" />
                                 <field name="amount" />
                                 <field name="unit" />
                                 <field name="contract_type" />
                                 <field name="loading_type" />
-                                <field name="cargo_type" />
+                                <field name="cargo_type"
+                                       options="{'no_quick_create':True, 'no_create_edit': True, 'no_open': True}"/>
                             </group>
                             <group>
-                                <field name="destination" />
+                                <field name="destination"
+                                    options="{'no_quick_create':True,'no_create_edit': True, 'no_open': True}"/>
                                 <field name="start_date" />
                                 <field name="end_date" />
-                                <field name="shipment_1" />
-                                <field name="shipment_2" />
-                                <field name="shipment_3" />
-                                <field name="shipment_4" />
-                                <field name="shipment_5" />
+                                <field name="contractors" widget="many2many_tags"
+                                    options="{'no_quick_create':True, 'no_create_edit': True, 'no_open': True}"/>
+<!--                                <field name="shipment_1" />-->
+<!--                                <field name="shipment_2" />-->
+<!--                                <field name="shipment_3" />-->
+<!--                                <field name="shipment_4" />-->
+<!--                                <field name="shipment_5" />-->
 
                             </group>
                         </group>
@@ -108,6 +113,7 @@
         <!-- ==================================================  Menu ====================-->
 
         <menuitem name="Contract Registration"
+                  sequence = "10"
                   id="sd_payaneh_nafti.contract_registration_menu"
                   parent="sd_payaneh_nafti.process_menu"
                   action="action_window_contract_registration"/>

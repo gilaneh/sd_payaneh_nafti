@@ -23,12 +23,12 @@ class ReportSdPayanehNaftiLoadingPermit(models.AbstractModel):
         # date_time = self.date_converter(date_time, context.get('lang'))
         document_no = form_data.get('document_no')[1]
         calendar = form_data.get('calendar')
-        input_record = self.env['sd_payaneh_nafti.input_info'].search([('document_no', '=', int(document_no))])
+        input_record = self.env['sd_payaneh_nafti.input_info'].search([('document_no', '=', document_no)])
         if len(input_record) > 1:
             errors.append(_('[ERROR] There is more than one record'))
-        else:
+        elif len(input_record) == 1:
             issue_date = input_record.loading_date
-            # print(f'\n {form_data.get("calendar")}')
+            print(f'\n {form_data.get("calendar")} {input_record} {issue_date}')
             if calendar == 'fa_IR':
                 issue_date = jdatetime.date.fromgregorian(date=issue_date).strftime('%Y/%m/%d')
             tanker_no = {'plate_1': input_record.plate_1.name,
@@ -36,10 +36,14 @@ class ReportSdPayanehNaftiLoadingPermit(models.AbstractModel):
                          'plate_3': input_record.plate_3.name,
                          'plate_4': input_record.plate_4,
                          }
+            contract_no = str(input_record.registration_no.contract_no)
+            if input_record.registration_no.bill_of_lading:
+                contract_no += '-' + str(input_record.registration_no.bill_of_lading)
+
             doc_data = {
-                'buyer': str(input_record.buyer.buyer),
-                'contractor': str(input_record.buyer.contractor),
-                'contract_no': str(input_record.buyer.contract_no),
+                # 'buyer': str(input_record.buyer.name),
+                # 'contractor': str(input_record.contractor.name),
+                'contract_no': contract_no,
                 'user_name': self.env.user.name,
                 'tanker_no': tanker_no,
                 'driver': input_record.driver,
@@ -52,6 +56,9 @@ class ReportSdPayanehNaftiLoadingPermit(models.AbstractModel):
                 'issue_date': issue_date,
                 'loading_no': input_record.loading_no,
             }
+        else:
+            input_record = []
+            errors.append(_('[ERROR] There is no record'))
 
         # [DATE] ############
         # calendar = form_data.get('calendar')
