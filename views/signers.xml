@@ -1,0 +1,54 @@
+<odoo>
+    <data>
+
+         <!-- ==================================================  sd_payaneh_nafti.signers ====================-->
+
+        <record model="ir.ui.view" id="sd_payaneh_nafti_signers_list">
+            <field name="name">Signers List</field>
+            <field name="model">sd_payaneh_nafti.signers</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom" delete="1" multi_edit="1" >
+                    <field name="name" />
+                    <field name="description" />
+
+                </tree>
+            </field>
+        </record>
+
+        <!-- ==================================================  Search ====================-->
+
+        <record model="ir.ui.view" id="sd_payaneh_nafti_signers_list_search">
+            <field name="name">Signers Search</field>
+            <field name="model">sd_payaneh_nafti.signers</field>
+            <field name="arch" type="xml">
+                <search string="signers">
+                    <field name="name" />
+                    <field name="description" />
+                </search>
+            </field>
+        </record>
+
+
+        <!-- ==================================================  Action Window ====================-->
+
+        <record model="ir.actions.act_window" id="action_window_signers">
+            <field name="name">Signers</field>
+            <field name="res_model">sd_payaneh_nafti.signers</field>
+            <field name="view_mode">tree</field>
+
+        </record>
+
+        <!-- ==================================================  Menu ====================-->
+
+        <menuitem name="Signers"
+                  id="signers_menu"
+                  parent="settings_menu"
+                  action="action_window_signers"/>
+
+<!--        <menuitem name="Actions"-->
+<!--                  id="sd_payaneh_nafti.actions_setting_menu"-->
+<!--                  parent="sd_payaneh_nafti.settings_menu"/>-->
+
+
+    </data>
+</odoo>

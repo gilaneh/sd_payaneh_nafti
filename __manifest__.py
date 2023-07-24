@@ -16,7 +16,7 @@
     # for the full list
     'category': 'Service Desk/Service Desk',
     'application': True,
-    'version': '1.0.8.1',
+    'version': '1.0.8.2',
 
     # any module necessary for this one to work correctly
     'depends': ['base', 'web', 'mail'],
@@ -26,7 +26,13 @@
         'security/security.xml',
         'security/ir.model.access.csv',
         'views/views.xml',
+        'views/settings.xml',
         'views/base_info.xml',
+        'views/buyers.xml',
+        'views/contractors.xml',
+        'views/contract_number.xml',
+        'views/destinations.xml',
+        'views/signers.xml',
         'views/contract_info.xml',
         'views/contract_registration.xml',
         'views/input_info.xml',
@@ -37,6 +43,8 @@
         'report/cargo_document_report_template.xml',
         'report/cargo_document_report.xml',
         'wizard/cargo_document_report_wizard.xml',
+        'data/registration_sequence.xml',
+        'data/input_sequence.xml',
 
     ],
     'assets': {

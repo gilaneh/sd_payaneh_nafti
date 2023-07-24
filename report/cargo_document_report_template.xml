@@ -5,8 +5,10 @@
             <t t-call="web.html_container">
                 <t t-call="web.internal_layout">
                     <div class="page">
-
-                        <div class="container mt-4" style="font-size: .7rem">
+                        <div t-if="errors != []">
+                            <div style="direction: ltr" t-esc="errors[0]"></div>
+                        </div>
+                        <div t-if="errors == []" class="container mt-4" style="font-size: .7rem">
                             <div class="container iransans_font">
 
                                 <div style="direction:rtl">
@@ -31,7 +33,7 @@
                                                     <div class="col-4">
                                                         Buyer
                                                     </div>
-                                                    <div class="" t-esc="input_record.buyer.buyer"></div>
+                                                    <div class="" t-esc="input_record.buyer.name"></div>
 
                                                 </div>
                                             </div>
@@ -54,7 +56,7 @@
                                                     <div class="col-6">
                                                         Issue Date
                                                     </div>
-                                                    <div class="col-6" t-esc="input_record.buyer.contractor">
+                                                    <div class="col-6" t-esc="doc_data['issue_date']">
 
                                                     </div>
                                                 </div>
@@ -62,7 +64,7 @@
                                                     <div class="col-6">
                                                         Issue Time
                                                     </div>
-                                                    <div class="col-6" t-esc="input_record.buyer.contractor">
+                                                    <div class="col-6" t-esc="doc_data['issue_time']">
 
                                                     </div>
                                                 </div>
@@ -70,7 +72,7 @@
                                                     <div class="col-6">
                                                         Cargo No.
                                                     </div>
-                                                    <div class="col-6" t-esc="input_record.buyer.contractor">
+                                                    <div class="col-6" t-esc="input_record.loading_no">
 
                                                     </div>
                                                 </div>
@@ -88,8 +90,7 @@
                                                     <div class="col-6">
                                                         Contractor
                                                     </div>
-                                                    <div class="col-6" t-esc="doc_data['contractor']">
-                                                        {contractor}
+                                                    <div class="col-6" t-esc="input_record.contractor.name">
                                                     </div>
                                                 </div>
 
@@ -97,8 +98,7 @@
                                                     <div class="col-6">
                                                         Destination
                                                     </div>
-                                                    <div class="col-6" t-esc="doc_data['destination']">
-                                                        {destination}
+                                                    <div class="col-6" t-esc="input_record.registration_no.destination.name">
                                                     </div>
                                                 </div>
                                             </div>
@@ -137,8 +137,7 @@
                                                     <div class="col-6">
                                                         Card No.
                                                     </div>
-                                                    <div class="col-6" t-esc="doc_data['loading_no']">
-                                                        {card_no}
+                                                    <div class="col-6" t-esc="input_record.card_no">
                                                     </div>
                                                 </div>
                                             </div>
@@ -153,7 +152,7 @@
                                                     Temprature
                                                 </div>
                                                 <div>
-                                                    {temp_unit}
+                                                    (F)
                                                 </div>
                                             </div>
                                             <div class="col-2 px-1">
@@ -186,24 +185,14 @@
 
                                         </div>
                                         <div class="row border-left border-right text-center py-1">
-                                            <div class="col-2">
-                                                {corgo_type}
-                                            </div>
-                                            <div class="col-2">
-                                                {temprature}
-                                            </div>
-                                            <div class="col-2">
-                                                {natural_amount}
-                                            </div>
-                                            <div class="col-2">
-                                                {sixti_degre_amount}
-                                            </div>
-                                            <div class="col-2">
-                                                {specific_gravity}
-                                            </div>
-                                            <div class="col-2">
-                                                {cargo_weight}
-                                            </div>
+                                            <div class="col-2" t-esc="input_record.registration_no.cargo_type.name"></div>
+                                            <div class="col-2" t-esc="round(input_record.temperature_f, 1)"></div>
+                                            <div class="col-2" t-esc="doc_data['final_tov_l']"></div>
+                                            <div class="col-2" t-esc="doc_data['final_gsv_l']"></div>
+
+                                                  <div class="col-2" t-esc="input_record.sp_gr"></div>
+                                            <div class="col-2" t-esc="input_record.final_mt"></div>
+
 
                                         </div>
 
@@ -213,33 +202,27 @@
                                                     <div class="col-7 px-1">
                                                         Evacuation Box Seal
                                                     </div>
-                                                    <div class="col-5 px-1" t-esc="input_record.buyer.contractor">
-                                                        {evacuation_box_seal}
-                                                    </div>
+                                                    <div class="col-5 px-1" t-esc="input_record.evacuation_box_seal"></div>
                                                 </div>
                                                 <div class="row border-bottom border-info   mx-0 py-1">
                                                     <div class="col-7 px-1">
                                                         compartment_1
                                                     </div>
-                                                    <div class="col-5 px-1" t-esc="input_record.buyer.contractor">
-                                                        {compartment_1}
-                                                    </div>
+                                                    <div class="col-5 px-1" t-esc="input_record.compartment_1"></div>
                                                 </div>
                                                 <div class="row border-bottom border-info   mx-0 py-1">
                                                     <div class="col-7 px-1">
                                                         compartment_2
                                                     </div>
-                                                    <div class="col-5 px-1" t-esc="input_record.buyer.contractor">
-                                                        {compartment_2}
-                                                    </div>
+                                                    <div class="col-5 px-1" t-esc="input_record.compartment_2"></div>
+
                                                 </div>
                                                 <div class="row  border-info   mx-0 py-1">
                                                     <div class="col-7 px-1">
                                                         compartment_3
                                                     </div>
-                                                    <div class="col-5 px-1" t-esc="input_record.buyer.contractor">
-                                                        {compartment_3}
-                                                    </div>
+                                                    <div class="col-5 px-1" t-esc="input_record.compartment_3"></div>
+
                                                 </div>
                                             </div>
 

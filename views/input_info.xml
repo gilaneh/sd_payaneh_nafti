@@ -12,7 +12,7 @@
                     <field name="loading_no" />
                     <field name="loading_date" />
                     <field name="registration_no" />
-                    <field name="carrier" />
+                    <field name="contractor" />
                     <field name="buyer" />
 
                 </tree>
@@ -27,20 +27,25 @@
                     <sheet>
                         <group>
                             <group>
+                                <separator string="General Information"/>
                                 <field name="document_no" />
                                 <field name="loading_no" />
                                 <field name="loading_date" />
-                                <field name="registration_no" />
-                                <field name="carrier" />
-                                <field name="buyer" />
+                                <field name="registration_no"
+                                       options="{'no_quick_create':True, 'no_create_edit': True, 'no_open': True}"/>
 
+                                <field name="buyer" />
+                                <field name="contractors" invisible="1" />
+                                <field name="contractor" domain="[('id', 'in', contractors )]"
+                                       options="{'no_quick_create':True, 'no_create_edit': True, 'no_open': True}"/>
+                                <separator string="Tanker"/>
                                 <field name="driver" />
                                 <field name="card_no" />
 
                                 <label for="plate_1"/>
                                 <div class="o_row text-center">
                                     <div class="col-3 px-2 border rounded">
-                                        <field name="plate_1" options="{'no_create_edit': True, 'no_open': True}"/>
+                                        <field name="plate_1" options="{'no_quick_create':True,'no_create_edit': True, 'no_open': True}"/>
                                     </div>
                                     <div class="o_row border rounded">
 
@@ -58,22 +63,36 @@
 
 
                                 </div>
-
+                                <separator string="Container"/>
                                 <field name="front_container" />
                                 <field name="middle_container" />
                                 <field name="back_container" />
+                                <field name="total" />
                                 <field name="centralized_container" />
                             </group>
                             <group>
-                                <field name="sp_gr" />
+                                <separator string="Tanker Status"/>
+                                <field name="sp_gr" digits="[4,4]"/>
+                                <field name="correction_factor" />
+                                <field name="api_a" />
+                                <field name="tab_13" />
+                                <field name="ctl" />
+                                <field name="cpl" />
                                 <field name="temperature" />
+                                <field name="temperature_f" />
                                 <field name="pressure" />
-                                <field name="weighbridge" />
+                                <field name="pressure_psi" />
                                 <field name="miter_no" />
+                                <separator string="Totalizer"/>
                                 <field name="totalizer_start" />
                                 <field name="totalizer_end" />
                                 <field name="totalizer_difference" />
-                                <field name="shipper_empty_weight" />
+                                <separator string="Weight"/>
+                                <field name="weighbridge" />
+                                <field name="tanker_empty_weight" attrs="{'invisible': [('weighbridge', '=', 'no')]}"/>
+                                <field name="tanker_full_weight" attrs="{'invisible': [('weighbridge', '=', 'no')]}"/>
+                                <field name="tanker_pure_weight" attrs="{'invisible': [('weighbridge', '=', 'no')]}"/>
+                                <separator string="Sealing"/>
                                 <field name="evacuation_box_seal" />
                                 <field name="compartment_1" />
                                 <field name="compartment_2" />
@@ -137,7 +156,7 @@
                     <field name="loading_no" />
                     <field name="loading_date" />
                     <field name="registration_no" />
-                    <field name="carrier" />
+                    <field name="contractor" />
                     <field name="buyer" />
                 </search>
             </field>

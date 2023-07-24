@@ -14,10 +14,10 @@ class SdPayanehNaftiContractInfo(models.Model):
     _order = 'registration_no'
     _rec_name = 'registration_no'
 
-    registration_no = fields.Char(required=True,)
+    registration_no = fields.Char(required=True, copy=False, readonly=True, default=lambda self: _('New'))
     contract_no = fields.Char(required=True,)
-    bill_of_lading = fields.Char(required=True,)
-    buyer = fields.Many2one('sd_payaneh_nafti.base_info',required=True,)
+    bill_of_lading = fields.Char(required=False,)
+    buyer = fields.Many2one('sd_payaneh_nafti.buyers', required=True,)
     amount = fields.Integer(required=True,)
     unit = fields.Selection([('barrel', 'Barrel'), ('metric_ton', 'Metric Ton')], default='metric_ton', required=True,)
     contract_type = fields.Selection([('stock', 'Stock'), ('general', 'General')], default='general', required=True,)
@@ -25,20 +25,23 @@ class SdPayanehNaftiContractInfo(models.Model):
     cargo_type = fields.Many2one('sd_payaneh_nafti.cargo_types',required=True,)
     start_date = fields.Date(default=lambda self: date.today() )
     end_date = fields.Date(default=lambda self: date.today() + timedelta(days=2) )
-    destination = fields.Char(required=True,)
-    shipment_1 = fields.Char()
-    shipment_2 = fields.Char()
-    shipment_3 = fields.Char()
-    shipment_4 = fields.Char()
-    shipment_5 = fields.Char()
+    destination = fields.Many2one('sd_payaneh_nafti.destinations', required=True,)
+    contractors = fields.Many2many('sd_payaneh_nafti.contractors', 'registration_contractors_rel', required=True,)
+
     first_extend_no = fields.Char()
-    first_extend_star_date = fields.Date(default=lambda self: date.today(), string='Start Date' )
-    first_extend_end_date = fields.Date(default=lambda self: date.today() + timedelta(days=2), string='End Date')
+    first_extend_star_date = fields.Date(string='First Start Date')
+    first_extend_end_date = fields.Date(string='First End Date')
 
     second_extend_no = fields.Char()
-    second_extend_star_date = fields.Date(default=lambda self: date.today() , string='Start Date')
-    second_extend_end_date = fields.Date(default=lambda self: date.today() + timedelta(days=2), string='End Date')
+    second_extend_star_date = fields.Date( string='Second Start Date')
+    second_extend_end_date = fields.Date( string='Second End Date')
 
 
     description = fields.Char()
 
+    @api.model
+    def create(self, vals):
+        if vals.get('registration_no', _('New')) == _('New'):
+            vals['registration_no'] = self.env['ir.sequence'].next_by_code('sd_payaneh_nafti.contract_registration') or _('New')
+
+        return super(SdPayanehNaftiContractInfo, self).create(vals)

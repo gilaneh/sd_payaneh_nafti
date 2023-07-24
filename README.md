@@ -1,4 +1,8 @@
 # sd_payaneh_nafti
+1.0.8.2
+    formulas of calculation sheet added
+    registration and input classes has sequence number now
+    cargo document report is competed now
 1.0.8.1
     constrain on input_info for document_no added
 1.0.8

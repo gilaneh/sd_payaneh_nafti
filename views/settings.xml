@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+         <data>
+<record id="res_config_settings_view_form" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.sd_payaneh_nafti</field>
+            <field name="model">res.config.settings</field>
+            <field name="priority" eval="90"/>
+            <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('settings')]" position="inside">
+                    <div class="app_settings_block" data-string="Payaneh Nafti" id="sd_payaneh_nafti" string="Payaneh Nafti" data-key="sd_payaneh_nafti"
+                         groups="sd_payaneh_nafti.group_sd_payaneh_nafti_admins">
+                        <h2>Payaneh Nafti</h2>
+                        <div class="row mt16 o_settings_container" id="sd_food_setting">
+                            <div class="col-12 col-lg-6 o_setting_box" style="direction: initial;">
+                                <div class="o_setting_right_pane1">
+                                    <span class="o_form_label">Constants</span>
+                                        <div class="row text-muted content-group mt16">
+                                            <div class="col-3 px-3 o_form_label">K0:</div>
+                                            <div class=" px-1">
+                                                <field name="k_0"/>
+                                            </div>
+                                        </div>
+                                        <div class="row text-muted content-group mt4">
+                                            <div class="col-3 px-3 o_form_label">K1:</div>
+                                            <div class=" px-1">
+                                                <field name="k_1"/>
+                                            </div>
+                                        </div>
+                                        <div class="row text-muted content-group mt4">
+                                            <div class="col-3 px-3 o_form_label">K2:</div>
+                                            <div class=" px-1">
+                                                <field name="k_2"/>
+                                            </div>
+                                        </div>
+                                        <div class="row text-muted content-group mt4">
+                                            <div class="col-3 px-3 o_form_label">Delta 60:</div>
+                                            <div class=" px-1">
+                                                <field name="delta_60"/>
+                                            </div>
+                                        </div>
+                                        <div class="row text-muted content-group mt4">
+                                            <div class="col-3 px-3 o_form_label">TREF:</div>
+                                            <div class=" px-1">
+                                                <field name="tref"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="row text-muted content-group mt32">
+                                            <div class="col-3 px-3 o_form_label">A:</div>
+                                            <div class=" px-1">
+                                                <field name="param_a"/>
+                                            </div>
+                                        </div>
+                                        <div class="row text-muted content-group mt4">
+                                            <div class="col-3 px-3 o_form_label">B:</div>
+                                            <div class=" px-1">
+                                                <field name="param_b"/>
+                                            </div>
+                                        </div>
+                                        <div class="row text-muted content-group mt4">
+                                            <div class="col-3 px-3 o_form_label">C:</div>
+                                            <div class=" px-1">
+                                                <field name="param_c"/>
+                                            </div>
+                                        </div>
+                                        <div class="row text-muted content-group mt4">
+                                            <div class="col-3 px-3 o_form_label">D:</div>
+                                            <div class=" px-1">
+                                                <field name="param_d"/>
+                                            </div>
+                                        </div>
+                                        <div class="row text-muted content-group mt32">
+                                            <div class="col-3 px-3 o_form_label">ai 1:</div>
+                                            <div class=" px-1">
+                                                <field name="param_ai1"/>
+                                            </div>
+                                        </div>
+                                        <div class="row text-muted content-group mt4">
+                                            <div class="col-3 px-3 o_form_label">ai 2:</div>
+                                            <div class=" px-1">
+                                                <field name="param_ai2"/>
+                                            </div>
+                                        </div>
+                                        <div class="row text-muted content-group mt4">
+                                            <div class="col-3 px-3 o_form_label">ai 3:</div>
+                                            <div class=" px-1">
+                                                <field name="param_ai3"/>
+                                            </div>
+                                        </div>
+                                        <div class="row text-muted content-group mt4">
+                                            <div class="col-3 px-3 o_form_label">ai 4:</div>
+                                            <div class=" px-1">
+                                                <field name="param_ai4"/>
+                                            </div>
+                                        </div>
+                                        <div class="row text-muted content-group mt4">
+                                            <div class="col-3 px-3 o_form_label">ai 5:</div>
+                                            <div class=" px-1">
+                                                <field name="param_ai5"/>
+                                            </div>
+                                        </div>
+                                        <div class="row text-muted content-group mt4">
+                                            <div class="col-3 px-3 o_form_label">ai 6:</div>
+                                            <div class=" px-1">
+                                                <field name="param_ai6"/>
+                                            </div>
+                                        </div>
+                                        <div class="row text-muted content-group mt4">
+                                            <div class="col-3 px-3 o_form_label">ai 7:</div>
+                                            <div class=" px-1">
+                                                <field name="param_ai7"/>
+                                            </div>
+                                        </div>
+                                        <div class="row text-muted content-group mt4">
+                                            <div class="col-3 px-3 o_form_label">ai 8:</div>
+                                            <div class=" px-1">
+                                                <field name="param_ai8"/>
+                                            </div>
+                                        </div>
+
+
+
+                                </div>
+                            </div>
+<!--                            <div class="col-12 col-lg-6 o_setting_box">-->
+<!--                                <div class="o_setting_left_pane"/>-->
+<!--                                <div class="o_setting_right_pane">-->
+<!--                                    <span class="o_form_label">The last moment on which a reservation can be edited</span>-->
+<!--                                    <div class="text-muted content-group mt16">-->
+<!--                                        <span>Make all reservations unchangeable on </span>-->
+<!--                                        <field name="unchange_hour" class="text-center oe_inline" />-->
+<!--                                        <span> of </span>-->
+<!--                                        <field name="unchange_day" class="text-center oe_inline" />-->
+<!--                                        <span> day(s) before it.</span>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+                        </div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="sd_payaneh_nafti_settings_action">
+            <field name="name">Settings</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.config.settings</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+            <field name="context">{'module': 'sd_payaneh_nafti', 'bin size': False}</field>
+        </record>
+
+        <menuitem name="Parameters"
+                  id="sd_payaneh_nafti.parameters_settings"
+                  sequence="100"
+                  parent="sd_payaneh_nafti.settings_menu"
+                  groups="sd_payaneh_nafti.group_sd_payaneh_nafti_admins"
+                  action="sd_payaneh_nafti_settings_action"/>
+
+    </data>
+</odoo>
