@@ -14,21 +14,28 @@ class ReportSdPayanehNaftiCargoDocument(models.AbstractModel):
     # ########################################################################################
     @api.model
     def _get_report_values(self, docids, data=None):
+
         errors = []
-        form_data = data.get('form_data')
         context = self.env.context
         time_z = pytz.timezone(context.get('tz'))
         date_time = datetime.now(time_z)
         date_time = self.date_converter(date_time, context.get('lang'))
-        document_no = form_data.get('document_no')[1]
-        calendar = form_data.get('calendar')
-
-        input_record = self.env['sd_payaneh_nafti.input_info'].search([('document_no', '=', document_no)])
+        if docids:
+            input_record = self.env['sd_payaneh_nafti.input_info'].browse(docids[0])
+            document_no = input_record.document_no
+            calendar = context.get('lang')
+        else:
+            form_data = data.get('form_data')
+            document_no = form_data.get('document_no')[1]
+            input_record = self.env['sd_payaneh_nafti.input_info'].search([('document_no', '=', document_no)])
+            calendar = form_data.get('calendar')
+            docids = [input_record.id]
+        print(f'\n {docids}')
         if len(input_record) > 1:
             errors.append(_('[ERROR] There is more than one record'))
         elif len(input_record) == 1:
             issue_date = input_record.loading_date
-            print(f'\n {form_data.get("calendar")}')
+            # print(f'\n {form_data.get("calendar")}')
             if calendar == 'fa_IR':
                 issue_date = jdatetime.date.fromgregorian(date=issue_date).strftime('%Y/%m/%d')
             tanker_no = {'plate_1': input_record.plate_1,
@@ -85,7 +92,7 @@ class ReportSdPayanehNaftiCargoDocument(models.AbstractModel):
         company_logo = f'/web/image/res.partner/{1}/image_128/'
         return {
             'doc_ids': docids,
-            'doc_model': 'sd_payaneh_nafti.input_inof',
+            'doc_model': 'sd_payaneh_nafti.input_info',
             'document_no': document_no,
             'doc_data': doc_data,
             'input_record': input_record,
