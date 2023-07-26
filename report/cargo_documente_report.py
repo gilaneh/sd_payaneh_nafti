@@ -31,9 +31,9 @@ class ReportSdPayanehNaftiCargoDocument(models.AbstractModel):
             print(f'\n {form_data.get("calendar")}')
             if calendar == 'fa_IR':
                 issue_date = jdatetime.date.fromgregorian(date=issue_date).strftime('%Y/%m/%d')
-            tanker_no = {'plate_1': input_record.plate_1.name,
+            tanker_no = {'plate_1': input_record.plate_1,
                          'plate_2': input_record.plate_2,
-                         'plate_3': input_record.plate_3.name,
+                         'plate_3': input_record.plate_3,
                          'plate_4': input_record.plate_4,
                          }
             driver = input_record.driver

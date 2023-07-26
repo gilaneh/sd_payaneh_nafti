@@ -15,8 +15,8 @@ Installation:
 
 **Dependencies:**
     * `base`
-    * `website`
-    * `sd`
+    * `web`
+    * `mail`
 
 Settings:
 --------------

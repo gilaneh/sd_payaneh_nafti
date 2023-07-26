@@ -31,6 +31,7 @@
                         <group>
                             <group>
                                 <field name="registration_no" />
+                                <field name="letter_no" />
                                 <field name="contract_no" />
                                 <field name="bill_of_lading" />
                                 <field name="buyer"

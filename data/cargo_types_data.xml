@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+<!--         <data>-->
+
+
+        <record id="cargo_type_0" model="sd_payaneh_nafti.cargo_types">
+            <field name="name">میعانات گازی</field>
+        </record>
+>
+
+         </data>
+</odoo>
