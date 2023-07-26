@@ -8,7 +8,7 @@
             <field name="code">sd_payaneh_nafti.input_info</field>
 <!--            <field name="prefix">COST%(y)s-</field>-->
             <field name="padding">5</field>
-            <field eval="True" name="use_date_range"/>
+            <field name="use_date_range" eval="True"/>
             <field name="company_id" eval="1"/>
         </record>
         <record id="sd_payaneh_nafti_input_info_sequence_1" model="ir.sequence.date_range">
