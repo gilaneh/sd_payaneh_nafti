@@ -1,0 +1,1891 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sd_payaneh_nafti
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-07-26 14:05+0000\n"
+"PO-Revision-Date: 2023-07-26 19:17+0330\n"
+"Last-Translator: Arash Homayounfar <homayounfar@msn.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: fa\n"
+"X-Generator: Poedit 2.2\n"
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_template
+msgid "(Liter)"
+msgstr "(لیتر)"
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_template
+msgid "(Metric Tone)"
+msgstr "(تن متریک)"
+
+#. module: sd_payaneh_nafti
+#: code:addons/sd_payaneh_nafti/models/contract_info.py:0
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__unit
+#, python-format
+msgid ""
+"159 litres (42 US gallon) of oil. There are about 7.1 barrels in one metric "
+"ton of oil."
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_template
+msgid "60 degree Amount"
+msgstr "مقدار 60 درجه"
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.res_config_settings_view_form
+msgid "<span class=\"o_form_label\">Constants</span>"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_template
+msgid "<span>اینجانب</span>"
+msgstr "اینجانب"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__api_a
+msgid "API"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__access_group
+msgid "Access Group"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_base_info__message_needaction
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_buyers__message_needaction
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__message_needaction
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_number__message_needaction
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__message_needaction
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contractors__message_needaction
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_destinations__message_needaction
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__message_needaction
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_sd_payaneh_nafti__message_needaction
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__message_needaction
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_signers__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__active_link
+msgid "Active Link"
+msgstr "لینک واتس آپ"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_base_info__activity_ids
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_buyers__activity_ids
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__activity_ids
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_number__activity_ids
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__activity_ids
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contractors__activity_ids
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_destinations__activity_ids
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__activity_ids
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_sd_payaneh_nafti__activity_ids
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__activity_ids
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_signers__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_base_info__activity_exception_decoration
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_buyers__activity_exception_decoration
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__activity_exception_decoration
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_number__activity_exception_decoration
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__activity_exception_decoration
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contractors__activity_exception_decoration
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_destinations__activity_exception_decoration
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__activity_exception_decoration
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_sd_payaneh_nafti__activity_exception_decoration
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__activity_exception_decoration
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_signers__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_base_info__activity_state
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_buyers__activity_state
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__activity_state
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_number__activity_state
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__activity_state
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contractors__activity_state
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_destinations__activity_state
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__activity_state
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_sd_payaneh_nafti__activity_state
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__activity_state
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_signers__activity_state
+msgid "Activity State"
+msgstr "وضعیت نظرسنجی: "
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_base_info__activity_type_icon
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_buyers__activity_type_icon
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__activity_type_icon
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_number__activity_type_icon
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__activity_type_icon
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contractors__activity_type_icon
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_destinations__activity_type_icon
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__activity_type_icon
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_sd_payaneh_nafti__activity_type_icon
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__activity_type_icon
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_signers__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:res.groups,name:sd_payaneh_nafti.group_sd_payaneh_nafti_admins
+msgid "Administrators"
+msgstr "لیست نظرسنجی ها"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__amount
+msgid "Amount"
+msgstr "مقدار"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields.selection,name:sd_payaneh_nafti.selection__sd_payaneh_nafti_sd_payaneh_nafti__state__approved
+msgid "Approved"
+msgstr "تایید شده"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_base_info__message_attachment_count
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_buyers__message_attachment_count
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__message_attachment_count
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_number__message_attachment_count
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__message_attachment_count
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contractors__message_attachment_count
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_destinations__message_attachment_count
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__message_attachment_count
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_sd_payaneh_nafti__message_attachment_count
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__message_attachment_count
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_signers__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__back_container
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.loading_permit_report_template
+msgid "Back Container"
+msgstr "مخزن عقب"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields.selection,name:sd_payaneh_nafti.selection__sd_payaneh_nafti_contract_info__unit__barrel
+#: model:ir.model.fields.selection,name:sd_payaneh_nafti.selection__sd_payaneh_nafti_contract_registration__unit__barrel
+msgid "Barrel"
+msgstr "بشکه"
+
+#. module: sd_payaneh_nafti
+#: model:ir.actions.act_window,name:sd_payaneh_nafti.action_window_base_info
+msgid "Base Information"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__bill_of_lading
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__bill_of_lading
+msgid "Bill Of Lading"
+msgstr "بارنامه"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_base_info__buyer
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__buyer
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__buyer
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__buyer
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_template
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.loading_permit_report_template
+msgid "Buyer"
+msgstr "خریدار"
+
+#. module: sd_payaneh_nafti
+#: model:ir.actions.act_window,name:sd_payaneh_nafti.action_window_buyers
+#: model:ir.ui.menu,name:sd_payaneh_nafti.buyers_menu
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.sd_payaneh_nafti_buyers_list_search
+msgid "Buyers"
+msgstr "خریدارها"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__cpl
+msgid "CPL"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__ctl
+msgid "CTL"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_report_cargo_document_report__calendar
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_report_loading_permit_report__calendar
+msgid "Calendar"
+msgstr "تقویم"
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_wizard_form
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.loading_permit_report_wizard_form
+msgid "Cancel"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__card_no
+msgid "Card No"
+msgstr "کارت هوشمند"
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_template
+msgid "Card No."
+msgstr "کارت هوشمند"
+
+#. module: sd_payaneh_nafti
+#: model:ir.actions.act_window,name:sd_payaneh_nafti.cargo_document_report_wizard_action
+#: model:ir.actions.report,name:sd_payaneh_nafti.cargo_document_report
+#: model:ir.model,name:sd_payaneh_nafti.model_report_sd_payaneh_nafti_cargo_document_report_template
+#: model:ir.model,name:sd_payaneh_nafti.model_sd_payaneh_nafti_report_cargo_document_report
+#: model:ir.ui.menu,name:sd_payaneh_nafti.sd_payaneh_nafti_cargo_document_report
+msgid "Cargo Document"
+msgstr "بارنامه"
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_template
+msgid "Cargo No."
+msgstr "شماره بارنامه"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__cargo_type
+#: model:ir.ui.menu,name:sd_payaneh_nafti.cargo_type_menu
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_template
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.loading_permit_report_template
+msgid "Cargo Type"
+msgstr "نوع محموله"
+
+#. module: sd_payaneh_nafti
+#: model:ir.actions.act_window,name:sd_payaneh_nafti.action_window_cargo_types
+msgid "Cargo Types"
+msgstr "محموله ها"
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_template
+msgid "Cargo Weight"
+msgstr "وزن محموله"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__centralized_container
+msgid "Centralized Container"
+msgstr "مخزن مرکزی"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__compartment_1
+msgid "Compartment 1"
+msgstr "محفظه 1"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__compartment_2
+msgid "Compartment 2"
+msgstr "محفظه 2"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__compartment_3
+msgid "Compartment 3"
+msgstr "محفظه 3"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model,name:sd_payaneh_nafti.model_res_config_settings
+msgid "Config Settings"
+msgstr "تنظیمات پیکربندی"
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.sd_payaneh_nafti_input_info_form
+msgid "Container"
+msgstr "محفظه"
+
+#. module: sd_payaneh_nafti
+#: model:ir.actions.act_window,name:sd_payaneh_nafti.action_window_contract_info
+#: model:ir.ui.menu,name:sd_payaneh_nafti.contract_info_menu
+msgid "Contract Information"
+msgstr "اطلاعات قرارداد"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_base_info__contract_no
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__contract_no
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__contract_no
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_template
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.loading_permit_report_template
+msgid "Contract No"
+msgstr "شماره قرارداد"
+
+#. module: sd_payaneh_nafti
+#: model:ir.actions.act_window,name:sd_payaneh_nafti.action_window_contract_number
+#: model:ir.ui.menu,name:sd_payaneh_nafti.contract_number_menu
+msgid "Contract Number"
+msgstr "شماره قرارداد"
+
+#. module: sd_payaneh_nafti
+#: model:ir.actions.act_window,name:sd_payaneh_nafti.action_window_contract_registration
+#: model:ir.ui.menu,name:sd_payaneh_nafti.contract_registration_menu
+msgid "Contract Registration"
+msgstr "ثبت قرارداد"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__contract_type
+msgid "Contract Type"
+msgstr "نوع قرارداد"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_base_info__contractor
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__contractor
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_template
+msgid "Contractor"
+msgstr "پیمانکار"
+
+#. module: sd_payaneh_nafti
+#: model:ir.actions.act_window,name:sd_payaneh_nafti.action_window_contractors
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__contractors
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__contractors
+#: model:ir.ui.menu,name:sd_payaneh_nafti.contractors_menu
+msgid "Contractors"
+msgstr "پیمانکاران"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__correction_factor
+msgid "Correction Factor"
+msgstr "ضریب تصحیح"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_base_info__create_uid
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_buyers__create_uid
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_cargo_types__create_uid
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__create_uid
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_number__create_uid
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__create_uid
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contractors__create_uid
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_destinations__create_uid
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__create_uid
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate1__create_uid
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate2__create_uid
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate3__create_uid
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate4__create_uid
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_report_cargo_document_report__create_uid
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_report_loading_permit_report__create_uid
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_sd_payaneh_nafti__create_uid
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__create_uid
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_signers__create_uid
+msgid "Created by"
+msgstr "ایجاد شده توسط"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_base_info__create_date
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_buyers__create_date
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_cargo_types__create_date
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__create_date
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_number__create_date
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__create_date
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contractors__create_date
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_destinations__create_date
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__create_date
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate1__create_date
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate2__create_date
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate3__create_date
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate4__create_date
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_report_cargo_document_report__create_date
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_report_loading_permit_report__create_date
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_sd_payaneh_nafti__create_date
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__create_date
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_signers__create_date
+msgid "Created on"
+msgstr "تاریخ ایجاد"
+
+#. module: sd_payaneh_nafti
+#: model:ir.actions.act_window,name:sd_payaneh_nafti.action_window_kanban
+#: model:ir.ui.menu,name:sd_payaneh_nafti.dashboard_menu
+msgid "Dashboard"
+msgstr "داشبورد"
+
+#. module: sd_payaneh_nafti
+#: model:ir.actions.act_window,name:sd_payaneh_nafti.action_window_services_dashboard_setup
+msgid "Dashboard Configuration"
+msgstr "تنظیمات داشبورد"
+
+#. module: sd_payaneh_nafti
+#: model:ir.ui.menu,name:sd_payaneh_nafti.process_menu
+msgid "Data"
+msgstr "اطلاعات"
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.sd_payaneh_nafti_base_info_list_search
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.sd_payaneh_nafti_contract_info_list_search
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.sd_payaneh_nafti_contract_registration_list_search
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.sd_payaneh_nafti_input_info_list_search
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.sd_payaneh_nafti_list_search
+msgid "Dealers"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__delivered_amount
+msgid "Delivered Amount"
+msgstr "مقدار تحویل شده"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__delivering_amount
+msgid "Delivering Amount"
+msgstr "مقدار قابل تحویل"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_res_config_settings__delta_60
+msgid "Delta 60"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.res_config_settings_view_form
+msgid "Delta 60:"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_base_info__description
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_buyers__description
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__description
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_number__description
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__description
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contractors__description
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_destinations__description
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_signers__description
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.sd_payaneh_nafti_contract_info_form
+msgid "Description"
+msgstr "توضیحات"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_base_info__destination
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__destination
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__destination
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_template
+msgid "Destination"
+msgstr "مقصد"
+
+#. module: sd_payaneh_nafti
+#: model:ir.actions.act_window,name:sd_payaneh_nafti.action_window_destinations
+#: model:ir.ui.menu,name:sd_payaneh_nafti.destinations_menu
+msgid "Destinations"
+msgstr "مقصد ها"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_base_info__display_name
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_buyers__display_name
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_cargo_types__display_name
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__display_name
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_number__display_name
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__display_name
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contractors__display_name
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_destinations__display_name
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__display_name
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate1__display_name
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate2__display_name
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate3__display_name
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate4__display_name
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_report_cargo_document_report__display_name
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_report_loading_permit_report__display_name
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_sd_payaneh_nafti__display_name
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__display_name
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_signers__display_name
+msgid "Display Name"
+msgstr "نمام نمایسی"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__document_no
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_report_cargo_document_report__document_no
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_report_loading_permit_report__document_no
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_template
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.loading_permit_report_template
+msgid "Document No"
+msgstr "شماره سند"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields.selection,name:sd_payaneh_nafti.selection__sd_payaneh_nafti_sd_payaneh_nafti__state__draft
+msgid "Draft"
+msgstr "پیش نویس"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__driver
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_template
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.loading_permit_report_template
+msgid "Driver"
+msgstr "راننده"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__end_date
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__end_date
+msgid "End Date"
+msgstr "تاریخ پایان"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__evacuation_box_seal
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_template
+msgid "Evacuation Box Seal"
+msgstr "پلمپ جعبه تخلیه"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields.selection,name:sd_payaneh_nafti.selection__sd_payaneh_nafti_contract_registration__loading_type__export
+msgid "Export"
+msgstr "صادرات"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__final_gsv_b
+msgid "Final G.S.V BBL"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__final_gsv_l
+msgid "Final G.S.V Liter"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__final_mt
+msgid "Final M.T."
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__final_tov_l
+msgid "Final T.O.V Liter"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__first_extend_end_date
+msgid "First End Date"
+msgstr "تاریخ پایان"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__first_extend_no
+msgid "First Extend No"
+msgstr "شماره تمدید اول"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__first_extend_star_date
+msgid "First Start Date"
+msgstr "تاریخ شروع"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_base_info__message_follower_ids
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_buyers__message_follower_ids
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__message_follower_ids
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_number__message_follower_ids
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__message_follower_ids
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contractors__message_follower_ids
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_destinations__message_follower_ids
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__message_follower_ids
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_sd_payaneh_nafti__message_follower_ids
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__message_follower_ids
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_signers__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_base_info__message_partner_ids
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_buyers__message_partner_ids
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__message_partner_ids
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_number__message_partner_ids
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__message_partner_ids
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contractors__message_partner_ids
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_destinations__message_partner_ids
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__message_partner_ids
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_sd_payaneh_nafti__message_partner_ids
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__message_partner_ids
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_signers__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_base_info__activity_type_icon
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_buyers__activity_type_icon
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__activity_type_icon
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_number__activity_type_icon
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__activity_type_icon
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_contractors__activity_type_icon
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_destinations__activity_type_icon
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__activity_type_icon
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_sd_payaneh_nafti__activity_type_icon
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__activity_type_icon
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_signers__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__front_container
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.loading_permit_report_template
+msgid "Front Container"
+msgstr "مخزن جلویی"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields.selection,name:sd_payaneh_nafti.selection__sd_payaneh_nafti_contract_registration__contract_type__general
+msgid "General"
+msgstr "عمومی"
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.sd_payaneh_nafti_input_info_form
+msgid "General Information"
+msgstr "اطلاعات عمومی"
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_wizard_form
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.loading_permit_report_wizard_form
+msgid "Generate"
+msgstr "ایجاد"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields.selection,name:sd_payaneh_nafti.selection__sd_payaneh_nafti_report_cargo_document_report__calendar__en_us
+#: model:ir.model.fields.selection,name:sd_payaneh_nafti.selection__sd_payaneh_nafti_report_loading_permit_report__calendar__en_us
+msgid "Gregorian"
+msgstr "میلادی"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__has_access_group
+msgid "Has Access Group"
+msgstr "پیام دارد"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_base_info__has_message
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_buyers__has_message
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__has_message
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_number__has_message
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__has_message
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contractors__has_message
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_destinations__has_message
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__has_message
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_sd_payaneh_nafti__has_message
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__has_message
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_signers__has_message
+msgid "Has Message"
+msgstr "پیام دارد"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_base_info__id
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_buyers__id
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_cargo_types__id
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__id
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_number__id
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__id
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contractors__id
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_destinations__id
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__id
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate1__id
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate2__id
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate3__id
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate4__id
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_report_cargo_document_report__id
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_report_loading_permit_report__id
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_sd_payaneh_nafti__id
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__id
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_signers__id
+msgid "ID"
+msgstr "آی دی"
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_template
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.loading_permit_report_template
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.sd_payaneh_nafti_input_info_form
+msgid "IR"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_base_info__activity_exception_icon
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_buyers__activity_exception_icon
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__activity_exception_icon
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_number__activity_exception_icon
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__activity_exception_icon
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contractors__activity_exception_icon
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_destinations__activity_exception_icon
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__activity_exception_icon
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_sd_payaneh_nafti__activity_exception_icon
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__activity_exception_icon
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_signers__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_base_info__activity_exception_icon
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_buyers__activity_exception_icon
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__activity_exception_icon
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_number__activity_exception_icon
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__activity_exception_icon
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_contractors__activity_exception_icon
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_destinations__activity_exception_icon
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__activity_exception_icon
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_sd_payaneh_nafti__activity_exception_icon
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__activity_exception_icon
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_signers__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_base_info__message_needaction
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_base_info__message_unread
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_buyers__message_needaction
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_buyers__message_unread
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__message_needaction
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__message_unread
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_number__message_needaction
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_number__message_unread
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__message_needaction
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__message_unread
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_contractors__message_needaction
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_contractors__message_unread
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_destinations__message_needaction
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_destinations__message_unread
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__message_needaction
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__message_unread
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_sd_payaneh_nafti__message_needaction
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_sd_payaneh_nafti__message_unread
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__message_needaction
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__message_unread
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_signers__message_needaction
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_signers__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_base_info__message_has_error
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_buyers__message_has_error
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__message_has_error
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_number__message_has_error
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__message_has_error
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_contractors__message_has_error
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_destinations__message_has_error
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__message_has_error
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_sd_payaneh_nafti__message_has_error
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__message_has_error
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_signers__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.ui.menu,name:sd_payaneh_nafti.input_info_menu
+msgid "Input Info"
+msgstr "اطلاعات ورودی"
+
+#. module: sd_payaneh_nafti
+#: model:ir.actions.act_window,name:sd_payaneh_nafti.action_window_input_info
+msgid "Input Information"
+msgstr "اطلاعات ورودی"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields.selection,name:sd_payaneh_nafti.selection__sd_payaneh_nafti_contract_registration__loading_type__internal
+msgid "Internal"
+msgstr "داخلی"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_base_info__message_is_follower
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_buyers__message_is_follower
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__message_is_follower
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_number__message_is_follower
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__message_is_follower
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contractors__message_is_follower
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_destinations__message_is_follower
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__message_is_follower
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_sd_payaneh_nafti__message_is_follower
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__message_is_follower
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_signers__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_template
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.loading_permit_report_template
+msgid "Issue Date"
+msgstr "تاریخ صدور"
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_template
+msgid "Issue Time"
+msgstr "ساعت صدور"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_res_config_settings__k_0
+msgid "K 0"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_res_config_settings__k_1
+msgid "K 1"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_res_config_settings__k_2
+msgid "K 2"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.res_config_settings_view_form
+msgid "K0:"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.res_config_settings_view_form
+msgid "K1:"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.res_config_settings_view_form
+msgid "K2:"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_base_info____last_update
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_buyers____last_update
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_cargo_types____last_update
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info____last_update
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_number____last_update
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration____last_update
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contractors____last_update
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_destinations____last_update
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info____last_update
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate1____last_update
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate2____last_update
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate3____last_update
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate4____last_update
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_report_cargo_document_report____last_update
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_report_loading_permit_report____last_update
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_sd_payaneh_nafti____last_update
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_settings____last_update
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_signers____last_update
+msgid "Last Modified on"
+msgstr "تاریخ آخرین تغییر"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_base_info__write_uid
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_buyers__write_uid
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_cargo_types__write_uid
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__write_uid
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_number__write_uid
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__write_uid
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contractors__write_uid
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_destinations__write_uid
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__write_uid
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate1__write_uid
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate2__write_uid
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate3__write_uid
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate4__write_uid
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_report_cargo_document_report__write_uid
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_report_loading_permit_report__write_uid
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_sd_payaneh_nafti__write_uid
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__write_uid
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_signers__write_uid
+msgid "Last Updated by"
+msgstr "آخرین بروز رسانی توسط"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_base_info__write_date
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_buyers__write_date
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_cargo_types__write_date
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__write_date
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_number__write_date
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__write_date
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contractors__write_date
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_destinations__write_date
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__write_date
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate1__write_date
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate2__write_date
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate3__write_date
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate4__write_date
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_report_cargo_document_report__write_date
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_report_loading_permit_report__write_date
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_sd_payaneh_nafti__write_date
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__write_date
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_signers__write_date
+msgid "Last Updated on"
+msgstr "تاریخ اخرین برویز رسانی"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__letter_no
+msgid "Letter No"
+msgstr "شماره نامه"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__link
+msgid "Link"
+msgstr "لینک:"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__loading_date
+msgid "Loading Date"
+msgstr "تاریخ شروع"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__loading_no
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.loading_permit_report_template
+msgid "Loading No"
+msgstr "شماره بارنامه"
+
+#. module: sd_payaneh_nafti
+#: model:ir.actions.act_window,name:sd_payaneh_nafti.sd_payaneh_nafti_report_wizard_action
+#: model:ir.actions.report,name:sd_payaneh_nafti.loading_permit_report
+#: model:ir.model,name:sd_payaneh_nafti.model_report_sd_payaneh_nafti_loading_permit_report_template
+#: model:ir.model,name:sd_payaneh_nafti.model_sd_payaneh_nafti_report_loading_permit_report
+#: model:ir.ui.menu,name:sd_payaneh_nafti.sd_payaneh_nafti_report
+msgid "Loading Permit"
+msgstr "دستور بارگیری"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__loading_type
+msgid "Loading Type"
+msgstr "نوع بارگیری"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__image
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_template
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.loading_permit_report_template
+msgid "Logo"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_base_info__message_main_attachment_id
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_buyers__message_main_attachment_id
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__message_main_attachment_id
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_number__message_main_attachment_id
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__message_main_attachment_id
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contractors__message_main_attachment_id
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_destinations__message_main_attachment_id
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__message_main_attachment_id
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_sd_payaneh_nafti__message_main_attachment_id
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__message_main_attachment_id
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_signers__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_base_info__message_has_error
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_buyers__message_has_error
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__message_has_error
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_number__message_has_error
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__message_has_error
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contractors__message_has_error
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_destinations__message_has_error
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__message_has_error
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_sd_payaneh_nafti__message_has_error
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__message_has_error
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_signers__message_has_error
+msgid "Message Delivery error"
+msgstr "پیام واتس آپ"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_base_info__message_ids
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_buyers__message_ids
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__message_ids
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_number__message_ids
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__message_ids
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contractors__message_ids
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_destinations__message_ids
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__message_ids
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_sd_payaneh_nafti__message_ids
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__message_ids
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_signers__message_ids
+msgid "Messages"
+msgstr "پیام"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__meter_gsv_b
+msgid "Meter G.S.V BBL"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__meter_gsv_l
+msgid "Meter G.S.V Liter"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__meter_mt
+msgid "Meter M.T."
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__meter_tov_l
+msgid "Meter T.O.V Liter"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields.selection,name:sd_payaneh_nafti.selection__sd_payaneh_nafti_contract_info__unit__metric_ton
+#: model:ir.model.fields.selection,name:sd_payaneh_nafti.selection__sd_payaneh_nafti_contract_registration__unit__metric_ton
+msgid "Metric Ton"
+msgstr "متریک تن"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__middle_container
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.loading_permit_report_template
+msgid "Middle Container"
+msgstr "مخزن وسطی"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__miter_no
+msgid "Miter No"
+msgstr "شماره میتر"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_base_info__my_activity_date_deadline
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_buyers__my_activity_date_deadline
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__my_activity_date_deadline
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_number__my_activity_date_deadline
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__my_activity_date_deadline
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contractors__my_activity_date_deadline
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_destinations__my_activity_date_deadline
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__my_activity_date_deadline
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_sd_payaneh_nafti__my_activity_date_deadline
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__my_activity_date_deadline
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_signers__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_buyers__name
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_cargo_types__name
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_number__name
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contractors__name
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_destinations__name
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate1__name
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate2__name
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate3__name
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate4__name
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_sd_payaneh_nafti__name
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__name
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_signers__name
+msgid "Name"
+msgstr "نام"
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_template
+msgid "Natural Amount"
+msgstr "مقدار طبیعی"
+
+#. module: sd_payaneh_nafti
+#: code:addons/sd_payaneh_nafti/models/contract_registration.py:0
+#: code:addons/sd_payaneh_nafti/models/input_info.py:0
+#, python-format
+msgid "New"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields.selection,name:sd_payaneh_nafti.selection__sd_payaneh_nafti_settings__target___blank
+msgid "New Tab"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_base_info__activity_date_deadline
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_buyers__activity_date_deadline
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__activity_date_deadline
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_number__activity_date_deadline
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__activity_date_deadline
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contractors__activity_date_deadline
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_destinations__activity_date_deadline
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__activity_date_deadline
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_sd_payaneh_nafti__activity_date_deadline
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__activity_date_deadline
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_signers__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_base_info__activity_summary
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_buyers__activity_summary
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__activity_summary
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_number__activity_summary
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__activity_summary
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contractors__activity_summary
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_destinations__activity_summary
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__activity_summary
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_sd_payaneh_nafti__activity_summary
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__activity_summary
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_signers__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_base_info__activity_type_id
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_buyers__activity_type_id
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__activity_type_id
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_number__activity_type_id
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__activity_type_id
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contractors__activity_type_id
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_destinations__activity_type_id
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__activity_type_id
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_sd_payaneh_nafti__activity_type_id
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__activity_type_id
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_signers__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields.selection,name:sd_payaneh_nafti.selection__sd_payaneh_nafti_input_info__weighbridge__no
+msgid "No"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: code:addons/sd_payaneh_nafti/models/input_info.py:0
+#, python-format
+msgid "Not acceptable"
+msgstr "شماره دارایی باید به شکل 6nnn-nnnnnn باشد"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_sd_payaneh_nafti__description
+msgid "Notes..."
+msgstr "توضیحات."
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_base_info__message_needaction_counter
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_buyers__message_needaction_counter
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__message_needaction_counter
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_number__message_needaction_counter
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__message_needaction_counter
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contractors__message_needaction_counter
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_destinations__message_needaction_counter
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__message_needaction_counter
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_sd_payaneh_nafti__message_needaction_counter
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__message_needaction_counter
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_signers__message_needaction_counter
+msgid "Number of Actions"
+msgstr "شماره سریال"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_base_info__message_has_error_counter
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_buyers__message_has_error_counter
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__message_has_error_counter
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_number__message_has_error_counter
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__message_has_error_counter
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contractors__message_has_error_counter
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_destinations__message_has_error_counter
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__message_has_error_counter
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_sd_payaneh_nafti__message_has_error_counter
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__message_has_error_counter
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_signers__message_has_error_counter
+msgid "Number of errors"
+msgstr "شماره سریال"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_base_info__message_needaction_counter
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_buyers__message_needaction_counter
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__message_needaction_counter
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_number__message_needaction_counter
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__message_needaction_counter
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_contractors__message_needaction_counter
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_destinations__message_needaction_counter
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__message_needaction_counter
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_sd_payaneh_nafti__message_needaction_counter
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__message_needaction_counter
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_signers__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_base_info__message_has_error_counter
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_buyers__message_has_error_counter
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__message_has_error_counter
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_number__message_has_error_counter
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__message_has_error_counter
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_contractors__message_has_error_counter
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_destinations__message_has_error_counter
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__message_has_error_counter
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_sd_payaneh_nafti__message_has_error_counter
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__message_has_error_counter
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_signers__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "شماره سریال"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_base_info__message_unread_counter
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_buyers__message_unread_counter
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__message_unread_counter
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_number__message_unread_counter
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__message_unread_counter
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_contractors__message_unread_counter
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_destinations__message_unread_counter
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__message_unread_counter
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_sd_payaneh_nafti__message_unread_counter
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__message_unread_counter
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_signers__message_unread_counter
+msgid "Number of unread messages"
+msgstr "شماره سریال"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields.selection,name:sd_payaneh_nafti.selection__sd_payaneh_nafti_sd_payaneh_nafti__state__ongoing
+msgid "Ongoing"
+msgstr "در جریان"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_res_config_settings__param_a
+msgid "Param A"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_res_config_settings__param_ai1
+msgid "Param Ai1"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_res_config_settings__param_ai2
+msgid "Param Ai2"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_res_config_settings__param_ai3
+msgid "Param Ai3"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_res_config_settings__param_ai4
+msgid "Param Ai4"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_res_config_settings__param_ai5
+msgid "Param Ai5"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_res_config_settings__param_ai6
+msgid "Param Ai6"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_res_config_settings__param_ai7
+msgid "Param Ai7"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_res_config_settings__param_ai8
+msgid "Param Ai8"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_res_config_settings__param_b
+msgid "Param B"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_res_config_settings__param_c
+msgid "Param C"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_res_config_settings__param_d
+msgid "Param D"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.ui.menu,name:sd_payaneh_nafti.parameters_settings
+msgid "Parameters"
+msgstr "پارامترها"
+
+#. module: sd_payaneh_nafti
+#: model:ir.ui.menu,name:sd_payaneh_nafti.payaneh_root_menu
+msgid "Payaneh"
+msgstr "پایانه"
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.res_config_settings_view_form
+msgid "Payaneh Nafti"
+msgstr "پایانه نفتی"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields.selection,name:sd_payaneh_nafti.selection__sd_payaneh_nafti_report_cargo_document_report__calendar__fa_ir
+#: model:ir.model.fields.selection,name:sd_payaneh_nafti.selection__sd_payaneh_nafti_report_loading_permit_report__calendar__fa_ir
+msgid "Persian"
+msgstr "جلالی"
+
+#. module: sd_payaneh_nafti
+#: model:ir.ui.menu,name:sd_payaneh_nafti.plate_menu
+msgid "Plate"
+msgstr "پلاک"
+
+#. module: sd_payaneh_nafti
+#: model:ir.actions.act_window,name:sd_payaneh_nafti.action_window_plate_1
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__plate_1
+msgid "Plate 1"
+msgstr "پلاک 1"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__plate_2
+msgid "Plate 2"
+msgstr "پلاک 2"
+
+#. module: sd_payaneh_nafti
+#: model:ir.actions.act_window,name:sd_payaneh_nafti.action_window_plate_3
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__plate_3
+msgid "Plate 3"
+msgstr "پلاک 3"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__plate_4
+msgid "Plate 4"
+msgstr "پلاک 4"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__pressure
+msgid "Pressure (bar)"
+msgstr "فشار (bar)"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__pressure_psi
+msgid "Pressure Psi"
+msgstr "فشار(PSI)"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__priority
+msgid "Priority"
+msgstr "اولویت"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__registration_no
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__registration_no
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__registration_no
+msgid "Registration No"
+msgstr "شماره ثبت"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__remaining_amount
+msgid "Remaining Amount"
+msgstr "مقدار باقی مانده"
+
+#. module: sd_payaneh_nafti
+#: model:ir.ui.menu,name:sd_payaneh_nafti.reports_menu
+msgid "Reports"
+msgstr "گزارش ها"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_base_info__activity_user_id
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_buyers__activity_user_id
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__activity_user_id
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_number__activity_user_id
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__activity_user_id
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contractors__activity_user_id
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_destinations__activity_user_id
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__activity_user_id
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_sd_payaneh_nafti__activity_user_id
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__activity_user_id
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_signers__activity_user_id
+msgid "Responsible User"
+msgstr "کاربر مسئول"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__sp_gr
+msgid "SP. GR."
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields.selection,name:sd_payaneh_nafti.selection__sd_payaneh_nafti_settings__target___self
+msgid "Same Tab"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.sd_payaneh_nafti_input_info_form
+msgid "Sealing"
+msgstr "پلمپ"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__second_extend_end_date
+msgid "Second End Date"
+msgstr "تاریخ پایان دوم"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__second_extend_no
+msgid "Second Extend No"
+msgstr "شماره تمدید دوم"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__second_extend_star_date
+msgid "Second Start Date"
+msgstr "تاریخ شروع دوم"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__sequence
+msgid "Sequence"
+msgstr "ترتیب"
+
+#. module: sd_payaneh_nafti
+#: model:ir.actions.act_window,name:sd_payaneh_nafti.sd_payaneh_nafti_settings_action
+#: model:ir.ui.menu,name:sd_payaneh_nafti.settings_menu
+msgid "Settings"
+msgstr "تنظیمات"
+
+#. module: sd_payaneh_nafti
+#: model:ir.actions.act_window,name:sd_payaneh_nafti.action_window_signers
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_base_info__signers
+#: model:ir.ui.menu,name:sd_payaneh_nafti.signers_menu
+msgid "Signers"
+msgstr "امظاء کنندگان"
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_template
+msgid "Specific Gravity"
+msgstr "وزن مخصوص"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__start_date
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__start_date
+msgid "Start Date"
+msgstr "تاریخ شروع"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_sd_payaneh_nafti__state
+msgid "Status"
+msgstr "وضعیت"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_base_info__activity_state
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_buyers__activity_state
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__activity_state
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_number__activity_state
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__activity_state
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_contractors__activity_state
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_destinations__activity_state
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__activity_state
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_sd_payaneh_nafti__activity_state
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__activity_state
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_signers__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields.selection,name:sd_payaneh_nafti.selection__sd_payaneh_nafti_contract_registration__contract_type__stock
+msgid "Stock"
+msgstr "بورس"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__tab_13
+msgid "TAB.13"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.res_config_settings_view_form
+msgid "TREF:"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.sd_payaneh_nafti_input_info_form
+msgid "Tanker"
+msgstr "تانکر"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__tanker_empty_weight
+msgid "Tanker Empty Weight"
+msgstr "وزن خالی نفتکش"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__tanker_full_weight
+msgid "Tanker Full Weight"
+msgstr "وزن پر نفتکش"
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_template
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.loading_permit_report_template
+msgid "Tanker No"
+msgstr "شماره نفتکش"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__tanker_pure_weight
+msgid "Tanker Pure Weight"
+msgstr "وزن خالص نفتکش"
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.sd_payaneh_nafti_input_info_form
+msgid "Tanker Status"
+msgstr "وضعیت نفتکش"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__target
+msgid "Target"
+msgstr "مقصد"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__temperature
+msgid "Temp. (C)"
+msgstr "دما (C)"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__temperature_f
+msgid "Temp. (F)"
+msgstr "دما (F)"
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_template
+msgid "Temprature"
+msgstr "دما"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__total
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.loading_permit_report_template
+msgid "Total"
+msgstr "مجموع"
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.sd_payaneh_nafti_input_info_form
+msgid "Totalizer"
+msgstr "توتالایزر"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__totalizer_difference
+msgid "Totalizer Difference"
+msgstr "اختلاف توتالایزر"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__totalizer_end
+msgid "Totalizer End"
+msgstr "توتالایزر پایانی"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__totalizer_start
+msgid "Totalizer Start"
+msgstr "توتالایزر آغازین"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_res_config_settings__tref
+msgid "Tref"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_base_info__activity_exception_decoration
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_buyers__activity_exception_decoration
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__activity_exception_decoration
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_number__activity_exception_decoration
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__activity_exception_decoration
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_contractors__activity_exception_decoration
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_destinations__activity_exception_decoration
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__activity_exception_decoration
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_sd_payaneh_nafti__activity_exception_decoration
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__activity_exception_decoration
+#: model:ir.model.fields,help:sd_payaneh_nafti.field_sd_payaneh_nafti_signers__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__unit
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__unit
+msgid "Unit"
+msgstr "واحد"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_base_info__message_unread
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_buyers__message_unread
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__message_unread
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_number__message_unread
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__message_unread
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contractors__message_unread
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_destinations__message_unread
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__message_unread
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_sd_payaneh_nafti__message_unread
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__message_unread
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_signers__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_base_info__message_unread_counter
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_buyers__message_unread_counter
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_info__message_unread_counter
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_number__message_unread_counter
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__message_unread_counter
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contractors__message_unread_counter
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_destinations__message_unread_counter
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__message_unread_counter
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_sd_payaneh_nafti__message_unread_counter
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__message_unread_counter
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_signers__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:res.groups,name:sd_payaneh_nafti.group_sd_payaneh_nafti_users
+msgid "Users"
+msgstr "کاربران"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__wb_gsv_b
+msgid "WB G.S.V BBL"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__wb_gsv_l
+msgid "WB G.S.V Liter"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__wb_mt
+msgid "WB M.T."
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__wb_tov_l
+msgid "WB T.O.V Liter"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__weighbridge
+msgid "Weighbridge"
+msgstr "باسکول"
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.sd_payaneh_nafti_input_info_form
+msgid "Weight"
+msgstr "وزن"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields.selection,name:sd_payaneh_nafti.selection__sd_payaneh_nafti_input_info__weighbridge__yes
+msgid "Yes"
+msgstr "بله"
+
+#. module: sd_payaneh_nafti
+#: code:addons/sd_payaneh_nafti/report/cargo_documente_report.py:0
+#: code:addons/sd_payaneh_nafti/report/loading_permit_report.py:0
+#, python-format
+msgid "[ERROR] There is more than one record"
+msgstr "[خطا] بیش از یک رکورد"
+
+#. module: sd_payaneh_nafti
+#: code:addons/sd_payaneh_nafti/report/cargo_documente_report.py:0
+#: code:addons/sd_payaneh_nafti/report/loading_permit_report.py:0
+#, python-format
+msgid "[ERROR] There is no record"
+msgstr "[خطا] رکورد وجود ندارد"
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.res_config_settings_view_form
+msgid "ai 1:"
+msgstr "تعداد سهام 1"
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.res_config_settings_view_form
+msgid "ai 2:"
+msgstr "تعداد سهام 2"
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.res_config_settings_view_form
+msgid "ai 3:"
+msgstr "تعداد سهام 3"
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.res_config_settings_view_form
+msgid "ai 4:"
+msgstr "تعداد سهام 4"
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.res_config_settings_view_form
+msgid "ai 5:"
+msgstr "تعداد سهام 5"
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.res_config_settings_view_form
+msgid "ai 6:"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.res_config_settings_view_form
+msgid "ai 7:"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.res_config_settings_view_form
+msgid "ai 8:"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.apps
+msgid "apps"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_template
+msgid "compartment_1"
+msgstr "پلمپ محفظه 1"
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_template
+msgid "compartment_2"
+msgstr "پلمپ محفظه 2"
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_template
+msgid "compartment_3"
+msgstr "پلمپ محفظه 3"
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.loading_permit_report_template
+msgid "contract Type"
+msgstr "نوع قرارداد"
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.sd_payaneh_nafti_contract_number_list_search
+msgid "contract_number"
+msgstr "شماره قرارداد"
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.loading_permit_report_template
+msgid "contractor name"
+msgstr "نام پیمانکار"
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.sd_payaneh_nafti_contractors_list_search
+msgid "contractors"
+msgstr "پیمانکاران"
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.sd_payaneh_nafti_destinations_list_search
+msgid "destinations"
+msgstr "مقصد ها"
+
+#. module: sd_payaneh_nafti
+#: model:ir.actions.report,print_report_name:sd_payaneh_nafti.cargo_document_report
+#: model:ir.actions.report,print_report_name:sd_payaneh_nafti.loading_permit_report
+msgid "f'oeid_payaneh_{object.name}' "
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.sd_payaneh_nafti_list_search
+msgid "ongoing"
+msgstr "در جریان"
+
+#. module: sd_payaneh_nafti
+#: model:ir.module.category,description:sd_payaneh_nafti.module_category_sd_payaneh_nafti
+msgid "requests."
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.module.category,name:sd_payaneh_nafti.module_category_sd_payaneh_nafti
+msgid "sd_payaneh_nafti"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model,name:sd_payaneh_nafti.model_sd_payaneh_nafti_base_info
+msgid "sd_payaneh_nafti.base_info"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model,name:sd_payaneh_nafti.model_sd_payaneh_nafti_buyers
+msgid "sd_payaneh_nafti.buyers"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model,name:sd_payaneh_nafti.model_sd_payaneh_nafti_cargo_types
+msgid "sd_payaneh_nafti.cargo_types"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model,name:sd_payaneh_nafti.model_sd_payaneh_nafti_contract_info
+msgid "sd_payaneh_nafti.contract_info"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model,name:sd_payaneh_nafti.model_sd_payaneh_nafti_contract_number
+msgid "sd_payaneh_nafti.contract_number"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model,name:sd_payaneh_nafti.model_sd_payaneh_nafti_contract_registration
+msgid "sd_payaneh_nafti.contract_registration"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model,name:sd_payaneh_nafti.model_sd_payaneh_nafti_contractors
+msgid "sd_payaneh_nafti.contractors"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model,name:sd_payaneh_nafti.model_sd_payaneh_nafti_destinations
+msgid "sd_payaneh_nafti.destinations"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model,name:sd_payaneh_nafti.model_sd_payaneh_nafti_input_info
+msgid "sd_payaneh_nafti.input_info"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model,name:sd_payaneh_nafti.model_sd_payaneh_nafti_plate1
+msgid "sd_payaneh_nafti.plate1"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model,name:sd_payaneh_nafti.model_sd_payaneh_nafti_plate2
+msgid "sd_payaneh_nafti.plate2"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model,name:sd_payaneh_nafti.model_sd_payaneh_nafti_plate3
+msgid "sd_payaneh_nafti.plate3"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model,name:sd_payaneh_nafti.model_sd_payaneh_nafti_plate4
+msgid "sd_payaneh_nafti.plate4"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model,name:sd_payaneh_nafti.model_sd_payaneh_nafti_sd_payaneh_nafti
+msgid "sd_payaneh_nafti.sd_payaneh_nafti"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model,name:sd_payaneh_nafti.model_sd_payaneh_nafti_settings
+msgid "sd_payaneh_nafti.settings"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model,name:sd_payaneh_nafti.model_sd_payaneh_nafti_signers
+msgid "sd_payaneh_nafti.signers"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.sd_payaneh_nafti_signers_list_search
+msgid "signers"
+msgstr "امظاء کنندگان"
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_template
+msgid "بارنامه"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_template
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.loading_permit_report_template
+msgid "تاسیسات بارگیری زمینی میعانات گازی پارس جنوبی"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.loading_permit_report_template
+msgid "تایید حراست ورودی"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.loading_permit_report_template
+msgid "دستور بارگیری"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_template
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.loading_permit_report_template
+msgid "شرکت ملی نفت ایران"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_template
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.loading_permit_report_template
+msgid "شرکت پایانه های نفتی ایران"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.loading_permit_report_template
+msgid "نام و امضاء تهیه کننده"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_template
+msgid "نام و امضاء راننده"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_template
+msgid "نام و امضاء کاربر صادرکننده"
+msgstr ""

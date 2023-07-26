@@ -16,7 +16,7 @@
     # for the full list
     'category': 'Service Desk/Service Desk',
     'application': True,
-    'version': '1.0.8.2',
+    'version': '1.0.9',
 
     # any module necessary for this one to work correctly
     'depends': ['base', 'web', 'mail'],
@@ -45,6 +45,7 @@
         'wizard/cargo_document_report_wizard.xml',
         'data/registration_sequence.xml',
         'data/input_sequence.xml',
+        'data/cargo_types_data.xml',
 
     ],
     'assets': {

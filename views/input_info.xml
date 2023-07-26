@@ -8,6 +8,7 @@
             <field name="model">sd_payaneh_nafti.input_info</field>
             <field name="arch" type="xml">
                 <tree>
+
                     <field name="document_no" />
                     <field name="loading_no" />
                     <field name="loading_date" />
@@ -203,17 +204,17 @@
                   parent="sd_payaneh_nafti.settings_menu"
                   groups="sd_payaneh_nafti.group_sd_payaneh_nafti_admins"/>
 
-        <menuitem name="Plate 1"
-                  id="sd_payaneh_nafti.plate1_menu"
-                  parent="sd_payaneh_nafti.settings_menu"
-                  groups="sd_payaneh_nafti.group_sd_payaneh_nafti_admins"
-                    action="action_window_plate_1"/>
+<!--        <menuitem name="Plate 1"-->
+<!--                  id="sd_payaneh_nafti.plate1_menu"-->
+<!--                  parent="sd_payaneh_nafti.settings_menu"-->
+<!--                  groups="sd_payaneh_nafti.group_sd_payaneh_nafti_admins"-->
+<!--                    action="action_window_plate_1"/>-->
 
-        <menuitem name="Plate 3"
-                  id="sd_payaneh_nafti.plate3_menu"
-                  parent="sd_payaneh_nafti.settings_menu"
-                  groups="sd_payaneh_nafti.group_sd_payaneh_nafti_admins"
-                    action="action_window_plate_3"/>
+<!--        <menuitem name="Plate 3"-->
+<!--                  id="sd_payaneh_nafti.plate3_menu"-->
+<!--                  parent="sd_payaneh_nafti.settings_menu"-->
+<!--                  groups="sd_payaneh_nafti.group_sd_payaneh_nafti_admins"-->
+<!--                    action="action_window_plate_3"/>-->
 
 
         <menuitem name="Cargo Type"

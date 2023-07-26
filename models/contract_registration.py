@@ -11,10 +11,11 @@ class SdPayanehNaftiContractInfo(models.Model):
     _name = 'sd_payaneh_nafti.contract_registration'
     _description = 'sd_payaneh_nafti.contract_registration'
     _inherit = ['mail.thread', 'mail.activity.mixin']
-    _order = 'registration_no'
+    _order = 'registration_no desc'
     _rec_name = 'registration_no'
 
     registration_no = fields.Char(required=True, copy=False, readonly=True, default=lambda self: _('New'))
+    letter_no = fields.Char(required=True,)
     contract_no = fields.Char(required=True,)
     bill_of_lading = fields.Char(required=False,)
     buyer = fields.Many2one('sd_payaneh_nafti.buyers', required=True,)
@@ -26,7 +27,7 @@ class SdPayanehNaftiContractInfo(models.Model):
     start_date = fields.Date(default=lambda self: date.today() )
     end_date = fields.Date(default=lambda self: date.today() + timedelta(days=2) )
     destination = fields.Many2one('sd_payaneh_nafti.destinations', required=True,)
-    contractors = fields.Many2many('sd_payaneh_nafti.contractors', 'registration_contractors_rel', required=True,)
+    contractors = fields.Many2many('sd_payaneh_nafti.contractors', 'registration_contractors_rel', required=False,)
 
     first_extend_no = fields.Char()
     first_extend_star_date = fields.Date(string='First Start Date')

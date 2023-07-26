@@ -14,7 +14,7 @@ class SdPayanehNaftiInputInfo(models.Model):
     _name = 'sd_payaneh_nafti.input_info'
     _description = 'sd_payaneh_nafti.input_info'
     _inherit = ['mail.thread', 'mail.activity.mixin']
-    _order = 'document_no'
+    _order = 'document_no desc'
     _rec_name = 'document_no'
 
     document_no = fields.Char(required=True, copy=False, readonly=True, default=lambda self: _('New'))
@@ -26,9 +26,11 @@ class SdPayanehNaftiInputInfo(models.Model):
     contractor = fields.Many2one('sd_payaneh_nafti.contractors', required=True,)
     driver = fields.Char(required=True,)
     card_no = fields.Char(required=True,)
-    plate_1 = fields.Many2one('sd_payaneh_nafti.plate1', required=True, string='Plate')
+    plate_1 = fields.Char(required=True,)
+    # plate_1 = fields.Many2one('sd_payaneh_nafti.plate1', required=True, string='Plate')
     plate_2 = fields.Char(required=True,)
-    plate_3 = fields.Many2one('sd_payaneh_nafti.plate3', required=True,)
+    plate_3 = fields.Char(required=True,)
+    # plate_3 = fields.Many2one('sd_payaneh_nafti.plate3', required=True,)
     plate_4 = fields.Char(required=True,)
     front_container = fields.Integer(required=True,)
     middle_container = fields.Integer(required=True,)
@@ -43,7 +45,7 @@ class SdPayanehNaftiInputInfo(models.Model):
                                               ('f', 'F'),
                                               ('g', 'G'),
                                               ('h', 'H'),
-                                              ], required=True,)
+                                              ], required=False,)
     sp_gr = fields.Float(string='SP. GR.', required=True, default=0.7252)
     temperature = fields.Integer(string='Temp. (C)', required=True, default=30)
     temperature_f = fields.Float(string='Temp. (F)', compute='_temperature_f', digits=(12, 1))
@@ -57,18 +59,18 @@ class SdPayanehNaftiInputInfo(models.Model):
                                   ('6', '6'),
                                   ('7', '7'),
                                   ('8', '8'),
-                                  ], required=True,)
-    totalizer_start = fields.Integer(required=True,)
-    totalizer_end = fields.Integer(required=True,)
-    totalizer_difference = fields.Integer(required=True, compute='_totalizer_difference')
+                                  ], required=False,)
+    totalizer_start = fields.Integer(required=False,)
+    totalizer_end = fields.Integer(required=False,)
+    totalizer_difference = fields.Integer(required=False, compute='_totalizer_difference')
     weighbridge = fields.Selection([('no', 'No'),('yes', 'Yes')], default='no')
-    tanker_empty_weight = fields.Integer(required=True,)
-    tanker_full_weight = fields.Integer(required=True,)
-    tanker_pure_weight = fields.Integer(required=True, compute='_tanker_pure_weight')
-    evacuation_box_seal = fields.Char(required=True,)
-    compartment_1 = fields.Char(required=True,)
-    compartment_2 = fields.Char(required=True,)
-    compartment_3 = fields.Char(required=True,)
+    tanker_empty_weight = fields.Integer(required=False,)
+    tanker_full_weight = fields.Integer(required=False,)
+    tanker_pure_weight = fields.Integer(required=False, compute='_tanker_pure_weight')
+    evacuation_box_seal = fields.Char(required=False,)
+    compartment_1 = fields.Char(required=False,)
+    compartment_2 = fields.Char(required=False,)
+    compartment_3 = fields.Char(required=False,)
     correction_factor = fields.Float(digits=(12, 5), required=True, default=1.0)
 
     api_a = fields.Float(string='API', compute='_api_a')
@@ -222,6 +224,10 @@ class SdPayanehNaftiInputInfo(models.Model):
 
             vals['loading_no'] = str(jdatetime.date.today().year) + f"/{int(vals['document_no']):07d}"
         return super(SdPayanehNaftiInputInfo, self).create(vals)
+
+
+
+
 class SdPayanehNaftiPlate1(models.Model):
     _name = 'sd_payaneh_nafti.plate1'
     _description = 'sd_payaneh_nafti.plate1'
