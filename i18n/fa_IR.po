@@ -1018,8 +1018,8 @@ msgid "Middle Container"
 msgstr "مخزن وسطی"
 
 #. module: sd_payaneh_nafti
-#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__miter_no
-msgid "Miter No"
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__meter_no
+msgid "meter No"
 msgstr "شماره میتر"
 
 #. module: sd_payaneh_nafti

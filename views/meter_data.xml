@@ -1,0 +1,82 @@
+<odoo>
+    <data>
+
+         <!-- ==================================================  sd_payaneh_nafti.meter_data ====================-->
+
+        <record model="ir.ui.view" id="sd_payaneh_nafti_meter_data_list">
+            <field name="name">Meter Report List</field>
+            <field name="model">sd_payaneh_nafti.meter_data</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom" delete="1" multi_edit="1" >
+                        <field name="report_date" />
+                        <field name="meter" />
+                        <field name="first_totalizer" />
+                        <field name="last_totalizer" />
+                        <field name="meter_amounts" />
+                        <field name="description" />
+
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="sd_payaneh_nafti_meter_data_form">
+            <field name="name">meter_data Form</field>
+            <field name="model">sd_payaneh_nafti.meter_data</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group>
+                        <field name="report_date" readonly="1"/>
+                        <field name="meter" readonly="1" />
+                        </group>
+                        <group>
+
+                        </group>
+
+                    </group>
+                    <group>
+                        <field name="description" />
+
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <!-- ==================================================  Search ====================-->
+
+        <record model="ir.ui.view" id="sd_payaneh_nafti_meter_data_list_search">
+            <field name="name">meter_data Search</field>
+            <field name="model">sd_payaneh_nafti.meter_data</field>
+            <field name="arch" type="xml">
+                <search string="meter_data">
+                    <field name="report_date" />
+                    <field name="meter" />
+                    <field name="description" />
+                </search>
+            </field>
+        </record>
+
+
+        <!-- ==================================================  Action Window ====================-->
+
+        <record model="ir.actions.act_window" id="action_window_meter_data">
+            <field name="name">Meter Data</field>
+            <field name="res_model">sd_payaneh_nafti.meter_data</field>
+            <field name="view_mode">tree</field>
+
+        </record>
+
+        <!-- ==================================================  Menu ====================-->
+
+        <menuitem name="Meter Data"
+                  id="meter_data_menu"
+                  parent="settings_menu"
+                  groups="base.group_system"
+                  action="action_window_meter_data"/>
+
+<!--        <menuitem name="Actions"-->
+<!--                  id="sd_payaneh_nafti.actions_setting_menu"-->
+<!--                  parent="sd_payaneh_nafti.settings_menu"/>-->
+
+
+    </data>
+</odoo>

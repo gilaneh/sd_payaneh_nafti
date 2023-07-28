@@ -1,0 +1,30 @@
+
+.sd_contract_table div {
+overflow-x: auto; overflow-y: auto;
+
+}.sd_contract_table table th {
+color:#f6f6f6;
+    background :cornflowerblue;
+}
+.sd_contract_table table td, th {
+border: 1px solid #96D4D4 !important;
+padding: 10px;
+    text-align:center !important;
+}
+
+.sd_contract_table table tr:nth-child(even)td {
+background-color: #fff;
+}
+
+.sd_contract_table table tr:nth-child(odd) td{
+background-color: #e7f0ff;
+}
+.sd_contract_table table tfoot td {
+background-color: #345895 !important;
+color: #fff
+}
+
+.sd_contract_table table { page-break-inside:auto !important; }
+.sd_contract_table tr { page-break-inside:avoid !important; page-break-after:auto !important; }
+.sd_contract_table thead { display:table-header-group !important; }
+.sd_contract_table tfoot { display:table-footer-group !important;}

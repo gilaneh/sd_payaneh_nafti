@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="meter_report_wizard_form" model="ir.ui.view">
+            <field name="name">sd_payaneh_nafti.report.meter_report.form</field>
+            <field name="model">sd_payaneh_nafti.report.meter_report</field>
+            <field name="arch" type="xml">
+                <form js_class="many2many_no_add_delete">
+                    <group>
+                        <group>
+                            <field name="report_date"/>
+                        </group>
+                        <group>
+
+                        </group>
+                    </group>
+                    <group>
+                        <field name="meter_data">
+                            <tree delete="0" create="0" >
+                                <field name="report_date" readonly="1"/>
+                                <field name="meter" readonly="1"/>
+                                <field name="first_totalizer" />
+                                <field name="last_totalizer" />
+                                <field name="meter_amounts" />
+                                <field name="description"/>
+                            </tree>
+                        </field>
+
+                    </group>
+
+
+                    <footer>
+                        <button name="process_report" string="Generate" type="object" class="btn btn-primary"/>
+                        <button string="Cancel" special="cancel" class="btn-secondary"/>
+                    </footer>
+
+                </form>
+            </field>
+        </record>
+
+        <record id="meter_report_wizard_action" model="ir.actions.act_window">
+            <field name="name">Meter Report</field>
+            <field name="res_model">sd_payaneh_nafti.report.meter_report</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+
+        <menuitem name="Meter Report"
+                  sequence="20"
+                  id="meter_report_menu"
+                  parent="sd_payaneh_nafti.reports_menu"
+                  groups="sd_payaneh_nafti.group_sd_payaneh_nafti_users"
+                  action="meter_report_wizard_action"/>
+    </data>
+</odoo>
+

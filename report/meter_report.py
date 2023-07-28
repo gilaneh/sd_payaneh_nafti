@@ -8,74 +8,43 @@ from odoo import http
 
 
 # ########################################################################################
-class ReportSdPayanehNaftiLoadingPermit(models.AbstractModel):
-    _name = 'report.sd_payaneh_nafti.loading_permit_report_template'
-    _description = 'Loading Permit'
+class ReportSdPayanehNaftiMeterReport(models.AbstractModel):
+    _name = 'report.sd_payaneh_nafti.meter_report_template'
+    _description = 'Meter Report'
 
     # ########################################################################################
     @api.model
     def _get_report_values(self, docids, data=None):
         errors = []
-        doc_data_list = []
         context = self.env.context
+        calendar = context.get('lang')
+
         time_z = pytz.timezone(context.get('tz'))
         date_time = datetime.now(time_z)
         date_time = self.date_converter(date_time, context.get('lang'))
-        if docids:
-            input_records = self.env['sd_payaneh_nafti.input_info'].browse(docids)
-            # document_no = input_record.document_no
-            calendar = context.get('lang')
-        else:
-            form_data = data.get('form_data')
-            document_no = form_data.get('document_no')[1]
-            input_records = self.env['sd_payaneh_nafti.input_info'].search([('document_no', '=', document_no)])
-            calendar = form_data.get('calendar')
-            docids = [input_records.id]
+        form_data = data.get('form_data')
 
-        # if len(input_record) > 1:
-        #     errors.append(_('[ERROR] There is more than one record'))
-        # elif len(input_record) == 1:
-        for input_record in input_records:
-            issue_date = input_record.loading_date
-            if calendar == 'fa_IR':
-                issue_date = jdatetime.date.fromgregorian(date=issue_date).strftime('%Y/%m/%d')
-            tanker_no = {'plate_1': input_record.plate_1,
-                         'plate_2': input_record.plate_2,
-                         'plate_3': input_record.plate_3,
-                         'plate_4': input_record.plate_4,
-                         }
-            contract_no = str(input_record.registration_no.contract_no)
-            if input_record.registration_no.bill_of_lading:
-                contract_no += '-' + str(input_record.registration_no.bill_of_lading)
+        report_date = form_data.get('report_date')
 
-            doc_data = {
-                        # 'buyer': str(input_record.buyer.name),
-                        # 'contractor': str(input_record.contractor.name),
-                        'document_no': input_record.document_no,
-                        'contract_no': contract_no,
-                        'user_name': self.env.user.name,
-                        'tanker_no': tanker_no,
-                        'driver': input_record.driver,
-                        'contract_type': input_record.registration_no.contract_type,
-                        'cargo_type': input_record.registration_no.cargo_type.name,
-                        'front_container': input_record.front_container,
-                        'middle_container': input_record.middle_container,
-                        'back_container': input_record.back_container,
-                        'total': input_record.total,
-                        'issue_date': issue_date,
-                        'loading_no': input_record.loading_no,
-                        }
-            doc_data_list.append((input_record, doc_data))
-        # else:
-        #     input_record = []
-        #     errors.append(_('[ERROR] There is no record'))
-        company_logo = f'/web/image/res.partner/{1}/image_128/'
+        meter_data = self.env['sd_payaneh_nafti.meter_data'].search([('report_date', '=', report_date)], order='meter')
+        meter_amount_sum = sum(list([m.meter_amounts for m in meter_data]))
+
+        this_date_input = self.env['sd_payaneh_nafti.input_info'].search([('loading_date', '=', report_date),])
+        totalizer_weighbridge_sum = sum(list([t.totalizer_difference for t in this_date_input if t.weighbridge == 'yes']))
+        totalizer_sum = sum(list([t.totalizer_difference for t in this_date_input]))
+
+        metre_weighbridget_deff = meter_amount_sum + totalizer_weighbridge_sum - totalizer_sum
+        if calendar == 'fa_IR':
+            report_date_show = jdatetime.date.fromgregorian(date=this_date_input[0].loading_date).strftime('%Y/%m/%d')
         return {
             'doc_ids': docids,
             'doc_model': 'sd_payaneh_nafti.input_info',
-            # 'document_no': document_no,
-            'doc_data_list': doc_data_list,
-            # 'input_record': input_record,
+            'meter_data': meter_data,
+            'report_date_show': report_date_show,
+            'meter_amount_sum': meter_amount_sum,
+            'totalizer_weighbridge_sum': totalizer_weighbridge_sum,
+            'totalizer_sum': totalizer_sum,
+            'metre_weighbridget_deff': metre_weighbridget_deff,
             'errors': errors,
             }
 
