@@ -16,7 +16,7 @@
     # for the full list
     'category': 'Service Desk/Service Desk',
     'application': True,
-    'version': '1.0.9',
+    'version': '1.1.0',
 
     # any module necessary for this one to work correctly
     'depends': ['base', 'web', 'mail'],
@@ -28,6 +28,7 @@
         'views/views.xml',
         'views/settings.xml',
         'views/base_info.xml',
+        'views/meter_data.xml',
         'views/buyers.xml',
         'views/contractors.xml',
         'views/contract_number.xml',
@@ -40,6 +41,9 @@
         'report/loading_permit_report_template.xml',
         'report/loading_permit_report.xml',
         'wizard/loading_permit_report_wizard.xml',
+        'report/meter_report_template.xml',
+        'report/meter_report.xml',
+        'wizard/meter_report_wizard.xml',
         'report/cargo_document_report_template.xml',
         'report/cargo_document_report.xml',
         'wizard/cargo_document_report_wizard.xml',
@@ -56,7 +60,7 @@
         'web.assets_backend': [
 
             'sd_payaneh_nafti/static/src/css/style.scss',
-            # 'sd_payaneh_nafti/static/src/js/website_form_sd_payaneh_nafti.js'
+            'sd_payaneh_nafti/static/src/js/o_field_x2many_list_row_add_none.js'
         ],
         'web.report_assets_common': [
 

@@ -51,7 +51,7 @@ class SdPayanehNaftiInputInfo(models.Model):
     temperature_f = fields.Float(string='Temp. (F)', compute='_temperature_f', digits=(12, 1))
     pressure = fields.Float(string='Pressure (bar)', required=True, default=2.5)
     pressure_psi = fields.Integer(compute='_pressure_psi')
-    miter_no = fields.Selection([ ('1', '1'),
+    meter_no = fields.Selection([ ('1', '1'),
                                   ('2', '2'),
                                   ('3', '3'),
                                   ('4', '4'),

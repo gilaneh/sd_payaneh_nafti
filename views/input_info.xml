@@ -75,15 +75,15 @@
                                 <separator string="Tanker Status"/>
                                 <field name="sp_gr" digits="[4,4]"/>
                                 <field name="correction_factor" />
-                                <field name="api_a" />
-                                <field name="tab_13" />
-                                <field name="ctl" />
-                                <field name="cpl" />
+                                <field name="api_a" invisible="1" />
+                                <field name="tab_13" invisible="1"  />
+                                <field name="ctl" invisible="1" />
+                                <field name="cpl" invisible="1" />
                                 <field name="temperature" />
-                                <field name="temperature_f" />
+                                <field name="temperature_f" invisible="1" />
                                 <field name="pressure" />
-                                <field name="pressure_psi" />
-                                <field name="miter_no" />
+                                <field name="pressure_psi" invisible="1" />
+                                <field name="meter_no" />
                                 <separator string="Totalizer"/>
                                 <field name="totalizer_start" />
                                 <field name="totalizer_end" />
