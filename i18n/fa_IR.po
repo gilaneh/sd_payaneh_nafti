@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-26 14:05+0000\n"
-"PO-Revision-Date: 2023-07-26 19:17+0330\n"
+"POT-Creation-Date: 2023-07-28 02:59+0000\n"
+"PO-Revision-Date: 2023-07-28 06:33+0330\n"
 "Last-Translator: Arash Homayounfar <homayounfar@msn.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,6 +16,16 @@ msgstr ""
 "Plural-Forms: \n"
 "Language: fa\n"
 "X-Generator: Poedit 2.2\n"
+
+#. module: sd_payaneh_nafti
+#: model:ir.actions.report,print_report_name:sd_payaneh_nafti.cargo_document_report
+msgid "'CargoDocument-%s' % object.document_no"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.actions.report,print_report_name:sd_payaneh_nafti.loading_permit_report
+msgid "'LoadingPermit-%s' % object.document_no "
+msgstr ""
 
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_template
@@ -230,6 +240,7 @@ msgstr "تقویم"
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_wizard_form
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.loading_permit_report_wizard_form
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.meter_report_wizard_form
 msgid "Cancel"
 msgstr ""
 
@@ -248,7 +259,6 @@ msgstr "کارت هوشمند"
 #: model:ir.actions.report,name:sd_payaneh_nafti.cargo_document_report
 #: model:ir.model,name:sd_payaneh_nafti.model_report_sd_payaneh_nafti_cargo_document_report_template
 #: model:ir.model,name:sd_payaneh_nafti.model_sd_payaneh_nafti_report_cargo_document_report
-#: model:ir.ui.menu,name:sd_payaneh_nafti.sd_payaneh_nafti_cargo_document_report
 msgid "Cargo Document"
 msgstr "بارنامه"
 
@@ -367,12 +377,14 @@ msgstr "ضریب تصحیح"
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contractors__create_uid
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_destinations__create_uid
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__create_uid
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_meter_data__create_uid
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate1__create_uid
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate2__create_uid
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate3__create_uid
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate4__create_uid
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_report_cargo_document_report__create_uid
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_report_loading_permit_report__create_uid
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_report_meter_report__create_uid
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_sd_payaneh_nafti__create_uid
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__create_uid
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_signers__create_uid
@@ -389,12 +401,14 @@ msgstr "ایجاد شده توسط"
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contractors__create_date
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_destinations__create_date
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__create_date
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_meter_data__create_date
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate1__create_date
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate2__create_date
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate3__create_date
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate4__create_date
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_report_cargo_document_report__create_date
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_report_loading_permit_report__create_date
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_report_meter_report__create_date
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_sd_payaneh_nafti__create_date
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__create_date
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_signers__create_date
@@ -416,6 +430,11 @@ msgstr "تنظیمات داشبورد"
 #: model:ir.ui.menu,name:sd_payaneh_nafti.process_menu
 msgid "Data"
 msgstr "اطلاعات"
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.meter_report_template
+msgid "Date"
+msgstr ""
 
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.sd_payaneh_nafti_base_info_list_search
@@ -454,7 +473,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__description
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contractors__description
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_destinations__description
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_meter_data__description
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_signers__description
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.meter_report_template
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.sd_payaneh_nafti_contract_info_form
 msgid "Description"
 msgstr "توضیحات"
@@ -483,12 +504,14 @@ msgstr "مقصد ها"
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contractors__display_name
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_destinations__display_name
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__display_name
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_meter_data__display_name
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate1__display_name
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate2__display_name
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate3__display_name
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate4__display_name
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_report_cargo_document_report__display_name
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_report_loading_permit_report__display_name
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_report_meter_report__display_name
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_sd_payaneh_nafti__display_name
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__display_name
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_signers__display_name
@@ -556,7 +579,7 @@ msgstr ""
 #. module: sd_payaneh_nafti
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__first_extend_end_date
 msgid "First End Date"
-msgstr "تاریخ پایان"
+msgstr "تاریخ پایان اول"
 
 #. module: sd_payaneh_nafti
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__first_extend_no
@@ -566,7 +589,13 @@ msgstr "شماره تمدید اول"
 #. module: sd_payaneh_nafti
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__first_extend_star_date
 msgid "First Start Date"
-msgstr "تاریخ شروع"
+msgstr "تاریخ شروع اول"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_meter_data__first_totalizer
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.meter_report_template
+msgid "First Totalizer"
+msgstr "توتالایزر ابتدایی"
 
 #. module: sd_payaneh_nafti
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_base_info__message_follower_ids
@@ -632,6 +661,7 @@ msgstr "اطلاعات عمومی"
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_wizard_form
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.loading_permit_report_wizard_form
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.meter_report_wizard_form
 msgid "Generate"
 msgstr "ایجاد"
 
@@ -671,12 +701,14 @@ msgstr "پیام دارد"
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contractors__id
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_destinations__id
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__id
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_meter_data__id
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate1__id
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate2__id
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate3__id
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate4__id
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_report_cargo_document_report__id
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_report_loading_permit_report__id
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_report_meter_report__id
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_sd_payaneh_nafti__id
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__id
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_signers__id
@@ -842,17 +874,25 @@ msgstr ""
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contractors____last_update
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_destinations____last_update
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info____last_update
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_meter_data____last_update
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate1____last_update
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate2____last_update
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate3____last_update
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate4____last_update
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_report_cargo_document_report____last_update
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_report_loading_permit_report____last_update
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_report_meter_report____last_update
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_sd_payaneh_nafti____last_update
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_settings____last_update
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_signers____last_update
 msgid "Last Modified on"
 msgstr "تاریخ آخرین تغییر"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_meter_data__last_totalizer
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.meter_report_template
+msgid "Last Totalizer"
+msgstr "توتالایزر انتهایی"
 
 #. module: sd_payaneh_nafti
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_base_info__write_uid
@@ -864,12 +904,14 @@ msgstr "تاریخ آخرین تغییر"
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contractors__write_uid
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_destinations__write_uid
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__write_uid
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_meter_data__write_uid
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate1__write_uid
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate2__write_uid
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate3__write_uid
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate4__write_uid
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_report_cargo_document_report__write_uid
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_report_loading_permit_report__write_uid
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_report_meter_report__write_uid
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_sd_payaneh_nafti__write_uid
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__write_uid
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_signers__write_uid
@@ -886,12 +928,14 @@ msgstr "آخرین بروز رسانی توسط"
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contractors__write_date
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_destinations__write_date
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__write_date
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_meter_data__write_date
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate1__write_date
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate2__write_date
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate3__write_date
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_plate4__write_date
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_report_cargo_document_report__write_date
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_report_loading_permit_report__write_date
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_report_meter_report__write_date
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_sd_payaneh_nafti__write_date
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__write_date
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_signers__write_date
@@ -924,7 +968,6 @@ msgstr "شماره بارنامه"
 #: model:ir.actions.report,name:sd_payaneh_nafti.loading_permit_report
 #: model:ir.model,name:sd_payaneh_nafti.model_report_sd_payaneh_nafti_loading_permit_report_template
 #: model:ir.model,name:sd_payaneh_nafti.model_sd_payaneh_nafti_report_loading_permit_report
-#: model:ir.ui.menu,name:sd_payaneh_nafti.sd_payaneh_nafti_report
 msgid "Loading Permit"
 msgstr "دستور بارگیری"
 
@@ -937,6 +980,7 @@ msgstr "نوع بارگیری"
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__image
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_template
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.loading_permit_report_template
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.meter_report_template
 msgid "Logo"
 msgstr ""
 
@@ -986,6 +1030,29 @@ msgid "Messages"
 msgstr "پیام"
 
 #. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_meter_data__meter
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.meter_report_template
+msgid "Meter"
+msgstr "میتر"
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.meter_report_template
+msgid "Meter Amount"
+msgstr "خالص میتر"
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_meter_data__meter_amounts
+msgid "Meter Amounts"
+msgstr "مقادیر میتر"
+
+#. module: sd_payaneh_nafti
+#: model:ir.actions.act_window,name:sd_payaneh_nafti.action_window_meter_data
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_report_meter_report__meter_data
+#: model:ir.ui.menu,name:sd_payaneh_nafti.meter_data_menu
+msgid "Meter Data"
+msgstr "اطلاعات میتر"
+
+#. module: sd_payaneh_nafti
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__meter_gsv_b
 msgid "Meter G.S.V BBL"
 msgstr ""
@@ -999,6 +1066,20 @@ msgstr ""
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__meter_mt
 msgid "Meter M.T."
 msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__meter_no
+msgid "Meter No"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model:ir.actions.act_window,name:sd_payaneh_nafti.meter_report_wizard_action
+#: model:ir.actions.report,name:sd_payaneh_nafti.meter_report
+#: model:ir.model,name:sd_payaneh_nafti.model_report_sd_payaneh_nafti_meter_report_template
+#: model:ir.model,name:sd_payaneh_nafti.model_sd_payaneh_nafti_report_meter_report
+#: model:ir.ui.menu,name:sd_payaneh_nafti.meter_report_menu
+msgid "Meter Report"
+msgstr "گزارش میتر"
 
 #. module: sd_payaneh_nafti
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__meter_tov_l
@@ -1016,11 +1097,6 @@ msgstr "متریک تن"
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.loading_permit_report_template
 msgid "Middle Container"
 msgstr "مخزن وسطی"
-
-#. module: sd_payaneh_nafti
-#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__meter_no
-msgid "meter No"
-msgstr "شماره میتر"
 
 #. module: sd_payaneh_nafti
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_base_info__my_activity_date_deadline
@@ -1347,6 +1423,12 @@ msgid "Remaining Amount"
 msgstr "مقدار باقی مانده"
 
 #. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_meter_data__report_date
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_report_meter_report__report_date
+msgid "Report Date"
+msgstr "تاریخ گزارش"
+
+#. module: sd_payaneh_nafti
 #: model:ir.ui.menu,name:sd_payaneh_nafti.reports_menu
 msgid "Reports"
 msgstr "گزارش ها"
@@ -1638,18 +1720,16 @@ msgid "Yes"
 msgstr "بله"
 
 #. module: sd_payaneh_nafti
-#: code:addons/sd_payaneh_nafti/report/cargo_documente_report.py:0
-#: code:addons/sd_payaneh_nafti/report/loading_permit_report.py:0
+#: code:addons/sd_payaneh_nafti/report/loading_permit_report1.py:0
 #, python-format
 msgid "[ERROR] There is more than one record"
-msgstr "[خطا] بیش از یک رکورد"
+msgstr ""
 
 #. module: sd_payaneh_nafti
-#: code:addons/sd_payaneh_nafti/report/cargo_documente_report.py:0
-#: code:addons/sd_payaneh_nafti/report/loading_permit_report.py:0
+#: code:addons/sd_payaneh_nafti/report/loading_permit_report1.py:0
 #, python-format
 msgid "[ERROR] There is no record"
-msgstr "[خطا] رکورد وجود ندارد"
+msgstr ""
 
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.res_config_settings_view_form
@@ -1737,9 +1817,8 @@ msgid "destinations"
 msgstr "مقصد ها"
 
 #. module: sd_payaneh_nafti
-#: model:ir.actions.report,print_report_name:sd_payaneh_nafti.cargo_document_report
-#: model:ir.actions.report,print_report_name:sd_payaneh_nafti.loading_permit_report
-msgid "f'oeid_payaneh_{object.name}' "
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.sd_payaneh_nafti_meter_data_list_search
+msgid "meter_data"
 msgstr ""
 
 #. module: sd_payaneh_nafti
@@ -1803,6 +1882,11 @@ msgid "sd_payaneh_nafti.input_info"
 msgstr ""
 
 #. module: sd_payaneh_nafti
+#: model:ir.model,name:sd_payaneh_nafti.model_sd_payaneh_nafti_meter_data
+msgid "sd_payaneh_nafti.meter_data"
+msgstr ""
+
+#. module: sd_payaneh_nafti
 #: model:ir.model,name:sd_payaneh_nafti.model_sd_payaneh_nafti_plate1
 msgid "sd_payaneh_nafti.plate1"
 msgstr ""
@@ -1843,6 +1927,16 @@ msgid "signers"
 msgstr "امظاء کنندگان"
 
 #. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.meter_report_template
+msgid "اختلاف بارگیری میتر و باسکول با اسناد صادر شده"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.meter_report_template
+msgid "اداره نظارت بر صادرات، واردات و مبادلات مواد نفتي"
+msgstr ""
+
+#. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_template
 msgid "بارنامه"
 msgstr ""
@@ -1850,12 +1944,28 @@ msgstr ""
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_template
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.loading_permit_report_template
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.meter_report_template
 msgid "تاسیسات بارگیری زمینی میعانات گازی پارس جنوبی"
 msgstr ""
 
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.loading_permit_report_template
 msgid "تایید حراست ورودی"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_template
+msgid "توزیع نسخ :"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.meter_report_template
+msgid "جمع خالص بارگیری شده از میتر"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.meter_report_template
+msgid "جمع خالص میتر در بارگیری از باسکول"
 msgstr ""
 
 #. module: sd_payaneh_nafti
@@ -1866,13 +1976,20 @@ msgstr ""
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_template
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.loading_permit_report_template
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.meter_report_template
 msgid "شرکت ملی نفت ایران"
 msgstr ""
 
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_template
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.loading_permit_report_template
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.meter_report_template
 msgid "شرکت پایانه های نفتی ایران"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.meter_report_template
+msgid "مقدار اسناد بارگیری توسط میتر و باسکول"
 msgstr ""
 
 #. module: sd_payaneh_nafti
@@ -1888,4 +2005,34 @@ msgstr ""
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_template
 msgid "نام و امضاء کاربر صادرکننده"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_template
+msgid "نسخه اصلی : خریدار"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_template
+msgid "نسخه حراست"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_template
+msgid "نسخه مبدأ : بایگانی"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_template
+msgid "نسخه مقصد : پیمانکار حمل"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.meter_report_template
+msgid "پایانه میعانات گازی پارس جنوبی"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.meter_report_template
+msgid "گزارش روزانه بارگیری میتر"
 msgstr ""
