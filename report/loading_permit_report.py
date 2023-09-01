@@ -45,8 +45,8 @@ class ReportSdPayanehNaftiLoadingPermit(models.AbstractModel):
                          'plate_4': input_record.plate_4,
                          }
             contract_no = str(input_record.registration_no.contract_no)
-            if input_record.registration_no.bill_of_lading:
-                contract_no += '-' + str(input_record.registration_no.bill_of_lading)
+            if input_record.registration_no.order_no:
+                contract_no += '-' + str(input_record.registration_no.order_no)
 
             doc_data = {
                         # 'buyer': str(input_record.buyer.name),

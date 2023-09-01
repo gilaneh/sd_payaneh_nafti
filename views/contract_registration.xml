@@ -10,7 +10,7 @@
                 <tree>
                     <field name="registration_no" />
                     <field name="contract_no" />
-                    <field name="bill_of_lading" />
+                    <field name="order_no" />
                     <field name="buyer" />
                     <field name="amount" />
                     <field name="unit" />
@@ -33,7 +33,7 @@
                                 <field name="registration_no" />
                                 <field name="letter_no" />
                                 <field name="contract_no" />
-                                <field name="bill_of_lading" />
+                                <field name="order_no" />
                                 <field name="buyer"
                                        options="{ 'no_quick_create':True,'no_create_edit': True, 'no_open': True}" />
                                 <field name="amount" />
@@ -89,7 +89,7 @@
                 <search string="Dealers">
                   <field name="registration_no" />
                     <field name="contract_no" />
-                    <field name="bill_of_lading" />
+                    <field name="order_no" />
                     <field name="buyer" />
                     <field name="amount" />
                     <field name="unit" />

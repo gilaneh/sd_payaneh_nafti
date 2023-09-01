@@ -17,6 +17,7 @@ class SdPayanehNaftiContractInfo(models.Model):
     registration_no = fields.Char(required=True,)
     contract_no = fields.Char(required=True,)
     bill_of_lading = fields.Char(required=True,)
+    order_no = fields.Char(required=True,)
     buyer = fields.Many2one('sd_payaneh_nafti.base_info',required=True,)
     destination = fields.Char(required=True,)
     start_date = fields.Date(default=lambda self: date.today() )
