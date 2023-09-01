@@ -1200,7 +1200,7 @@ msgstr ""
 #: code:addons/sd_payaneh_nafti/models/input_info.py:0
 #, python-format
 msgid "Not acceptable"
-msgstr "شماره دارایی باید به شکل 6nnn-nnnnnn باشد"
+msgstr "Not acceptable"
 
 #. module: sd_payaneh_nafti
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_sd_payaneh_nafti__description
