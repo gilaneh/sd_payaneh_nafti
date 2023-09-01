@@ -37,6 +37,7 @@ class ReportSdPayanehNaftiMeterReport(models.AbstractModel):
         if calendar == 'fa_IR':
             report_date_show = jdatetime.date.fromgregorian(date=this_date_input[0].loading_date).strftime('%Y/%m/%d')
         return {
+            'docs': this_date_input[0] if this_date_input else '',
             'doc_ids': docids,
             'doc_model': 'sd_payaneh_nafti.input_info',
             'meter_data': meter_data,

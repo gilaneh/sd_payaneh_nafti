@@ -77,14 +77,15 @@ class ReportSdPayanehNaftiCargoDocument(models.AbstractModel):
             }
             doc_data_list.append((input_record, doc_data))
 
-        print('***' * 30, '\n', doc_data_list)
+        print('***' * 30, 'doc_data_list\n', context.get('lang'),  doc_data_list)
         company_logo = f'/web/image/res.partner/{1}/image_128/'
         return {
+            'docs': input_records,
             'doc_ids': docids,
             'doc_model': 'sd_payaneh_nafti.input_info',
             # 'document_no': document_no,
             'doc_data_list': doc_data_list,
-            # 'input_record': input_record,
+            'lang': context.get('lang'),
             #
             'errors': errors,
             }

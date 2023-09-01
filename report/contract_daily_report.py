@@ -111,6 +111,7 @@ class ReportSdPayanehNaftiContractDailyReport(models.AbstractModel):
         #     errors.append(_('[ERROR] There is no record'))
         company_logo = f'/web/image/res.partner/{1}/image_128/'
         return {
+            'docs': contract_records,
             'doc_ids': docids,
             'doc_model': 'sd_payaneh_nafti.input_info',
             'report_date': report_date,
