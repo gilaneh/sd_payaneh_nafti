@@ -18,6 +18,7 @@ class SdPayanehNaftiContractInfo(models.Model):
     letter_no = fields.Char(required=True,)
     contract_no = fields.Char(required=True,)
     bill_of_lading = fields.Char(required=False,)
+    order_no = fields.Char(required=False,)
     buyer = fields.Many2one('sd_payaneh_nafti.buyers', required=True,)
     amount = fields.Integer(required=True,)
     unit = fields.Selection([('barrel', 'Barrel'), ('metric_ton', 'Metric Ton')], default='metric_ton', required=True,)

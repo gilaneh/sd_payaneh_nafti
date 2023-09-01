@@ -79,15 +79,15 @@ class SdPayanehNaftiInputInfo(models.Model):
     tab_13 = fields.Float(string='TAB.13', digits=(12, 5), compute='_tab_13')
     meter_tov_l = fields.Float(string='Meter T.O.V Liter')
     meter_gsv_l = fields.Float(string='Meter G.S.V Liter')
-    meter_gsv_b = fields.Float(string='Meter G.S.V BBL')
+    meter_gsv_b = fields.Float(string='Meter G.S.V BBL', digits=[8, 0])
     meter_mt = fields.Float(string='Meter M.T.')
     wb_tov_l = fields.Float(string='WB T.O.V Liter')
     wb_gsv_l = fields.Float(string='WB G.S.V Liter')
-    wb_gsv_b = fields.Float(string='WB G.S.V BBL')
+    wb_gsv_b = fields.Float(string='WB G.S.V BBL', digits=[8, 0])
     wb_mt = fields.Float(string='WB M.T.')
     final_tov_l = fields.Float(string='Final T.O.V Liter', compute='_finals')
     final_gsv_l = fields.Float(string='Final G.S.V Liter', compute='_finals')
-    final_gsv_b = fields.Float(string='Final G.S.V BBL', compute='_finals')
+    final_gsv_b = fields.Float(string='Final G.S.V BBL', compute='_finals', digits=[8, 0])
     final_mt = fields.Float(string='Final M.T.', compute='_finals')
 
     @api.onchange('weighbridge')
@@ -100,6 +100,7 @@ class SdPayanehNaftiInputInfo(models.Model):
                 final_tov_l = round((final_gsv_l / rec.ctl) / rec.cpl, 0)
             else:
                 final_tov_l = round((rec.cpl * rec.totalizer_difference * rec.correction_factor), 0 )
+                print(f'\n final tov l: \n{rec.cpl * rec.totalizer_difference * rec.correction_factor}\n')
                 final_gsv_l = round((rec.cpl * rec.ctl * rec.totalizer_difference * rec.correction_factor), 0 )
                 final_gsv_b = final_gsv_l / 158.987
                 final_mt = round(final_gsv_b * rec.tab_13, 3)
@@ -224,8 +225,6 @@ class SdPayanehNaftiInputInfo(models.Model):
 
             vals['loading_no'] = str(jdatetime.date.today().year) + f"/{int(vals['document_no']):07d}"
         return super(SdPayanehNaftiInputInfo, self).create(vals)
-
-
 
 
 class SdPayanehNaftiPlate1(models.Model):

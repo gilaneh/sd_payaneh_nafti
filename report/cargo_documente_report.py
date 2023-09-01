@@ -50,8 +50,8 @@ class ReportSdPayanehNaftiCargoDocument(models.AbstractModel):
                   حق هرگونه ادعا و یا اعتراض در هر زمینه را از خود سلب می نمایم
             '''
             contract_no = str(input_record.registration_no.contract_no)
-            if input_record.registration_no.bill_of_lading:
-                contract_no += '-' + str(input_record.registration_no.bill_of_lading)
+            if input_record.registration_no.order_no:
+                contract_no += '-' + str(input_record.registration_no.order_no)
 
             doc_data = {
                 'document_no': input_record.document_no,

@@ -45,21 +45,25 @@
 
                                 <label for="plate_1"/>
                                 <div class="o_row text-center">
-                                    <div class="col-3 px-2 border rounded">
+                                    <div class="col-3 px-2 border border-info rounded">
+<!--                                        <div t-attrs="{'invisible': [('plate_1', '=', '')]}">58</div>-->
                                         <field name="plate_1" options="{'no_quick_create':True,'no_create_edit': True, 'no_open': True}"/>
                                     </div>
-                                    <div class="o_row border rounded">
+                                    <div class="o_row border border-info rounded">
 
                                         <div class="o_col px-2 ">
+<!--                                            <div>123</div>-->
                                             <field name="plate_2" />
                                         </div>
                                         <div class="o_col">
+<!--                                            <div>ن</div>-->
                                             <field name="plate_3" options="{'no_create_edit': True, 'no_open': True}"/>
                                         </div>
                                         <div class="o_col px-2 ">
+<!--                                            <div>45</div>-->
                                             <field name="plate_4" />
                                         </div>
-                                        <div class="o_col text-300" style="background-color: #10109f;">IR</div>
+                                        <div class="o_col text-300" style="background-color: #10109f; align-self: center;">IR</div>
                                     </div>
 
 
@@ -75,10 +79,7 @@
                                 <separator string="Tanker Status"/>
                                 <field name="sp_gr" digits="[4,4]"/>
                                 <field name="correction_factor" />
-                                <field name="api_a" invisible="1" />
-                                <field name="tab_13" invisible="1"  />
-                                <field name="ctl" invisible="1" />
-                                <field name="cpl" invisible="1" />
+
                                 <field name="temperature" />
                                 <field name="temperature_f" invisible="1" />
                                 <field name="pressure" />
@@ -103,6 +104,34 @@
 
 
                         </group>
+                        <notebook groups="base.group_system">
+                            <page string="Misc">
+                                <group>
+                                    <group>
+                                        <field name="api_a" groups="base.group_system"/>
+                                        <field name="tab_13"  groups="base.group_system"/>
+                                        <field name="ctl" groups="base.group_system"/>
+                                        <field name="cpl" groups="base.group_system"/>
+
+                                        <field name="meter_tov_l" groups="base.group_system"/>
+                                        <field name="meter_gsv_l" groups="base.group_system"/>
+                                        <field name="meter_gsv_b" groups="base.group_system"/>
+                                        <field name="meter_mt" groups="base.group_system"/>
+
+                                        <field name="wb_tov_l" groups="base.group_system"/>
+                                        <field name="wb_gsv_l" groups="base.group_system"/>
+                                        <field name="wb_gsv_b" groups="base.group_system"/>
+                                        <field name="wb_mt" groups="base.group_system"/>
+
+                                        <field name="final_tov_l" groups="base.group_system"/>
+                                        <field name="final_gsv_l" groups="base.group_system"/>
+                                        <field name="final_gsv_b" groups="base.group_system"/>
+                                        <field name="final_mt" groups="base.group_system"/>
+
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
                     </sheet>
 
                 </form>

@@ -22,3 +22,33 @@
 .payaneh_reports th{
     color: #343a40;
 }
+
+.contract_daily_report_table thead tr th{
+    vertical-align: middle !important;
+    border-bottom-color: black;
+
+}
+.contract_daily_report_table thead p{
+    margin: 3px;
+}
+
+.contract_daily_report_table thead tr th,
+.contract_daily_report_table tbody tr td,
+.contract_daily_report_table tfoot tr td{
+    padding: 0px 5px;
+}
+
+.contract_daily_report_table tfoot tr td{
+    font-weight: bold;
+    border-top-color: black;
+
+}
+
+
+
+.contract_daily_report_table .th_rotate {
+    transform: rotate(270deg);
+}
+.contract_daily_report_table .plate_data {
+    min-width: 100px;
+}

@@ -3,3 +3,4 @@
 from . import loading_permit_report_wizard
 from . import cargo_document_report_wizard
 from . import meter_report_wizard
+from . import contract_daily_report_wizard
