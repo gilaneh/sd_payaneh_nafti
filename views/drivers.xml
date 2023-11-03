@@ -1,0 +1,85 @@
+<odoo>
+    <data>
+
+         <!-- ==================================================  sd_payaneh_nafti.drivers ====================-->
+
+        <record model="ir.ui.view" id="sd_payaneh_nafti_drivers_list">
+            <field name="name">Drivers List</field>
+            <field name="model">sd_payaneh_nafti.drivers</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                    <field name="card_no" />
+
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="sd_payaneh_nafti_drivers_form">
+            <field name="name">Drivers Form</field>
+            <field name="model">sd_payaneh_nafti.drivers</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+
+                        <field name="image_1920" widget='image' class="oe_avatar" options='{"zoom": true, }'/>
+                       <div class="oe_title">
+                            <h1 class="d-flex">
+                                <field name="name" placeholder="Driver's Name"/>
+                            </h1>
+                            <h2>
+<!--                                <field name="job_title" placeholder="Job Position" />-->
+                            </h2>
+                        </div>
+
+                    <group>
+                        <group>
+                            <field name="card_no" />
+                            <field name="description" />
+
+                        </group>
+
+
+                    </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- ==================================================  Search ====================-->
+
+        <record model="ir.ui.view" id="sd_payaneh_nafti_drivers_list_search">
+            <field name="name">Drivers Search</field>
+            <field name="model">sd_payaneh_nafti.drivers</field>
+            <field name="arch" type="xml">
+                <search string="Drivers">
+                    <field name="name" />
+                    <field name="description" />
+                </search>
+            </field>
+        </record>
+
+
+        <!-- ==================================================  Action Window ====================-->
+
+        <record model="ir.actions.act_window" id="action_window_drivers">
+            <field name="name">Drivers</field>
+            <field name="res_model">sd_payaneh_nafti.drivers</field>
+            <field name="view_mode">tree,form</field>
+
+        </record>
+
+        <!-- ==================================================  Menu ====================-->
+
+        <menuitem name="Drivers"
+                  id="drivers_menu"
+                  parent="settings_menu"
+                  action="action_window_drivers"/>
+
+<!--        <menuitem name="Actions"-->
+<!--                  id="sd_payaneh_nafti.actions_setting_menu"-->
+<!--                  parent="sd_payaneh_nafti.settings_menu"/>-->
+
+
+    </data>
+</odoo>

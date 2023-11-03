@@ -23,25 +23,35 @@ class ReportSdPayanehNaftiMeterReport(models.AbstractModel):
         date_time = datetime.now(time_z)
         date_time = self.date_converter(date_time, context.get('lang'))
         form_data = data.get('form_data')
+        date_format = '%Y-%m-%d'
+        start_date = form_data.get('start_date')
+        start_date = datetime.strptime(start_date, date_format).date()
+        meter_data = self.env['sd_payaneh_nafti.meter_data'].search([('report_date', '=', start_date)], order='meter')
+        if calendar == 'fa_IR':
+            s_start_date = jdatetime.date.fromgregorian(date=start_date).strftime("%Y/%m/%d")
+        else:
+            s_start_date = start_date.strftime("%Y/%m/%d")
 
-        report_date = form_data.get('report_date')
 
-        meter_data = self.env['sd_payaneh_nafti.meter_data'].search([('report_date', '=', report_date)], order='meter')
         meter_amount_sum = sum(list([m.meter_amounts for m in meter_data]))
 
-        this_date_input = self.env['sd_payaneh_nafti.input_info'].search([('loading_date', '=', report_date),])
+        this_date_input = self.env['sd_payaneh_nafti.input_info'].search([('loading_date', '=', start_date),])
+        if len(this_date_input) == 0:
+            return {
+                'errors': [_(f'No record have found for selected date: {s_start_date} ')],
+            }
         totalizer_weighbridge_sum = sum(list([t.totalizer_difference for t in this_date_input if t.weighbridge == 'yes']))
         totalizer_sum = sum(list([t.totalizer_difference for t in this_date_input]))
 
         metre_weighbridget_deff = meter_amount_sum + totalizer_weighbridge_sum - totalizer_sum
-        if calendar == 'fa_IR':
-            report_date_show = jdatetime.date.fromgregorian(date=this_date_input[0].loading_date).strftime('%Y/%m/%d')
+        # if calendar == 'fa_IR':
+            # report_date_show = jdatetime.date.fromgregorian(date=this_date_input[0].loading_date).strftime('%Y/%m/%d')
         return {
             'docs': this_date_input[0] if this_date_input else '',
             'doc_ids': docids,
             'doc_model': 'sd_payaneh_nafti.input_info',
             'meter_data': meter_data,
-            'report_date_show': report_date_show,
+            'report_date_show': s_start_date,
             'meter_amount_sum': meter_amount_sum,
             'totalizer_weighbridge_sum': totalizer_weighbridge_sum,
             'totalizer_sum': totalizer_sum,

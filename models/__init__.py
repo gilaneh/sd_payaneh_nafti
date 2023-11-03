@@ -3,6 +3,7 @@
 from . import models
 from . import settings
 from . import buyers
+from . import drivers
 from . import contractors
 from . import contract_number
 from . import destinations

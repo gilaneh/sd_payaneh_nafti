@@ -8,7 +8,7 @@
                 <form js_class="many2many_no_add_delete">
                     <group>
                         <group>
-                            <field name="report_date"/>
+                            <field name="start_date"/>
                         </group>
                         <group>
 
