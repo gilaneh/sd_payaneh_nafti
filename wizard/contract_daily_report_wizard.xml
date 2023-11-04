@@ -8,15 +8,15 @@
                 <form>
                     <group>
                         <group>
-                            <field name="registration_no" options='{"no_open": True, "no_create": True}'/>
                             <field name="report_date" />
-                            <field name="payaneh_agent" />
-                            <field name="observe_agent" />
-                            <field name="buyer_agent" />
+                            <field name="registration_no" options='{"no_open": True, "no_create": True}'/>
+<!--                            <field name="payaneh_agent" />-->
+<!--                            <field name="observe_agent" />-->
+<!--                            <field name="buyer_agent" />-->
                         </group>
                         <group>
 <!--                            <field name="start_date" />-->
-                            <field name="calendar" invisible="context.get('lang') != 'fa_IR'"/>
+<!--                            <field name="calendar" invisible="context.get('lang') != 'fa_IR'"/>-->
                         </group>
                     </group>
 
@@ -31,7 +31,7 @@
         </record>
 
         <record id="contract_daily_report_wizard_action" model="ir.actions.act_window">
-            <field name="name">Cargo Document</field>
+            <field name="name">Contract Daily Report</field>
             <field name="res_model">sd_payaneh_nafti.report.contract_daily</field>
             <field name="view_mode">form</field>
             <field name="target">new</field>

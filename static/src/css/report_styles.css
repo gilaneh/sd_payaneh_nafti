@@ -52,3 +52,59 @@
 .contract_daily_report_table .plate_data {
     min-width: 100px;
 }
+
+ .monthly_report_table tbody td{
+    vertical-align: middle;
+
+   padding-right: 0.25rem !important;
+   padding-left: 0.25rem !important;
+   padding-top: 0.05rem !important;
+   padding-bottom: 0.05rem !important;
+
+}
+.monthly_report_table tbody{
+    border-top: solid;
+    border-bottom: solid;
+}
+.monthly_report_table tfoot tr{
+    border-bottom: outset;
+}
+.monthly_report_table thead th, .monthly_report_table tfoot td{
+    vertical-align: middle;
+   padding-right: 0.25rem !important;
+   padding-left: 0.25rem !important;
+   padding-top: 0.15rem !important;
+   padding-bottom: 0.15rem !important;
+}
+
+.monthly_report_table .monthly_report_table_total{
+    background-color: #9a9a9a59;
+    font-weight: bold;
+
+
+}
+
+
+.daily_report_table thead th, .daily_report_table tfoot td{
+    vertical-align: middle;
+   padding-right: 0.25rem !important;
+   padding-left: 0.25rem !important;
+   padding-top: 0.15rem !important;
+   padding-bottom: 0.15rem !important;
+}
+ .daily_report_table tbody td{
+    vertical-align: middle;
+
+   padding-right: 0.25rem !important;
+   padding-left: 0.25rem !important;
+   padding-top: 0.05rem !important;
+   padding-bottom: 0.05rem !important;
+
+}
+.daily_report_table tbody{
+    border-top: solid;
+    border-bottom: solid;
+}
+.daily_report_table tfoot tr{
+    border-bottom: outset;
+}

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="daily_report_table_header">
+            <tr>
+                <th>ردیف</th>
+                <th>
+                    <span>شماره</span>
+                    <br/>
+                    <span>قرارداد</span>
+                </th>
+                <th>
+                    <span>شماره</span>
+                    <br/>
+                    <span>حواله</span>
+                </th>
+                <th style="width:25%;">خریدار</th>
+                <th>
+                    <span>شروع</span>
+                    <br/>
+                    <span>دوره</span>
+                </th>
+                <th>
+                    <span>پایان</span>
+                    <br/>
+                    <span>دوره</span>
+                </th>
+                <th style="width:25%;">مقصد</th>
+                <th>
+                    <span>مقداردریافتی</span>
+                    <br/>
+                    <span>درروز</span>
+                    <br/>
+                    <span style="direction:ltr;">(BBL/M)</span>
+                </th>
+                <th>
+                    <span>تعداد تانکر</span>
+                    <br/>
+                    <span>ارسالی روز</span>
+                </th>
+                <th>
+                    <span>باقیمانده</span>
+                    <br/>
+                    <span style="direction:ltr;">(BBL/MT)</span>
+                </th>
+                <th>
+                    <span>تعداد تانکر</span>
+                    <br/>
+                    <span>باقیمانده</span>
+                </th>
+
+            </tr>
+        </template>
+        <template id="daily_report_table_body">
+            <tr>
+                <t t-foreach="row_data_line" t-as="row_data">
+                    <td t-esc="row_data"></td>
+
+                </t>
+            </tr>
+        </template>
+        <template id="daily_report_table_footer">
+            <tr>
+                <td colspan="7">جمع</td>
+                <td t-esc="footer_data['total_gsv_l']"></td>
+                <td t-esc="footer_data['total_tanks']"></td>
+                <td t-esc="footer_data['total_remain']"></td>
+                <td t-esc="footer_data['total_remain_tanks']"></td>
+            </tr>
+        </template>
+
+        <template id="daily_report_data">
+            <!--            <t t-call="web.html_container">-->
+            <!--                <t t-call="web.basic_layout">-->
+            <!--                <t t-call="web.internal_layout">-->
+            <div class="page">
+                <div class="container iransans_font" style="font-size: .9rem">
+                    <div class="container mt-2">
+                        <div class="container iransans_font">
+                            <div style="direction:rtl">
+                                <div class="text-center">
+                                    <div>
+                                        <img alt="Logo" t-att-src="'/logo?company=1'" t-att-alt="''"
+                                             style=" height: 50px;" height="50"/>
+                                    </div>
+                                    <div>شرکت ملی نفت ایران</div>
+                                    <div>شرکت پایانه های نفتی ایران</div>
+                                    <div>تاسیسات بارگیری زمینی میعانات گازی پارس جنوبی</div>
+                                    <div class="h4 mt-2 mb-4">
+                                        گزارش روزانه قراردادهای بارگیری نفتکش های زمینی میعانات گازی
+                                    </div>
+                                </div>
+                                <div class="row my-1">
+                                    <div class="col-9"></div>
+                                    <div class="col-3">
+                                        <span>تاریخ :</span>
+                                        <span t-esc="dates[0]"></span>
+                                    </div>
+
+                                </div>
+                                <div>
+                                    <table class="table table-bordered border-0 text-center daily_report_table">
+                                        <thead class=" text-center">
+                                            <t t-call="sd_payaneh_nafti.daily_report_table_header"/>
+                                        </thead>
+                                        <tbody>
+                                            <t t-foreach="row_data_lines" t-as="row_data_line">
+                                                <t t-call="sd_payaneh_nafti.daily_report_table_body"/>
+                                            </t>
+                                        </tbody>
+                                        <tfoot>
+                                            <t t-call="sd_payaneh_nafti.daily_report_table_footer"/>
+                                        </tfoot>
+                                    </table>
+
+                                </div>
+                                <div class="mt-5">تهیه کننده :</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-5"></div>
+                    <div class="mb-5"></div>
+                </div>
+            </div>
+
+
+            <!--                </t>-->
+            <!--            </t>-->
+        </template>
+
+        <template id="daily_report_template">
+            <t t-call="web.basic_layout">
+                <div t-if="errors != []">
+                    <div class="container mt-2 text-center">
+                        <div class="border border-danger rounded p-3" style="direction: ltr" t-esc="errors[0]"></div>
+                    </div>
+                </div>
+                <div t-if="errors == []">
+                    <t t-foreach="docs" t-as="o">
+                        <t t-call="sd_payaneh_nafti.daily_report_data" t-lang="lang"/>
+                    </t>
+                </div>
+            </t>
+
+        </template>
+    </data>
+</odoo>

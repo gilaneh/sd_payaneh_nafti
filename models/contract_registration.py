@@ -41,9 +41,18 @@ class SdPayanehNaftiContractInfo(models.Model):
 
     description = fields.Char()
 
+    def copy_order_no(self):
+        for rec in self:
+            rec.order_no = rec.bill_of_lading
     @api.model
     def create(self, vals):
         if vals.get('registration_no', _('New')) == _('New'):
             vals['registration_no'] = self.env['ir.sequence'].next_by_code('sd_payaneh_nafti.contract_registration') or _('New')
 
         return super(SdPayanehNaftiContractInfo, self).create(vals)
+
+class SdPayanehNaftiContractInfoInit(models.Model):
+    _inherit = 'sd_payaneh_nafti.contract_registration'
+
+    init_date = fields.Date()
+    init_amount = fields.Integer()

@@ -87,8 +87,9 @@ class SdPayanehNaftiInputInfo(models.Model):
     wb_mt = fields.Float(string='WB M.T.')
     final_tov_l = fields.Float(string='Final T.O.V Liter', compute='_finals')
     final_gsv_l = fields.Float(string='Final G.S.V Liter', compute='_finals')
-    final_gsv_b = fields.Float(string='Final G.S.V BBL', compute='_finals', digits=[8, 0])
+    final_gsv_b = fields.Float(string='Final G.S.V BBL', compute='_finals', digits=[8, 2])
     final_mt = fields.Float(string='Final M.T.', compute='_finals')
+
 
     @api.onchange('weighbridge')
     def _finals(self):
@@ -100,7 +101,7 @@ class SdPayanehNaftiInputInfo(models.Model):
                 final_tov_l = round((final_gsv_l / rec.ctl) / rec.cpl, 0)
             else:
                 final_tov_l = round((rec.cpl * rec.totalizer_difference * rec.correction_factor), 0 )
-                print(f'\n final tov l: \n{rec.cpl * rec.totalizer_difference * rec.correction_factor}\n')
+                # print(f'\n final tov l: \n{rec.cpl * rec.totalizer_difference * rec.correction_factor}\n')
                 final_gsv_l = round((rec.cpl * rec.ctl * rec.totalizer_difference * rec.correction_factor), 0 )
                 final_gsv_b = final_gsv_l / 158.987
                 final_mt = round(final_gsv_b * rec.tab_13, 3)
@@ -152,8 +153,8 @@ class SdPayanehNaftiInputInfo(models.Model):
         param_ai6 = float(self.env['ir.config_parameter'].sudo().get_param('sd_payaneh_nafti.param_ai6'))
         param_ai7 = float(self.env['ir.config_parameter'].sudo().get_param('sd_payaneh_nafti.param_ai7'))
         param_ai8 = float(self.env['ir.config_parameter'].sudo().get_param('sd_payaneh_nafti.param_ai8'))
-        print(f'\nk_0: {k_0}\ndelta_60: {delta_60}\nparam_b: {param_b}\n')
-        print(type(self.env['ir.config_parameter'].sudo().get_param('sd_payaneh_nafti.param_b')))
+        # print(f'\nk_0: {k_0}\ndelta_60: {delta_60}\nparam_b: {param_b}\n')
+        # print(type(self.env['ir.config_parameter'].sudo().get_param('sd_payaneh_nafti.param_b')))
 
         for rec in self:
             try:
@@ -170,10 +171,10 @@ class SdPayanehNaftiInputInfo(models.Model):
                 fp = math.exp((param_a+param_b*t_star+((param_c+param_d*t_star)/(rec_pi_star**2))))
                 rec.ctl = math.exp((-(alpha_60 * delta_t)) * (1 + ((0.8 * alpha_60) * (delta_t + delta_60))))
                 rec.cpl = 1 / (1-((10 ** -5) * (fp * rec.pressure_psi)))
-                print(f'\nrec_pi: {rec_pi}\nrec_a: {rec_a}\nrec_b: {rec_b}\nrec_pi_star: {rec_pi_star}\nalpha_60: {alpha_60}\n  ')
+                # print(f'\nrec_pi: {rec_pi}\nrec_a: {rec_a}\nrec_b: {rec_b}\nrec_pi_star: {rec_pi_star}\nalpha_60: {alpha_60}\n  ')
             except Exception as e:
                 logging.error(f'_ctl_cpl: {e}')
-                print(f'_ctl_cpl: {e}')
+                # print(f'_ctl_cpl: {e}')
                 rec.ctl = 1
                 rec.cpl = 1
 

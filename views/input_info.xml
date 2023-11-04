@@ -15,7 +15,11 @@
                     <field name="registration_no" />
                     <field name="contractor" />
                     <field name="buyer" />
-
+                    <field name="temperature" groups="base.group_system" optional="hide"/>
+                    <field name="final_tov_l" groups="base.group_system" optional="hide"/>
+                    <field name="final_gsv_l" groups="base.group_system" optional="hide"/>
+                    <field name="final_gsv_b" groups="base.group_system" optional="hide"/>
+                    <field name="final_mt" groups="base.group_system" optional="hide"/>
                 </tree>
             </field>
         </record>

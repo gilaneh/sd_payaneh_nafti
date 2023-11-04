@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="contract_monthly_report_table_header">
+            <tr style="direction:ltr;">
+                <th>ROW</th>
+                <th>DATE</th>
+                <th>SP.GR.</th>
+                <th>G.S.V. (LITER)</th>
+                <th>G.S.V. (BBLS)</th>
+                <th>M.T.</th>
+                <th>Tanker no.</th>
+            </tr>
+        </template>
+        <template id="contract_monthly_report_table_body">
+            <tr>
+                <t t-foreach="row_data_line" t-as="row_data">
+                    <td t-esc="row_data"></td>
+                </t>
+            </tr>
+        </template>
+
+        <template id="contract_monthly_report_table_footer">
+            <tr>
+                <td colspan="3">جمع قرارداد در ماه جاری</td>
+                <td t-esc="footer_data['total_gsv_l']"></td>
+                <td t-esc="footer_data['total_gsv_b']"></td>
+                <td t-esc="footer_data['total_mt']"></td>
+                <td t-esc="footer_data['total_tankers']"></td>
+            </tr>
+            <tr>
+                <td colspan="3">جمع قرارداد از ماه قبل</td>
+                <td t-esc="footer_data['total_gsv_l_past']"></td>
+                <td t-esc="footer_data['total_gsv_b_past']"></td>
+                <td t-esc="footer_data['total_mt_past']"></td>
+                <td t-esc="footer_data['total_tankers_past']"></td>
+            </tr>
+            <tr>
+                <td colspan="3">جمع کل قرارداد</td>
+                <td t-esc="footer_data['total_gsv_l_all']"></td>
+                <td t-esc="footer_data['total_gsv_b_all']"></td>
+                <td t-esc="footer_data['total_mt_all']"></td>
+                <td t-esc="footer_data['total_tankers_all']"></td>
+            </tr>
+        </template>
+
+        <template id="contract_monthly_report_data">
+            <!--            <t t-call="web.html_container">-->
+            <!--                <t t-call="web.basic_layout">-->
+            <!--                <t t-call="web.internal_layout">-->
+            <div class="page">
+            <div class="container iransans_font" style="font-size: .9rem">
+                    <div class="container mt-2">
+                            <div class="container iransans_font">
+                                <div style="direction:rtl">
+                                    <div class="text-center">
+                                        <div>
+                                            <img alt="Logo" t-att-src="'/logo?company=1'" t-att-alt="''"
+                                                 style=" height: 50px;" height="50"/>
+                                        </div>
+                                        <div>شرکت ملی نفت ایران</div>
+                                        <div>شرکت پایانه های نفتی ایران</div>
+                                        <div>تاسیسات بارگیری زمینی میعانات گازی پارس جنوبی</div>
+                                        <div class="h4 mt-2 mb-4">
+                                            گزارش روزانه قراردادهای بارگیری نفتکش های زمینی میعانات گازی
+                                        </div>
+                                    </div>
+<!--                                    <div class="row my-1">-->
+<!--                                        <div class="col-3">-->
+<!--                                            <span>تاریخ  :</span>-->
+<!--                                            <span t-esc="dates[0]"></span>-->
+<!--                                        </div>-->
+
+<!--                                    </div>-->
+                                    <div class="row mx-0 mb-4 border border-info rounded ">
+                                        <div class="col-9 ">
+                                            <div class="row border-bottom py-1">
+                                                <div class="col-2"><span> شماره قرار داد: </span></div>
+                                                <div class="col-2"><span class="font-weight-bold" t-esc="header['contract_no']"></span></div>
+                                                <div class="col-3"><span>مقدار مجوز</span> <span>(</span><span t-esc="header['unit']"></span><span>): </span></div>
+                                                <div class="col-2"><span class="font-weight-bold" t-esc="header['amount']"></span></div>
+
+                                            </div>
+                                            <div class="row border-bottom py-1">
+                                                <div class="col-2">نام خریدار:</div>
+                                                <div class="col-10 font-weight-bold" ><span t-esc="header['buyer']"></span><span> , </span><span t-esc="header['destination']"></span></div>
+                                            </div>
+                                            <div class="row py-1">
+                                                <div class="col-2">پیمانکار حمل:</div>
+                                                <div class="col-10 font-weight-bold" ><span t-esc="header['contractors']"></span></div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-3 text-center">
+                                            <div class=" py-1">دوره برداشت</div>
+                                            <div class="font-weight-bold py-1" t-esc="dates[0]"></div>
+                                            <div class="font-weight-bold py-1" t-esc="dates[1]"></div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <table class="table table-bordered border-0 text-center monthly_report_table">
+                                            <thead class=" text-center">
+                                                <t t-call="sd_payaneh_nafti.contract_monthly_report_table_header"/>
+                                            </thead>
+                                            <tbody>
+                                                <t t-foreach="row_data_lines" t-as="row_data_line">
+                                                    <t t-call="sd_payaneh_nafti.contract_monthly_report_table_body"/>
+                                                </t>
+                                            </tbody>
+                                            <tfoot>
+                                                <t t-call="sd_payaneh_nafti.contract_monthly_report_table_footer"/>
+                                            </tfoot>
+                                        </table>
+
+                                    </div>
+                                    <div class="row my-5 text-center">
+                                        <div class="col-4">پایانه میعانات گازی پارس جنوبی</div>
+                                        <div class="col-4">اداره نظارت بر صادرات، واردات و مبادلات مواد نفتي</div>
+                                        <div class="col-4">نماينده خريدار</div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-5"></div>
+                            <div class="mb-5"></div>
+                        </div>
+                    </div>
+
+
+            <!--                </t>-->
+            <!--            </t>-->
+        </template>
+
+        <template id="contract_monthly_report_template">
+            <t t-call="web.basic_layout">
+                <div t-if="errors != []">
+                    <div class="container mt-2 text-center">
+                        <div class="border border-danger rounded p-3" style="direction: ltr" t-esc="errors[0]"></div>
+                    </div>
+                </div>
+                <div t-if="errors == []">
+                    <t t-foreach="docs" t-as="o">
+                        <t t-call="sd_payaneh_nafti.contract_monthly_report_data" t-lang="lang"/>
+                    </t>
+                </div>
+            </t>
+
+        </template>
+    </data>
+</odoo>

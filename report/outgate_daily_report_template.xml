@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="outgate_daily_report_table_header">
+            <tr style="border: solid white !important;">
+                <td colspan="8">
+                    <div>
+                        <img alt="Logo" t-att-src="'/logo?company=1'" t-att-alt="''"
+                             style=" height: 50px;" height="50"/>
+                    </div>
+                    <div>شرکت ملی نفت ایران</div>
+                    <div>شرکت پایانه های نفتی ایران</div>
+                    <div>تاسیسات بارگیری زمینی میعانات گازی پارس جنوبی</div>
+                    <div class="h4 mt-2 mb-4">
+                        گزارش روزانه دروازه خروجی
+                    </div>
+                <div class="row my-1">
+                    <div class="col-9"></div>
+                    <div class="col-3">
+                        <span>تاریخ :</span>
+                        <span t-esc="dates[0]"></span>
+                    </div>
+                </div>
+                </td>
+            </tr>
+            <tr>
+                <th>ردیف</th>
+                <th>
+                    <span>شماره بارنامه</span>
+                </th>
+                <th>
+                    <span>شماره وسیله</span>
+                </th>
+                <th>نام راننده</th>
+                <th> کارت هوشمند</th>
+                <th> نام پیمانکار</th>
+                <th>مقصد</th>
+                <th>مقدار (لیتر)</th>
+            </tr>
+        </template>
+        <template id="outgate_daily_report_table_body">
+            <tr>
+                <t t-foreach="row_data_line" t-as="row_data">
+                    <td t-esc="row_data"></td>
+
+                </t>
+            </tr>
+        </template>
+        <template id="outgate_daily_report_table_footer">
+            <tr>
+                <td colspan="7">جمع</td>
+                <td t-esc="footer_data['total_gsv_l']"></td>
+                <td t-esc="footer_data['total_tanks']"></td>
+                <td t-esc="footer_data['total_remain']"></td>
+                <td t-esc="footer_data['total_remain_tanks']"></td>
+            </tr>
+        </template>
+
+        <template id="layout_header">
+            <div t-attf-class="header ">
+                <div class=" container text-center iransans_font" style="opacity:0.15;direction:rtl;z-index:100;" >
+                    <div>
+                        <img alt="Logo" t-att-src="'/logo?company=1'" t-att-alt="''"
+                             style=" height: 50px;" height="50"/>
+                    </div>
+                    <div>شرکت ملی نفت ایران</div>
+                    <div>شرکت پایانه های نفتی ایران</div>
+                    <div>تاسیسات بارگیری زمینی میعانات گازی پارس جنوبی</div>
+                    <div class="h4 mt-2 mb-4">
+                        گزارش روزانه دروازه خروجی
+                    </div>
+                </div>
+                <div class="row my-1">
+                    <div class="col-9"></div>
+                    <div class="col-3">
+                        <span>تاریخ :</span>
+                        <span t-esc="dates[0]"></span>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <template id="layout_footer">
+            <div t-attf-class="footer">
+                <div class="container " style="opacity:0.8;">
+<!--                    <div class="mt-5">تهیه کننده :</div>-->
+                    <div class="text-center iransans_font" style="border-top: 1px solid black;direction:rtl;">
+                        Page: <span class="page"/> / <span class="topage"/>
+                    </div>
+                </div>
+            </div>
+
+</template>
+        <template id="outgate_daily_report_data">
+            <t t-call="sd_payaneh_nafti.layout_header"/>
+            <div class="page" >
+                <div class=" container iransans_font" style="font-size: .9rem;">
+                    <div style="direction:rtl">
+                        <div>
+                            <table class="table table-bordered border-0 text-center daily_report_table1">
+                                <thead class=" text-center">
+                                    <t t-call="sd_payaneh_nafti.outgate_daily_report_table_header"/>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="row_data_lines" t-as="row_data_line">
+                                        <t t-call="sd_payaneh_nafti.outgate_daily_report_table_body"/>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <t t-call="sd_payaneh_nafti.layout_footer"/>
+        </template>
+
+        <template id="outgate_daily_report_template">
+            <t t-call="web.basic_layout">
+<!--            <t t-call="web.report_layout">-->
+                <div t-if="errors != []">
+                    <div class="container mt-2 text-center">
+                        <div class="border border-danger rounded p-3" style="direction: ltr" t-esc="errors[0]"></div>
+                    </div>
+                </div>
+                <div t-if="errors == []" class="container" >
+                    <t t-foreach="docs" t-as="o">
+                        <t t-call="sd_payaneh_nafti.outgate_daily_report_data" t-lang="lang"/>
+                    </t>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

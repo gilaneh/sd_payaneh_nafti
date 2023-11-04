@@ -373,13 +373,28 @@
 <!--            </t>-->
         </template>
 
+<!--        <template id="contract_daily_report_template">-->
+<!--            <t t-call="web.basic_layout">-->
+<!--                <t t-foreach="docs" t-as="o">-->
+<!--                    <t t-call="sd_payaneh_nafti.contract_daily_report_data" t-lang="lang"/>-->
+<!--                </t>-->
+<!--            </t>-->
+<!--        </template>-->
+
         <template id="contract_daily_report_template">
             <t t-call="web.basic_layout">
-                <t t-foreach="docs" t-as="o">
-                    <t t-call="sd_payaneh_nafti.contract_daily_report_data" t-lang="lang"/>
-                </t>
+<!--            <t t-call="web.report_layout">-->
+                <div t-if="errors != []">
+                    <div class="container mt-2 text-center">
+                        <div class="border border-danger rounded p-3" style="direction: ltr" t-esc="errors[0]"></div>
+                    </div>
+                </div>
+                <div t-if="errors == []" class="container" >
+                    <t t-foreach="docs" t-as="o">
+                        <t t-call="sd_payaneh_nafti.contract_daily_report_data" t-lang="lang"/>
+                    </t>
+                </div>
             </t>
         </template>
-
     </data>
 </odoo>
