@@ -9,7 +9,7 @@
             <field name="arch" type="xml">
                 <tree>
                     <header>
-<!--                        <button string="copy order_no" name="copy_order_no" type="object" class="btn btn-primary px2"/>-->
+                        <button string="copy order_no" name="copy_order_no" type="object" class="btn btn-primary px2"/>
                     </header>
                     <field name="registration_no" />
                     <field name="contract_no" />
