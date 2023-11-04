@@ -14,16 +14,13 @@
                     <div class="h4 mt-2 mb-4">
                         گزارش روزانه دروازه خروجی
                     </div>
-                <div class="row my-1">
-                    <div class="col-9"></div>
-                    <div class="col-3">
+                <div class="my-1 text-right">
                         <span>تاریخ :</span>
                         <span t-esc="dates[0]"></span>
-                    </div>
                 </div>
                 </td>
             </tr>
-            <tr>
+            <tr class="table_header">
                 <th>ردیف</th>
                 <th>
                     <span>شماره بارنامه</span>
@@ -92,12 +89,12 @@
 
 </template>
         <template id="outgate_daily_report_data">
-            <t t-call="sd_payaneh_nafti.layout_header"/>
+<!--            <t t-call="sd_payaneh_nafti.layout_header"/>-->
             <div class="page" >
                 <div class=" container iransans_font" style="font-size: .9rem;">
                     <div style="direction:rtl">
                         <div>
-                            <table class="table table-bordered border-0 text-center daily_report_table1">
+                            <table class="table table-bordered border-0 text-center outgate_daily_report_table">
                                 <thead class=" text-center">
                                     <t t-call="sd_payaneh_nafti.outgate_daily_report_table_header"/>
                                 </thead>
