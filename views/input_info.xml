@@ -8,12 +8,18 @@
             <field name="model">sd_payaneh_nafti.input_info</field>
             <field name="arch" type="xml">
                 <tree>
+                    <header>
+<!--                        <button string="drivers" name="drivers_strip" type="object" />-->
+<!--                        <button string="drivers_create" name="drivers_create" type="object" />-->
+                    </header>
+<!--                    <field name="active" invisible="1"/>-->
 
                     <field name="document_no" />
                     <field name="loading_no" />
                     <field name="loading_date" />
                     <field name="registration_no" />
                     <field name="contractor" />
+                    <field name="driver" />
                     <field name="buyer" />
                     <field name="temperature" groups="base.group_system" optional="hide"/>
                     <field name="final_tov_l" groups="base.group_system" optional="hide"/>

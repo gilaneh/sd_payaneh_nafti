@@ -24,7 +24,8 @@ class SdPayanehNaftiInputInfo(models.Model):
     buyer = fields.Many2one(related='registration_no.buyer')
     contractors = fields.Many2many(related='registration_no.contractors')
     contractor = fields.Many2one('sd_payaneh_nafti.contractors', required=True,)
-    driver = fields.Char(required=True,)
+    # driver = fields.Char(required=True,)
+    driver = fields.Many2one('sd_payaneh_nafti.drivers',required=False,)
     card_no = fields.Char(required=True,)
     plate_1 = fields.Char(required=True,)
     # plate_1 = fields.Many2one('sd_payaneh_nafti.plate1', required=True, string='Plate')
@@ -89,6 +90,25 @@ class SdPayanehNaftiInputInfo(models.Model):
     final_gsv_l = fields.Float(string='Final G.S.V Liter', compute='_finals')
     final_gsv_b = fields.Float(string='Final G.S.V BBL', compute='_finals', digits=[8, 2])
     final_mt = fields.Float(string='Final M.T.', compute='_finals')
+
+    # def drivers_strip(self):
+    #     ids = self.env.context.get('active_ids')
+    #     print(f'\n active ids: {ids}')
+        # for rec in self:
+        #     rec.driver = rec.driver.strip()
+
+    # def drivers_create(self):
+    #     ids = self.env.context.get('active_ids')
+    #     print(f'\n active ids: {ids}')
+    #     records = self.browse(ids)
+    #     drivers_model = self.env['sd_payaneh_nafti.drivers']
+        # for rec in records:
+        #     if not drivers_model.search([('name', '=', rec.driver)]):
+        #         drivers_model.create({'name': rec.driver})
+        #     drivers = drivers_model.search([('name', '=', rec.driver)])
+        #     if len(drivers) == 1:
+        #         rec.write({'driver_name': drivers.id})
+
 
 
     @api.onchange('weighbridge')

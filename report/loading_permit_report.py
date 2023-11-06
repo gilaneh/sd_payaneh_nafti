@@ -55,7 +55,7 @@ class ReportSdPayanehNaftiLoadingPermit(models.AbstractModel):
                         'contract_no': contract_no,
                         'user_name': self.env.user.name,
                         'tanker_no': tanker_no,
-                        'driver': input_record.driver,
+                        'driver': input_record.driver.name,
                         'contract_type': input_record.registration_no.contract_type,
                         'cargo_type': input_record.registration_no.cargo_type.name,
                         'front_container': input_record.front_container,
