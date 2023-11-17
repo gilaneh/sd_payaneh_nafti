@@ -7,7 +7,8 @@
             <field name="name">Drivers List</field>
             <field name="model">sd_payaneh_nafti.drivers</field>
             <field name="arch" type="xml">
-                <tree>
+                <tree decoration-danger="black_list">
+                    <field name="black_list" invisible="1" />
                     <field name="name" />
                     <field name="card_no" />
 
@@ -33,6 +34,8 @@
 
                     <group>
                         <group>
+                            <field name="black_list" widget="boolean_toggle"/>
+
                             <field name="card_no" />
                             <field name="description" />
 
@@ -54,7 +57,9 @@
             <field name="arch" type="xml">
                 <search string="Drivers">
                     <field name="name" />
+                    <field name="card_no" />
                     <field name="description" />
+                    <filter name="black_list" string="Black List" domain="[('black_list', '=', True)]"/>
                 </search>
             </field>
         </record>
@@ -72,6 +77,7 @@
         <!-- ==================================================  Menu ====================-->
 
         <menuitem name="Drivers"
+                  sequence="50"
                   id="drivers_menu"
                   parent="settings_menu"
                   action="action_window_drivers"/>

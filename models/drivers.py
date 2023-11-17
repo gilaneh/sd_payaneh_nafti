@@ -11,6 +11,8 @@ import base64
 from PIL import Image
 class SdPayanehNaftiDrivers(models.Model):
     _name = 'sd_payaneh_nafti.drivers'
+    black_list = fields.Boolean()
+
     _description = 'sd_payaneh_nafti.drivers'
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
@@ -27,10 +29,12 @@ class SdPayanehNaftiDrivers(models.Model):
 
 
     # todo: resizing image
-    @api.onchange('image_1920')
+    # @api.onchange('image_1920')
     def image_resize(self):
-        image = Image.open(self.image_1920)
-        print(f"Original size : {image.size}")
+        if self.image_1920:
+            image = Image.open(self.image_1920)
+            # print(f"Original size : {image.size}")
 
-        self.image_1920 = image.resize((100, 100))
-        print(f"Original size : {self.image_1920.size}")
+            # self.image_1920 = image.resize((100, 100))
+            self.image_1920 = base64.b64encode(image.resize((100, 100)))
+            # print(f"Original size : {self.image_1920.size}")

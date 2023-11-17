@@ -41,6 +41,7 @@
         <!-- ==================================================  Menu ====================-->
 
         <menuitem name="Signers"
+                  sequence="60"
                   id="signers_menu"
                   parent="settings_menu"
                   action="action_window_signers"/>

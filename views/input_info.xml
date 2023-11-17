@@ -3,17 +3,24 @@
 
          <!-- ==================================================  sd_payaneh_nafti.input_info ====================-->
 
-        <record model="ir.ui.view" id="sd_payaneh_nafti_input_infos_list">
+        <record model="ir.ui.view" id="sd_payaneh_nafti_input_info_list">
             <field name="name">Input Information List</field>
             <field name="model">sd_payaneh_nafti.input_info</field>
+            <field name="priority">20</field>
             <field name="arch" type="xml">
                 <tree>
+                    <header>
+<!--                        <button string="drivers" name="drivers_strip" type="object" />-->
+<!--                        <button string="drivers_create" name="drivers_create" type="object" />-->
+                    </header>
+<!--                    <field name="active" invisible="1"/>-->
 
                     <field name="document_no" />
                     <field name="loading_no" />
                     <field name="loading_date" />
                     <field name="registration_no" />
                     <field name="contractor" />
+                    <field name="driver" />
                     <field name="buyer" />
                     <field name="temperature" groups="base.group_system" optional="hide"/>
                     <field name="final_tov_l" groups="base.group_system" optional="hide"/>
@@ -23,10 +30,11 @@
                 </tree>
             </field>
         </record>
-        
+
         <record model="ir.ui.view" id="sd_payaneh_nafti_input_info_form">
             <field name="name">Input Information Form</field>
             <field name="model">sd_payaneh_nafti.input_info</field>
+            <field name="priority">20</field>
             <field name="arch" type="xml">
                 <form>
                     <sheet>
@@ -89,20 +97,23 @@
                                 <field name="pressure" />
                                 <field name="pressure_psi" invisible="1" />
                                 <field name="meter_no" />
-                                <separator string="Totalizer"/>
-                                <field name="totalizer_start" />
-                                <field name="totalizer_end" />
-                                <field name="totalizer_difference" />
-                                <separator string="Weight"/>
                                 <field name="weighbridge" />
+                                <field name="totalizer_start" attrs="{'invisible': [('weighbridge', '=', 'yes')]}"/>
+                                <field name="totalizer_end" attrs="{'invisible': [('weighbridge', '=', 'yes')]}"/>
+                                <field name="totalizer_difference" attrs="{'invisible': [('weighbridge', '=', 'yes')]}"/>
                                 <field name="tanker_empty_weight" attrs="{'invisible': [('weighbridge', '=', 'no')]}"/>
                                 <field name="tanker_full_weight" attrs="{'invisible': [('weighbridge', '=', 'no')]}"/>
                                 <field name="tanker_pure_weight" attrs="{'invisible': [('weighbridge', '=', 'no')]}"/>
-                                <separator string="Sealing"/>
+                                <separator string="Lockers"/>
                                 <field name="evacuation_box_seal" />
                                 <field name="compartment_1" />
                                 <field name="compartment_2" />
                                 <field name="compartment_3" />
+
+                                <field name="api_box_locker" />
+                                <field name="compartment_locker_1" widget="many2one" />
+                                <field name="compartment_locker_2" widget="many2one" />
+                                <field name="compartment_locker_3" widget="many2one" />
 
                             </group>
 
@@ -142,30 +153,316 @@
             </field>
         </record>
 
-         <!-- ==================================================  sd_payaneh_nafti.plate1 ====================-->
-
-        <record model="ir.ui.view" id="sd_payaneh_nafti_plate1_list">
-            <field name="name">Plate1 List</field>
-            <field name="model">sd_payaneh_nafti.plate1</field>
+        <record model="ir.ui.view" id="sd_payaneh_nafti_input_info_list_1">
+            <field name="name">Input Information List</field>
+            <field name="model">sd_payaneh_nafti.input_info</field>
+            <field name="priority">10</field>
             <field name="arch" type="xml">
-                <tree editable="bottom">
-                    <field name="name" />
+                <tree create="1" delete="1" decoration-danger="truck_black_list or driver_black_list">
+                    <header>
+<!--                        <button string="drivers" name="drivers_strip" type="object" />-->
+<!--                        <button string="drivers_create" name="drivers_create" type="object" />-->
+                    </header>
+<!--                    <field name="active" invisible="1"/>-->
+                    <field name="truck_black_list" invisible="1"/>
+                    <field name="driver_black_list" invisible="1"/>
+
+                    <field name="document_no" class="text-center" />
+                    <field name="request_date" class="text-center" />
+                    <field name="amount" class="text-center" sum="Total"/>
+                    <field name="registration_no" class="text-center" />
+                    <field name="buyer" />
+                    <field name="remain_amount" class="text-center"/>
+                    <field name="contractor" />
+                    <field name="driver" />
+                    <field name="truck_no" />
+                    <field name="total" groups="base.group_system" optional="hide" />
+                    <field name="temperature" groups="base.group_system" optional="hide"/>
+                    <field name="final_tov_l" groups="base.group_system" optional="hide"/>
+                    <field name="final_gsv_l" groups="base.group_system" optional="hide"/>
+                    <field name="final_gsv_b" groups="base.group_system" optional="hide"/>
+                    <field name="final_mt" groups="base.group_system" optional="hide"/>
                 </tree>
             </field>
         </record>
 
-
-         <!-- ==================================================  sd_payaneh_nafti.plate3 ====================-->
-
-        <record model="ir.ui.view" id="sd_payaneh_nafti_plate3_list">
-            <field name="name">Plate3 List</field>
-            <field name="model">sd_payaneh_nafti.plate3</field>
+        <record model="ir.ui.view" id="sd_payaneh_nafti_input_info_form_1">
+            <field name="name">Input Information Form</field>
+            <field name="model">sd_payaneh_nafti.input_info</field>
+            <field name="priority">10</field>
             <field name="arch" type="xml">
-                <tree editable="bottom">
-                    <field name="name" />
-                </tree>
+                <form>
+                    <header>
+                        <button name="loading_permit" states="draft" string="Loading Permit" type="object"
+                                class="oe_highlight" data-hotkey="l"/>
+                        <button name="print_loading_permit" states="loading_permit,loading_info" string="Print Loading Permit" type="object"
+                                class="oe_highlight" />
+                        <button name="loading_info" states="loading_info,cargo_document" string="Loading Info" type="object"
+                                class="oe_highlight" />
+                        <button name="print_cargo_document" states="cargo_document" string="Print Cargo Document" type="object"
+                                class="oe_highlight" />
+                        <button name="input_done" states="cargo_document" string="Done" type="object"
+                                class="oe_highlight" />
+
+
+                        <field name="state" widget="statusbar"
+                               statusbar_visible="draft,loading_permit,loading_info,cargo_document,done"
+                               force_save="1"/>
+                    </header>
+                    <sheet>
+                        <div name="button_box" class="oe_button_box">
+                            <button string="Contract" name="get_contract_registration" class="oe_stat_button"
+                                    type="object" icon="fa-book-open"  context="{'registration_no':registration_no}">
+                            </button>
+                            <button  class="oe_stat_button" >
+                                <field name="remain_amount" string="Remain" class="sd_ltr" widget="statinfo"/>
+                            </button>
+                            <button  class="oe_stat_button" >
+                                <field name="remain_amount_approx" string="Approx" class="sd_ltr"
+                                       widget="statinfo" decoration-danger="remain_amount_approx &lt; 0"/>
+                            </button>
+
+                        </div>
+                        <div class="text-center bg-danger-light mb-2 py-2 rounded"
+                             attrs="{'invisible': ['|', ('id', '>', 1),('date_validation', '=', True)]}">
+                            Warning: The contract is out of date.
+                        </div>
+                        <div class="text-center bg-warning mb-2 py-2 rounded"
+                             attrs="{'invisible': [('remain_amount_approx', '&gt;=', 0)]}">
+                            Warning: Requested amount is more than approximately calculated remain amount.
+                        </div>
+                        <div class="text-center bg-dark mb-2 py-2 rounded"
+                             attrs="{'invisible': [('driver_black_list', '=', False)]}">
+                            Warning: Driver is in BLACK LIST.
+                        </div>
+                        <div class="text-center bg-dark-light mb-2 py-2 rounded"
+                             attrs="{'invisible': [('truck_black_list', '=', False)]}">
+                            Warning: Truck is in BLACK LIST.
+                        </div>
+
+
+
+                        <div class="oe_title">
+                            <label for="document_no"/>
+                            <h3><field name="document_no" placeholder="1111" required="1"/></h3>
+                        </div>
+                        <group string="General Information">
+                            <group>
+                                <field name="request_date" attrs="{'readonly': [('state', 'not in', ['draft'] )]}"/>
+                                <field name="registration_no" attrs="{'readonly': [('state', 'not in', ['draft'] )]}"
+                                       options="{'no_quick_create':True, 'no_create_edit': True, 'no_open': True}"/>
+                        <field name="date_validation" invisible="1"/>
+
+                                <label for="contract_no" />
+                                <div class="o_row sd_ltr">
+                                        <field name="contract_no" class="mx-2"  attrs="{'invisible': [('contract_no', '=', '')]}"/>
+                                        <field name="order_no" class="mx-2" attrs="{'invisible': [('order_no', '=', '')]}"/>
+                                </div>
+
+                            </group>
+                            <group>
+                                    <field name="buyer" options="{'no_quick_create':True, 'no_create_edit': True, 'no_open': True}"/>
+                                    <field name="contractors" invisible="1" />
+                                    <field name="contractor" domain="[('id', 'in', contractors )]"
+                                           options="{'no_quick_create':True, 'no_create_edit': True, 'no_open': True}"
+                                            attrs="{'readonly': [('state', 'not in', ['draft'] )]}"/>
+
+                                </group>
+                        </group>
+                        <group string="Tanker">
+                            <group>
+                                <field name="driver" class="sd_ltr"
+                                       />
+<!--                                <field name="driver" class="sd_ltr black_list"-->
+<!--                                       attrs="{'invisible': [('driver_black_list', '=', False)]}" />-->
+                                <field name="driver_black_list" invisible="1"/>
+                                <field name="card_no" />
+                                <field name="truck_no" class="sd_ltr oe_edit_only"
+                                        />
+<!--                                <field name="truck_no" class="sd_ltr black_list"-->
+<!--                                       attrs="{'invisible': [('truck_black_list', '=', False)]}" />-->
+                                <field name="truck_black_list" invisible="1"/>
+
+
+                                <label for="plate_1"/>
+                                <div class="o_row text-center">
+                                    <div class="col-3 px-2 border border-info rounded">
+<!--                                        <div t-attrs="{'invisible': [('plate_1', '=', '')]}">58</div>-->
+                                        <field name="plate_1" options="{'no_quick_create':True,'no_create_edit': True, 'no_open': True}"/>
+                                    </div>
+                                    <div class="o_row border border-info rounded">
+
+                                        <div class="o_col px-2 ">
+<!--                                            <div>123</div>-->
+                                            <field name="plate_2" />
+                                        </div>
+                                        <div class="o_col">
+<!--                                            <div>ن</div>-->
+                                            <field name="plate_3" options="{'no_create_edit': True, 'no_open': True}"/>
+                                        </div>
+                                        <div class="o_col px-2 ">
+<!--                                            <div>45</div>-->
+                                            <field name="plate_4" />
+                                        </div>
+                                        <div class="o_col text-300" style="background-color: #10109f; align-self: center;">IR</div>
+                                    </div>
+                                </div>
+                                </group>
+                                <group>
+                                <field name="front_container" />
+                                <field name="middle_container" />
+                                <field name="back_container" />
+                                <field name="total" />
+                                <field name="centralized_container" />
+                            </group>
+                        </group>
+                        <notebook string="More Info" >
+                            <page string="Loading">
+                                <group>
+                                    <field name="loading_no" />
+                                    <field name="loading_date"/>
+                                </group>
+                            </page>
+                            <page string="Loading Info">
+                                <group>
+                                    <group>
+                                        <field name="sp_gr" digits="[4,4]" readonly="1"/>
+                                        <field name="correction_factor" readonly="1"/>
+                                        <field name="temperature" readonly="1"/>
+                                        <field name="temperature_f" invisible="1" />
+                                        <field name="pressure" readonly="1"/>
+                                        <field name="pressure_psi" invisible="1" readonly="1"/>
+                                    </group>
+                                    <group>
+                                        <field name="meter_no" readonly="1"/>
+                                        <field name="weighbridge" readonly="1"/>
+                                        <field name="totalizer_start" attrs="{'invisible': [('weighbridge', '=', 'yes')]}" readonly="1"/>
+                                        <field name="totalizer_end" attrs="{'invisible': [('weighbridge', '=', 'yes')]}" readonly="1"/>
+                                        <field name="totalizer_difference" attrs="{'invisible': [('weighbridge', '=', 'yes')]}" readonly="1"/>
+                                        <field name="tanker_empty_weight" attrs="{'invisible': [('weighbridge', '=', 'no')]}" readonly="1"/>
+                                        <field name="tanker_full_weight" attrs="{'invisible': [('weighbridge', '=', 'no')]}" readonly="1"/>
+                                        <field name="tanker_pure_weight" attrs="{'invisible': [('weighbridge', '=', 'no')]}" readonly="1"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Lockers">
+                                <group>
+                                    <group>
+                                        <field name="evacuation_box_seal"  readonly="1"/>
+                                        <field name="compartment_1" readonly="1" />
+                                        <field name="compartment_2" readonly="1" />
+                                        <field name="compartment_3" readonly="1" />
+                                    </group>
+                                    <group>
+<!--                                        <field name="api_box_locker" readonly="1"/>-->
+<!--                                        <field name="compartment_locker_1" widget="many2one" readonly="1" />-->
+<!--                                        <field name="compartment_locker_2" widget="many2one" readonly="1" />-->
+<!--                                        <field name="compartment_locker_3" widget="many2one" readonly="1" />-->
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+                            <group invisible="1">
+
+
+                            </group>
+                        <notebook groups="base.group_system" invisible="1">
+                            <page string="Misc">
+                                <group>
+                                    <group>
+                                        <field name="api_a" groups="base.group_system"/>
+                                        <field name="tab_13"  groups="base.group_system"/>
+                                        <field name="ctl" groups="base.group_system"/>
+                                        <field name="cpl" groups="base.group_system"/>
+
+                                        <field name="meter_tov_l" groups="base.group_system"/>
+                                        <field name="meter_gsv_l" groups="base.group_system"/>
+                                        <field name="meter_gsv_b" groups="base.group_system"/>
+                                        <field name="meter_mt" groups="base.group_system"/>
+
+                                        <field name="wb_tov_l" groups="base.group_system"/>
+                                        <field name="wb_gsv_l" groups="base.group_system"/>
+                                        <field name="wb_gsv_b" groups="base.group_system"/>
+                                        <field name="wb_mt" groups="base.group_system"/>
+
+                                        <field name="final_tov_l" groups="base.group_system"/>
+                                        <field name="final_gsv_l" groups="base.group_system"/>
+                                        <field name="final_gsv_b" groups="base.group_system"/>
+                                        <field name="final_mt" groups="base.group_system"/>
+
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+
+                </form>
             </field>
         </record>
+
+        <!-- It will be called by 'Loading Info' button on the input_info form-->
+        <record model="ir.ui.view" id="sd_payaneh_nafti_input_info_form_loading_info">
+            <field name="name">Input Information Form</field>
+            <field name="model">sd_payaneh_nafti.input_info</field>
+            <field name="priority">10</field>
+            <field name="arch" type="xml">
+                <form create="0">
+                    <div class="oe_title">
+                            <label for="document_no"/>
+                            <h3><field name="document_no" placeholder="1111" required="1"/></h3>
+                        </div>
+                    <group>
+                        <group>
+                            <field name="sp_gr" digits="[4,4]"/>
+                            <field name="correction_factor" />
+                            <field name="temperature" />
+                            <field name="temperature_f" invisible="1" />
+                            <field name="pressure" />
+                            <field name="pressure_psi" invisible="1" />
+                            <field name="meter_no" required="1"/>
+
+                        </group>
+                        <group>
+                                <field name="weighbridge" />
+
+                                <field name="totalizer_start"
+                                       attrs="{'invisible': [('weighbridge', '=', 'yes')], 'required':[('weighbridge', '=', 'no')]}"/>
+                                <field name="totalizer_end"
+                                       attrs="{'invisible': [('weighbridge', '=', 'yes')], 'required':[('weighbridge', '=', 'no')]}"/>
+                                <field name="totalizer_difference"
+                                       attrs="{'invisible': [('weighbridge', '=', 'yes')], 'required':[('weighbridge', '=', 'no')]}"/>
+
+                                <field name="tanker_empty_weight"
+                                       attrs="{'invisible': [('weighbridge', '=', 'no')], 'required':[('weighbridge', '=', 'yes')]}"/>
+                                <field name="tanker_full_weight"
+                                       attrs="{'invisible': [('weighbridge', '=', 'no')], 'required':[('weighbridge', '=', 'yes')]}"/>
+                                <field name="tanker_pure_weight"
+                                       attrs="{'invisible': [('weighbridge', '=', 'no')], 'required':[('weighbridge', '=', 'yes')]}"/>
+
+                        </group>
+                    </group>
+                    <group string="Lockers">
+                        <group>
+                                <field name="evacuation_box_seal" required="1"/>
+                                <field name="compartment_1" required="1"/>
+                                <field name="compartment_2" required="1"/>
+                                <field name="compartment_3" required="1"/>
+                        </group>
+                        <group>
+<!--                                <field name="api_box_locker" />-->
+<!--                                <field name="compartment_locker_1" widget="many2one" />-->
+<!--                                <field name="compartment_locker_2" widget="many2one" />-->
+<!--                                <field name="compartment_locker_3" widget="many2one" />-->
+                        </group>
+                    </group>
+                <footer>
+                    <button string="Confirm" class="btn-primary" special="save" />
+                    <button string="Cancel" special="cancel" class="btn-secondary"/>
+                </footer>
+                </form>
+            </field>
+        </record>
+
 
          <!-- ==================================================  sd_payaneh_nafti.cargo_types ====================-->
 
@@ -176,6 +473,22 @@
                 <tree editable="bottom">
                     <field name="name" />
                 </tree>
+            </field>
+        </record>
+
+        <!-- ==================================================  Graph ====================-->
+
+        <record model="ir.ui.view" id="sd_payaneh_nafti_input_info_graph">
+            <field name="name">Input Information Graph</field>
+            <field name="model">sd_payaneh_nafti.input_info</field>
+            <field name="arch" type="xml">
+                <graph string="">
+                    <field name="document_no" />
+                    <field name="registration_no" type="measure"/>
+                    <field name="contractor" />
+                    <field name="amount" type="measure"/>
+
+                </graph>
             </field>
         </record>
 
@@ -192,6 +505,10 @@
                     <field name="registration_no" />
                     <field name="contractor" />
                     <field name="buyer" />
+                    <filter string="Last Week" name="last_week" domain="[('loading_date', '&gt;=', datetime.datetime.now() - datetime.timedelta(days=7))]"/>
+                    <group>
+                        <filter string="Registration" name="registration_no_group" context="{'group_by': 'registration_no'}" />
+                    </group>
                 </search>
             </field>
         </record>
@@ -203,18 +520,19 @@
             <field name="name">Input Information</field>
             <field name="res_model">sd_payaneh_nafti.input_info</field>
             <field name="view_mode">tree,form</field>
+                        <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('sd_payaneh_nafti_input_info_list')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('sd_payaneh_nafti_input_info_form')})]"/>
         </record>
 
-        <record model="ir.actions.act_window" id="action_window_plate_1">
-            <field name="name">Plate 1</field>
-            <field name="res_model">sd_payaneh_nafti.plate1</field>
-            <field name="view_mode">tree</field>
-        </record>
-
-        <record model="ir.actions.act_window" id="action_window_plate_3">
-            <field name="name">Plate 3</field>
-            <field name="res_model">sd_payaneh_nafti.plate3</field>
-            <field name="view_mode">tree</field>
+        <record model="ir.actions.act_window" id="action_window_input_info_1">
+            <field name="name">Input Information</field>
+            <field name="res_model">sd_payaneh_nafti.input_info</field>
+            <field name="view_mode">tree,form,pivot,graph</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('sd_payaneh_nafti_input_info_list_1')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('sd_payaneh_nafti_input_info_form_1')})]"/>
+            <field name="context">{'search_default_registration_no_group': 1}</field>
         </record>
 
         <record model="ir.actions.act_window" id="action_window_cargo_types">
@@ -228,31 +546,28 @@
         <!-- ==================================================  Menu ====================-->
 
         <menuitem name="Input Info"
+                  sequence="20"
+                  id="sd_payaneh_nafti.input_info_1_menu"
+                  parent="sd_payaneh_nafti.process_menu"
+                  action="action_window_input_info_1"/>
+
+        <menuitem name="Input Info all"
+                  sequence="30"
                   id="sd_payaneh_nafti.input_info_menu"
                   parent="sd_payaneh_nafti.process_menu"
                   action="action_window_input_info"/>
 
         <menuitem name="Plate"
+                  sequence="300"
                   id="sd_payaneh_nafti.plate_menu"
-                  parent="sd_payaneh_nafti.settings_menu"
+                  parent="settings_menu"
                   groups="sd_payaneh_nafti.group_sd_payaneh_nafti_admins"/>
-
-<!--        <menuitem name="Plate 1"-->
-<!--                  id="sd_payaneh_nafti.plate1_menu"-->
-<!--                  parent="sd_payaneh_nafti.settings_menu"-->
-<!--                  groups="sd_payaneh_nafti.group_sd_payaneh_nafti_admins"-->
-<!--                    action="action_window_plate_1"/>-->
-
-<!--        <menuitem name="Plate 3"-->
-<!--                  id="sd_payaneh_nafti.plate3_menu"-->
-<!--                  parent="sd_payaneh_nafti.settings_menu"-->
-<!--                  groups="sd_payaneh_nafti.group_sd_payaneh_nafti_admins"-->
-<!--                    action="action_window_plate_3"/>-->
 
 
         <menuitem name="Cargo Type"
+                  sequence="70"
                   id="sd_payaneh_nafti.cargo_type_menu"
-                  parent="sd_payaneh_nafti.settings_menu"
+                  parent="settings_menu"
                   groups="sd_payaneh_nafti.group_sd_payaneh_nafti_admins"
                     action="action_window_cargo_types"/>
 

@@ -15,7 +15,7 @@ class ReportSdPayanehNaftiOutgateDaily(models.AbstractModel):
     # ########################################################################################
     @api.model
     def _get_report_values(self, docids, data=None):
-        print(f'\n data: {data} \n')
+        # print(f'\n data: {data} \n')
         errors = []
         doc_data_list = []
         row_data_lines = []
@@ -62,7 +62,7 @@ class ReportSdPayanehNaftiOutgateDaily(models.AbstractModel):
             row_data_lines.append((index + 1,
                                    rec.loading_no,
                                    plate,
-                                   rec.driver,
+                                   rec.driver.name,
                                    rec.card_no,
                                    rec.contractor.name,
                                    rec.registration_no.buyer.name,

@@ -41,7 +41,7 @@ class ReportSdPayanehNaftiCargoDocument(models.AbstractModel):
                          'plate_3': input_record.plate_3,
                          'plate_4': input_record.plate_4,
                          }
-            driver = input_record.driver
+            driver = input_record.driver.name
 
             driver_promise = '''
                  متعهد می شوم محموله مذکور را طبق مشخصات بالا تحویل گرفته و به مقصد

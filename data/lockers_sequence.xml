@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- <data> -->
+
+        <record id="sd_payaneh_nafti_lockers_sequence" model="ir.sequence">
+            <field name="name">Lockers Sequence</field>
+            <field name="code">sd_payaneh_nafti.lockers</field>
+            <field name="prefix">SPT-</field>
+            <field name="padding">6</field>
+            <field name="use_date_range" eval="False"/>
+            <field name="company_id" eval="1"/>
+                        <field name="number_next">60000</field>
+
+        </record>
+>
+
+    </data>
+</odoo>

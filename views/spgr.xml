@@ -1,0 +1,78 @@
+<odoo>
+    <data>
+
+         <!-- ==================================================  sd_payaneh_nafti.spgr ====================-->
+
+        <record model="ir.ui.view" id="sd_payaneh_nafti_spgr_list">
+            <field name="name">spgr List</field>
+            <field name="model">sd_payaneh_nafti.spgr</field>
+            <field name="arch" type="xml">
+                <tree delete="1"  >
+                        <field name="spgr" />
+                        <field name="spgr_date" />
+                    <field name="description" />
+
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="sd_payaneh_nafti_spgr_form">
+            <field name="name">spgr Form</field>
+            <field name="model">sd_payaneh_nafti.spgr</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="spgr" />
+                                <field name="spgr_date" />
+                                <field name="description" />
+
+                            </group>
+
+                        </group>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+
+        <!-- ==================================================  Search ====================-->
+
+        <record model="ir.ui.view" id="sd_payaneh_nafti_spgr_list_search">
+            <field name="name">spgr Search</field>
+            <field name="model">sd_payaneh_nafti.spgr</field>
+            <field name="arch" type="xml">
+                <search string="spgr">
+                        <field name="spgr" />
+                        <field name="spgr_date" />
+                    <field name="description" />
+<!--                    <filger name="last_spgr" String="Last SPGR" domain="[]"/>-->
+                </search>
+            </field>
+        </record>
+
+
+        <!-- ==================================================  Action Window ====================-->
+
+        <record model="ir.actions.act_window" id="action_window_spgr">
+            <field name="name">spgr</field>
+            <field name="res_model">sd_payaneh_nafti.spgr</field>
+            <field name="view_mode">tree,form</field>
+
+        </record>
+
+        <!-- ==================================================  Menu ====================-->
+
+        <menuitem name="spgr"
+                  sequence="20"
+                  id="spgr_menu"
+                  parent="process_menu"
+                  action="action_window_spgr"/>
+
+<!--        <menuitem name="Actions"-->
+<!--                  id="sd_payaneh_nafti.actions_setting_menu"-->
+<!--                  parent="sd_payaneh_nafti.settings_menu"/>-->
+
+
+    </data>
+</odoo>

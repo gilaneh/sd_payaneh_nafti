@@ -136,8 +136,9 @@
                   sequence="30"/>
 
         <menuitem name="Dashboard"
+                  sequence="10"
                   id="sd_payaneh_nafti.dashboard_menu"
-                  parent="sd_payaneh_nafti.settings_menu"
+                  parent="settings_menu"
                   groups="sd_payaneh_nafti.group_sd_payaneh_nafti_admins"
                   action="sd_payaneh_nafti.action_window_services_dashboard_setup"/>
     </data>

@@ -1,0 +1,10 @@
+.sd_ltr, .sd_ltr a, .sd_ltr p {
+//     unicode-bidi: plaintext;
+direction: initial;
+}
+
+.black_list {
+background-color: #f060509e;
+    border-radius: 5px;
+    padding: 0px 3px;
+}

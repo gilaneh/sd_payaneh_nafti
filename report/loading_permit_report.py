@@ -29,7 +29,9 @@ class ReportSdPayanehNaftiLoadingPermit(models.AbstractModel):
             form_data = data.get('form_data')
             document_no = form_data.get('document_no')[1]
             input_records = self.env['sd_payaneh_nafti.input_info'].search([('document_no', '=', document_no)])
-            calendar = form_data.get('calendar')
+            # calendar = form_data.get('calendar')
+            calendar = context.get('lang')
+
             docids = [input_records.id]
 
         # if len(input_record) > 1:
@@ -55,7 +57,7 @@ class ReportSdPayanehNaftiLoadingPermit(models.AbstractModel):
                         'contract_no': contract_no,
                         'user_name': self.env.user.name,
                         'tanker_no': tanker_no,
-                        'driver': input_record.driver,
+                        'driver': input_record.driver.name,
                         'contract_type': input_record.registration_no.contract_type,
                         'cargo_type': input_record.registration_no.cargo_type.name,
                         'front_container': input_record.front_container,
