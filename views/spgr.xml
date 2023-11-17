@@ -7,7 +7,7 @@
             <field name="name">spgr List</field>
             <field name="model">sd_payaneh_nafti.spgr</field>
             <field name="arch" type="xml">
-                <tree delete="1"  >
+                <tree delete="0" edit="0" >
                         <field name="spgr" />
                         <field name="spgr_date" />
                     <field name="description" />
@@ -19,12 +19,12 @@
             <field name="name">spgr Form</field>
             <field name="model">sd_payaneh_nafti.spgr</field>
             <field name="arch" type="xml">
-                <form>
+                <form edit="0" delete="0">
                     <sheet>
                         <group>
                             <group>
                                 <field name="spgr" />
-                                <field name="spgr_date" />
+                                <field name="spgr_date" readonly="1"/>
                                 <field name="description" />
 
                             </group>
