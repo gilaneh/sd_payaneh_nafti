@@ -87,7 +87,7 @@ class SdPayanehNaftiContractInfo(models.Model):
             'view_mode': 'tree,form',
             'res_model': 'sd_payaneh_nafti.input_info',
             'domain': [('registration_no', '=', self.registration_no)],
-            # 'context': "{'create': False}"
+            'context': {'search_default_registration_no_group': 1}
         }
 
     def get_remain_amount(self):
