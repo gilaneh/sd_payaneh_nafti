@@ -555,6 +555,7 @@
                   sequence="30"
                   id="sd_payaneh_nafti.input_info_menu"
                   parent="sd_payaneh_nafti.process_menu"
+                  groups="base.group_system"
                   action="action_window_input_info"/>
 
         <menuitem name="Plate"
