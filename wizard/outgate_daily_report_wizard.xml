@@ -35,7 +35,7 @@
 
 
         <menuitem name="Outgate Daily Report"
-                  sequence="20"
+                  sequence="80"
                   id="sd_payaneh_nafti_outgate_daily_report"
                   parent="sd_payaneh_nafti.reports_menu"
                   groups="sd_payaneh_nafti.group_sd_payaneh_nafti_users"

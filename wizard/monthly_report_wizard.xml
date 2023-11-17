@@ -47,7 +47,7 @@
 
 
         <menuitem name="Monthly Report"
-                  sequence="20"
+                  sequence="40"
                   id="sd_payaneh_nafti_monthly_report"
                   parent="sd_payaneh_nafti.reports_menu"
                   groups="sd_payaneh_nafti.group_sd_payaneh_nafti_users"

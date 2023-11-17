@@ -1,0 +1,114 @@
+<odoo>
+    <data>
+
+         <!-- ==================================================  sd_payaneh_nafti.trucks ====================-->
+
+        <record model="ir.ui.view" id="sd_payaneh_nafti_trucks_list">
+            <field name="name">Trucks List</field>
+            <field name="model">sd_payaneh_nafti.trucks</field>
+            <field name="arch" type="xml">
+                <tree decoration-danger="black_list">
+                    <field name="black_list" invisible="1" />
+                    <field name="name" class="sd_ltr" />
+                    <field name="card_no" />
+
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="sd_payaneh_nafti_trucks_form">
+            <field name="name">Trucks Form</field>
+            <field name="model">sd_payaneh_nafti.trucks</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+
+                    <group>
+                        <group>
+
+                            <field name="black_list" widget="boolean_toggle"/>
+
+                            <field name="name" class="sd_ltr" invisible="1"/>
+
+                            <label for="plate_1"/>
+                                <div class="o_row text-center">
+                                    <div class="col-3 px-2 border border-info rounded">
+<!--                                        <div t-attrs="{'invisible': [('plate_1', '=', '')]}">58</div>-->
+                                        <field name="plate_1" options="{'no_quick_create':True,'no_create_edit': True, 'no_open': True}"/>
+                                    </div>
+                                    <div class="o_row border border-info rounded">
+
+                                        <div class="o_col px-2 ">
+<!--                                            <div>123</div>-->
+                                            <field name="plate_2" />
+                                        </div>
+                                        <div class="o_col">
+<!--                                            <div>ن</div>-->
+                                            <field name="plate_3" options="{'no_create_edit': True, 'no_open': True}"/>
+                                        </div>
+                                        <div class="o_col px-2 ">
+<!--                                            <div>45</div>-->
+                                            <field name="plate_4" />
+                                        </div>
+                                        <div class="o_col text-300" style="background-color: #10109f; align-self: center;">IR</div>
+                                    </div>
+
+
+                                </div>
+
+                        </group>
+                        <group>
+                            <field name="card_no" />
+
+                        </group>
+
+
+                    </group>
+                        <group>
+                            <field name="description" />
+
+                        </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- ==================================================  Search ====================-->
+
+        <record model="ir.ui.view" id="sd_payaneh_nafti_trucks_list_search">
+            <field name="name">Trucks Search</field>
+            <field name="model">sd_payaneh_nafti.trucks</field>
+            <field name="arch" type="xml">
+                <search string="Trucks">
+                    <field name="name" />
+                    <field name="card_no" />
+                    <field name="description" />
+                </search>
+            </field>
+        </record>
+
+
+        <!-- ==================================================  Action Window ====================-->
+
+        <record model="ir.actions.act_window" id="action_window_trucks">
+            <field name="name">Trucks</field>
+            <field name="res_model">sd_payaneh_nafti.trucks</field>
+            <field name="view_mode">tree,form</field>
+
+        </record>
+
+        <!-- ==================================================  Menu ====================-->
+
+        <menuitem name="Trucks"
+                  sequence="50"
+                  id="trucks_menu"
+                  parent="settings_menu"
+                  action="action_window_trucks"/>
+
+<!--        <menuitem name="Actions"-->
+<!--                  id="sd_payaneh_nafti.actions_setting_menu"-->
+<!--                  parent="sd_payaneh_nafti.settings_menu"/>-->
+
+
+    </data>
+</odoo>

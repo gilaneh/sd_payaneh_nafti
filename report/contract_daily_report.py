@@ -64,9 +64,37 @@ class ReportSdPayanehNaftiContractDailyReport(models.AbstractModel):
             return {
                 'errors': [_(f'No record have found for contract {registration_no} on selected date: {s_start_date} ')],
             }
+
+        input_records_behind_date = tuple(filter(lambda rec: rec.loading_date <= report_day, input_records))
+        registration = input_records[0].registration_no
+
+        if registration.unit == 'barrel':
+            used_amounts = sum([ua.final_gsv_b for ua in input_records_behind_date])
+        elif registration.unit == 'metric_ton':
+            used_amounts = sum([ua.final_mt for ua in input_records_behind_date])
+        else:
+            used_amounts = 0
+        used_amounts = int(used_amounts)
+        amount = registration.amount if registration.init_amount == 0 else registration.init_amount
+        remain_amounts = int(amount - used_amounts)
+        print(f'=========>  \n registration: {registration} '
+                          f'\n len, input_records_behind_date: {len(input_records_behind_date)}'
+                          f'\n registration.unit: {registration.unit}'
+                          f'\n amount: {amount}'
+                          f'\n remain_amount: {remain_amounts}'
+                          f'\n used_amounts: {used_amounts}'
+                          f'\n ')
+
+
+
+
+
+
+
         input_records_day = tuple(filter(lambda rec: rec.loading_date == report_day, input_records))
         # print(f'\n input_records: {len(input_records)} \n {input_records} \ninput_records_day {len(input_records_day)}\n {input_records_day}\n')
-        inputs = []
+
+        inputs_list = []
         pages = []
         total = {
             'totalizer_diff_sum': 0,
@@ -75,13 +103,15 @@ class ReportSdPayanehNaftiContractDailyReport(models.AbstractModel):
             'final_gsv_b_sum': 0,
             'final_mt_sum': 0,
         }
+
+
         page_count = len(input_records_day) // PAGE_LINES + 1
         for index in range(page_count):
-            input = input_records_day[index * PAGE_LINES:(index + 1) * PAGE_LINES]
-            totalizer_diff_sum = sum([input.totalizer_difference for input in input if input.weighbridge == 'no'])
-            final_tov_l_sum = sum([input.final_tov_l for input in input])
-            final_gsv_l_sum = sum([input.final_gsv_l for input in input])
-            final_mt_sum = sum([input.final_mt for input in input])
+            inputs = input_records_day[index * PAGE_LINES:(index + 1) * PAGE_LINES]
+            totalizer_diff_sum = sum([_input.totalizer_difference for _input in inputs if _input.weighbridge == 'no'])
+            final_tov_l_sum = sum([_input.final_tov_l for _input in inputs])
+            final_gsv_l_sum = sum([_input.final_gsv_l for _input in inputs])
+            final_mt_sum = sum([_input.final_mt for _input in inputs])
             page = {
                 'totalizer_diff_sum': totalizer_diff_sum,
                 'final_tov_l_sum': int(final_tov_l_sum),
@@ -94,7 +124,7 @@ class ReportSdPayanehNaftiContractDailyReport(models.AbstractModel):
             total['final_gsv_l_sum'] += int(final_gsv_l_sum)
             total['final_gsv_b_sum'] += final_gsv_l_sum/158.987
             total['final_mt_sum'] += final_mt_sum
-            inputs.append(input)
+            inputs_list.append(inputs)
             pages.append(page)
 
 
@@ -103,7 +133,9 @@ class ReportSdPayanehNaftiContractDailyReport(models.AbstractModel):
 
         doc_data = {
                     'page_lines': PAGE_LINES,
-                    'inputs': inputs,
+                    'inputs': inputs_list,
+                    'remain_amounts': remain_amounts,
+                    'used_amounts': used_amounts,
                     'pages': pages,
                     'total': total,
                     'page_count': page_count,

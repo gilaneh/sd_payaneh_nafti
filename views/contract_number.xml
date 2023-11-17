@@ -41,6 +41,7 @@
         <!-- ==================================================  Menu ====================-->
 
         <menuitem name="Contract Number"
+                  sequence="200"
                   id="contract_number_menu"
                   parent="settings_menu"
                   action="action_window_contract_number"/>

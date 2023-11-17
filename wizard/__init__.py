@@ -8,3 +8,4 @@ from . import meter_report_wizard
 from . import contract_daily_report_wizard
 from . import contract_monthly_report_wizard
 from . import outgate_daily_report_wizard
+# from . import loading_info_wizard

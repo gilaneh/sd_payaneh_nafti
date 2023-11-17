@@ -11,6 +11,8 @@ import base64
 from PIL import Image
 class SdPayanehNaftiDrivers(models.Model):
     _name = 'sd_payaneh_nafti.drivers'
+    black_list = fields.Boolean()
+
     _description = 'sd_payaneh_nafti.drivers'
     _inherit = ['mail.thread', 'mail.activity.mixin']
 

@@ -60,6 +60,7 @@
 
 
         <menuitem name="Contract Registration Init"
+                  sequence="80"
                   id="contract_registration_init_menu"
                   parent="settings_menu"
                   action="action_window_contract_registration_init"/>

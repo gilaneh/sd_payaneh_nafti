@@ -53,6 +53,7 @@
         <!-- ==================================================  Menu ====================-->
 
         <menuitem name="Contractors"
+                  sequence="30"
                   id="contractors_menu"
                   parent="settings_menu"
                   action="action_window_contractors"/>

@@ -83,19 +83,29 @@
                                 Amount
                             </div>
                             <div class="col-6 px-1 "
-                                 t-esc="'{:,d}'.format(contract_record.amount)"></div>
+                                 t-esc="'{:,d}'.format(contract_record.amount)">
+
+                            </div>
                         </div>
                         <div t-if="page_index == 1" class="row border border-dark border-top-0">
                             <div class="col-6 px-1 ">
                                 Delivered
                             </div>
-                            <div class="col-6 px-1 "></div>
+<!--                            <div class="col-6 px-1 "-->
+<!--                                 t-esc="'{:,f}'.format(doc_data['used_amounts'])">-->
+<!--                            </div>-->
+                            <div class="col-6 px-1 "
+                                 t-esc="'{:,d}'.format(doc_data['used_amounts'])">
+                            </div>
                         </div>
                         <div t-if="page_index == 1" class="row border border-dark border-top-0">
                             <div class="col-6 px-1 ">
                                 Remained
                             </div>
-                            <div class="col-6 px-1 "></div>
+
+                          <div class="col-6 px-1 "
+                                 t-esc="'{:,d}'.format(doc_data['remain_amounts'])">
+                            </div>
                         </div>
                     </div>
 

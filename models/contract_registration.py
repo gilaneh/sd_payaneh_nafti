@@ -21,14 +21,14 @@ class SdPayanehNaftiContractInfo(models.Model):
     order_no = fields.Char(required=False,)
     buyer = fields.Many2one('sd_payaneh_nafti.buyers', required=True,)
     amount = fields.Integer(required=True,)
-    unit = fields.Selection([('barrel', 'Barrel'), ('metric_ton', 'Metric Ton')], default='metric_ton', required=True,)
-    contract_type = fields.Selection([('stock', 'Stock'), ('general', 'General')], default='general', required=True,)
-    loading_type = fields.Selection([('internal', 'Internal'), ('export', 'Export')], default='internal', required=True,)
-    cargo_type = fields.Many2one('sd_payaneh_nafti.cargo_types',required=True,)
-    start_date = fields.Date(default=lambda self: date.today() )
-    end_date = fields.Date(default=lambda self: date.today() + timedelta(days=2) )
-    destination = fields.Many2one('sd_payaneh_nafti.destinations', required=True,)
-    contractors = fields.Many2many('sd_payaneh_nafti.contractors', 'registration_contractors_rel', required=False,)
+    unit = fields.Selection([('barrel', 'Barrel'), ('metric_ton', 'Metric Ton')], default='metric_ton', required=True)
+    contract_type = fields.Selection([('stock', 'Stock'), ('general', 'General')], default='general', required=True)
+    loading_type = fields.Selection([('internal', 'Internal'), ('export', 'Export')], default='internal', required=True)
+    cargo_type = fields.Many2one('sd_payaneh_nafti.cargo_types',required=True)
+    start_date = fields.Date(default=lambda self: date.today(), required=True)
+    end_date = fields.Date(default=lambda self: date.today() + timedelta(days=20), required=True)
+    destination = fields.Many2one('sd_payaneh_nafti.destinations', required=True)
+    contractors = fields.Many2many('sd_payaneh_nafti.contractors', 'registration_contractors_rel', required=True)
 
     first_extend_no = fields.Char()
     first_extend_star_date = fields.Date(string='First Start Date')
@@ -37,10 +37,35 @@ class SdPayanehNaftiContractInfo(models.Model):
     second_extend_no = fields.Char()
     second_extend_star_date = fields.Date( string='Second Start Date')
     second_extend_end_date = fields.Date( string='Second End Date')
-
-
+    input_count = fields.Integer(compute='compute_count')
+    remain_amount = fields.Integer(compute='compute_remain_amount')
+    date_validation = fields.Boolean(default=True, compute='_date_validation')
     description = fields.Char()
 
+    @api.depends('registration_no')
+    def _date_validation(self):
+        for rec in self:
+            today = date.today()
+            if rec.end_date and rec.end_date > today \
+                    or rec.first_extend_end_date and rec.first_extend_end_date > today \
+                    or rec.second_extend_end_date and rec.second_extend_end_date > today:
+                rec.date_validation = True
+            else:
+                rec.date_validation = False
+            # print(f'\n---------->   registration_no: {rec.registration_no} date_validation: {rec.date_validation} ')
+
+    def compute_count(self):
+        for rec in self:
+            rec.input_count = self.env['sd_payaneh_nafti.input_info'].search_count(
+                [('registration_no', '=', rec.registration_no)])
+
+    def compute_remain_amount(self):
+        for rec in self:
+            inputs = self.env['sd_payaneh_nafti.input_info'].search([('registration_no', '=', rec.id)])
+            amounts_barrel = [rec.final_gsv_b for rec in inputs if rec.registration_no.unit == 'barrel']
+            amounts_metric_ton = [rec.final_mt for rec in inputs if rec.registration_no.unit == 'metric_ton']
+            amount = rec.amount if rec.init_amount == 0 else rec.init_amount
+            rec.remain_amount = amount - sum(amounts_barrel) - sum(amounts_metric_ton)
     def copy_order_no(self):
         for rec in self:
             rec.order_no = rec.bill_of_lading
@@ -50,6 +75,39 @@ class SdPayanehNaftiContractInfo(models.Model):
             vals['registration_no'] = self.env['ir.sequence'].next_by_code('sd_payaneh_nafti.contract_registration') or _('New')
 
         return super(SdPayanehNaftiContractInfo, self).create(vals)
+
+    def get_inputs(self):
+        self.ensure_one()
+        form_id = self.env.ref('sd_payaneh_nafti.sd_payaneh_nafti_input_info_form_1').id
+        list_id = self.env.ref('sd_payaneh_nafti.sd_payaneh_nafti_input_info_list_1').id
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Inputs',
+            'views': [[list_id, 'list'], [form_id, 'form']],
+            'view_mode': 'tree,form',
+            'res_model': 'sd_payaneh_nafti.input_info',
+            'domain': [('registration_no', '=', self.registration_no)],
+            # 'context': "{'create': False}"
+        }
+
+    def get_remain_amount(self):
+        self.ensure_one()
+
+    def create_loading_request(self):
+        self.ensure_one()
+        form_id = self.env.ref('sd_payaneh_nafti.sd_payaneh_nafti_input_info_form_1').id
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Inputs',
+            'views': [[form_id, 'form']],
+            'view_mode': 'form',
+            'res_model': 'sd_payaneh_nafti.input_info',
+            'target': 'new',
+            # 'domain': [('registration_no', '=', self.registration_no)],
+            'context': {'registration_no': self.id}
+        }
+
+
 
 class SdPayanehNaftiContractInfoInit(models.Model):
     _inherit = 'sd_payaneh_nafti.contract_registration'

@@ -12,11 +12,13 @@ class SdPayanehNaftiReportContractDaily(models.TransientModel):
     _name = 'sd_payaneh_nafti.report.contract_daily'
     _description = 'Contract Daily Report Wizard'
 
-    registration_no = fields.Many2one('sd_payaneh_nafti.contract_registration', required=True,)
+    # registration_no = fields.Many2one('sd_payaneh_nafti.contract_registration', required=True,)
+    registration_no = fields.Many2one('sd_payaneh_nafti.contract_registration', required=True,
+                                      default=lambda self: 258)
 
-    # report_date = fields.Date(required=True, default=lambda self: date.today() )
-    # report_date = fields.Date(required=True, default=lambda self: datetime.strptime('2023-07-17', '%Y-%m-%d').date() )
-    report_date = fields.Date(required=True, default=lambda self: datetime.today().date())
+    # report_date = fields.Date(required=True, default=lambda self: datetime.today().date())
+    report_date = fields.Date(required=True, default=lambda self: datetime.strptime('2022-08-13', '%Y-%m-%d').date() )
+
     calendar = fields.Selection([('fa_IR', 'Persian'), ('en_US', 'Gregorian')],
                                 default=lambda self: 'fa_IR' if self.env.context.get('lang') == 'fa_IR' else 'en_US')
     payaneh_agent = fields.Char(required=True, default='payaneh_agent')

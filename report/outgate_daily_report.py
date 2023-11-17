@@ -15,7 +15,7 @@ class ReportSdPayanehNaftiOutgateDaily(models.AbstractModel):
     # ########################################################################################
     @api.model
     def _get_report_values(self, docids, data=None):
-        print(f'\n data: {data} \n')
+        # print(f'\n data: {data} \n')
         errors = []
         doc_data_list = []
         row_data_lines = []

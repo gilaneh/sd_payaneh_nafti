@@ -3,7 +3,7 @@
 
          <!-- ==================================================  sd_payaneh_nafti.base_info ====================-->
 
-        <record model="ir.ui.view" id="sd_payaneh_nafti_base_infos_list">
+        <record model="ir.ui.view" id="sd_payaneh_nafti_base_info_list">
             <field name="name">Basic Information List</field>
             <field name="model">sd_payaneh_nafti.base_info</field>
             <field name="arch" type="xml">

@@ -16,7 +16,7 @@
     # for the full list
     'category': 'Service Desk/Service Desk',
     'application': True,
-    'version': '1.1.3',
+    'version': '1.1.4',
 
     # any module necessary for this one to work correctly
     'depends': ['base', 'web', 'mail'],
@@ -31,6 +31,7 @@
         'views/meter_data.xml',
         'views/buyers.xml',
         'views/drivers.xml',
+        'views/trucks.xml',
         'views/contractors.xml',
         'views/contract_number.xml',
         'views/destinations.xml',
@@ -39,6 +40,8 @@
         'views/contract_registration.xml',
         'views/contract_registration_init.xml',
         'views/input_info.xml',
+        'views/lockers.xml',
+        'views/spgr.xml',
         'views/templates.xml',
         'report/loading_permit_report_template.xml',
         'report/loading_permit_report.xml',
@@ -64,8 +67,10 @@
         'report/contract_daily_report_template.xml',
         'report/contract_daily_report.xml',
         'wizard/contract_daily_report_wizard.xml',
+        # 'wizard/loading_info_wizard.xml',
         'data/registration_sequence.xml',
         'data/input_sequence.xml',
+        # 'data/lockers_sequence.xml',
         'data/cargo_types_data.xml',
 
     ],

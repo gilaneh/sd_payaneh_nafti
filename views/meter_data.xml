@@ -68,6 +68,7 @@
         <!-- ==================================================  Menu ====================-->
 
         <menuitem name="Meter Data"
+                  sequence="400"
                   id="meter_data_menu"
                   parent="settings_menu"
                   groups="base.group_system"
