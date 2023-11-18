@@ -24,7 +24,7 @@ class SdPayanehNaftiContractInfo(models.Model):
     unit = fields.Selection([('barrel', 'Barrel'), ('metric_ton', 'Metric Ton')], default='metric_ton', required=True)
     contract_type = fields.Selection([('stock', 'Stock'), ('general', 'General')], default='general', required=True)
     loading_type = fields.Selection([('internal', 'Internal'), ('export', 'Export')], default='internal', required=True)
-    cargo_type = fields.Many2one('sd_payaneh_nafti.cargo_types',required=True)
+    cargo_type = fields.Many2one('sd_payaneh_nafti.cargo_types', required=True, default=lambda self: self.env['sd_payaneh_nafti.cargo_types'].search([], limit=1,).id)
     start_date = fields.Date(default=lambda self: date.today(), required=True)
     end_date = fields.Date(default=lambda self: date.today() + timedelta(days=20), required=True)
     destination = fields.Many2one('sd_payaneh_nafti.destinations', required=True)
