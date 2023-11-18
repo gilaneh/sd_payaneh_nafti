@@ -13,8 +13,6 @@
                     </header>
                     <field name="registration_no" />
                     <field name="contract_no" />
-                    <field name="letter_no" />
-<!--                    <field name="bill_of_lading" />-->
                     <field name="order_no" />
                     <field name="buyer" />
                     <field name="unit" />
@@ -53,28 +51,32 @@
                              attrs="{'invisible': [('date_validation', '=', True)]}">
                             Warning: The contract is out of date.
                         </div>
+                        <div class="oe_title">
+                            <label for="registration_no"/>
+                            <h3><field name="registration_no" placeholder="1111" required="1"/></h3>
+                        </div>
                         <group>
                             <group>
-                                <field name="registration_no" />
                                 <field name="date_validation" invisible="1"/>
-                                <field name="letter_no" />
-                                <field name="contract_no" />
+                                <label for="contract_no" />
+                                <div class="o_row sd_ltr">
+                                    <field name="contract_no" placeholder="Contract No"/>
+                                    <div class="col-1" attrs="{'invisible': [('order_no', '=', '')]}">-</div>
+                                    <field name="order_no" placeholder="Order No" />
+                                </div>
 <!--                                <field name="bill_of_lading" />-->
-                                <field name="order_no" />
-                                <field name="buyer"
-                                       options="{ 'no_quick_create':True,'no_create_edit': True, 'no_open': True}" />
-                                <field name="amount" />
-                                <field name="unit" />
-                                <field name="contract_type" />
-                                <field name="loading_type" />
                                 <field name="cargo_type"
                                        options="{'no_quick_create':True, 'no_create_edit': True, 'no_open': True}"/>
+                                <field name="contract_type" />
+                                <field name="loading_type" />
                             </group>
                             <group>
+                                <field name="amount" />
+                                <field name="unit" />
+                                <field name="buyer"
+                                       options="{ 'no_quick_create':True,'no_create_edit': True, 'no_open': True}" />
                                 <field name="destination"
                                     options="{'no_quick_create':True,'no_create_edit': True, 'no_open': True}"/>
-                                <field name="start_date" />
-                                <field name="end_date" />
                                 <field name="contractors" widget="many2many_tags"
                                     options="{'no_quick_create':True, 'no_create_edit': True, 'no_open': True}"/>
 <!--                                <field name="shipment_1" />-->
@@ -85,19 +87,22 @@
 
                             </group>
                         </group>
-                        <group>
-                            <group>
+
+                        <group string="Contract Letters">
+                            <group class="col-4">
+                                <field name="letter_no" />
+                                <field name="start_date" />
+                                <field name="end_date" />
+                            </group>
+                            <group class="col-4">
                                 <field name="first_extend_no" />
                                 <field name="first_extend_star_date" />
                                 <field name="first_extend_end_date" />
-
-
                             </group>
-                            <group>
+                            <group class="col-4">
                                 <field name="second_extend_no" />
                                 <field name="second_extend_star_date" />
                                 <field name="second_extend_end_date" />
-
                             </group>
                         </group>
                     </sheet>
