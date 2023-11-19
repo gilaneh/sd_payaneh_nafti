@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-18 07:57+0000\n"
-"PO-Revision-Date: 2023-11-18 11:59+0330\n"
+"PO-Revision-Date: 2023-11-19 06:15+0330\n"
 "Last-Translator: Arash Homayounfar <homayounfar@msn.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -2135,42 +2135,42 @@ msgstr ""
 #. module: sd_payaneh_nafti
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_res_config_settings__param_ai1
 msgid "Param Ai1"
-msgstr ""
+msgstr "Ai1"
 
 #. module: sd_payaneh_nafti
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_res_config_settings__param_ai2
 msgid "Param Ai2"
-msgstr ""
+msgstr "Ai2"
 
 #. module: sd_payaneh_nafti
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_res_config_settings__param_ai3
 msgid "Param Ai3"
-msgstr ""
+msgstr "Ai3"
 
 #. module: sd_payaneh_nafti
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_res_config_settings__param_ai4
 msgid "Param Ai4"
-msgstr ""
+msgstr "Ai4"
 
 #. module: sd_payaneh_nafti
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_res_config_settings__param_ai5
 msgid "Param Ai5"
-msgstr ""
+msgstr "Ai5"
 
 #. module: sd_payaneh_nafti
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_res_config_settings__param_ai6
 msgid "Param Ai6"
-msgstr ""
+msgstr "Ai6"
 
 #. module: sd_payaneh_nafti
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_res_config_settings__param_ai7
 msgid "Param Ai7"
-msgstr ""
+msgstr "Ai7"
 
 #. module: sd_payaneh_nafti
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_res_config_settings__param_ai8
 msgid "Param Ai8"
-msgstr ""
+msgstr "Ai8"
 
 #. module: sd_payaneh_nafti
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_res_config_settings__param_b

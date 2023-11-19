@@ -23,23 +23,23 @@
         <template id="contract_monthly_report_table_footer">
             <tr>
                 <td colspan="3">جمع قرارداد در ماه جاری</td>
-                <td t-esc="footer_data['total_gsv_l']"></td>
-                <td t-esc="footer_data['total_gsv_b']"></td>
-                <td t-esc="footer_data['total_mt']"></td>
+                <td t-esc="'%.d' % footer_data['total_gsv_l']"></td>
+                <td t-esc="'%.2f' % footer_data['total_gsv_b']"></td>
+                <td t-esc="'%.3f' % footer_data['total_mt']"></td>
                 <td t-esc="footer_data['total_tankers']"></td>
             </tr>
             <tr>
                 <td colspan="3">جمع قرارداد از ماه قبل</td>
-                <td t-esc="footer_data['total_gsv_l_past']"></td>
-                <td t-esc="footer_data['total_gsv_b_past']"></td>
-                <td t-esc="footer_data['total_mt_past']"></td>
+                <td t-esc="'%.d' % footer_data['total_gsv_l_past']"></td>
+                <td t-esc="'%.2f' % footer_data['total_gsv_b_past']"></td>
+                <td t-esc="'%.3f' % footer_data['total_mt_past']"></td>
                 <td t-esc="footer_data['total_tankers_past']"></td>
             </tr>
             <tr>
                 <td colspan="3">جمع کل قرارداد</td>
-                <td t-esc="footer_data['total_gsv_l_all']"></td>
-                <td t-esc="footer_data['total_gsv_b_all']"></td>
-                <td t-esc="footer_data['total_mt_all']"></td>
+                <td t-esc="'%.d' % footer_data['total_gsv_l_all']"></td>
+                <td t-esc="'%.2f' % footer_data['total_gsv_b_all']"></td>
+                <td t-esc="'%.3f' % footer_data['total_mt_all']"></td>
                 <td t-esc="footer_data['total_tankers_all']"></td>
             </tr>
         </template>
