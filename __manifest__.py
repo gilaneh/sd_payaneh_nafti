@@ -52,6 +52,7 @@
         'report/contract_monthly_report_template.xml',
         'report/contract_monthly_report.xml',
         'wizard/contract_monthly_report_wizard.xml',
+        'wizard/export_contract_monthly_report_wizard.xml',
         'report/daily_report_template.xml',
         'report/daily_report.xml',
         'wizard/daily_report_wizard.xml',

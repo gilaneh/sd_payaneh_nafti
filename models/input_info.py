@@ -139,6 +139,36 @@ class SdPayanehNaftiInputInfo(models.Model):
         #         rec.write({'driver_name': drivers.id})
 
     @api.onchange('document_no')
+    def onchange_document_no(self):
+        self.set_spgr()
+
+    @api.depends('registration_no',)
+    @api.onchange('registration_no', 'front_container', 'middle_container', 'back_container')
+    def _on_registration_change(self):
+        self._remain_amount()
+
+    @api.onchange('weighbridge')
+    def _onchange_weighbridge(self):
+        self._finals()
+        self._weighbridge_change()
+
+    @api.depends('temperature')
+    @api.onchange('temperature')
+    def _onchange_temperature(self):
+        self._temperature_f()
+        self._ctl_cpl()
+
+    @api.onchange('sp_gr')
+    def _onchange_spgr(self):
+        self._api_a()
+        self._tab_13()
+        self._ctl_cpl()
+
+    @api.onchange('pressure')
+    def _onchange_pressure(self):
+        self._pressure_psi()
+        self._ctl_cpl()
+
     def set_spgr(self):
         spgr = self.env['sd_payaneh_nafti.spgr'].search([], order='id desc', limit=1)
         if len(spgr) == 1:
@@ -146,8 +176,6 @@ class SdPayanehNaftiInputInfo(models.Model):
         else:
             raise ValidationError(_('Add a "SP.GR." from the main menu'))
 
-    @api.depends('registration_no',)
-    @api.onchange('registration_no', 'front_container', 'middle_container', 'back_container')
     def _remain_amount(self):
         for rec in self:
             final_gsv_b = 0
@@ -195,7 +223,6 @@ class SdPayanehNaftiInputInfo(models.Model):
             #                             f'\nRequested amount: {requested_approx_amount}'
             #                             f'\nApproximate remain amount: {rec.remain_amount_approx}'))
 
-    @api.onchange('weighbridge')
     def _finals(self):
         # calculate the final amounts based on the totalizer or the tanker weight
         for rec in self:
@@ -215,32 +242,28 @@ class SdPayanehNaftiInputInfo(models.Model):
             rec.final_gsv_l = final_gsv_l
             rec.final_tov_l = final_tov_l
 
-    @api.onchange('temperature')
     def _temperature_f(self):
         # calculates the temperature based on Fahrenheit degree
         for rec in self:
             rec.temperature_f = rec.temperature * 9 / 5 + 32
 
-    @api.onchange('sp_gr')
     def _api_a(self):
         # calculates the API
         for rec in self:
             api_a = 141.5 / rec.sp_gr - 131.5 if rec.sp_gr else 0
             rec.api_a = round(api_a, 2) if rec.registration_no.loading_type == 'internal' else round(api_a, 1)
 
-    @api.onchange('sp_gr')
     def _tab_13(self):
         # Calculates the TAB.13
         for rec in self:
             rec.tab_13 = ((141.3819577 / (rec.api_a + 131.5)) - 0.001199407795) * 0.1589872949
 
-    @api.onchange('pressure')
+
     def _pressure_psi(self):
         # Calculates the pressure based on PSI
         for rec in self:
             rec.pressure_psi = rec.pressure * 14.5038
 
-    @api.onchange('sp_gr', 'temperature', 'pressure' )
     def _ctl_cpl(self):
         # takes the constant parameters from setting page
         k_0 = float(self.env['ir.config_parameter'].sudo().get_param('sd_payaneh_nafti.k_0'))
@@ -284,7 +307,6 @@ class SdPayanehNaftiInputInfo(models.Model):
                 rec.ctl = 1
                 rec.cpl = 1
 
-    @api.onchange('weighbridge')
     def _weighbridge_change(self):
         # It makes sure the tanker weight or the totalizer amount would be zero whenever the weighbridge has changed.
         for rec in self:
