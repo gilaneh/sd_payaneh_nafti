@@ -34,7 +34,7 @@ class ReportSdPayanehNaftiContractDailyReport(models.AbstractModel):
             # calendar = form_data.get('calendar')
             docids = [contract_record.id]
         # REPORT DATE
-
+        calendar = context.get('lang')
         report_date = form_data.get('report_date') if 'report_date' in form_data.keys() else False
         date_format = '%Y-%m-%d'
         report_date = datetime.strptime(report_date, date_format).date()

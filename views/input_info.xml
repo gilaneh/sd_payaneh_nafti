@@ -255,8 +255,9 @@
 
                                 <label for="contract_no" />
                                 <div class="o_row sd_ltr">
-                                        <field name="contract_no" class="mx-2"  attrs="{'invisible': [('contract_no', '=', '')]}"/>
-                                        <field name="order_no" class="mx-2" attrs="{'invisible': [('order_no', '=', '')]}"/>
+                                    <field name="contract_no" class="mx-2"  attrs="{'invisible': [('contract_no', '=', '')]}"/>
+                                    <div class="col-1" attrs="{'invisible': [('order_no', '=', '')]}">-</div>
+                                    <field name="order_no" class="mx-2" attrs="{'invisible': [('order_no', '=', '')]}"/>
                                 </div>
 
                             </group>
@@ -505,9 +506,15 @@
                     <field name="registration_no" />
                     <field name="contractor" />
                     <field name="buyer" />
+                    <field name="driver" />
+                    <field name="truck_no" />
                     <filter string="Last Week" name="last_week" domain="[('loading_date', '&gt;=', datetime.datetime.now() - datetime.timedelta(days=7))]"/>
                     <group>
                         <filter string="Registration" name="registration_no_group" context="{'group_by': 'registration_no'}" />
+                        <filter string="Buyer" name="buyer_group" context="{'group_by': 'buyer'}" />
+                        <filter string="Contractor" name="contractors_group" context="{'group_by': 'contractor'}" />
+                        <filter string="Driver" name="driver_group" context="{'group_by': 'driver'}" />
+                        <filter string="Truck" name="truck_no_group" context="{'group_by': 'truck_no'}" />
                     </group>
                 </search>
             </field>
