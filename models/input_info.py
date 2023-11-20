@@ -283,7 +283,7 @@ class SdPayanehNaftiInputInfo(models.Model):
         param_ai6 = float(self.env['ir.config_parameter'].sudo().get_param('sd_payaneh_nafti.param_ai6'))
         param_ai7 = float(self.env['ir.config_parameter'].sudo().get_param('sd_payaneh_nafti.param_ai7'))
         param_ai8 = float(self.env['ir.config_parameter'].sudo().get_param('sd_payaneh_nafti.param_ai8'))
-        logging.error(f'%%%%%%%%%%%% > k_0: {k_0} delta_60: {delta_60} ')
+        # logging.error(f'%%%%%%%%%%%% > k_0: {k_0} delta_60: {delta_60} ')
         # Calculates CPL and CTL which they will be used to calculate the other parameters
         for rec in self:
             try:
@@ -292,12 +292,6 @@ class SdPayanehNaftiInputInfo(models.Model):
                 rec_b = ((2 * k_0) + (k_1 * rec_pi)) / ((k_0 + ((k_2 * rec_pi) + k_1) * rec_pi))
                 rec_pi_star = rec_pi * (1 + ((math.exp((rec_a * (1 + (0.8 * rec_a)))) - 1) / (1 + rec_a * (1 + (0.6 * rec_a)) * rec_b)))
                 alpha_60 = (((k_0 / rec_pi_star) + k_1) * (1 / rec_pi_star)) + k_2
-            except Exception as e:
-                logging.error(f'_ctl_cpl 1: {e}')
-                # print(f'_ctl_cpl: {e}')
-                rec.ctl = 1
-                rec.cpl = 1
-            try:
                 t_star_prime = ((rec.temperature_f-32)/1.8)/630
                 t_star_zegond = (param_ai1+((param_ai2+((param_ai3+((param_ai4+((param_ai5+((param_ai6+((param_ai7+(param_ai8*t_star_prime))*t_star_prime))*t_star_prime))*t_star_prime))*t_star_prime))*t_star_prime))*t_star_prime))*t_star_prime
                 t_star = ((rec.temperature-((param_ai1+(param_ai2+(param_ai3+(param_ai4+(param_ai5+(param_ai6+(param_ai7+param_ai8*(rec.temperature/630))*(rec.temperature/630))*(rec.temperature/630))*(rec.temperature/630))*(rec.temperature/630))*(rec.temperature/630))*(rec.temperature/630))*(rec.temperature/630)))*1.8)+32
@@ -307,10 +301,11 @@ class SdPayanehNaftiInputInfo(models.Model):
                 rec.cpl = 1 / (1-((10 ** -5) * (fp * rec.pressure_psi)))
                 # print(f'\nrec_pi: {rec_pi}\nrec_a: {rec_a}\nrec_b: {rec_b}\nrec_pi_star: {rec_pi_star}\nalpha_60: {alpha_60}\n  ')
             except Exception as e:
-                logging.error(f'_ctl_cpl 2: {e}')
-                # print(f'_ctl_cpl: {e}')
+                logging.error(f'_ctl_cpl : {e}')
+                logging.error(f'_ctl_cpl : You might needed to save system parameters')
                 rec.ctl = 1
                 rec.cpl = 1
+                raise ValidationError(_('You might needed to save system parameters. They get default values but you have to save them to res.config.system.'))
 
     def _weighbridge_change(self):
         # It makes sure the tanker weight or the totalizer amount would be zero whenever the weighbridge has changed.
