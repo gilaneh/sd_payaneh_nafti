@@ -8,6 +8,7 @@
                 <form>
                     <group>
                         <group>
+                            <field name="loading_type" />
                             <field name="registration_no" options='{"no_open": True, "no_create": True}'/>
                         </group>
                     </group>

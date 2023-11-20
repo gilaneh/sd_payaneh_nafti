@@ -362,13 +362,8 @@
                                     </group>
                                 </group>
                             </page>
-                        </notebook>
-                            <group invisible="1">
+                            <page string="Params" groups="base.group_system">
 
-
-                            </group>
-                        <notebook groups="base.group_system" invisible="1">
-                            <page string="Misc">
                                 <group>
                                     <group>
                                         <field name="api_a" groups="base.group_system"/>

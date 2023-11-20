@@ -38,9 +38,7 @@
                                                 <div class="row border border-primary py-2 text-left">
                                                     <div class="col-8">
                                                         <div class="row">
-                                                            <div class="col-4">
-                                                                Buyer
-                                                            </div>
+                                                            <div class="col-4">Buyer</div>
                                                             <div class="text-nowrap" t-esc="input_record.buyer.name"></div>
 
                                                         </div>

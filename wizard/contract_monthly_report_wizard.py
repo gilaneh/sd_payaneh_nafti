@@ -19,13 +19,29 @@ class SdPayanehNaftiReportContractMonthly(models.TransientModel):
                             string='Year', required=True,
                             default=lambda self: self._year_selector())
 
-    registration_no = fields.Many2one('sd_payaneh_nafti.contract_registration', required=True, )
+    registration_no = fields.Many2one('sd_payaneh_nafti.contract_registration', required=True,
+                                      domain=[('loading_type', '=', 'internal')])
+
+    loading_type = fields.Selection([('internal', 'Internal'), ('export', 'Export')], default='internal', required=True)
+
 
     # start_date = fields.Date(required=True, default=lambda self: date.today() )
     # calendar = fields.Selection([('fa_IR', 'Persian'), ('en_US', 'Gregorian')],
     #                             default=lambda self: 'fa_IR' if self.env.context.get('lang') == 'fa_IR' else 'en_US')
 
     # #############################################################################
+
+    @api.onchange('loading_type')
+    def _reg_domain(self):
+        domain = {}
+        self.registration_no = False
+        if self.loading_type == 'internal':
+            domain = {'registration_no': [('loading_type', '=', 'internal')]}
+        elif self.loading_type == 'export':
+            domain = {'registration_no': [('loading_type', '=', 'export')]}
+        return {'domain': domain}
+
+
     def contract_monthly_report(self):
         read_form = self.read()[0]
         data = {'form_data': read_form}

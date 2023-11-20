@@ -30,6 +30,7 @@ class ReportSdPayanehNaftiContractMonthly(models.AbstractModel):
         registration_no = form_data.get('registration_no')[1]
         year = form_data.get('year')
         month = form_data.get('month')
+        loading_type = form_data.get('loading_type')
 
         if calendar == 'fa_IR':
             first_day = jdatetime.date(int(year), int(month), 1)
@@ -186,6 +187,7 @@ class ReportSdPayanehNaftiContractMonthly(models.AbstractModel):
             'header': header,
             'row_data_lines': row_data_lines,
             'footer_data': footer_data,
+            'loading_type': loading_type,
 
             'doc_data_list': doc_data_list,
             'dates': [s_first_day, s_last_day],

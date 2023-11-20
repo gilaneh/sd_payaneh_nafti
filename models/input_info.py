@@ -10,7 +10,11 @@ import jdatetime
 import math
 import logging
 
-
+cpl_counter = 0
+def _cpl_counter():
+    global cpl_counter
+    cpl_counter += 1
+    return cpl_counter
 class SdPayanehNaftiInputInfo(models.Model):
     _name = 'sd_payaneh_nafti.input_info'
     _description = 'sd_payaneh_nafti.input_info'
@@ -119,6 +123,7 @@ class SdPayanehNaftiInputInfo(models.Model):
     final_gsv_l = fields.Float(string='Final G.S.V Liter', compute='_finals')
     final_gsv_b = fields.Float(string='Final G.S.V BBL', compute='_finals', digits=[8, 2])
     final_mt = fields.Float(string='Final M.T.', compute='_finals')
+    cpl_counter = fields.Integer(default=0)
 
     # def drivers_strip(self):
     #     ids = self.env.context.get('active_ids')
@@ -152,7 +157,6 @@ class SdPayanehNaftiInputInfo(models.Model):
         self._finals()
         self._weighbridge_change()
 
-    @api.depends('temperature')
     @api.onchange('temperature')
     def _onchange_temperature(self):
         self._temperature_f()
@@ -283,7 +287,8 @@ class SdPayanehNaftiInputInfo(models.Model):
         param_ai6 = float(self.env['ir.config_parameter'].sudo().get_param('sd_payaneh_nafti.param_ai6'))
         param_ai7 = float(self.env['ir.config_parameter'].sudo().get_param('sd_payaneh_nafti.param_ai7'))
         param_ai8 = float(self.env['ir.config_parameter'].sudo().get_param('sd_payaneh_nafti.param_ai8'))
-        # logging.error(f'%%%%%%%%%%%% > k_0: {k_0} delta_60: {delta_60} ')
+
+        # logging.error(f'%%%%%%%%%%%% > cpl_counter: {_cpl_counter()} k_0: {k_0} delta_60: {delta_60} ')
         # Calculates CPL and CTL which they will be used to calculate the other parameters
         for rec in self:
             try:
@@ -305,7 +310,8 @@ class SdPayanehNaftiInputInfo(models.Model):
                 logging.error(f'_ctl_cpl : You might needed to save system parameters')
                 rec.ctl = 1
                 rec.cpl = 1
-                raise ValidationError(_('You might needed to save system parameters. They get default values but you have to save them to res.config.system.'))
+                raise ValidationError(_('You might needed to save system parameters.'
+                                        '\n They get default values but you have to save them to res.config.system.'))
 
     def _weighbridge_change(self):
         # It makes sure the tanker weight or the totalizer amount would be zero whenever the weighbridge has changed.

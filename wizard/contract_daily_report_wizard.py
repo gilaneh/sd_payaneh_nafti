@@ -12,9 +12,10 @@ class SdPayanehNaftiReportContractDaily(models.TransientModel):
     _name = 'sd_payaneh_nafti.report.contract_daily'
     _description = 'Contract Daily Report Wizard'
 
-    # registration_no = fields.Many2one('sd_payaneh_nafti.contract_registration', required=True,)
     registration_no = fields.Many2one('sd_payaneh_nafti.contract_registration', required=True,
-                                      default=lambda self: 258)
+                                      domain=[('loading_type', '=', 'internal')])
+
+    loading_type = fields.Selection([('internal', 'Internal'), ('export', 'Export')], default='internal', required=True)
 
     # report_date = fields.Date(required=True, default=lambda self: datetime.today().date())
     report_date = fields.Date(required=True, default=lambda self: datetime.strptime('2022-08-13', '%Y-%m-%d').date() )
@@ -25,6 +26,17 @@ class SdPayanehNaftiReportContractDaily(models.TransientModel):
     observe_agent = fields.Char(required=True, default='observe_agent')
     buyer_agent = fields.Char(required=True, default='buyer_agent')
     # #############################################################################
+
+    @api.onchange('loading_type')
+    def _reg_domain(self):
+        domain = {}
+        self.registration_no = False
+        if self.loading_type == 'internal':
+            domain = {'registration_no': [('loading_type', '=', 'internal')]}
+        elif self.loading_type == 'export':
+            domain = {'registration_no': [('loading_type', '=', 'export')]}
+        return {'domain': domain}
+
     def cargo_document_report(self):
         read_form = self.read()[0]
         data = {'form_data': read_form}
