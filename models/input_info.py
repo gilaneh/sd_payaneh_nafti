@@ -283,7 +283,7 @@ class SdPayanehNaftiInputInfo(models.Model):
         param_ai6 = float(self.env['ir.config_parameter'].sudo().get_param('sd_payaneh_nafti.param_ai6'))
         param_ai7 = float(self.env['ir.config_parameter'].sudo().get_param('sd_payaneh_nafti.param_ai7'))
         param_ai8 = float(self.env['ir.config_parameter'].sudo().get_param('sd_payaneh_nafti.param_ai8'))
-
+        print(f'k_0: {k_0} delta_60: {delta_60} ')
         # Calculates CPL and CTL which they will be used to calculate the other parameters
         for rec in self:
             try:
