@@ -49,7 +49,9 @@ class ReportSdPayanehNaftiLoadingPermit(models.AbstractModel):
             contract_no = str(input_record.registration_no.contract_no)
             if input_record.registration_no.order_no:
                 contract_no += '-' + str(input_record.registration_no.order_no)
-
+            reg = input_record.registration_no
+            # contract_type = dict(reg._fields['contract_type'].selection).get(reg.contract_type)
+            contract_type = dict(reg._fields['contract_type']._description_selection(self.env)).get(reg.contract_type)
             doc_data = {
                         # 'buyer': str(input_record.buyer.name),
                         # 'contractor': str(input_record.contractor.name),
@@ -58,7 +60,7 @@ class ReportSdPayanehNaftiLoadingPermit(models.AbstractModel):
                         'user_name': self.env.user.name,
                         'tanker_no': tanker_no,
                         'driver': input_record.driver.name,
-                        'contract_type': input_record.registration_no.contract_type,
+                        'contract_type': contract_type,
                         'cargo_type': input_record.registration_no.cargo_type.name,
                         'front_container': input_record.front_container,
                         'middle_container': input_record.middle_container,

@@ -93,7 +93,7 @@ class SdPayanehNaftiInputInfo(models.Model):
     totalizer_start = fields.Integer(required=False,)
     totalizer_end = fields.Integer(required=False,)
     totalizer_difference = fields.Integer(required=False, compute='_totalizer_difference')
-    weighbridge = fields.Selection([('no', 'No'),('yes', 'Yes')], default='no')
+    weighbridge = fields.Selection([('no', 'No'), ('yes', 'Yes')], default='no')
     tanker_empty_weight = fields.Integer(required=False,)
     tanker_full_weight = fields.Integer(required=False,)
     tanker_pure_weight = fields.Integer(required=False, compute='_tanker_pure_weight')

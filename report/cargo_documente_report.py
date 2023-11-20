@@ -66,7 +66,8 @@ class ReportSdPayanehNaftiCargoDocument(models.AbstractModel):
                 'destination': str(input_record.registration_no.destination),
                 'user_name': self.env.user.name,
                 'driver_promise': driver_promise,
-                'contract_type': input_record.registration_no.contract_type,
+                # dict(self._fields['type'].selection).get(self.type)
+                # 'contract_type': contract_type,
                 'cargo_type': input_record.registration_no.cargo_type.name,
 
                 'front_container': input_record.front_container,
