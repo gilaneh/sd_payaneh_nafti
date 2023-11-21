@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.0e-20230521\n"
+"Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-20 18:40+0000\n"
-"PO-Revision-Date: 2023-11-21 09:00+0330\n"
+"POT-Creation-Date: 2023-11-21 05:56+0000\n"
+"PO-Revision-Date: 2023-11-21 09:28+0330\n"
 "Last-Translator: Arash Homayounfar <homayounfar@msn.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -300,13 +300,6 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_monthly_report_data
 msgid ""
 "<span>مقدار مجوز</span>\n"
-"                                                    <span>(</span>"
-msgstr ""
-
-#. module: sd_payaneh_nafti
-#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_monthly_report_data
-msgid ""
-"<span>مقدار مجوز</span>\n"
 "                                                <span>(</span>"
 msgstr ""
 
@@ -473,7 +466,7 @@ msgstr "از منوی اصلی یک SP GR اضافه کنید"
 #. module: sd_payaneh_nafti
 #: model:res.groups,name:sd_payaneh_nafti.group_sd_payaneh_nafti_admins
 msgid "Administrators"
-msgstr ""
+msgstr "لیست نظرسنجی ها"
 
 #. module: sd_payaneh_nafti
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__amount
@@ -528,8 +521,10 @@ msgid "Back Container"
 msgstr "مخزن عقب"
 
 #. module: sd_payaneh_nafti
+#: code:addons/sd_payaneh_nafti/models/contract_registration.py:0
 #: model:ir.model.fields.selection,name:sd_payaneh_nafti.selection__sd_payaneh_nafti_contract_info__unit__barrel
 #: model:ir.model.fields.selection,name:sd_payaneh_nafti.selection__sd_payaneh_nafti_contract_registration__unit__barrel
+#, python-format
 msgid "Barrel"
 msgstr "بشکه"
 
@@ -559,7 +554,6 @@ msgstr "لیست سیاه"
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__buyer
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__buyer
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_data
-#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.loading_permit_report_data
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.sd_payaneh_nafti_contract_registration_list_search
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.sd_payaneh_nafti_input_info_list_search
 msgid "Buyer"
@@ -569,6 +563,11 @@ msgstr "خریدار"
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_report_contract_daily__buyer_agent
 msgid "Buyer Agent"
 msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.loading_permit_report_data
+msgid "Buyer1"
+msgstr "خریدار"
 
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_page_header
@@ -625,7 +624,7 @@ msgstr ""
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_monthly_report_table_footer
 msgid "CURRENT MONTH"
-msgstr ""
+msgstr "جمع قرارداد در ماه جاری"
 
 #. module: sd_payaneh_nafti
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_report_cargo_document_report__calendar
@@ -1132,9 +1131,11 @@ msgid "Evacuation Box Seal"
 msgstr "پلمپ جعبه تخلیه"
 
 #. module: sd_payaneh_nafti
+#: code:addons/sd_payaneh_nafti/models/contract_registration.py:0
 #: model:ir.model.fields.selection,name:sd_payaneh_nafti.selection__sd_payaneh_nafti_contract_registration__loading_type__export
 #: model:ir.model.fields.selection,name:sd_payaneh_nafti.selection__sd_payaneh_nafti_report_contract_daily__loading_type__export
 #: model:ir.model.fields.selection,name:sd_payaneh_nafti.selection__sd_payaneh_nafti_report_contract_monthly_report__loading_type__export
+#, python-format
 msgid "Export"
 msgstr "صادرات"
 
@@ -1269,7 +1270,9 @@ msgid "GRADE"
 msgstr ""
 
 #. module: sd_payaneh_nafti
+#: code:addons/sd_payaneh_nafti/models/contract_registration.py:0
 #: model:ir.model.fields.selection,name:sd_payaneh_nafti.selection__sd_payaneh_nafti_contract_registration__contract_type__general
+#, python-format
 msgid "General"
 msgstr "عمومی"
 
@@ -1507,9 +1510,11 @@ msgid "Input Information"
 msgstr "اطلاعات ورودی"
 
 #. module: sd_payaneh_nafti
+#: code:addons/sd_payaneh_nafti/models/contract_registration.py:0
 #: model:ir.model.fields.selection,name:sd_payaneh_nafti.selection__sd_payaneh_nafti_contract_registration__loading_type__internal
 #: model:ir.model.fields.selection,name:sd_payaneh_nafti.selection__sd_payaneh_nafti_report_contract_daily__loading_type__internal
 #: model:ir.model.fields.selection,name:sd_payaneh_nafti.selection__sd_payaneh_nafti_report_contract_monthly_report__loading_type__internal
+#, python-format
 msgid "Internal"
 msgstr "داخلی"
 
@@ -1581,7 +1586,7 @@ msgstr ""
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_monthly_report_table_footer
 msgid "LAST MONTH"
-msgstr ""
+msgstr "جمع قرارداد از ماه قبل"
 
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_monthly_report_data_export
@@ -1923,8 +1928,10 @@ msgid "Meter T.O.V Liter"
 msgstr ""
 
 #. module: sd_payaneh_nafti
+#: code:addons/sd_payaneh_nafti/models/contract_registration.py:0
 #: model:ir.model.fields.selection,name:sd_payaneh_nafti.selection__sd_payaneh_nafti_contract_info__unit__metric_ton
 #: model:ir.model.fields.selection,name:sd_payaneh_nafti.selection__sd_payaneh_nafti_contract_registration__unit__metric_ton
+#, python-format
 msgid "Metric Ton"
 msgstr "متریک تن"
 
@@ -2601,7 +2608,9 @@ msgid ""
 msgstr ""
 
 #. module: sd_payaneh_nafti
+#: code:addons/sd_payaneh_nafti/models/contract_registration.py:0
 #: model:ir.model.fields.selection,name:sd_payaneh_nafti.selection__sd_payaneh_nafti_contract_registration__contract_type__stock
+#, python-format
 msgid "Stock"
 msgstr "بورس"
 
@@ -2623,7 +2632,7 @@ msgstr ""
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_monthly_report_table_footer
 msgid "TOTAL"
-msgstr ""
+msgstr "جمع کل"
 
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.res_config_settings_view_form

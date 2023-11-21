@@ -60,51 +60,9 @@
                                     <div>شرکت پایانه های نفتی ایران</div>
                                     <div>تاسیسات بارگیری زمینی میعانات گازی پارس جنوبی</div>
                                     <div class="h4 mt-2 mb-4">
-                                        گزارش روزانه قراردادهای بارگیری نفتکش های زمینی میعانات گازی
+                                        گزارش بارگیری پایان قرارداد نفتکش های زمینی میعانات گازی
                                     </div>
-                                    <div class="row mx-0 mb-4 border border-info rounded ">
-                                        <div class="col-9 ">
-                                            <div class="row border-bottom py-1">
-                                                <div class="col-2">
-                                                    <span>شماره قرار داد:</span>
-                                                </div>
-                                                <div class="col-2">
-                                                    <span class="font-weight-bold" t-esc="header['contract_no']"></span>
-                                                </div>
-                                                <div class="col-3">
-                                                    <span>مقدار مجوز</span>
-                                                    <span>(</span>
-                                                    <span t-esc="header['unit']"></span>
-                                                    <span>):</span>
-                                                </div>
-                                                <div class="col-2">
-                                                    <span class="font-weight-bold" t-esc="header['amount']"></span>
-                                                </div>
-
-                                            </div>
-                                            <div class="row border-bottom py-1">
-                                                <div class="col-2">نام خریدار:</div>
-                                                <div class="col-10 font-weight-bold">
-                                                    <span t-esc="header['buyer']"></span>
-                                                    <span>,</span>
-                                                    <span t-esc="header['destination']"></span>
-                                                </div>
-                                            </div>
-                                            <div class="row py-1">
-                                                <div class="col-2">پیمانکار حمل:</div>
-                                                <div class="col-10 font-weight-bold">
-                                                    <span t-esc="header['contractors']"></span>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div class="col-3 text-center">
-                                            <div class=" py-1">دوره برداشت</div>
-                                            <div class="font-weight-bold py-1" t-esc="dates[0]"></div>
-                                            <div class="font-weight-bold py-1" t-esc="dates[1]"></div>
-                                        </div>
-                                    </div>
-                                </div>
+                               </div>
 
                                 <div class="row mx-0 mb-4 border border-info rounded ">
                                     <div class="col-9 ">
@@ -184,10 +142,10 @@
         </template>
 
         <template id="contract_monthly_report_data_export">
-            <div class="page" lang="en_US">
+            <div class="page" lang="en_US" style="direction: ltr">
                 <div class="container " style="font-size: .9rem">
                     <div class="container mt-2">
-                        <div class="container ">
+                        <div class="container">
                             <div >
                                 <div class="text-center">
                                     <div>
@@ -280,10 +238,6 @@
                     <div class="mb-5"></div>
                 </div>
             </div>
-
-
-            <!--                </t>-->
-            <!--            </t>-->
         </template>
 
         <template id="report_layout" name="Report layout">&lt;!DOCTYPE html&gt;
@@ -344,8 +298,8 @@
                         <!--                        <t t-call="sd_payaneh_nafti.contract_monthly_report_data" t-lang="lang"/>-->
                         <t t-if="loading_type == 'internal'"
                            t-call="sd_payaneh_nafti.contract_monthly_report_data" t-lang="lang"/>
-                        <t t-if="loading_type == 'export'" t-call="sd_payaneh_nafti.basic_layout">
-                          <t t-call="sd_payaneh_nafti.contract_monthly_report_data_export"  lang="en_US"/>
+                        <t t-if="loading_type == 'export'" t-call="web.basic_layout" lang="en_US">
+                          <t t-call="sd_payaneh_nafti.contract_monthly_report_data_export" />
                         </t>
                     </t>
                 </div>

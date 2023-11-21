@@ -66,10 +66,12 @@ class ReportSdPayanehNaftiContractMonthly(models.AbstractModel):
         else:
             s_start_date = registration.start_date.strftime("%Y-%m-%d")
             s_end_date = registration.end_date.strftime("%Y-%m-%d")
+        unit = dict(registration._fields['unit']._description_selection(self.env)).get(registration.unit)
+
         header = {
             'contract_no': registration.contract_no,
             'amount': registration.amount,
-            'unit': registration.unit,
+            'unit': unit,
             'buyer': registration.buyer.name,
             'destination': registration.destination.name,
             'contractors': ' / '.join([rec.name for rec in registration.contractors]),
