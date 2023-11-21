@@ -76,19 +76,6 @@
                             <div style="direction:rtl">
                                 <t t-call="sd_payaneh_nafti.contract_monthly_report_page_header" t-lang="lang"/>
 
-<!--                                <div class="text-center">-->
-<!--                                    <div>-->
-<!--                                        <img alt="Logo" t-att-src="'/logo?company=1'" t-att-alt="''"-->
-<!--                                             style=" height: 50px;" height="50"/>-->
-<!--                                    </div>-->
-<!--                                    <div>شرکت ملی نفت ایران</div>-->
-<!--                                    <div>شرکت پایانه های نفتی ایران</div>-->
-<!--                                    <div>تاسیسات بارگیری زمینی میعانات گازی پارس جنوبی</div>-->
-<!--                                    <div class="h4 mt-2 mb-4">-->
-<!--                                        گزارش بارگیری پایان قرارداد نفتکش های زمینی میعانات گازی-->
-<!--                                    </div>-->
-<!--                                </div>-->
-
                                 <div class="row mx-0 mb-4 border border-info rounded ">
                                     <div class="col-9 ">
                                         <div class="row border-bottom py-1">
