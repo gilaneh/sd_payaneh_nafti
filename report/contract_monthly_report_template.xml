@@ -45,6 +45,18 @@
             </tr>
         </template>
 
+        <template id="contract_monthly_report_signs">
+            <div class="row my-5 text-center">
+                <div class="col-4">SOUTH PARS TERMINAL REP.</div>
+                <div class="col-4">MINISTRY OF PETROLEUM REP.</div>
+                <div class="col-4">CONSIGNEE/AGENCY REP.</div>
+            </div>
+                                          <div class="row my-5 text-center">
+                                    <div class="col-4">پایانه میعانات گازی پارس جنوبی</div>
+                                    <div class="col-4">اداره نظارت بر صادرات، واردات و مبادلات مواد نفتي</div>
+                                    <div class="col-4">نماينده خريدار</div>
+                                </div>
+        </template>
         <template id="contract_monthly_report_data">
             <div class="page">
                 <div class="container iransans_font" style="font-size: .9rem">
@@ -62,7 +74,7 @@
                                     <div class="h4 mt-2 mb-4">
                                         گزارش بارگیری پایان قرارداد نفتکش های زمینی میعانات گازی
                                     </div>
-                               </div>
+                                </div>
 
                                 <div class="row mx-0 mb-4 border border-info rounded ">
                                     <div class="col-9 ">
@@ -123,11 +135,9 @@
                                     </table>
 
                                 </div>
-                                <div class="row my-5 text-center">
-                                    <div class="col-4">پایانه میعانات گازی پارس جنوبی</div>
-                                    <div class="col-4">اداره نظارت بر صادرات، واردات و مبادلات مواد نفتي</div>
-                                    <div class="col-4">نماينده خريدار</div>
-                                </div>
+                                <t t-call="sd_payaneh_nafti.contract_monthly_report_signs"/>
+
+
                             </div>
                         </div>
                     </div>
@@ -146,18 +156,18 @@
                 <div class="container " style="font-size: .9rem">
                     <div class="container mt-2">
                         <div class="container">
-                            <div >
+                            <div>
                                 <div class="text-center">
                                     <div>
                                         <img alt="Logo" t-att-src="'/logo?company=1'" t-att-alt="''"
                                              style=" height: 50px;" height="50"/>
                                     </div>
-                                        <div>NATIONAL IRANIAN OIL COMPANY</div>
-                                        <div>IRANIAN OIL TERMINALS COMPANY</div>
-                                        <div>SOUTH PARS TERMINAL</div>
-                                        <div class="h4 mt-2 mb-4">
-                                            CONTRACT REPORT
-                                        </div>
+                                    <div>NATIONAL IRANIAN OIL COMPANY</div>
+                                    <div>IRANIAN OIL TERMINALS COMPANY</div>
+                                    <div>SOUTH PARS TERMINAL</div>
+                                    <div class="h4 mt-2 mb-4">
+                                        CONTRACT REPORT
+                                    </div>
                                 </div>
 
                                 <div class="row mx-0 mb-4 border border-info rounded ">
@@ -213,7 +223,7 @@
                                 <div>
                                     <table class="table table-bordered border-0 text-center monthly_report_table">
                                         <thead class=" text-center">
-                                            <t t-call="sd_payaneh_nafti.contract_monthly_report_table_header"/>
+                                            <t t-call="sd_payaneh_nafti.contract_monthly_report_table_header" t-lang="en_US"/>
                                         </thead>
                                         <tbody>
                                             <t t-foreach="row_data_lines" t-as="row_data_line">
@@ -221,16 +231,13 @@
                                             </t>
                                         </tbody>
                                         <tfoot>
-                                            <t t-call="sd_payaneh_nafti.contract_monthly_report_table_footer"/>
+                                            <t t-call="sd_payaneh_nafti.contract_monthly_report_table_footer" t-lang="en_US"/>
                                         </tfoot>
                                     </table>
 
                                 </div>
-                                <div class="row my-5 text-center">
-                                    <div class="col-4">SOUTH PARS TERMINAL REP.</div>
-                                    <div class="col-4">MINISTRY OF PETROLEUM REP.</div>
-                                    <div class="col-4">CONSIGNEE/AGENCY REP.</div>
-                                </div>
+                                <t t-call="sd_payaneh_nafti.contract_monthly_report_signs" t-lang="en_US"/>
+
                             </div>
                         </div>
                     </div>
@@ -241,53 +248,57 @@
         </template>
 
         <template id="report_layout" name="Report layout">&lt;!DOCTYPE html&gt;
-        <html t-att-lang="'en-US' or lang and lang.replace('_', '-')"
-              t-att-data-report-margin-top="data_report_margin_top"
-              t-att-data-report-header-spacing="data_report_header_spacing"
-              t-att-data-report-dpi="data_report_dpi"
-              t-att-data-report-landscape="data_report_landscape"
-              t-att-web-base-url="web_base_url">
-            <head>
-                <meta charset="utf-8"/>
-                <meta name="viewport" content="initial-scale=1"/>
-                <title><t t-esc="title or 'Odoo Report '"/></title>
-                <t t-call-assets="web.report_assets_common" t-js="false"/>
-                <!--The following is kind of a hack-->
-                <!--in an iframe, we don't want the session to perform qweb_templates rpc-->
-                <script type="text/javascript">
-                    window.odoo = {};
-                    window.odoo.__session_info__ = {is_report: true};
-                </script>
-                <t t-call-assets="web.assets_common" t-css="false"/>
-                <t t-call-assets="web.report_assets_common" t-css="false"/>
-            </head>
-            <body t-att-class="'container' if not full_width else 'container-fluid'">
-                <div id="wrapwrap">
-                    <main>
-                        <t t-out="0"/>
-                    </main>
-                </div>
-            </body>
-        </html>
-    </template>
+            <html t-att-lang="'en-US' or lang and lang.replace('_', '-')"
+                  t-att-data-report-margin-top="data_report_margin_top"
+                  t-att-data-report-header-spacing="data_report_header_spacing"
+                  t-att-data-report-dpi="data_report_dpi"
+                  t-att-data-report-landscape="data_report_landscape"
+                  t-att-web-base-url="web_base_url">
+                <head>
+                    <meta charset="utf-8"/>
+                    <meta name="viewport" content="initial-scale=1"/>
+                    <title>
+                        <t t-esc="title or 'Odoo Report '"/>
+                    </title>
+                    <t t-call-assets="web.report_assets_common" t-js="false"/>
+                    <!--The following is kind of a hack-->
+                    <!--in an iframe, we don't want the session to perform qweb_templates rpc-->
+                    <script type="text/javascript">
+                        window.odoo = {};
+                        window.odoo.__session_info__ = {is_report: true};
+                    </script>
+                    <t t-call-assets="web.assets_common" t-css="false"/>
+                    <t t-call-assets="web.report_assets_common" t-css="false"/>
+                </head>
+                <body t-att-class="'container' if not full_width else 'container-fluid'">
+                    <div id="wrapwrap">
+                        <main>
+                            <t t-out="0"/>
+                        </main>
+                    </div>
+                </body>
+            </html>
+        </template>
 
-
-            <template id="html_container">
-        <t t-set="body_classname" t-value="'container'"/>
-        <t t-call="sd_payaneh_nafti.report_layout">
-            <t t-out="0"/>
-        </t>
-    </template>
-        <template id="basic_layout">
-        <t t-call="sd_payaneh_nafti.html_container">
-            <t t-if="not o" t-set="o" t-value="doc"/>
-            <div class="article" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" data-oe-lang="en_US">
+        <template id="html_container">
+            <t t-set="body_classname" t-value="'container'"/>
+            <t t-call="sd_payaneh_nafti.report_layout">
                 <t t-out="0"/>
-            </div>
-        </t>
-    </template>
+            </t>
+        </template>
+
+        <template id="basic_layout">
+            <t t-call="sd_payaneh_nafti.html_container">
+                <t t-if="not o" t-set="o" t-value="doc"/>
+                <div class="article" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id"
+                     data-oe-lang="en_US">
+                    <t t-out="0"/>
+                </div>
+            </t>
+        </template>
+
         <template id="contract_monthly_report_template">
-            <t t-call="web.basic_layout">
+            <t t-if="loading_type == 'internal'" t-call="web.basic_layout">
                 <div t-if="errors != []">
                     <div class="container mt-2 text-center">
                         <div class="border border-danger rounded p-3" style="direction: ltr" t-esc="errors[0]"></div>
@@ -298,9 +309,19 @@
                         <!--                        <t t-call="sd_payaneh_nafti.contract_monthly_report_data" t-lang="lang"/>-->
                         <t t-if="loading_type == 'internal'"
                            t-call="sd_payaneh_nafti.contract_monthly_report_data" t-lang="lang"/>
-                        <t t-if="loading_type == 'export'" t-call="web.basic_layout" lang="en_US">
-                          <t t-call="sd_payaneh_nafti.contract_monthly_report_data_export" />
-                        </t>
+                    </t>
+                </div>
+            </t>
+
+            <t t-if="loading_type == 'export'" t-call="sd_payaneh_nafti.basic_layout" lang="en_US">
+                <div t-if="errors != []">
+                    <div class="container mt-2 text-center">
+                        <div class="border border-danger rounded p-3" style="direction: ltr" t-esc="errors[0]"></div>
+                    </div>
+                </div>
+                <div t-if="errors == []">
+                    <t t-foreach="docs" t-as="o">
+                        <t t-call="sd_payaneh_nafti.contract_monthly_report_data_export"/>
                     </t>
                 </div>
             </t>
