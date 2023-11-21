@@ -66,7 +66,10 @@ class ReportSdPayanehNaftiContractMonthly(models.AbstractModel):
         else:
             s_start_date = registration.start_date.strftime("%Y-%m-%d")
             s_end_date = registration.end_date.strftime("%Y-%m-%d")
-        unit = dict(registration._fields['unit']._description_selection(self.env)).get(registration.unit)
+        if loading_type == 'internal':
+            unit = dict(registration._fields['unit']._description_selection(self.env)).get(registration.unit)
+        else:
+            unit = dict(registration._fields['unit'].selection).get(registration.unit)
 
         header = {
             'contract_no': registration.contract_no,

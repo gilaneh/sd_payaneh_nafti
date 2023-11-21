@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
+        <template id="contract_monthly_report_page_header">
+            <div class="text-center">
+                <div>
+                    <img alt="Logo" t-att-src="'/logo?company=1'" t-att-alt="''"
+                         style=" height: 50px;" height="50"/>
+                </div>
+                <div>NATIONAL IRANIAN OIL COMPANY</div>
+                <div>IRANIAN OIL TERMINALS COMPANY</div>
+                <div>SOUTH PARS TERMINAL</div>
+                <div class="h4 mt-2 mb-4">
+                    CONTRACT REPORT
+                </div>
+            </div>
+        </template>
+
         <template id="contract_monthly_report_table_header">
             <tr style="direction:ltr;">
                 <th>ROW</th>
@@ -59,30 +74,33 @@
                     <div class="container mt-2">
                         <div class="container iransans_font">
                             <div style="direction:rtl">
-                                <div class="text-center">
-                                    <div>
-                                        <img alt="Logo" t-att-src="'/logo?company=1'" t-att-alt="''"
-                                             style=" height: 50px;" height="50"/>
-                                    </div>
-                                    <div>شرکت ملی نفت ایران</div>
-                                    <div>شرکت پایانه های نفتی ایران</div>
-                                    <div>تاسیسات بارگیری زمینی میعانات گازی پارس جنوبی</div>
-                                    <div class="h4 mt-2 mb-4">
-                                        گزارش بارگیری پایان قرارداد نفتکش های زمینی میعانات گازی
-                                    </div>
-                                </div>
+                                <t t-call="sd_payaneh_nafti.contract_monthly_report_page_header" t-lang="lang"/>
+
+<!--                                <div class="text-center">-->
+<!--                                    <div>-->
+<!--                                        <img alt="Logo" t-att-src="'/logo?company=1'" t-att-alt="''"-->
+<!--                                             style=" height: 50px;" height="50"/>-->
+<!--                                    </div>-->
+<!--                                    <div>شرکت ملی نفت ایران</div>-->
+<!--                                    <div>شرکت پایانه های نفتی ایران</div>-->
+<!--                                    <div>تاسیسات بارگیری زمینی میعانات گازی پارس جنوبی</div>-->
+<!--                                    <div class="h4 mt-2 mb-4">-->
+<!--                                        گزارش بارگیری پایان قرارداد نفتکش های زمینی میعانات گازی-->
+<!--                                    </div>-->
+<!--                                </div>-->
 
                                 <div class="row mx-0 mb-4 border border-info rounded ">
                                     <div class="col-9 ">
                                         <div class="row border-bottom py-1">
-                                            <div class="col-2">
-                                                <span>شماره قرار داد:</span>
+                                            <div class="col-3">
+                                                <span>شماره قرارداد:</span>
                                             </div>
                                             <div class="col-2">
                                                 <span class="font-weight-bold" t-esc="header['contract_no']"></span>
                                             </div>
-                                            <div class="col-3">
+                                            <div class="col-4">
                                                 <span>مقدار مجوز</span>
+
                                                 <span>(</span>
                                                 <span t-esc="header['unit']"></span>
                                                 <span>):</span>
@@ -118,7 +136,7 @@
                                 <div>
                                     <table class="table table-bordered border-0 text-center monthly_report_table">
                                         <thead class=" text-center">
-                                            <t t-call="sd_payaneh_nafti.contract_monthly_report_table_header"/>
+                                            <t t-call="sd_payaneh_nafti.contract_monthly_report_table_header" t-lang="lang"/>
                                         </thead>
                                         <tbody>
                                             <t t-foreach="row_data_lines" t-as="row_data_line">
@@ -126,12 +144,12 @@
                                             </t>
                                         </tbody>
                                         <tfoot>
-                                            <t t-call="sd_payaneh_nafti.contract_monthly_report_table_footer"/>
+                                            <t t-call="sd_payaneh_nafti.contract_monthly_report_table_footer" t-lang="lang"/>
                                         </tfoot>
                                     </table>
 
                                 </div>
-                                <t t-call="sd_payaneh_nafti.contract_monthly_report_signs"/>
+                                <t t-call="sd_payaneh_nafti.contract_monthly_report_signs" t-lang="lang"/>
 
 
                             </div>
@@ -153,53 +171,42 @@
                     <div class="container mt-2">
                         <div class="container">
                             <div>
-                                <div class="text-center">
-                                    <div>
-                                        <img alt="Logo" t-att-src="'/logo?company=1'" t-att-alt="''"
-                                             style=" height: 50px;" height="50"/>
-                                    </div>
-                                    <div>NATIONAL IRANIAN OIL COMPANY</div>
-                                    <div>IRANIAN OIL TERMINALS COMPANY</div>
-                                    <div>SOUTH PARS TERMINAL</div>
-                                    <div class="h4 mt-2 mb-4">
-                                        CONTRACT REPORT
-                                    </div>
-                                </div>
+                                <t t-call="sd_payaneh_nafti.contract_monthly_report_page_header" t-lang="en_US"/>
 
                                 <div class="row mx-0 mb-4 border border-info rounded ">
                                     <div class="col-9 ">
                                         <div class="row border-bottom py-1">
-                                            <div class="col-2">CONSIGNEE:</div>
-                                            <div class="col-10 font-weight-bold">
+                                            <div class="col-4">CONSIGNEE:</div>
+                                            <div class="col-8 font-weight-bold text-center">
                                                 <span t-esc="header['buyer']"></span>
                                             </div>
                                         </div>
                                         <div class="row border-bottom py-1">
-                                            <div class="col-2">LOADING TERMINAL:</div>
-                                            <div class="col-10 font-weight-bold">
+                                            <div class="col-4">LOADING TERMINAL:</div>
+                                            <div class="col-8 font-weight-bold text-center">
                                                 <span t-esc="header['destination']"></span>
                                             </div>
                                         </div>
                                         <div class="row py-1">
-                                            <div class="col-2">CARRIED BY:</div>
-                                            <div class="col-10 font-weight-bold">
+                                            <div class="col-4">CARRIED BY:</div>
+                                            <div class="col-8 font-weight-bold text-center">
                                                 <span t-esc="header['contractors']"></span>
                                             </div>
                                         </div>
                                         <div class="row border-bottom py-1">
-                                            <div class="col-2">
+                                            <div class="col-4">
                                                 <span>CONTRACT NO:</span>
                                             </div>
-                                            <div class="col-2">
-                                                <span class="font-weight-bold" t-esc="header['contract_no']"></span>
+                                            <div class="col-2 text-center">
+                                                <span class="font-weight-bold text-center" t-esc="header['contract_no']"></span>
                                             </div>
-                                            <div class="col-3">
-                                                <span>QUANTITY(M. T.):</span>
+                                            <div class="col-4">
+                                                <span class="small">QUANTITY(M.T.):</span>
                                                 <span>(</span>
                                                 <span t-esc="header['unit']"></span>
                                                 <span>):</span>
                                             </div>
-                                            <div class="col-2">
+                                            <div class="col-2 text-center">
                                                 <span class="font-weight-bold" t-esc="header['amount']"></span>
                                             </div>
 
@@ -294,7 +301,7 @@
         </template>
 
         <template id="contract_monthly_report_template">
-            <t t-if="loading_type == 'internal'" t-call="web.basic_layout">
+            <t t-if="loading_type == 'internal'" t-call="web.basic_layout" t-lang="lang">
                 <div t-if="errors != []">
                     <div class="container mt-2 text-center">
                         <div class="border border-danger rounded p-3" style="direction: ltr" t-esc="errors[0]"></div>
@@ -302,9 +309,7 @@
                 </div>
                 <div t-if="errors == []">
                     <t t-foreach="docs" t-as="o">
-                        <!--                        <t t-call="sd_payaneh_nafti.contract_monthly_report_data" t-lang="lang"/>-->
-                        <t t-if="loading_type == 'internal'"
-                           t-call="sd_payaneh_nafti.contract_monthly_report_data" t-lang="lang"/>
+                         <t  t-call="sd_payaneh_nafti.contract_monthly_report_data"/>
                     </t>
                 </div>
             </t>
