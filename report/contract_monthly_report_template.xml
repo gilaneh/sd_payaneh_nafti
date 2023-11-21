@@ -51,11 +51,7 @@
                 <div class="col-4">MINISTRY OF PETROLEUM REP.</div>
                 <div class="col-4">CONSIGNEE/AGENCY REP.</div>
             </div>
-                                          <div class="row my-5 text-center">
-                                    <div class="col-4">پایانه میعانات گازی پارس جنوبی</div>
-                                    <div class="col-4">اداره نظارت بر صادرات، واردات و مبادلات مواد نفتي</div>
-                                    <div class="col-4">نماينده خريدار</div>
-                                </div>
+
         </template>
         <template id="contract_monthly_report_data">
             <div class="page">
