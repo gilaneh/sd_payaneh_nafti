@@ -76,7 +76,7 @@
                                 unit
                             </div>
                             <div class="col-6 px-1 "
-                                 t-esc="contract_record.unit"></div>
+                                 t-esc="doc_data['unit']"></div>
                         </div>
                         <div t-if="page_index == 1" class="row border border-dark border-top-0">
                             <div class="col-6 px-1 ">

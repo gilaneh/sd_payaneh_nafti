@@ -55,10 +55,6 @@ class ReportSdPayanehNaftiContractDailyReport(models.AbstractModel):
             report_day = report_date
             s_start_date = report_date.strftime("%Y/%m/%d")
 
-
-
-
-
         input_records = self.env['sd_payaneh_nafti.input_info'].search([('registration_no', '=', registration_no)], order='id')
         if len(input_records) == 0:
             return {
@@ -67,6 +63,7 @@ class ReportSdPayanehNaftiContractDailyReport(models.AbstractModel):
 
         input_records_behind_date = tuple(filter(lambda rec: rec.loading_date <= report_day, input_records))
         registration = input_records[0].registration_no
+        unit = dict(registration._fields['unit']._description_selection(self.env)).get(registration.unit)
 
         if registration.unit == 'barrel':
             used_amounts = sum([ua.final_gsv_b for ua in input_records_behind_date])
@@ -77,23 +74,16 @@ class ReportSdPayanehNaftiContractDailyReport(models.AbstractModel):
         used_amounts = int(used_amounts)
         amount = registration.amount if registration.init_amount == 0 else registration.init_amount
         remain_amounts = int(amount - used_amounts)
-        print(f'=========>  \n registration: {registration} '
-                          f'\n len, input_records_behind_date: {len(input_records_behind_date)}'
-                          f'\n registration.unit: {registration.unit}'
-                          f'\n amount: {amount}'
-                          f'\n remain_amount: {remain_amounts}'
-                          f'\n used_amounts: {used_amounts}'
-                          f'\n ')
-
-
-
-
-
-
+        # print(f'=========>  \n registration: {registration} '
+        #                   f'\n len, input_records_behind_date: {len(input_records_behind_date)}'
+        #                   f'\n registration.unit: {registration.unit}'
+        #                   f'\n amount: {amount}'
+        #                   f'\n remain_amount: {remain_amounts}'
+        #                   f'\n used_amounts: {used_amounts}'
+        #                   f'\n ')
 
         input_records_day = tuple(filter(lambda rec: rec.loading_date == report_day, input_records))
         # print(f'\n input_records: {len(input_records)} \n {input_records} \ninput_records_day {len(input_records_day)}\n {input_records_day}\n')
-
         inputs_list = []
         pages = []
         total = {
@@ -103,7 +93,6 @@ class ReportSdPayanehNaftiContractDailyReport(models.AbstractModel):
             'final_gsv_b_sum': 0,
             'final_mt_sum': 0,
         }
-
 
         page_count = len(input_records_day) // PAGE_LINES + 1
         for index in range(page_count):
@@ -127,13 +116,10 @@ class ReportSdPayanehNaftiContractDailyReport(models.AbstractModel):
             inputs_list.append(inputs)
             pages.append(page)
 
-
-
-
-
         doc_data = {
                     'page_lines': PAGE_LINES,
                     'inputs': inputs_list,
+                    'unit': unit,
                     'remain_amounts': remain_amounts,
                     'used_amounts': used_amounts,
                     'pages': pages,
