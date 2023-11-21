@@ -155,7 +155,7 @@
         </template>
 
         <template id="monthly_report_template">
-            <t t-call="web.basic_layout">
+            <t t-call="web.basic_layout" t-lang="lang">
                 <div t-if="errors != []">
                     <div class="container mt-2 text-center">
                         <div class="border border-danger rounded p-3" style="direction: ltr" t-esc="errors[0]"></div>
@@ -163,7 +163,7 @@
                 </div>
                 <div t-if="errors == []">
                     <t t-foreach="docs" t-as="o">
-                        <t t-call="sd_payaneh_nafti.monthly_report_data" t-lang="lang"/>
+                        <t t-call="sd_payaneh_nafti.monthly_report_data"/>
                     </t>
                 </div>
             </t>

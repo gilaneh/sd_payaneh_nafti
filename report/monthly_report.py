@@ -83,15 +83,20 @@ class ReportSdPayanehNaftiMonthly(models.AbstractModel):
             final_mt = [rec.final_mt for rec in input_records if rec.registration_no.registration_no == reg_no]
             # for d in data:
             d = data[0]
+            reg = d.registration_no
+            unit = dict(reg._fields['unit']._description_selection(self.env)).get(reg.unit)
+            loading_type = dict(reg._fields['loading_type']._description_selection(self.env)).get(reg.loading_type)
+            contract_type = dict(reg._fields['contract_type']._description_selection(self.env)).get(reg.contract_type)
+
             row_data_lines.append((index + 1,
                                    d.registration_no.letter_no,
                                    d.registration_no.contract_no,
                                    d.registration_no.order_no,
                                    d.registration_no.buyer.name,
                                    d.registration_no.amount,
-                                   d.registration_no.unit,
-                                   d.registration_no.loading_type,
-                                   d.registration_no.contract_type,
+                                   unit,
+                                   loading_type,
+                                   contract_type,
                                    int(sum(final_gsv_l)),
                                    round(sum(final_gsv_b), 2),
                                    round(sum(final_mt), 3),

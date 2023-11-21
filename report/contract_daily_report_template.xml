@@ -397,7 +397,7 @@
 <!--        </template>-->
 
         <template id="contract_daily_report_template">
-            <t t-call="web.basic_layout">
+            <t t-call="web.basic_layout" t-lang="lang">
 <!--            <t t-call="web.report_layout">-->
                 <div t-if="errors != []">
                     <div class="container mt-2 text-center">
@@ -406,7 +406,7 @@
                 </div>
                 <div t-if="errors == []" class="container" >
                     <t t-foreach="docs" t-as="o">
-                        <t t-call="sd_payaneh_nafti.contract_daily_report_data" t-lang="lang"/>
+                        <t t-call="sd_payaneh_nafti.contract_daily_report_data"/>
                     </t>
                 </div>
             </t>
