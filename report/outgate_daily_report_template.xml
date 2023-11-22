@@ -4,6 +4,9 @@
         <template id="outgate_daily_report_table_header">
             <tr style="border: solid white !important;">
                 <td colspan="8">
+                    <!--                        <div style="display:block; position:absolute;padding:0; margin:0px; padding-top:10px; padding-bottom:10px; text-align:center;">-->
+<!--                            <img t-att-src="'/report/barcode/Code128/'+contract_record['contract_no']" style="width:250px;height:25px" t-att-alt="contract_record['contract_no']"/>-->
+<!--                        </div>-->
                     <div>
                         <img alt="Logo" t-att-src="'/logo?company=1'" t-att-alt="''"
                              style=" height: 50px;" height="50"/>
@@ -56,6 +59,9 @@
         <template id="layout_header">
             <div t-attf-class="header ">
                 <div class=" container text-center iransans_font" style="opacity:0.15;direction:rtl;z-index:100;" >
+<!--                        <div style="display:block; position:absolute;padding:0; margin:0px; padding-top:10px; padding-bottom:10px; text-align:center;">-->
+<!--                            <img t-att-src="'/report/barcode/Code128/'+contract_record['contract_no']" style="width:250px;height:25px" t-att-alt="contract_record['contract_no']"/>-->
+<!--                        </div>-->
                     <div>
                         <img alt="Logo" t-att-src="'/logo?company=1'" t-att-alt="''"
                              style=" height: 50px;" height="50"/>

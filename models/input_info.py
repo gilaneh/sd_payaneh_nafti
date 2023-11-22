@@ -108,8 +108,8 @@ class SdPayanehNaftiInputInfo(models.Model):
     # compartment_locker_3 = fields.Many2one('sd_payaneh_nafti.lockers')
 
     api_a = fields.Float(string='API', compute='_api_a')
-    ctl = fields.Float(string='CTL', digits=(12, 5), compute='_ctl_cpl')
-    cpl = fields.Float(string='CPL', digits=(12, 5), compute='_ctl_cpl')
+    ctl = fields.Float(string='CTL', compute='_ctl_cpl')
+    cpl = fields.Float(string='CPL', compute='_ctl_cpl')
     tab_13 = fields.Float(string='TAB.13', digits=(12, 5), compute='_tab_13')
     meter_tov_l = fields.Float(string='Meter T.O.V Liter')
     meter_gsv_l = fields.Float(string='Meter G.S.V Liter')
@@ -119,10 +119,10 @@ class SdPayanehNaftiInputInfo(models.Model):
     wb_gsv_l = fields.Float(string='WB G.S.V Liter')
     wb_gsv_b = fields.Float(string='WB G.S.V BBL', digits=[8, 0])
     wb_mt = fields.Float(string='WB M.T.')
-    final_tov_l = fields.Float(string='Final T.O.V Liter', compute='_finals')
-    final_gsv_l = fields.Float(string='Final G.S.V Liter', compute='_finals')
-    final_gsv_b = fields.Float(string='Final G.S.V BBL', compute='_finals', digits=[8, 2])
-    final_mt = fields.Float(string='Final M.T.', compute='_finals')
+    final_tov_l = fields.Float(string='Final T.O.V Liter', compute='_finals', digits=[8, 3])
+    final_gsv_l = fields.Float(string='Final G.S.V Liter', compute='_finals', digits=[8, 3])
+    final_gsv_b = fields.Float(string='Final G.S.V BBL', compute='_finals', digits=[8, 0])
+    final_mt = fields.Float(string='Final M.T.', compute='_finals', digits=[8, 3])
     cpl_counter = fields.Integer(default=0)
 
     # def drivers_strip(self):

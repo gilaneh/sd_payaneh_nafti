@@ -3,10 +3,14 @@
     <data>
         <template id="contract_monthly_report_page_header">
             <div class="text-center">
+                <div style="display:block; position:absolute;padding:0; margin:0px; padding-top:10px; padding-bottom:10px; text-align:center;">
+                    <img t-att-src="'/report/barcode/Code128/'+header['contract_no']" style="width:250px;height:25px" t-att-alt="header['contract_no']"/>
+                </div>
                 <div>
                     <img alt="Logo" t-att-src="'/logo?company=1'" t-att-alt="''"
                          style=" height: 50px;" height="50"/>
                 </div>
+
                 <div>NATIONAL IRANIAN OIL COMPANY</div>
                 <div>IRANIAN OIL TERMINALS COMPANY</div>
                 <div>SOUTH PARS TERMINAL</div>
@@ -75,7 +79,6 @@
                         <div class="container iransans_font">
                             <div style="direction:rtl">
                                 <t t-call="sd_payaneh_nafti.contract_monthly_report_page_header" t-lang="lang"/>
-
                                 <div class="row mx-0 mb-4 border border-info rounded ">
                                     <div class="col-9 ">
                                         <div class="row border-bottom py-1">
@@ -95,7 +98,6 @@
                                             <div class="col-2">
                                                 <span class="font-weight-bold" t-esc="header['amount']"></span>
                                             </div>
-
                                         </div>
                                         <div class="row border-bottom py-1">
                                             <div class="col-2">نام خریدار:</div>
@@ -134,11 +136,8 @@
                                             <t t-call="sd_payaneh_nafti.contract_monthly_report_table_footer" t-lang="lang"/>
                                         </tfoot>
                                     </table>
-
                                 </div>
                                 <t t-call="sd_payaneh_nafti.contract_monthly_report_signs" t-lang="lang"/>
-
-
                             </div>
                         </div>
                     </div>
@@ -146,10 +145,6 @@
                     <div class="mb-5"></div>
                 </div>
             </div>
-
-
-            <!--                </t>-->
-            <!--            </t>-->
         </template>
 
         <template id="contract_monthly_report_data_export">

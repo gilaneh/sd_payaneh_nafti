@@ -496,6 +496,7 @@
             <field name="arch" type="xml">
                 <search string="Dealers">
                     <field name="document_no" />
+                    <field name="contract_no" />
                     <field name="loading_no" />
                     <field name="loading_date" />
                     <field name="registration_no" />

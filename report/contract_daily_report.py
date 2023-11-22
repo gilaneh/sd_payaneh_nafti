@@ -24,6 +24,8 @@ class ReportSdPayanehNaftiContractDailyReport(models.AbstractModel):
         calendar = context.get('lang')
         date_time = self.date_converter(date_time, context.get('lang'))
         form_data = data.get('form_data')
+        loading_type = form_data.get('loading_type')
+
         if docids:
             contract_record = self.env['sd_payaneh_nafti.contract_registration'].browse(docids)
             # contract_no = input_record.contract_no
@@ -140,7 +142,9 @@ class ReportSdPayanehNaftiContractDailyReport(models.AbstractModel):
             'docs': contract_record,
             'doc_ids': docids,
             'doc_model': 'sd_payaneh_nafti.input_info',
-            'report_date': report_date,
+            'report_date': s_start_date,
+            'loading_type': loading_type,
+
             'doc_data_list': doc_data_list,
             # 'input_record': input_record,
             'errors': errors,

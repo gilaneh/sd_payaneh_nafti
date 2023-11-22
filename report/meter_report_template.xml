@@ -15,6 +15,9 @@
                                         <div class="container iransans_font">
                                             <div style="direction:rtl">
                                                 <div class="text-center">
+                                                    <!--                        <div style="display:block; position:absolute;padding:0; margin:0px; padding-top:10px; padding-bottom:10px; text-align:center;">-->
+<!--                            <img t-att-src="'/report/barcode/Code128/'+contract_record['contract_no']" style="width:250px;height:25px" t-att-alt="contract_record['contract_no']"/>-->
+<!--                        </div>-->
                                                     <div>
                                                         <img alt="Logo" t-att-src="'/logo?company=1'" t-att-alt="''"
                                                              style=" height: 50px;" height="50"/>
