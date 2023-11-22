@@ -306,19 +306,19 @@
                     <div>
                         نماينده شركت پایانه های نفتی ایران
                     </div>
-                    <div class="mt-2" t-esc="doc_data['payaneh_agent']"></div>
+<!--                    <div class="mt-2" t-esc="doc_data['payaneh_agent']"></div>-->
                 </div>
                 <div class="col-4">
                     <div>
                         نماينده اداره نظارت بر صادرات، واردات و مبادلات مواد نفتي
                     </div>
-                    <div class="mt-2" t-esc="doc_data['observe_agent']"></div>
+<!--                    <div class="mt-2" t-esc="doc_data['observe_agent']"></div>-->
                 </div>
                 <div class="col-4">
                     <div>
                         نماينده خريدار
                     </div>
-                    <div class="mt-2" t-esc="doc_data['buyer_agent']"></div>
+<!--                    <div class="mt-2" t-esc="doc_data['buyer_agent']"></div>-->
                 </div>
             </div>
         </template>
