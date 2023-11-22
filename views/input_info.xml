@@ -330,9 +330,9 @@
                                         <field name="sp_gr" digits="[4,4]" readonly="1"/>
                                         <field name="correction_factor" readonly="1"/>
                                         <field name="temperature" readonly="1"/>
-                                        <field name="temperature_f" invisible="1" />
+                                        <field name="temperature_f" readonly="1"/>
                                         <field name="pressure" readonly="1"/>
-                                        <field name="pressure_psi" invisible="1" readonly="1"/>
+                                        <field name="pressure_psi" readonly="1"/>
                                     </group>
                                     <group>
                                         <field name="meter_no" readonly="1"/>
@@ -371,15 +371,15 @@
                                         <field name="ctl" groups="base.group_system"/>
                                         <field name="cpl" groups="base.group_system"/>
 
-                                        <field name="meter_tov_l" groups="base.group_system"/>
-                                        <field name="meter_gsv_l" groups="base.group_system"/>
-                                        <field name="meter_gsv_b" groups="base.group_system"/>
-                                        <field name="meter_mt" groups="base.group_system"/>
+<!--                                        <field name="meter_tov_l" groups="base.group_system"/>-->
+<!--                                        <field name="meter_gsv_l" groups="base.group_system"/>-->
+<!--                                        <field name="meter_gsv_b" groups="base.group_system"/>-->
+<!--                                        <field name="meter_mt" groups="base.group_system"/>-->
 
-                                        <field name="wb_tov_l" groups="base.group_system"/>
-                                        <field name="wb_gsv_l" groups="base.group_system"/>
-                                        <field name="wb_gsv_b" groups="base.group_system"/>
-                                        <field name="wb_mt" groups="base.group_system"/>
+<!--                                        <field name="wb_tov_l" groups="base.group_system"/>-->
+<!--                                        <field name="wb_gsv_l" groups="base.group_system"/>-->
+<!--                                        <field name="wb_gsv_b" groups="base.group_system"/>-->
+<!--                                        <field name="wb_mt" groups="base.group_system"/>-->
 
                                         <field name="final_tov_l" groups="base.group_system"/>
                                         <field name="final_gsv_l" groups="base.group_system"/>
@@ -511,6 +511,7 @@
                         <filter string="Contractor" name="contractors_group" context="{'group_by': 'contractor'}" />
                         <filter string="Driver" name="driver_group" context="{'group_by': 'driver'}" />
                         <filter string="Truck" name="truck_no_group" context="{'group_by': 'truck_no'}" />
+                        <filter string="Request Date" name="request_date_group" context="{'group_by': 'request_date'}" />
                     </group>
                 </search>
             </field>
