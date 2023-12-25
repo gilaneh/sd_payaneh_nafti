@@ -90,6 +90,7 @@ class SdPayanehNaftiContractInfo(models.Model):
             'context': {'search_default_registration_no_group': 1}
         }
 
+
     def get_remain_amount(self):
         self.ensure_one()
 
@@ -116,7 +117,6 @@ class SdPayanehNaftiContractInfo(models.Model):
                                         ('remain_amount', '>', 50),
                                         ])
         return json.dumps({'open_contracts': open_contracts})
-
 
 class SdPayanehNaftiContractInfoInit(models.Model):
     _inherit = 'sd_payaneh_nafti.contract_registration'

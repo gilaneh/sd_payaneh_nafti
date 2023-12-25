@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from datetime import  datetime, timedelta
-# import random
+import json
 
 from odoo import models, fields, api, _
 from odoo.exceptions import UserError, ValidationError
@@ -416,6 +416,22 @@ class SdPayanehNaftiInputInfo(models.Model):
     def input_done(self):
         for rec in self:
             rec.write({'state': 'done'})
+
+    @api.model
+    def get_requests(self):
+        today_date = date.today()
+
+        open_requests = self.search_count([('state', '!=', 'done')])
+        this_day_requests = self.search([('request_date', '=', today_date)])
+        this_day_requests_count = len(this_day_requests)
+        this_day_requests_amount = sum([rec.amount for rec in this_day_requests])
+
+        data = {
+            'open_requests': open_requests,
+            'this_day_requests_count': this_day_requests_count,
+            'this_day_requests_amount': this_day_requests_amount,
+        }
+        return json.dumps(data)
 
 class SdPayanehNaftiPlate1(models.Model):
     _name = 'sd_payaneh_nafti.plate1'
