@@ -16,7 +16,7 @@
     # for the full list
     'category': 'Service Desk/Service Desk',
     'application': True,
-    'version': '1.1.5',
+    'version': '1.2.0',
 
     # any module necessary for this one to work correctly
     'depends': ['base', 'web', 'mail'],
@@ -26,6 +26,7 @@
         'security/security.xml',
         'security/ir.model.access.csv',
         'views/views.xml',
+        'views/data_dashboard_view.xml',
         'views/settings.xml',
         'views/base_info.xml',
         'views/meter_data.xml',
@@ -79,11 +80,16 @@
         # 'website.assets_editor': [
         #     'static/src/**/*',
         # ],
+        'web.assets_qweb':[
+            'sd_payaneh_nafti/static/src/components/**/*.xml',
 
+        ],
         'web.assets_backend': [
 
             'sd_payaneh_nafti/static/src/css/style.scss',
-            'sd_payaneh_nafti/static/src/js/o_field_x2many_list_row_add_none.js'
+            'sd_payaneh_nafti/static/src/js/o_field_x2many_list_row_add_none.js',
+            'sd_payaneh_nafti/static/src/components/**/*.js',
+
         ],
         'web.report_assets_common': [
 

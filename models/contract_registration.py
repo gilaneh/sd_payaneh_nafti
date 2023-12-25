@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from datetime import  datetime, timedelta
-# import random
+import json
 
 from odoo import models, fields, api, _
 from odoo.exceptions import UserError, ValidationError
@@ -107,6 +107,15 @@ class SdPayanehNaftiContractInfo(models.Model):
             'context': {'registration_no': self.id}
         }
 
+    @api.model
+    def get_contracts(self):
+        today_date = date.today()
+        open_contracts = self.search_count(['|', '|', ('end_date', '>', today_date),
+                                        ('first_extend_end_date', '>', today_date),
+                                        ('second_extend_end_date', '>', today_date),
+                                        ('remain_amount', '>', 50),
+                                        ])
+        return json.dumps({'open_contracts': open_contracts})
 
 
 class SdPayanehNaftiContractInfoInit(models.Model):
