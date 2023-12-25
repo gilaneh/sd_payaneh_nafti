@@ -75,16 +75,19 @@ export class DataDashboard extends Component {
         this.actionService = useService("action")
         let today = moment().locale('en').format('YYYY/MM/DD')
         console.log('today:',  today, moment.locale())
-        let domain = [['end_date', '>', today]]
+        let domain = ['|','|',['end_date', '>', today],
+        ['first_extend_end_date', '>', today],
+        ['second_extend_end_date', '>', today],
+        ]
 //        this.orm = useService("orm")
 //        this.orm.call("sd_payaneh_nafti.contract_registration", "dash_get_inputs", [],{})
 //        console.log('viewContracts', this.orm, this.actionService, )
 //          this.actionService.doAction("sd_payaneh_nafti.action_window_contract_registration")
         this.actionService.doAction({
-            name: "Automated Actions",
+            name: "Ongoing Contracts",
             res_model: "sd_payaneh_nafti.contract_registration",
 //            res_id: this.actionId,
-            views: [[false, "list"]],
+            views: [[false, "list"], [false, "form"]],
             type: "ir.actions.act_window",
             view_mode: "list",
             domain: domain,
@@ -94,14 +97,9 @@ export class DataDashboard extends Component {
     viewThisDayRequests(){
         this.actionService = useService("action")
         let today = moment().locale('en').format('YYYY/MM/DD')
-//        console.log('today:',  today, moment.locale())
         let domain = [['request_date', '=', today]]
-//        this.orm = useService("orm")
-//        this.orm.call("sd_payaneh_nafti.contract_registration", "dash_get_inputs", [],{})
-//        console.log('viewContracts', this.orm, this.actionService, )
-//          this.actionService.doAction("sd_payaneh_nafti.action_window_contract_registration")
         this.actionService.doAction({
-            name: "Automated Actions",
+            name: "This day Requests",
             res_model: "sd_payaneh_nafti.input_info",
 //            res_id: this.actionId,
             views: [[false, "list"]],

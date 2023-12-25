@@ -420,11 +420,12 @@ class SdPayanehNaftiInputInfo(models.Model):
     @api.model
     def get_requests(self):
         today_date = date.today()
+        print(f'------------> today_date: {today_date}')
 
         open_requests = self.search_count([('state', '!=', 'done')])
         this_day_requests = self.search([('request_date', '=', today_date)])
         this_day_requests_count = len(this_day_requests)
-        this_day_requests_amount = sum([rec.amount for rec in this_day_requests])
+        this_day_requests_amount = round(sum([rec.final_mt for rec in this_day_requests]), 2)
 
         data = {
             'open_requests': open_requests,
