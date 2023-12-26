@@ -443,6 +443,13 @@ class SdPayanehNaftiInputInfo(models.Model):
         }
         return json.dumps(data)
 
+    def make_done(self):
+        active_ids = self.env.context.get('active_ids')
+        print(f'--------> active_ids: {active_ids}')
+        selected = self.browse(active_ids)
+        for rec in selected:
+            rec.write({'state': 'done'})
+
 class SdPayanehNaftiPlate1(models.Model):
     _name = 'sd_payaneh_nafti.plate1'
     _description = 'sd_payaneh_nafti.plate1'
