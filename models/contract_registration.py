@@ -116,7 +116,14 @@ class SdPayanehNaftiContractInfo(models.Model):
                                         ('second_extend_end_date', '>', today_date),
                                         ('remain_amount', '>', 0),
                                         ])
+
+        # todo: amount is not comparable between contracts with different unit type.
+        #   amount for barrel is calculated based on final_bbl
+        #   amount for metric tone is calculated based on final_mt
+        #   so the remain amount of this two type of contracts should not be sum up.
         remain_amount = round(sum([rec.remain_amount for rec in open_contracts]), 2)
+        remain_amount = 0
+
         data = {
             'open_contracts': len(open_contracts),
             'remain_amount': f'{remain_amount:,}',

@@ -426,9 +426,16 @@ class SdPayanehNaftiInputInfo(models.Model):
 
         open_requests = self.search([('state', '!=', 'done')])
         this_day_requests = self.search([('request_date', '=', today_date)])
+
+        # todo: amount is not comparable between contracts with different unit type.
+        #   amount for barrel is calculated based on final_bbl
+        #   amount for metric tone is calculated based on final_mt
+        #   so the remain amount of this two type of contracts should not be sum up.
         this_day_loaded = self.search([('loading_info_date', '=', today_date)])
-        this_day_requests_count = len(this_day_requests)
         this_day_requests_amount = round(sum([rec.amount for rec in this_day_loaded ]), 2)
+        this_day_requests_amount = 0
+
+        this_day_requests_count = len(this_day_requests)
         new_requests = len([rec for rec in open_requests if rec.state == 'draft'])
         loading_permit = len([rec for rec in open_requests if rec.state == 'loading_permit'])
         loading_info = len([rec for rec in open_requests if rec.state == 'loading_info'])
