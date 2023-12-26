@@ -98,7 +98,7 @@ export class DataDashboard extends Component {
             name: "SPGR",
             res_model: "sd_payaneh_nafti.spgr",
 //            res_id: this.actionId,
-            views: [[false, "list"],],
+            views: [[false, "list"], [false, "form"]],
             type: "ir.actions.act_window",
             view_mode: "list",
 //            domain: domain,
