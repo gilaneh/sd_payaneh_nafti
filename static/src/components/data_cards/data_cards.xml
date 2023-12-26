@@ -3,7 +3,8 @@
     <t t-name="data_cards" owl="1">
         <div class="col-sm-3 m-0 p-0">
             <div class="shadow-sm border rounded m-2 p-4 bg-white text-center "
-                 t-on-click="props.hasOwnProperty('onClick') ? ()=>props.onClick() : ''" style="height: 120px; cursor: pointer;">
+                 t-on-click="props.hasOwnProperty('onClick') ? ()=>props.onClick() : ''"
+                 t-attf-style="height: 120px; {{props.hasOwnProperty('onClick') ? 'cursor: pointer;' : ''}}">
                 <div class="h1 fw-bold text-dark"><span t-esc="props.value"></span></div>
                 <div class="h3 text-muted"><span t-esc="props.name"></span></div>
                 <div class="h3 text-muted"><span t-esc="props.status"></span></div>

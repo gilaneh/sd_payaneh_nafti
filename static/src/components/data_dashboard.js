@@ -38,6 +38,22 @@ export class DataDashboard extends Component {
                 value: 2110,
                 status: "",
             },
+            new_requests: {
+                value: 0,
+                status: "",
+            },
+            loading_permit: {
+                value: 0,
+                status: "",
+            },
+            loading_info: {
+                value: 0,
+                status: "",
+            },
+            cargo_document: {
+                value: 0,
+                status: "",
+            },
         })
 
         this.orm = useService("orm")
@@ -70,7 +86,25 @@ export class DataDashboard extends Component {
         this.state.open_requests.value = requests.open_requests;
         this.state.this_day_requests_count.value = requests.this_day_requests_count;
         this.state.this_day_requests_amount.value = requests.this_day_requests_amount;
+        this.state.new_requests.value = requests.new_requests;
+        this.state.loading_permit.value = requests.loading_permit;
+        this.state.loading_info.value = requests.loading_info;
+        this.state.cargo_document.value = requests.cargo_document;
     }
+    viewSpgr(){
+            this.actionService = useService("action")
+
+        this.actionService.doAction({
+            name: "SPGR",
+            res_model: "sd_payaneh_nafti.spgr",
+//            res_id: this.actionId,
+            views: [[false, "list"],],
+            type: "ir.actions.act_window",
+            view_mode: "list",
+//            domain: domain,
+            target: "current",
+        });
+        }
     viewContracts(){
         this.actionService = useService("action")
         let today = moment().locale('en').format('YYYY/MM/DD')
@@ -102,7 +136,7 @@ export class DataDashboard extends Component {
             name: "This day Requests",
             res_model: "sd_payaneh_nafti.input_info",
 //            res_id: this.actionId,
-            views: [[false, "list"]],
+            views: [[false, "list"], [false, "form"]],
             type: "ir.actions.act_window",
             view_mode: "list",
             domain: domain,
@@ -110,9 +144,68 @@ export class DataDashboard extends Component {
         });
     }
 
-    viewSpgr(){
-        console.log('DateTime:', DateTime.fr)
-    }
+
+    viewNewRequests(){
+            this.actionService = useService("action")
+        let domain = [['state', '=', 'draft']]
+
+        this.actionService.doAction({
+            name: "New Requests",
+            res_model: "sd_payaneh_nafti.input_info",
+//            res_id: this.actionId,
+            views: [[false, "list"], [false, "form"]],
+            type: "ir.actions.act_window",
+            view_mode: "list",
+            domain: domain,
+            target: "current",
+        });
+        }
+    viewLoadingPermit(){
+            this.actionService = useService("action")
+        let domain = [['state', '=', 'loading_permit']]
+
+        this.actionService.doAction({
+            name: "Loading Permit",
+            res_model: "sd_payaneh_nafti.input_info",
+//            res_id: this.actionId,
+            views: [[false, "list"], [false, "form"]],
+            type: "ir.actions.act_window",
+            view_mode: "list",
+            domain: domain,
+            target: "current",
+        });
+        }
+    viewLoadingInfo(){
+            this.actionService = useService("action")
+        let domain = [['state', '=', 'loading_info']]
+
+        this.actionService.doAction({
+            name: "Loading Permit",
+            res_model: "sd_payaneh_nafti.input_info",
+//            res_id: this.actionId,
+            views: [[false, "list"], [false, "form"]],
+            type: "ir.actions.act_window",
+            view_mode: "list",
+            domain: domain,
+            target: "current",
+        });
+        }
+    viewCargoDocument(){
+            this.actionService = useService("action")
+        let domain = [['state', '=', 'cargo_document']]
+
+        this.actionService.doAction({
+            name: "Cargo Document",
+            res_model: "sd_payaneh_nafti.input_info",
+//            res_id: this.actionId,
+            views: [[false, "list"], [false, "form"]],
+            type: "ir.actions.act_window",
+            view_mode: "list",
+            domain: domain,
+            target: "current",
+        });
+        }
+
 }
 
 DataDashboard.template = "data_dashboard"

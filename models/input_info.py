@@ -422,15 +422,24 @@ class SdPayanehNaftiInputInfo(models.Model):
         today_date = date.today()
         print(f'------------> today_date: {today_date}')
 
-        open_requests = self.search_count([('state', '!=', 'done')])
+        open_requests = self.search([('state', '!=', 'done')])
         this_day_requests = self.search([('request_date', '=', today_date)])
         this_day_requests_count = len(this_day_requests)
         this_day_requests_amount = round(sum([rec.final_mt for rec in this_day_requests]), 2)
+        new_requests = len([rec.final_mt for rec in open_requests if rec.state == 'draft'])
+        loading_permit = len([rec.final_mt for rec in open_requests if rec.state == 'loading_permit'])
+        loading_info = len([rec.final_mt for rec in open_requests if rec.state == 'loading_info'])
+        cargo_document = len([rec.final_mt for rec in open_requests if rec.state == 'cargo_document'])
+
 
         data = {
-            'open_requests': open_requests,
+            'open_requests': len(open_requests),
             'this_day_requests_count': this_day_requests_count,
             'this_day_requests_amount': this_day_requests_amount,
+            'new_requests': new_requests,
+            'loading_permit': loading_permit,
+            'loading_info': loading_info,
+            'cargo_document': cargo_document,
         }
         return json.dumps(data)
 
