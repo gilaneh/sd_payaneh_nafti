@@ -327,6 +327,7 @@
                             <page string="Loading Info">
                                 <group>
                                     <group>
+                                        <field name="loading_info_date" readonly="1"/>
                                         <field name="sp_gr" digits="[4,4]" readonly="1"/>
                                         <field name="correction_factor" readonly="1"/>
                                         <field name="temperature" readonly="1"/>
@@ -409,6 +410,7 @@
                         </div>
                     <group>
                         <group>
+                            <field name="loading_info_date"/>
                             <field name="sp_gr" digits="[4,4]"/>
                             <field name="correction_factor" />
                             <field name="temperature" />

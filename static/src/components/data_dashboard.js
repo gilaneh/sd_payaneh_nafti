@@ -22,6 +22,10 @@ export class DataDashboard extends Component {
                 value: 0,
                 status: "",
             },
+            remain_amount: {
+                value: 0,
+                status: "",
+            },
             open_requests: {
                 value: 0,
                 status: "",
@@ -77,6 +81,7 @@ export class DataDashboard extends Component {
 //        console.log('contracts:', contracts, typeof contracts, )
 //        this.state.spgr.status = moment(spgr[0].spgr_date).format("jYYYY/jMM/jDD");
         this.state.contracts.value = contracts.open_contracts;
+        this.state.remain_amount.value = contracts.remain_amount;
     }
     async getRequests(){
         let requests = await this.orm.call("sd_payaneh_nafti.input_info", "get_requests", [],{})

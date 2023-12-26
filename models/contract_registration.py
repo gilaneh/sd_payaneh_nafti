@@ -111,12 +111,17 @@ class SdPayanehNaftiContractInfo(models.Model):
     @api.model
     def get_contracts(self):
         today_date = date.today()
-        open_contracts = self.search_count(['|', '|', ('end_date', '>', today_date),
+        open_contracts = self.search(['|', '|', ('end_date', '>', today_date),
                                         ('first_extend_end_date', '>', today_date),
                                         ('second_extend_end_date', '>', today_date),
-                                        ('remain_amount', '>', 50),
+                                        ('remain_amount', '>', 0),
                                         ])
-        return json.dumps({'open_contracts': open_contracts})
+        remain_amount = round(sum([rec.remain_amount for rec in open_contracts]), 2)
+        data = {
+            'open_contracts': len(open_contracts),
+            'remain_amount': f'{remain_amount:,}',
+        }
+        return json.dumps(data)
 
 class SdPayanehNaftiContractInfoInit(models.Model):
     _inherit = 'sd_payaneh_nafti.contract_registration'

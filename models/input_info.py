@@ -72,7 +72,9 @@ class SdPayanehNaftiInputInfo(models.Model):
                                               ], required=True,)
 
     loading_no = fields.Char(copy=False, readonly=True, )
+    # todo: timezone
     loading_date = fields.Date(copy=False, readonly=True,)
+    loading_info_date = fields.Date(copy=False, default=lambda self: date.today())
     # driver = fields.Char(required=True,)
 
     sp_gr = fields.Float( string='SP. GR.', required=True, default=0.7252, store=True, readonly=True)
@@ -424,12 +426,15 @@ class SdPayanehNaftiInputInfo(models.Model):
 
         open_requests = self.search([('state', '!=', 'done')])
         this_day_requests = self.search([('request_date', '=', today_date)])
+        this_day_loaded = self.search([('loading_info_date', '=', today_date)])
         this_day_requests_count = len(this_day_requests)
-        this_day_requests_amount = round(sum([rec.final_mt for rec in this_day_requests]), 2)
-        new_requests = len([rec.final_mt for rec in open_requests if rec.state == 'draft'])
-        loading_permit = len([rec.final_mt for rec in open_requests if rec.state == 'loading_permit'])
-        loading_info = len([rec.final_mt for rec in open_requests if rec.state == 'loading_info'])
-        cargo_document = len([rec.final_mt for rec in open_requests if rec.state == 'cargo_document'])
+        this_day_requests_amount = round(sum([rec.amount for rec in this_day_loaded ]), 2)
+        new_requests = len([rec for rec in open_requests if rec.state == 'draft'])
+        loading_permit = len([rec for rec in open_requests if rec.state == 'loading_permit'])
+        loading_info = len([rec for rec in open_requests if rec.state == 'loading_info'])
+
+
+        cargo_document = len([rec for rec in open_requests if rec.state == 'cargo_document'])
 
 
         data = {
@@ -443,12 +448,7 @@ class SdPayanehNaftiInputInfo(models.Model):
         }
         return json.dumps(data)
 
-    def make_done(self):
-        active_ids = self.env.context.get('active_ids')
-        print(f'--------> active_ids: {active_ids}')
-        selected = self.browse(active_ids)
-        for rec in selected:
-            rec.write({'state': 'done'})
+
 
 class SdPayanehNaftiPlate1(models.Model):
     _name = 'sd_payaneh_nafti.plate1'

@@ -89,6 +89,7 @@
             'sd_payaneh_nafti/static/src/css/style.scss',
             'sd_payaneh_nafti/static/src/js/o_field_x2many_list_row_add_none.js',
             'sd_payaneh_nafti/static/src/components/**/*.js',
+            'sd_payaneh_nafti/static/src/components/**/*.css',
 
         ],
         'web.report_assets_common': [

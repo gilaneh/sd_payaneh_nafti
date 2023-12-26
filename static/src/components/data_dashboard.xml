@@ -7,7 +7,7 @@
                 <div class="col-lg-7">
                     <div class="row">
                         <div class="col m-0 p-0">
-                            <div class="shadow-sm border m-2 p-4 bg-white">
+                            <div class="shadow border rounded m-2 p-4 bg-white">
                                 <div class="d-flex align-items-center justify-content-between">
                                     <h1 class="text-primary fw-bold">Payaneh Data Dashboard</h1>
                                 </div>
@@ -17,12 +17,13 @@
                     <div class="row">
                         <DataCards onClick="viewSpgr" name="'SP.GR.'" status="state.spgr.status" value="state.spgr.value"/>
                         <DataCards onClick="viewContracts" name="'Open Contracts'" status="state.contracts.status" value="state.contracts.value"/>
-                        <DataCards name="'Open Requests'" status="state.open_requests.status" value="state.open_requests.value"/>
-                        <DataCards name="'This day amount'" status="state.this_day_requests_amount.status" value="state.this_day_requests_amount.value"/>
+                        <DataCards name="'Remain Amount'" status="state.remain_amount.status" value="state.remain_amount.value"/>
 
                     </div>
                     <div class="row">
 <!--                        <DataCards onClick="viewThisDayRequests"  name="'This day requests'" status="state.this_day_requests_count.status" value="state.this_day_requests_count.value"/>-->
+                        <DataCards name="'Open Requests'" status="state.open_requests.status" value="state.open_requests.value"/>
+                        <DataCards name="'This day amount'" status="state.this_day_requests_amount.status" value="state.this_day_requests_amount.value"/>
 
                     </div>
                     <div class="row">
