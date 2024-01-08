@@ -1,14 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-    <record model="ir.actions.client" id="action_data_dashboard">
-        <field name="name">Data Dashboard</field>
-        <field name="tag">data_dashboard</field>
-    </record>
 
-    <menuitem
-        name="Data Dashboard"
-        id="data_dashboard_menu"
-        parent="sd_payaneh_nafti.payaneh_root_menu"
-        action="action_data_dashboard"
-    />
 </odoo>

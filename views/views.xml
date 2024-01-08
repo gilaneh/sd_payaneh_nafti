@@ -106,6 +106,17 @@
                 ]"/>
         </record>
 
+        <record model="ir.actions.client" id="action_data_dashboard">
+            <field name="name">Data Dashboard</field>
+            <field name="res_model">sd_payaneh_nafti.settings</field>
+            <field name="tag">data_dashboard</field>
+        </record>
+
+        <menuitem
+            name="Payaneh"
+            id="payaneh_root_menu"
+            action="action_data_dashboard"
+        />
         <!-- ==================================================  Menu ====================-->
 
 
@@ -113,10 +124,13 @@
         <!--                  action="sd_payaneh_nafti.action_window_services"/>-->
 
 
+<!--        <menuitem name="Payaneh1"-->
+<!--                  id="sd_payaneh_nafti.payaneh_root_menu"-->
+<!--                  action="sd_payaneh_nafti.action_window_services_dashboard_setup"/>-->
 
-        <menuitem name="Payaneh"
-                  id="sd_payaneh_nafti.payaneh_root_menu"
-                  action="sd_payaneh_nafti.action_window_kanban"/>
+<!--        <menuitem name="Payaneh"-->
+<!--                  id="sd_payaneh_nafti.payaneh_root_menu"-->
+<!--                  action="sd_payaneh_nafti.action_window_kanban"/>-->
 
         <menuitem name="Data"
                   id="sd_payaneh_nafti.process_menu"
@@ -135,11 +149,5 @@
                   groups="sd_payaneh_nafti.group_sd_payaneh_nafti_admins"
                   sequence="30"/>
 
-        <menuitem name="Dashboard"
-                  sequence="10"
-                  id="sd_payaneh_nafti.dashboard_menu"
-                  parent="settings_menu"
-                  groups="sd_payaneh_nafti.group_sd_payaneh_nafti_admins"
-                  action="sd_payaneh_nafti.action_window_services_dashboard_setup"/>
     </data>
 </odoo>

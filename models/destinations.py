@@ -14,7 +14,7 @@ class SdPayanehNaftiDestinations(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
 
-    name = fields.Char(required=True,)
+    name = fields.Char(required=True, translate=True)
     description = fields.Char()
 
 
