@@ -8,8 +8,15 @@
                     <div class="row">
                         <div class="col m-0 p-0">
                             <div class="shadow border rounded m-2 p-4 bg-white">
-                                <div class="d-flex align-items-center justify-content-between">
-                                    <h1 class="text-primary fw-bold">Payaneh Data Dashboard</h1>
+                                <div class="d-flex align-items-center">
+                                   <div>
+                                       <img alt="Logo" t-att-src="'/logo?company=1'" t-att-alt="''"
+                                                        style=" height: 40px;" height="40"/>
+                                   </div>
+                                    <div>
+                                    <h1 class="text-primary fw-bold mx-4 my-0">Payaneh Data Dashboard</h1>
+
+                                    </div>
                                 </div>
                             </div>
                         </div>

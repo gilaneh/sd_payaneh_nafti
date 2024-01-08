@@ -61,7 +61,7 @@
                                 <label for="contract_no" />
                                 <div class="o_row sd_ltr">
                                     <field name="contract_no" placeholder="Contract No"/>
-                                    <div class="col-1" attrs="{'invisible': [('order_no', '=', '')]}">-</div>
+                                    <div class="col-1 d-none d-lg-block" attrs="{'invisible': [('order_no', '=', '')]}">-</div>
                                     <field name="order_no" placeholder="Order No" />
                                 </div>
 <!--                                <field name="bill_of_lading" />-->
@@ -89,17 +89,17 @@
                         </group>
 
                         <group string="Contract Letters">
-                            <group class="col-4">
+                            <group class="col-4-lg">
                                 <field name="letter_no" />
                                 <field name="start_date" />
                                 <field name="end_date" />
                             </group>
-                            <group class="col-4">
+                            <group class="col-4-lg">
                                 <field name="first_extend_no" />
                                 <field name="first_extend_star_date" />
                                 <field name="first_extend_end_date" />
                             </group>
-                            <group class="col-4">
+                            <group class="col-4-lg">
                                 <field name="second_extend_no" />
                                 <field name="second_extend_star_date" />
                                 <field name="second_extend_end_date" />
