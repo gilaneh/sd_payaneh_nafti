@@ -3,11 +3,11 @@
     <t t-name="data_dashboard" owl="1">
         <div class="bg-mute h-100 overflow-auto" >
 <!--        <div class="h1 text-center">Payaneh Data Dashboard</div>-->
-            <div class="row m-3">
+            <div class="row m-1 m-lg-3">
                 <div class="col-lg-7">
                     <div class="row">
                         <div class="col m-0 p-0">
-                            <div class="shadow border rounded m-2 p-4 bg-white">
+                            <div class="shadow border rounded m-2 p-2 p-lg-4 bg-white">
                                 <div class="d-flex align-items-center">
                                    <div>
                                        <img alt="Logo" t-att-src="'/logo?company=1'" t-att-alt="''"

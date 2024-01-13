@@ -65,7 +65,14 @@ class ReportSdPayanehNaftiContractDailyReport(models.AbstractModel):
 
         input_records_behind_date = tuple(filter(lambda rec: rec.loading_date <= report_day, input_records))
         registration = input_records[0].registration_no
-        unit = dict(registration._fields['unit']._description_selection(self.env)).get(registration.unit)
+        if loading_type == 'internal':
+            unit = dict(registration._fields['unit']._description_selection(self.env)).get(registration.unit)
+        else:
+            unit = registration.unit
+        #     todo: it shows metric_tone which needed to show Metric Tone
+
+        # print(f'>>>>>>>>>\n unit: {unit} registration.unit: {registration.unit} '
+        #       f'\n {registration._fields["unit"]}')
 
         if registration.unit == 'barrel':
             used_amounts = sum([ua.final_gsv_b for ua in input_records_behind_date])

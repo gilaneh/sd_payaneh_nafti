@@ -17,8 +17,8 @@ class SdPayanehNaftiReportContractDaily(models.TransientModel):
 
     loading_type = fields.Selection([('internal', 'Internal'), ('export', 'Export')], default='internal', required=True)
 
-    # report_date = fields.Date(required=True, default=lambda self: datetime.today().date())
-    report_date = fields.Date(required=True, default=lambda self: datetime.strptime('2022-08-13', '%Y-%m-%d').date() )
+    report_date = fields.Date(required=True, default=lambda self: datetime.strptime('2022-11-21', '%Y-%m-%d').date() )
+    # report_date = fields.Date(required=True, default=lambda self: date.today() )
 
     calendar = fields.Selection([('fa_IR', 'Persian'), ('en_US', 'Gregorian')],
                                 default=lambda self: 'fa_IR' if self.env.context.get('lang') == 'fa_IR' else 'en_US')
@@ -27,11 +27,14 @@ class SdPayanehNaftiReportContractDaily(models.TransientModel):
     buyer_agent = fields.Char(required=True, default='buyer_agent')
     # #############################################################################
 
-    @api.onchange('loading_type')
+    @api.onchange('loading_type','report_date')
     def _reg_domain(self):
         domain = {}
         self.registration_no = False
+        # todo: only show the registrations that have a loading on that day
+        # the_day_inputs = self.env['sd_payaneh_nafti.']
         if self.loading_type == 'internal':
+
             domain = {'registration_no': [('loading_type', '=', 'internal')]}
         elif self.loading_type == 'export':
             domain = {'registration_no': [('loading_type', '=', 'export')]}
