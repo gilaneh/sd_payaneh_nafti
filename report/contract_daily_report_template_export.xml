@@ -333,10 +333,57 @@
             </div>
         </template>
 
-        <template id="contract_daily_report_data_export">
+        <template id="contract_daily_report_data_export_1">
+                   <div class="page" style="direction: ltr; font-family: Arial;">
+                        <div class=" " style="font-size: .9rem">
+                            <div t-foreach="doc_data_list" t-as="doc_data"
+                                 style="page-break-inside: avoid; page-break-after: always;">
+                                <t t-set="contract_record" t-value="doc_data[0]"/>
+                                <t t-set="doc_data" t-value="doc_data[1]"/>
+                                <div class=" mt-2">
+                                        <t t-set="page_index" t-value="0"/>
+                                        <t t-set="row_index" t-value="0"/>
+                                        <t t-foreach="doc_data['inputs']" t-as="row_data_lines">
+                                            <t t-if="len(row_data_lines) > 0">
+                                                <t t-set="page_index" t-value="page_index + 1"/>
+                                                <div style="page-break-after: always;"></div>
+                                                <t t-call="sd_payaneh_nafti.contract_daily_report_page_header_export"/>
+                                                <div class="iransans_font" style="direction:rtl">
+                                                    <table class="table table-bordered border-0 text-center contract_daily_report_table">
+                                                        <thead class=" text-center">
+                                                            <t t-call="sd_payaneh_nafti.contract_daily_report_table_header_export"/>
+                                                        </thead>
+                                                        <tbody>
+                                                            <t t-foreach="row_data_lines" t-as="row_data_line">
+                                                                <t t-set="row_index" t-value="row_index + 1"/>
+                                                                <t t-call="sd_payaneh_nafti.contract_daily_report_table_body_export"/>
+                                                            </t>
+                                                        </tbody>
+                                                        <tfoot>
+                                                            <t t-foreach="page_index" t-as="page_i">
+                                                                <t t-call="sd_payaneh_nafti.contract_daily_report_table_footer_export"/>
+                                                            </t>
 
-                    <div class="page" style="direction: ltr;">
-                        <div>Export</div>
+                                                            <t t-if="page_index == doc_data['page_count']">
+                                                                <t t-call="sd_payaneh_nafti.contract_daily_report_table_footer_total_export"/>
+                                                            </t>
+                                                        </tfoot>
+                                                    </table>
+                                                </div>
+                                                <t t-call="sd_payaneh_nafti.contract_daily_report_page_footer_export"/>
+<!--                                                <t t-call="sd_payaneh_nafti.contract_daily_report_table_footer"/>-->
+                                            </t>
+                                        </t>
+                                    </div>
+                                    <div class="mb-5"></div>
+                                    <div class="mb-5"></div>
+                            </div>
+                        </div>
+                    </div>
+        </template>
+
+        <template id="contract_daily_report_data_export_2">
+                    <div class="page" style="direction: ltr; font-family: Arial;">
                         <div class=" " style="font-size: .9rem">
                             <div t-foreach="doc_data_list" t-as="doc_data"
                                  style="page-break-inside: avoid; page-break-after: always;">
@@ -387,6 +434,12 @@
                             </div>
                         </div>
                     </div>
+        </template>
+
+        <template id="contract_daily_report_data_export">
+            <t t-call="sd_payaneh_nafti.contract_daily_report_data_export_1"/>
+<!--            <t t-call="sd_payaneh_nafti.contract_daily_report_data_export_2"/>-->
+
         </template>
 
     </data>
