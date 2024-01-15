@@ -63,13 +63,13 @@
 
         <template id="contract_monthly_report_table_header">
             <tr style="direction:ltr;">
-                <th>ROW</th>
-                <th>DATE</th>
+                <th>ردیف</th>
+                <th>تاریخ</th>
                 <th>SP.GR.</th>
                 <th>G.S.V. (LITER)</th>
                 <th>G.S.V. (BBLS)</th>
                 <th>M.T.</th>
-                <th>Tanker no.</th>
+                <th>تعداد تانکر</th>
             </tr>
         </template>
 
