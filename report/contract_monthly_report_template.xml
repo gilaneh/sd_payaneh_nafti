@@ -19,21 +19,21 @@
             </div>
             <div class="row mx-0 mb-4 border border-info rounded ">
                 <div class="col-9 mx-0 ">
-                    <div class="row border-bottom mx-0 py-1 ">
+                    <div class="row border-bottom mx-0 py-1">
                         <div class="col-3 mx-0">
                             <span>شماره قرارداد:</span>
                         </div>
-                        <div class="col-2 mx-0">
+                        <div class="col-3 mx-0">
                             <span class="font-weight-bold" t-esc="header['contract_no']"></span>
                         </div>
-                        <div class="col mx-0">
+                        <div class="col-3 mx-0">
                             <span>مقدار مجوز</span>
 
                             <span>(</span>
                             <span t-esc="header['unit']"></span>
                             <span>):</span>
                         </div>
-                        <div class="col-2 mx-0">
+                        <div class="col-3 mx-0">
                             <span class="font-weight-bold" t-esc="header['amount']"></span>
                         </div>
                     </div>
@@ -52,7 +52,6 @@
                             <span t-esc="header['contractors']"></span>
                         </div>
                     </div>
-
                 </div>
                 <div class="col-3 text-center">
                     <div class=" py-1">دوره برداشت</div>
@@ -60,7 +59,6 @@
                     <div class="font-weight-bold py-1" t-esc="dates[1]"></div>
                 </div>
             </div>
-
         </template>
 
         <template id="contract_monthly_report_table_header">
