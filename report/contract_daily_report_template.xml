@@ -260,7 +260,7 @@
                     <div class="row m-0 justify-content-center">
                         <div class="m-0">جمع صفحه</div>
                         <div class="my-0 mx-1" t-esc="page_i + 1"></div>
-                        <div class="m-0">اختلاف توتالایزر بارگیری میتر</div>
+                        <div class="m-0">اختلاف توتالایزر از بارگیری میتر</div>
 
                     </div>
                 </td>
@@ -287,14 +287,13 @@
             <tr>
                 <td class="border-0" colspan="6"></td>
                 <td class="border-dark" colspan="7">
-                    <span>Total totalizer difference of meter loading
-                    </span>
+                    <span>جمع كل اختلاف توتالایزر از بارگیری میتر</span>
                 </td>
 
                 <td class="border-dark" t-esc="'{:,d}'.format(doc_data['total']['totalizer_diff_sum'])"></td>
                 <td class="border-0" ></td>
                 <td class="border-dark" colspan="2">
-                    <span>Total</span>
+                    <span>جمع كل</span>
                 </td>
                 <td class="border-dark" t-esc="'{:,d}'.format(doc_data['total']['final_tov_l_sum'])"></td>
                 <td class="border-dark" t-esc="'{:,d}'.format(doc_data['total']['final_gsv_l_sum'])"></td>
