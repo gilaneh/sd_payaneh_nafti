@@ -170,7 +170,7 @@
                 </div>
                 <div t-if="errors == []">
                     <t t-foreach="docs" t-as="o">
-                        <t t-call="sd_payaneh_nafti.contract_monthly_report_data_export"/>
+                        <t t-call="sd_payaneh_nafti.contract_monthly_report_data_export" t-lang="en_US"/>
                     </t>
                 </div>
             </t>
