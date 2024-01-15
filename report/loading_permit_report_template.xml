@@ -6,7 +6,7 @@
 <!--                <t t-call="web.basic_layout">-->
 <!--                <t t-call="web.internal_layout">-->
                     <div class="page">
-                        <div class="container iransans_font" style="font-size: .9rem">
+                        <div class="container " style="font-size: .9rem">
                             <div t-foreach="doc_data_list" t-as="doc_data"
                                  style="page-break-inside: avoid; page-break-after: always;">
                                 <t t-set="input_record" t-value="doc_data[0]"/>

@@ -1,3 +1,7 @@
+.multi_page_report{
+    page-break-inside: avoid; page-break-after: always;
+}
+
 .payaneh_incident_report_dir{
     direction: ltr !important;
 }
@@ -135,3 +139,4 @@
 .outgate_daily_report_table tfoot tr{
     border-bottom: outset;
 }
+

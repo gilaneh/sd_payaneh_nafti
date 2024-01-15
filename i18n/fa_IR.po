@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.0\n"
+"Project-Id-Version: Odoo Server 15.0e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-21 07:32+0000\n"
-"PO-Revision-Date: 2023-11-21 11:12+0330\n"
+"POT-Creation-Date: 2024-01-15 10:07+0000\n"
+"PO-Revision-Date: 2024-01-15 13:48+0330\n"
 "Last-Translator: Arash Homayounfar <homayounfar@msn.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -50,11 +50,13 @@ msgstr ""
 
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header_export
 msgid "(BBLS)"
 msgstr ""
 
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header_export
 msgid "(Bar)"
 msgstr "(بار)"
 
@@ -65,6 +67,7 @@ msgstr "(لیتر)"
 
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header_export
 msgid "(Litter)"
 msgstr "(لیتر)"
 
@@ -75,6 +78,7 @@ msgstr "(متریک تن)"
 
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header_export
 msgid "(PSI)"
 msgstr ""
 
@@ -101,16 +105,19 @@ msgstr "مقدار در 60 درجه"
 
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header_export
 msgid "60/60"
 msgstr ""
 
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header_export
 msgid "60C"
 msgstr ""
 
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_body
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_body_export
 msgid "<span class=\"col px-0\">-</span>"
 msgstr ""
 
@@ -144,6 +151,7 @@ msgstr ""
 
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_page_header
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_page_header_export
 msgid "<span>/</span>"
 msgstr ""
 
@@ -169,32 +177,37 @@ msgstr ""
 
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_footer
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_footer_export
 msgid "<span>Sum of page [</span>"
-msgstr ""
+msgstr "جمع صفحه ["
 
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_footer
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_footer_export
 msgid "<span>Sum of page</span>"
-msgstr ""
+msgstr "جمع صفحه"
 
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_footer_total
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_footer_total_export
 msgid ""
 "<span>Total totalizer difference of meter loading\n"
 "        </span>"
-msgstr ""
+msgstr "جمع اختلاف توتالایزر بارگیری میتر"
 
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_footer_total
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_footer_total_export
 msgid "<span>Total</span>"
-msgstr ""
+msgstr "جمع"
 
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_footer
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_footer_export
 msgid ""
 "<span>] Totalizer difference of meter loading\n"
 "        </span>"
-msgstr ""
+msgstr "] اختلاف توتالایزر بارگیری میتر"
 
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_data
@@ -345,6 +358,7 @@ msgstr ""
 #. module: sd_payaneh_nafti
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__api_a
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header_export
 msgid "API"
 msgstr ""
 
@@ -473,6 +487,7 @@ msgstr "لیست نظرسنجی ها"
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__amount
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__amount
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_page_header
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_page_header_export
 msgid "Amount"
 msgstr "مقدار"
 
@@ -572,6 +587,7 @@ msgstr "خریدار"
 
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_page_header
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_page_header_export
 msgid "Buyer:"
 msgstr "خریدار:"
 
@@ -584,11 +600,13 @@ msgstr "خریدارها"
 
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header_export
 msgid "C.P.L 6A"
 msgstr ""
 
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header_export
 msgid "C.T.L 6A"
 msgstr ""
 
@@ -598,6 +616,7 @@ msgid "CARRIED BY:"
 msgstr ""
 
 #. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_page_footer_export
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_monthly_report_signs
 msgid "CONSIGNEE/AGENCY REP."
 msgstr "نماينده خريدار"
@@ -796,6 +815,7 @@ msgstr "گزارش ماهانه قرارداد"
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__contract_no
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_data
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_page_header
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_page_header_export
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.loading_permit_report_data
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.sd_payaneh_nafti_contract_registration_form
 msgid "Contract No"
@@ -925,6 +945,11 @@ msgid "Created on"
 msgstr "تاریخ ایجاد"
 
 #. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_page_header_export
+msgid "DAILY REPORT"
+msgstr ""
+
+#. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_monthly_report_table_header
 msgid "DATE"
 msgstr "تاریخ"
@@ -932,6 +957,11 @@ msgstr "تاریخ"
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_monthly_report_data_export
 msgid "DATE RANGE"
+msgstr ""
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_page_footer_export
+msgid "DFGDFG"
 msgstr ""
 
 #. module: sd_payaneh_nafti
@@ -945,7 +975,6 @@ msgstr "گزارش روزانه"
 
 #. module: sd_payaneh_nafti
 #: model:ir.actions.act_window,name:sd_payaneh_nafti.action_window_kanban
-#: model:ir.ui.menu,name:sd_payaneh_nafti.dashboard_menu
 msgid "Dashboard"
 msgstr "داشبورد"
 
@@ -958,6 +987,11 @@ msgstr "تنظیمات داشبورد"
 #: model:ir.ui.menu,name:sd_payaneh_nafti.process_menu
 msgid "Data"
 msgstr "اطلاعات"
+
+#. module: sd_payaneh_nafti
+#: model:ir.actions.client,name:sd_payaneh_nafti.action_data_dashboard
+msgid "Data Dashboard"
+msgstr ""
 
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.meter_report_data
@@ -982,6 +1016,7 @@ msgstr ""
 
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_page_header
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_page_header_export
 msgid "Delivered"
 msgstr "تحویل شده"
 
@@ -1034,6 +1069,7 @@ msgstr "مقصد"
 
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_page_header
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_page_header_export
 msgid "Destination:"
 msgstr "مقصد:"
 
@@ -1146,6 +1182,11 @@ msgid "Export Contract Monthly Report"
 msgstr ""
 
 #. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_page_footer_export
+msgid "FGDFGFD"
+msgstr ""
+
+#. module: sd_payaneh_nafti
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__final_gsv_b
 msgid "Final G.S.V BBL"
 msgstr ""
@@ -1183,6 +1224,7 @@ msgstr "تاریخ شروع اول"
 #. module: sd_payaneh_nafti
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_meter_data__first_totalizer
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header_export
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.meter_report_data
 msgid "First Totalizer"
 msgstr "توتالایزر ابتدایی"
@@ -1252,6 +1294,7 @@ msgstr "مخزن جلویی"
 
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header_export
 msgid "G.S.V"
 msgstr ""
 
@@ -1373,6 +1416,7 @@ msgid "IR"
 msgstr ""
 
 #. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_page_header_export
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_monthly_report_page_header
 msgid "IRANIAN OIL TERMINALS COMPANY"
 msgstr "شرکت پایانه های نفتی ایران"
@@ -1566,6 +1610,7 @@ msgstr ""
 
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header_export
 msgid "K-FACTOR"
 msgstr ""
 
@@ -1631,6 +1676,7 @@ msgstr "تاریخ آخرین تغییر"
 #. module: sd_payaneh_nafti
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_meter_data__last_totalizer
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header_export
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.meter_report_data
 msgid "Last Totalizer"
 msgstr "توتالایزر انتهایی"
@@ -1711,6 +1757,7 @@ msgstr "هفته گذشته"
 #. module: sd_payaneh_nafti
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__letter_no
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_page_header
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_page_header_export
 msgid "Letter No"
 msgstr "شماره نامه"
 
@@ -1736,6 +1783,7 @@ msgstr "تاریخ شروع"
 
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_page_header
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_page_header_export
 msgid "Loading Date:"
 msgstr "تاریخ بارگیری:"
 
@@ -1746,8 +1794,14 @@ msgid "Loading Info"
 msgstr "اطلاعات بارگیری"
 
 #. module: sd_payaneh_nafti
+#: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__loading_info_date
+msgid "Loading Info Date"
+msgstr ""
+
+#. module: sd_payaneh_nafti
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__loading_no
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header_export
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.loading_permit_report_data
 msgid "Loading No"
 msgstr "شماره بارنامه"
@@ -1769,6 +1823,7 @@ msgstr "دستور بارگیری"
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_report_contract_daily__loading_type
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_report_contract_monthly_report__loading_type
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header_export
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.sd_payaneh_nafti_contract_registration_list_search
 msgid "Loading Type"
 msgstr "نوع بارگیری"
@@ -1784,9 +1839,12 @@ msgid "Lockers"
 msgstr "پلمپ ها"
 
 #. module: sd_payaneh_nafti
+#. openerp-web
+#: code:addons/sd_payaneh_nafti/static/src/components/data_dashboard.xml:0
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_settings__image
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.cargo_document_report_data
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_page_header
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_page_header_export
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_monthly_report_page_header
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.daily_report_data
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.layout_header
@@ -1794,11 +1852,13 @@ msgstr "پلمپ ها"
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.meter_report_data
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.monthly_report_data
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.outgate_daily_report_table_header
+#, python-format
 msgid "Logo"
 msgstr ""
 
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header_export
 msgid "M. Tons"
 msgstr ""
 
@@ -1808,6 +1868,7 @@ msgid "M.T."
 msgstr ""
 
 #. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_page_footer_export
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_monthly_report_signs
 msgid "MINISTRY OF PETROLEUM REP."
 msgstr "اداره نظارت بر صادرات، واردات و مبادلات مواد نفتی"
@@ -1872,6 +1933,7 @@ msgstr "پیام"
 #. module: sd_payaneh_nafti
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_meter_data__meter
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_body
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_body_export
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.meter_report_data
 msgid "Meter"
 msgstr "میتر"
@@ -1948,6 +2010,7 @@ msgstr ""
 
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header_export
 msgid "Miter"
 msgstr "میتر"
 
@@ -1994,6 +2057,7 @@ msgid "My Activity Deadline"
 msgstr ""
 
 #. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_page_header_export
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_monthly_report_page_header
 msgid "NATIONAL IRANIAN OIL COMPANY"
 msgstr "شرکت ملی نفت ایران"
@@ -2093,6 +2157,7 @@ msgstr ""
 #. module: sd_payaneh_nafti
 #: model:ir.model.fields.selection,name:sd_payaneh_nafti.selection__sd_payaneh_nafti_input_info__weighbridge__no
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header_export
 msgid "No"
 msgstr "خیر"
 
@@ -2211,6 +2276,7 @@ msgstr "در جریان"
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_contract_registration__order_no
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__order_no
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_page_header
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_page_header_export
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.sd_payaneh_nafti_contract_registration_form
 msgid "Order No"
 msgstr "شماره حواله"
@@ -2235,6 +2301,7 @@ msgstr "گزارش دروازه خروج"
 
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_page_header
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_page_header_export
 msgid "Page No:"
 msgstr "شماره صفحه:"
 
@@ -2324,6 +2391,13 @@ msgid "Payaneh Agent"
 msgstr ""
 
 #. module: sd_payaneh_nafti
+#. openerp-web
+#: code:addons/sd_payaneh_nafti/static/src/components/data_dashboard.xml:0
+#, python-format
+msgid "Payaneh Data Dashboard"
+msgstr ""
+
+#. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.res_config_settings_view_form
 msgid "Payaneh Nafti"
 msgstr "پایانه نفتی"
@@ -2341,6 +2415,7 @@ msgstr "جلالی"
 #. module: sd_payaneh_nafti
 #: model:ir.ui.menu,name:sd_payaneh_nafti.plate_menu
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header_export
 msgid "Plate"
 msgstr "پلاک"
 
@@ -2395,6 +2470,7 @@ msgstr "اولویت"
 
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header_export
 msgid "Pure Weight"
 msgstr "وزن خالص"
 
@@ -2402,6 +2478,11 @@ msgstr "وزن خالص"
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_monthly_report_table_header
 msgid "ROW"
 msgstr "ردیف"
+
+#. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_page_footer_export
+msgid "RTGERTGD"
+msgstr ""
 
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.sd_payaneh_nafti_input_info_list_search
@@ -2437,6 +2518,7 @@ msgstr "مانده حدودی"
 
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_page_header
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_page_header_export
 msgid "Remained"
 msgstr "باقی مانده"
 
@@ -2458,6 +2540,7 @@ msgstr "گزارش ها"
 
 #. module: sd_payaneh_nafti
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__request_date
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.sd_payaneh_nafti_input_info_list_search
 msgid "Request Date"
 msgstr "تاریخ درخواست"
 
@@ -2491,11 +2574,13 @@ msgid "SOUTH PARS CONDENSATE"
 msgstr " میعانات گازی پارس جنوبی"
 
 #. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_page_header_export
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_monthly_report_page_header
 msgid "SOUTH PARS TERMINAL"
 msgstr "پایانه میعانات گازی پارس جنوبی"
 
 #. module: sd_payaneh_nafti
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_page_footer_export
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_monthly_report_signs
 msgid "SOUTH PARS TERMINAL REP."
 msgstr "پایانه میعانات گازی پارس جنوبی"
@@ -2507,6 +2592,7 @@ msgstr ""
 
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header_export
 msgid "SP.GR"
 msgstr ""
 
@@ -2616,11 +2702,13 @@ msgstr "بورس"
 
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header_export
 msgid "T.O.V"
 msgstr ""
 
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header_export
 msgid "TAB. 13"
 msgstr ""
 
@@ -2641,6 +2729,7 @@ msgstr ""
 
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header_export
 msgid "Tank No"
 msgstr ""
 
@@ -2657,12 +2746,14 @@ msgstr "وزن خالی نفتکش"
 
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header_export
 msgid "Tanker Emt Weight"
 msgstr ""
 
 #. module: sd_payaneh_nafti
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__tanker_full_weight
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header_export
 msgid "Tanker Full Weight"
 msgstr "وزن پر نفتکش"
 
@@ -2718,6 +2809,7 @@ msgstr "مجموع"
 #. module: sd_payaneh_nafti
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__totalizer_difference
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_header_export
 msgid "Totalizer Difference"
 msgstr "اختلاف توتالایزر"
 
@@ -2868,6 +2960,7 @@ msgstr "توجه: نفت کش در لیست سیاه قرار دارد"
 #. module: sd_payaneh_nafti
 #: model:ir.model.fields,field_description:sd_payaneh_nafti.field_sd_payaneh_nafti_input_info__weighbridge
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_body
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_table_body_export
 msgid "Weighbridge"
 msgstr "باسکول"
 
@@ -3115,6 +3208,7 @@ msgstr ""
 
 #. module: sd_payaneh_nafti
 #: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_page_header
+#: model_terms:ir.ui.view,arch_db:sd_payaneh_nafti.contract_daily_report_page_header_export
 msgid "unit"
 msgstr "واحد"
 
