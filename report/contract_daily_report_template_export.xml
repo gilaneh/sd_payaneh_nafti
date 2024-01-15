@@ -258,9 +258,9 @@
             <tr>
     <td class="border-0" colspan="6"></td>
     <td class="border-dark" colspan="7">
-        <span>Sum of page [</span>
+        <span>Sum of page </span>
         <span t-esc="page_i + 1"></span>
-        <span>] Totalizer difference of meter loading
+        <span> Totalizer difference of meter loading
         </span>
     </td>
 
