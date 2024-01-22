@@ -48,12 +48,24 @@
                                                     <div class="col-4">Description</div>
                                                 </div>
                                                 <div t-foreach="meter_data" t-as="data" class="row border-bottom mx-0">
-                                                    <div class="col-2 text-center" t-esc="data.meter"></div>
-                                                    <div class="col-2" t-esc="'{:,d}'.format(data.first_totalizer)"></div>
-                                                    <div class="col-2" t-esc="'{:,d}'.format(data.last_totalizer)"></div>
-                                                    <div class="col-2" t-esc="'{:,d}'.format(data.meter_amounts)"></div>
-                                                    <div class="col-4" t-esc="data.description"></div>
+                                                    <t t-if="data.meter > 0">
+                                                        <div  class="col-2 text-center" t-esc="data.meter"></div>
+                                                        <div class="col-2" t-esc="'{:,d}'.format(data.first_totalizer)"></div>
+                                                        <div class="col-2" t-esc="'{:,d}'.format(data.last_totalizer)"></div>
+                                                        <div class="col-2" t-esc="'{:,d}'.format(data.meter_amounts)"></div>
+                                                        <div class="col-4" t-esc="data.description"></div>
+                                                    </t>
                                                 </div>
+                                                <div t-foreach="meter_data" t-as="data" class="row border-bottom mx-0">
+                                                    <t t-if="data.meter == 0">
+                                                    <div class="col-2 text-center" t-esc="'Master Meter'"></div>
+                                                        <div class="col-2" t-esc="'{:,d}'.format(data.first_totalizer)"></div>
+                                                        <div class="col-2" t-esc="'{:,d}'.format(data.last_totalizer)"></div>
+                                                        <div class="col-2" t-esc="'{:,d}'.format(data.meter_amounts)"></div>
+                                                        <div class="col-4" t-esc="data.description"></div>
+                                                    </t>
+                                                </div>
+
                                                     <div class="font-weight-bold">
 
                                                 <div  class="row border-top border-bottom border-secondary mx-0 pt-1">
