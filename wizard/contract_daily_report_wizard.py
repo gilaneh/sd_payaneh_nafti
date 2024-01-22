@@ -17,8 +17,8 @@ class SdPayanehNaftiReportContractDaily(models.TransientModel):
 
     loading_type = fields.Selection([('internal', 'Internal'), ('export', 'Export')], default='internal', required=True)
 
-    report_date = fields.Date(required=True, default=lambda self: datetime.strptime('2022-11-21', '%Y-%m-%d').date() )
-    # report_date = fields.Date(required=True, default=lambda self: date.today() )
+    # report_date = fields.Date(required=True, default=lambda self: datetime.strptime('2022-11-21', '%Y-%m-%d').date() )
+    report_date = fields.Date(required=True, default=lambda self: date.today() )
 
     calendar = fields.Selection([('fa_IR', 'Persian'), ('en_US', 'Gregorian')],
                                 default=lambda self: 'fa_IR' if self.env.context.get('lang') == 'fa_IR' else 'en_US')

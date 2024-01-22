@@ -31,6 +31,48 @@
             </field>
         </record>
 
+        <record model="ir.ui.view" id="sd_payaneh_nafti_input_info_manage_list">
+            <field name="name">Input Information Mange</field>
+            <field name="model">sd_payaneh_nafti.input_info</field>
+            <field name="priority">20</field>
+            <field name="arch" type="xml">
+                <tree editable="top">
+                    <header>
+<!--                        <button string="drivers" name="drivers_strip" type="object" />-->
+<!--                        <button string="drivers_create" name="drivers_create" type="object" />-->
+                    </header>
+<!--                    <field name="active" invisible="1"/>-->
+
+                    <field name="document_no" />
+                    <field name="loading_no" />
+                    <field name="loading_date" />
+                    <field name="loading_info_date" />
+                    <field name="registration_no" />
+                    <field name="contractor" />
+                    <field name="driver" />
+                    <field name="driver" />
+                    <field name="buyer" />
+                    <field name="temperature"/>
+                    <field name="temperature_f"/>
+                    <field name="pressure" />
+                    <field name="pressure_psi" />
+                    <field name="meter_no" />
+                    <field name="weighbridge" />
+                    <field name="totalizer_start" />
+                    <field name="totalizer_end"/>
+                    <field name="totalizer_difference"/>
+                    <field name="tanker_empty_weight"/>
+                    <field name="tanker_full_weight"/>
+                    <field name="tanker_pure_weight"/>
+                    <field name="temperature" groups="base.group_system" optional="hide"/>
+                    <field name="final_tov_l" groups="base.group_system" optional="hide"/>
+                    <field name="final_gsv_l" groups="base.group_system" optional="hide"/>
+                    <field name="final_gsv_b" groups="base.group_system" optional="hide"/>
+                    <field name="final_mt" groups="base.group_system" optional="hide"/>
+                </tree>
+            </field>
+        </record>
+
         <record model="ir.ui.view" id="sd_payaneh_nafti_input_info_form">
             <field name="name">Input Information Form</field>
             <field name="model">sd_payaneh_nafti.input_info</field>
@@ -531,6 +573,7 @@
                 (0, 0, {'view_mode': 'form', 'view_id': ref('sd_payaneh_nafti_input_info_form')})]"/>
         </record>
 
+
         <record model="ir.actions.act_window" id="action_window_input_info_1">
             <field name="name">Input Information</field>
             <field name="res_model">sd_payaneh_nafti.input_info</field>
@@ -539,6 +582,14 @@
                 (0, 0, {'view_mode': 'tree', 'view_id': ref('sd_payaneh_nafti_input_info_list_1')}),
                 (0, 0, {'view_mode': 'form', 'view_id': ref('sd_payaneh_nafti_input_info_form_1')})]"/>
             <field name="context">{'search_default_registration_no_group': 0}</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_window_input_info_manage">
+            <field name="name">Input Information Manage</field>
+            <field name="res_model">sd_payaneh_nafti.input_info</field>
+            <field name="view_mode">tree</field>
+                        <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('sd_payaneh_nafti_input_info_manage_list')}),]"/>
         </record>
 
         <record model="ir.actions.act_window" id="action_window_cargo_types">
@@ -563,6 +614,12 @@
                   parent="sd_payaneh_nafti.process_menu"
                   groups="base.group_system"
                   action="action_window_input_info"/>
+        <menuitem name="Input Info Manage"
+                  sequence="40"
+                  id="sd_payaneh_nafti.input_info_manage_menu"
+                  parent="sd_payaneh_nafti.process_menu"
+                  groups="base.group_system"
+                  action="action_window_input_info_manage"/>
 
         <menuitem name="Plate"
                   sequence="300"

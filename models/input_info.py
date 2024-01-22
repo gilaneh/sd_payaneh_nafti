@@ -73,7 +73,7 @@ class SdPayanehNaftiInputInfo(models.Model):
 
     loading_no = fields.Char(copy=False, readonly=True, )
     # todo: timezone
-    loading_date = fields.Date(copy=False, readonly=True,)
+    loading_date = fields.Date(copy=False, readonly=False,)
     loading_info_date = fields.Date(copy=False, default=lambda self: date.today())
     # driver = fields.Char(required=True,)
 
