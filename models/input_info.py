@@ -91,7 +91,7 @@ class SdPayanehNaftiInputInfo(models.Model):
                                   ('6', '6'),
                                   ('7', '7'),
                                   ('8', '8'),
-                                  ('master', 'Master'),
+                                  ('0', 'Master'),
                                   ], required=False,)
     totalizer_start = fields.Integer(required=False,)
     totalizer_end = fields.Integer(required=False,)

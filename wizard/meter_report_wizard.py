@@ -31,7 +31,7 @@ class SdPayanehNaftiReportMeterReport(models.TransientModel):
         if not self.start_date:
             return
         self.meter_data = False
-        meters = {1, 2, 3, 4, 5, 6, 7, 8}
+        meters = {0, 1, 2, 3, 4, 5, 6, 7, 8, }
         this_date_model = self.env['sd_payaneh_nafti.meter_data']
         this_date_records = this_date_model.search([('report_date', '=', self.start_date)])
         this_meters = set([m.meter for m in this_date_records])
