@@ -248,8 +248,8 @@
                         </div>
                         <group string="General Information">
                             <group>
-                                <field name="request_date" attrs="{'readonly': [('state', 'not in', ['draft'] )]}"/>
-                                <field name="registration_no" attrs="{'readonly': [('state', 'not in', ['draft'] )]}"
+                                <field name="request_date" />
+                                <field name="registration_no"
                                        options="{'no_quick_create':True, 'no_create_edit': True, 'no_open': True}"/>
                         <field name="date_validation" invisible="1"/>
 
@@ -266,7 +266,7 @@
                                     <field name="contractors" invisible="1" />
                                     <field name="contractor" domain="[('id', 'in', contractors )]"
                                            options="{'no_quick_create':True, 'no_create_edit': True, 'no_open': True}"
-                                            attrs="{'readonly': [('state', 'not in', ['draft'] )]}"/>
+                                            />
 
                                 </group>
                         </group>
