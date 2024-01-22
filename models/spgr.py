@@ -5,8 +5,6 @@ from datetime import  datetime, timedelta
 from odoo import models, fields, api, _
 from odoo.exceptions import UserError, ValidationError
 
-from colorama import Fore
-
 class SdPayanehNaftiSpgr(models.Model):
     _name = 'sd_payaneh_nafti.spgr'
     _description = 'sd_payaneh_nafti.spgr'
