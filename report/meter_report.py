@@ -40,6 +40,10 @@ class ReportSdPayanehNaftiMeterReport(models.AbstractModel):
             return {
                 'errors': [_(f'No record have found for selected date: {s_start_date} ')],
             }
+        print(f'''
+        len this_date_input: {len(this_date_input)}
+
+''')
         totalizer_weighbridge_sum = sum(list([t.totalizer_difference for t in this_date_input if t.weighbridge == 'yes']))
         totalizer_sum = sum(list([t.totalizer_difference for t in this_date_input]))
 
