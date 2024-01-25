@@ -35,7 +35,7 @@ class ReportSdPayanehNaftiMeterReport(models.AbstractModel):
 
         meter_amount_sum = sum(list([m.meter_amounts for m in meter_data]))
 
-        this_date_input = self.env['sd_payaneh_nafti.input_info'].search([('loading_date', '=', start_date),])
+        this_date_input = self.env['sd_payaneh_nafti.input_info'].search([('loading_info_date', '=', start_date),])
         if len(this_date_input) == 0:
             return {
                 'errors': [_(f'No record have found for selected date: {s_start_date} ')],
@@ -44,6 +44,7 @@ class ReportSdPayanehNaftiMeterReport(models.AbstractModel):
         totalizer_sum = sum(list([t.totalizer_difference for t in this_date_input]))
 
         metre_weighbridget_deff = meter_amount_sum + totalizer_weighbridge_sum - totalizer_sum
+
         # if calendar == 'fa_IR':
             # report_date_show = jdatetime.date.fromgregorian(date=this_date_input[0].loading_date).strftime('%Y/%m/%d')
         return {

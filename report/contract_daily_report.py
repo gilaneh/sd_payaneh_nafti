@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+import logging
+
 from odoo import models, fields, api , _
 from odoo.exceptions import ValidationError, UserError
 from datetime import datetime, date, timedelta
@@ -59,6 +61,9 @@ class ReportSdPayanehNaftiContractDailyReport(models.AbstractModel):
 
         input_records = self.env['sd_payaneh_nafti.input_info'].search([('registration_no', '=', registration_no)], order='id')
         if len(input_records) == 0:
+            print(f'''
+            No record have found for contract {registration_no} on selected date: {s_start_date}
+''')
             return {
                 'errors': [_(f'No record have found for contract {registration_no} on selected date: {s_start_date} ')],
             }
@@ -142,7 +147,15 @@ class ReportSdPayanehNaftiContractDailyReport(models.AbstractModel):
         doc_data_list.append((contract_record, doc_data))
 
 
+        print(f'''
 
+          contract_record:
+{contract_record}
+          
+          errors:
+{errors}
+
+''')
 
         company_logo = f'/web/image/res.partner/{1}/image_128/'
         return {
