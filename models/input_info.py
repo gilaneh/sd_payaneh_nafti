@@ -19,7 +19,7 @@ class SdPayanehNaftiInputInfo(models.Model):
     _name = 'sd_payaneh_nafti.input_info'
     _description = 'sd_payaneh_nafti.input_info'
     _inherit = ['mail.thread', 'mail.activity.mixin']
-    _order = 'id desc, document_no desc'
+    _order = 'document_no desc'
     _rec_name = 'document_no'
 
     state = fields.Selection([
