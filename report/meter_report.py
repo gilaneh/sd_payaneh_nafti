@@ -5,6 +5,7 @@ from datetime import datetime, date, timedelta
 import pytz
 import jdatetime
 from odoo import http
+import logging
 
 
 # ########################################################################################
@@ -40,7 +41,7 @@ class ReportSdPayanehNaftiMeterReport(models.AbstractModel):
             return {
                 'errors': [_(f'No record have found for selected date: {s_start_date} ')],
             }
-        print(f'''
+        logging.error(f'''
         len this_date_input: {len(this_date_input)}
 
 ''')
