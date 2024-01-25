@@ -61,7 +61,7 @@
                     <field name="weighbridge" />
                     <field name="totalizer_start" />
                     <field name="totalizer_end"/>
-                    <field name="totalizer_difference"/>
+                    <field name="totalizer_difference" sum="Diff"/>
                     <field name="tanker_empty_weight"/>
                     <field name="tanker_full_weight"/>
                     <field name="tanker_pure_weight"/>

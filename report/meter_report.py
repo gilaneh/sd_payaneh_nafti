@@ -6,6 +6,7 @@ import pytz
 import jdatetime
 from odoo import http
 import logging
+import json
 
 
 # ########################################################################################
@@ -25,31 +26,60 @@ class ReportSdPayanehNaftiMeterReport(models.AbstractModel):
         date_time = self.date_converter(date_time, context.get('lang'))
         form_data = data.get('form_data')
         date_format = '%Y-%m-%d'
-        start_date = form_data.get('start_date')
-        start_date = datetime.strptime(start_date, date_format).date()
-        meter_data = self.env['sd_payaneh_nafti.meter_data'].search([('report_date', '=', start_date)], order='meter')
+        meter_report_date = form_data.get('meter_report_date')
+        meter_comment = form_data.get('meter_comment')
+        meter_report_date = datetime.strptime(meter_report_date, date_format).date()
+        # meter_data = self.env['sd_payaneh_nafti.meter_data'].search([('report_date', '=', start_date)], order='meter')
         if calendar == 'fa_IR':
-            s_start_date = jdatetime.date.fromgregorian(date=start_date).strftime("%Y/%m/%d")
+            s_start_date = jdatetime.date.fromgregorian(date=meter_report_date).strftime("%Y/%m/%d")
         else:
-            s_start_date = start_date.strftime("%Y/%m/%d")
+            s_start_date = meter_report_date.strftime("%Y/%m/%d")
 
 
-        meter_amount_sum = sum(list([m.meter_amounts for m in meter_data]))
 
-        this_date_input = self.env['sd_payaneh_nafti.input_info'].search([('loading_info_date', '=', start_date),])
+
+
+        this_date_input = self.env['sd_payaneh_nafti.input_info'].search([('loading_info_date', '=', meter_report_date),])
         if len(this_date_input) == 0:
             return {
                 'errors': [_(f'No record have found for selected date: {s_start_date} ')],
             }
-        logging.error(f'''
-        len this_date_input: {len(this_date_input)}
+        for rec in this_date_input:
+            print(f'{rec.document_no} : {rec.totalizer_difference}    meter: {rec.meter_no}')
 
-''')
+
+        meter_no_list = [ '1', '2', '3', '4', '5', '6', '7', '8', '0']
+        meter_data = []
+        meter_amount_sum = 0
+        for meter_no in meter_no_list:
+
+            totalizer_start = sorted(list([ii.totalizer_start for ii in this_date_input if ii.meter_no == meter_no]))
+            totalizer_end = sorted(list([ii.totalizer_end for ii in this_date_input if ii.meter_no == meter_no]))
+            first_totalizer = min(totalizer_start) if totalizer_start else 0
+            last_totalizer = max(totalizer_end) if totalizer_end else 0
+            meter_amounts = last_totalizer - first_totalizer
+            meter_amount_sum = meter_amount_sum + meter_amounts
+            data = {'meter_no': int(meter_no),
+                               'first_totalizer': first_totalizer,
+                               'last_totalizer': last_totalizer,
+                               'meter_amounts': meter_amounts,
+                               }
+            meter_data.append(data)
+
+
         totalizer_weighbridge_sum = sum(list([t.totalizer_difference for t in this_date_input if t.weighbridge == 'yes']))
-        totalizer_sum = sum(list([t.totalizer_difference for t in this_date_input]))
+        totalizer_sum = sum(list([t.totalizer_difference for t in this_date_input ]))
 
         metre_weighbridget_deff = meter_amount_sum + totalizer_weighbridge_sum - totalizer_sum
 
+#         logging.error(f'''
+#         len this_date_input:       {len(this_date_input)}
+#         metre_weighbridget_deff:   {metre_weighbridget_deff}
+#         meter_amount_sum:          {meter_amount_sum}
+#         totalizer_weighbridge_sum: {totalizer_weighbridge_sum}
+#         totalizer_sum:             {totalizer_sum}
+#
+# ''')
         # if calendar == 'fa_IR':
             # report_date_show = jdatetime.date.fromgregorian(date=this_date_input[0].loading_date).strftime('%Y/%m/%d')
         return {
@@ -57,6 +87,7 @@ class ReportSdPayanehNaftiMeterReport(models.AbstractModel):
             'doc_ids': docids,
             'doc_model': 'sd_payaneh_nafti.input_info',
             'meter_data': meter_data,
+            'meter_comment': meter_comment,
             'report_date_show': s_start_date,
             'meter_amount_sum': meter_amount_sum,
             'totalizer_weighbridge_sum': totalizer_weighbridge_sum,

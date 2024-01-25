@@ -33,3 +33,12 @@ class SdPayanehNaftiMeterData(models.Model):
     @api.onchange('description')
     def _description_changed(self):
         self.write({'description': self.description})
+
+class SdPayanehNaftiMeterComments(models.Model):
+    _name = 'sd_payaneh_nafti.meter_comments'
+    _description = 'sd_payaneh_nafti.meter_comments'
+    _rec_name = 'comments'
+    _order = 'comment_date desc'
+
+    comment_date = fields.Date(default=lambda self: fields.date.today())
+    comments = fields.Text()
