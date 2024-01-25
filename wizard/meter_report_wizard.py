@@ -12,7 +12,7 @@ class SdPayanehNaftiReportMeterReport(models.TransientModel):
     _name = 'sd_payaneh_nafti.report.meter_report'
     _description = 'Meter Report'
 
-    meter_report_date = fields.Date(required=True, default=lambda self: datetime.now(pytz.timezone(self.env.context.get('tz'))) )
+    meter_report_date = fields.Date(required=True, default=lambda self: datetime.now(pytz.timezone(self.env.context.get('tz') or 'Asia/Tehran')) )
     # meter_data = fields.Many2many('sd_payaneh_nafti.meter_data', 'meter_data_report')
     # meter_comment = fields.Many2one('sd_payaneh_nafti.meter_comments',)
     meters = fields.Html(readonly=True)
