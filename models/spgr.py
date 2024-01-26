@@ -14,6 +14,7 @@ class SdPayanehNaftiSpgr(models.Model):
     active = fields.Boolean(default=True)
     spgr = fields.Float(required=True, digits=[1, 4])
     spgr_date = fields.Date(required=True, default=lambda self: fields.Date.today() )
+    api_a = fields.Float(digits=[1, 2], store=True)
     description = fields.Char()
 
     @api.model
@@ -25,8 +26,10 @@ class SdPayanehNaftiSpgr(models.Model):
             rec.active = False
         return super(SdPayanehNaftiSpgr, self).create(vals)
 
+    @api.depends('spgr')
     @api.onchange('spgr')
     def change_spgr(self):
         if self.spgr > 1.1:
             raise ValidationError(_(f'{self.spgr} is not accepted!'))
+        self.api_a = 141.5 / self.spgr - 131.5 if self.spgr != 0 else 0
 
