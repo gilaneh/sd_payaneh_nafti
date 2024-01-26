@@ -32,6 +32,7 @@
                             <div class="row">
                                 <div class="col-7">
                                     <field name="meters" />
+                                    <field name="mismatch" />
 
                                 </div>
                                 <div class="col-5">

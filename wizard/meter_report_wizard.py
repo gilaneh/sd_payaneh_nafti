@@ -16,6 +16,7 @@ class SdPayanehNaftiReportMeterReport(models.TransientModel):
     # meter_data = fields.Many2many('sd_payaneh_nafti.meter_data', 'meter_data_report')
     # meter_comment = fields.Many2one('sd_payaneh_nafti.meter_comments',)
     meters = fields.Html(readonly=True)
+    mismatch = fields.Html(readonly=True)
     meter_comment = fields.Text()
     meter_data = fields.Char()
 
@@ -53,8 +54,9 @@ class SdPayanehNaftiReportMeterReport(models.TransientModel):
 
 
         this_date_input = self.env['sd_payaneh_nafti.input_info'].search([('loading_info_date', '=', self.meter_report_date),])
-
         meter_no_list = [ '1', '2', '3', '4', '5', '6', '7', '8', '0']
+
+        # create meter report preview
         meter_data = f'''
                 <div class="row bg-300 text-center">
                     <div class="col-3">Meter No</div>
@@ -112,7 +114,42 @@ class SdPayanehNaftiReportMeterReport(models.TransientModel):
                 </div>
                 '''
         self.meters = meter_data + total
-
+        mismatch = ''
+        # mismatch_record = (meter_no, totalizer_start, totalizer_end, document_no,)
+        for meter_no in meter_no_list:
+            mismatch_record = sorted(list([[meter_no, rec.totalizer_start, rec.totalizer_end, rec.document_no]
+                                           for rec in this_date_input
+                                           if rec.meter_no == meter_no]),
+                                     key=lambda r: r[1])
+            for index in range(len(mismatch_record) - 1):
+                if abs(mismatch_record[index][2] - mismatch_record[index + 1][1] ) > 0:
+                    r1 = mismatch_record[index]
+                    r2 = mismatch_record[index + 1]
+                    mismatch = mismatch + f'''
+                                        <div class="row border-bottom"> 
+                                            <div class="col-3">  {r1[0]} </div>
+                                            <div class="col-3">  {r1[1]} </div>
+                                            <div class="col-3">  {r1[2]} </div>
+                                            <div class="col-3">  {r1[3]} </div>           
+                                        </div>
+                                        <div class="row border-bottom"> 
+                                            <div class="col-3">  {r2[0]} </div>
+                                            <div class="col-3">  {r2[1]} </div>
+                                            <div class="col-3">  {r2[2]} </div>
+                                            <div class="col-3">  {r2[3]} </div>           
+                                        </div>
+                                        '''
+            self.mismatch = ''
+            if mismatch != '':
+                self.mismatch = f'''
+                                    <div class="row mt-4 bg-warning"> 
+                                        <div class="col-3">Meter No</div>
+                                        <div class="col-3">First Totalizer</div>
+                                        <div class="col-3">Last Totalizer</div>
+                                        <div class="col-3">Document No</div>           
+                                    </div>
+                                    {mismatch}
+                                    '''
 
 
 
