@@ -325,6 +325,8 @@
 <!--                    <div class="mt-2" t-esc="doc_data['buyer_agent']"></div>-->
                 </div>
             </div>
+            <div style="page-break-after: always;"></div>
+
         </template>
 
         <template id="contract_daily_report_data_internal">
