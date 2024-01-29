@@ -17,7 +17,7 @@ class SdPayanehNaftiReportMeterReport(models.TransientModel):
     # meter_comment = fields.Many2one('sd_payaneh_nafti.meter_comments',)
     meters = fields.Html(readonly=True)
     mismatch = fields.Html(readonly=True)
-    meter_comment = fields.Text()
+    meter_comment = fields.Html()
     meter_data = fields.Char()
 
     # start_date = fields.Date(required=True, default=lambda self: date.today() )
@@ -59,15 +59,19 @@ class SdPayanehNaftiReportMeterReport(models.TransientModel):
         # create meter report preview
         meter_data = f'''
                 <div class="row bg-300 text-center">
-                    <div class="col-3">Meter No</div>
+                    <div class="col-2">Meter No</div>
                     <div class="col-3">First Totalizer</div>
                     <div class="col-3">Last Totalizer</div>
-                    <div class="col-3">Amount</div>
+                    <div class="col-2">Amount</div>
+                    <div class="col-2">Trucks</div>
                 </div>
                 '''
         meter_amount_sum = 0
+        truck_count_sum = 0
         for meter_no in meter_no_list:
 
+            truck_count = len(list([ii.totalizer_start for ii in this_date_input if ii.meter_no == meter_no]))
+            truck_count_sum = truck_count_sum + truck_count
             totalizer_start = sorted(list([ii.totalizer_start for ii in this_date_input if ii.meter_no == meter_no]))
             totalizer_end = sorted(list([ii.totalizer_end for ii in this_date_input if ii.meter_no == meter_no]))
             first_totalizer = min(totalizer_start) if totalizer_start else 0
@@ -81,10 +85,11 @@ class SdPayanehNaftiReportMeterReport(models.TransientModel):
                                }
             data = f'''
                     <div class="row border-bottom">
-                        <div class="col-3 text-center">{meter_no if meter_no != '0' else 'Master meter'}</div>
+                        <div class="col-2 text-center">{meter_no if meter_no != '0' else 'Master'}</div>
                         <div class="col-3">{first_totalizer}</div>
                         <div class="col-3">{last_totalizer}</div>
-                        <div class="col-3">{meter_amounts}</div>
+                        <div class="col-2">{meter_amounts}</div>
+                        <div class="col-2">{truck_count}</div>
                     </div>
                     '''
             meter_data = meter_data + data
@@ -97,20 +102,21 @@ class SdPayanehNaftiReportMeterReport(models.TransientModel):
 
         total = f'''
                 <div class="row border-dark border-bottom border-top">
-                    <div class="col-9 text-right">جمع خالص بارگیری شده از میتر</div>
-                    <div class="col-3">{meter_amount_sum}</div>
+                    <div class="col-8 text-right">جمع خالص بارگیری شده از میتر</div>
+                    <div class="col-2">{meter_amount_sum}</div>
+                    <div class="col-2">{truck_count_sum}</div>
                 </div>
                 <div class="row border-dark border-bottom">
-                    <div class="col-9 text-right">جمع خالص میتر در بارگیری از باسکول</div>
-                    <div class="col-3">{totalizer_weighbridge_sum}</div>
+                    <div class="col-8 text-right">جمع خالص میتر در بارگیری از باسکول</div>
+                    <div class="col-2">{totalizer_weighbridge_sum}</div>
                 </div>
                 <div class="row border-dark border-bottom">
-                    <div class="col-9 text-right">مقدار اسناد بارگیری توسط میتر و باسکول</div>
-                    <div class="col-3">{totalizer_sum}</div>
+                    <div class="col-8 text-right">مقدار اسناد بارگیری توسط میتر و باسکول</div>
+                    <div class="col-2">{totalizer_sum}</div>
                 </div>
                 <div class="row border-dark border-bottom">
-                    <div class="col-9 text-right">اختلاف بارگیری میتر و باسکول با اسناد صادر شده</div>
-                    <div class="col-3">{metre_weighbridget_deff}</div>
+                    <div class="col-8 text-right">اختلاف بارگیری میتر و باسکول با اسناد صادر شده</div>
+                    <div class="col-2">{metre_weighbridget_deff}</div>
                 </div>
                 '''
         self.meters = meter_data + total

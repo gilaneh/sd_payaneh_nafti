@@ -36,7 +36,7 @@
 
                                 </div>
                                 <div class="col-5">
-                                    <field name="meter_comment" class="h-100" />
+                                    <field name="meter_comment" class="h-100" widget="html"/>
 
                                 </div>
                             </div>

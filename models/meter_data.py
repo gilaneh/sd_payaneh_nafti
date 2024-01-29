@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from datetime import  datetime, timedelta
-# import random
+import pytz
 
 from odoo import models, fields, api, _
 from odoo.exceptions import UserError, ValidationError
@@ -40,5 +40,5 @@ class SdPayanehNaftiMeterComments(models.Model):
     _rec_name = 'comments'
     _order = 'comment_date desc'
 
-    comment_date = fields.Date(default=lambda self: fields.date.today())
-    comments = fields.Text()
+    comment_date = fields.Date(default=lambda self: datetime.now(pytz.timezone(self.env.context.get('tz'))))
+    comments = fields.Html()

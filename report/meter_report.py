@@ -51,8 +51,10 @@ class ReportSdPayanehNaftiMeterReport(models.AbstractModel):
         meter_no_list = [ '1', '2', '3', '4', '5', '6', '7', '8', '0']
         meter_data = []
         meter_amount_sum = 0
+        truck_count_sum = 0
         for meter_no in meter_no_list:
-
+            truck_count = len(list([ii.totalizer_start for ii in this_date_input if ii.meter_no == meter_no]))
+            truck_count_sum = truck_count_sum + truck_count
             totalizer_start = sorted(list([ii.totalizer_start for ii in this_date_input if ii.meter_no == meter_no]))
             totalizer_end = sorted(list([ii.totalizer_end for ii in this_date_input if ii.meter_no == meter_no]))
             first_totalizer = min(totalizer_start) if totalizer_start else 0
@@ -63,6 +65,7 @@ class ReportSdPayanehNaftiMeterReport(models.AbstractModel):
                                'first_totalizer': first_totalizer,
                                'last_totalizer': last_totalizer,
                                'meter_amounts': meter_amounts,
+                               'truck_count': truck_count,
                                }
             meter_data.append(data)
 
@@ -92,6 +95,7 @@ class ReportSdPayanehNaftiMeterReport(models.AbstractModel):
             'meter_amount_sum': meter_amount_sum,
             'totalizer_weighbridge_sum': totalizer_weighbridge_sum,
             'totalizer_sum': totalizer_sum,
+            'truck_count_sum': truck_count_sum,
             'metre_weighbridget_deff': metre_weighbridget_deff,
             'errors': errors,
             }

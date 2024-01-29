@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from datetime import  datetime, timedelta
-# import random
+import pytz
 
 from odoo import models, fields, api, _
 from odoo.exceptions import UserError, ValidationError
@@ -13,7 +13,7 @@ class SdPayanehNaftiSpgr(models.Model):
 
     active = fields.Boolean(default=True)
     spgr = fields.Float(required=True, digits=[1, 4])
-    spgr_date = fields.Date(required=True, default=lambda self: fields.Date.today() )
+    spgr_date = fields.Date(required=True, default=lambda self: datetime.now(pytz.timezone(self.env.context.get('tz'))) )
     api_a = fields.Float(digits=[1, 2], store=True)
     description = fields.Char()
 
