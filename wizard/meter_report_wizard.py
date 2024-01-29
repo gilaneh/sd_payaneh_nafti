@@ -5,6 +5,7 @@ from odoo import Command
 from colorama import Fore
 from datetime import datetime, date
 from datetime import timedelta
+import jdatetime
 from odoo.exceptions import ValidationError, UserError
 import pytz
 # #############################################################################
@@ -39,6 +40,25 @@ class SdPayanehNaftiReportMeterReport(models.TransientModel):
         read_form = self.read()[0]
         data = {'form_data': read_form}
         xml_id = 'sd_payaneh_nafti.meter_report'
+        report_action = self.env.ref(xml_id).report_action(self, data=data)
+        report_action.update({'close_on_report_download': True})
+        return report_action
+        # #############################################################################
+    def process_xls_report(self):
+        meter_comments_model = self.env['sd_payaneh_nafti.meter_comments']
+        comment = meter_comments_model.search([('comment_date', '=', self.meter_report_date)])
+        if len(comment) > 0:
+            comment[0].write({'comments': self.meter_comment})
+        else:
+            self.env['sd_payaneh_nafti.meter_comments'].create({
+                'comment_date': self.meter_report_date,
+                'comments': self.meter_comment
+            })
+
+        read_form = self.read()[0]
+        data = {'form_data': read_form}
+        xml_id = 'sd_payaneh_nafti.meter_xls_report'
+        # report_action = self.env.ref(xml_id).report_action(self, data=self.report_calculation( data=data))
         report_action = self.env.ref(xml_id).report_action(self, data=data)
         report_action.update({'close_on_report_download': True})
         return report_action
@@ -158,8 +178,96 @@ class SdPayanehNaftiReportMeterReport(models.TransientModel):
                                     '''
 
 
+    def report_calculation(self, docids, data=None):
+        errors = []
+        context = self.env.context
+        calendar = context.get('lang')
+
+        time_z = pytz.timezone(context.get('tz'))
+        date_time = datetime.now(time_z)
+        date_time = self.date_converter(date_time, context.get('lang'))
+        form_data = data.get('form_data')
+        date_format = '%Y-%m-%d'
+        meter_report_date = form_data.get('meter_report_date')
+        meter_comment = form_data.get('meter_comment')
+        meter_report_date = datetime.strptime(meter_report_date, date_format).date()
+        # meter_data = self.env['sd_payaneh_nafti.meter_data'].search([('report_date', '=', start_date)], order='meter')
+        if calendar == 'fa_IR':
+            s_start_date = jdatetime.date.fromgregorian(date=meter_report_date).strftime("%Y/%m/%d")
+        else:
+            s_start_date = meter_report_date.strftime("%Y/%m/%d")
+
+        this_date_input = self.env['sd_payaneh_nafti.input_info'].search(
+            [('loading_info_date', '=', meter_report_date), ])
+        if len(this_date_input) == 0:
+            return {
+                'errors': [_(f'No record have found for selected date: {s_start_date} ')],
+            }
+        for rec in this_date_input:
+            print(f'{rec.document_no} : {rec.totalizer_difference}    meter: {rec.meter_no}')
+
+        meter_no_list = ['1', '2', '3', '4', '5', '6', '7', '8', '0']
+        meter_data = []
+        meter_amount_sum = 0
+        truck_count_sum = 0
+        for meter_no in meter_no_list:
+            truck_count = len(list([ii.totalizer_start for ii in this_date_input if ii.meter_no == meter_no]))
+            truck_count_sum = truck_count_sum + truck_count
+            totalizer_start = sorted(list([ii.totalizer_start for ii in this_date_input if ii.meter_no == meter_no]))
+            totalizer_end = sorted(list([ii.totalizer_end for ii in this_date_input if ii.meter_no == meter_no]))
+            first_totalizer = min(totalizer_start) if totalizer_start else 0
+            last_totalizer = max(totalizer_end) if totalizer_end else 0
+            meter_amounts = last_totalizer - first_totalizer
+            meter_amount_sum = meter_amount_sum + meter_amounts
+            data = {'meter_no': int(meter_no),
+                    'first_totalizer': first_totalizer,
+                    'last_totalizer': last_totalizer,
+                    'meter_amounts': meter_amounts,
+                    'truck_count': truck_count,
+                    }
+            meter_data.append(data)
+
+        totalizer_weighbridge_sum = sum(
+            list([t.totalizer_difference for t in this_date_input if t.weighbridge == 'yes']))
+        totalizer_sum = sum(list([t.totalizer_difference for t in this_date_input]))
+
+        metre_weighbridget_deff = meter_amount_sum + totalizer_weighbridge_sum - totalizer_sum
+
+        #         logging.error(f'''
+        #         len this_date_input:       {len(this_date_input)}
+        #         metre_weighbridget_deff:   {metre_weighbridget_deff}
+        #         meter_amount_sum:          {meter_amount_sum}
+        #         totalizer_weighbridge_sum: {totalizer_weighbridge_sum}
+        #         totalizer_sum:             {totalizer_sum}
+        #
+        # ''')
+        # if calendar == 'fa_IR':
+        # report_date_show = jdatetime.date.fromgregorian(date=this_date_input[0].loading_date).strftime('%Y/%m/%d')
+        return {
+            'docs': this_date_input[0] if this_date_input else '',
+            'doc_ids': docids,
+            'doc_model': 'sd_payaneh_nafti.input_info',
+            'meter_data': meter_data,
+            'meter_comment': meter_comment,
+            'report_date_show': s_start_date,
+            'meter_amount_sum': meter_amount_sum,
+            'totalizer_weighbridge_sum': totalizer_weighbridge_sum,
+            'totalizer_sum': totalizer_sum,
+            'truck_count_sum': truck_count_sum,
+            'metre_weighbridget_deff': metre_weighbridget_deff,
+            'errors': errors,
+        }
 
 
+    def date_converter(self, date_time, lang):
+        if lang == 'fa_IR':
+            date_time = jdatetime.datetime.fromgregorian(datetime=date_time)
+            date_time = {'date': date_time.strftime("%Y/%m/%d"),
+                  'time': date_time.strftime("%H:%M:%S")}
+        else:
+            date_time = {'date': date_time.strftime("%Y/%m/%d"),
+                        'time': date_time.strftime("%H:%M:%S")}
+        return date_time
 
 
 

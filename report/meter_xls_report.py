@@ -10,14 +10,13 @@ import json
 
 
 # ########################################################################################
-class ReportSdPayanehNaftiMeterReport(models.AbstractModel):
-    _name = 'report.sd_payaneh_nafti.meter_report_template'
-    _description = 'Meter Report'
+class ReportSdPayanehNaftiMeterXlsReport(models.AbstractModel):
+    _name = 'report.sd_payaneh_nafti.meter_xls_report_template'
+    _inherit = 'report.report_xlsx.abstract'
 
-    # ########################################################################################
-    @api.model
-    def _get_report_values(self, docids, data=None):
+    def generate_xlsx_report(self, workbook, data, p):
         errors = []
+        dictid = []
         context = self.env.context
         calendar = context.get('lang')
 
@@ -81,9 +80,9 @@ class ReportSdPayanehNaftiMeterReport(models.AbstractModel):
         # ''')
         # if calendar == 'fa_IR':
         # report_date_show = jdatetime.date.fromgregorian(date=this_date_input[0].loading_date).strftime('%Y/%m/%d')
-        return {
+        return1 =  {
             'docs': this_date_input[0] if this_date_input else '',
-            'doc_ids': docids,
+            # 'doc_ids': docids,
             'doc_model': 'sd_payaneh_nafti.input_info',
             'meter_data': meter_data,
             'meter_comment': meter_comment,
@@ -94,7 +93,52 @@ class ReportSdPayanehNaftiMeterReport(models.AbstractModel):
             'truck_count_sum': truck_count_sum,
             'metre_weighbridget_deff': metre_weighbridget_deff,
             'errors': errors,
-        }
+        }   # report_name = obj.name
+        report_name = 'obj.document_no'
+        # One sheet by partner
+        print(f'''
+
+        data: {data}
+''')
+        sheet = workbook.add_worksheet(report_name[:31])
+        bold = workbook.add_format({'bold': True})
+        sheet.set_column('A:F', 15)
+        sheet.write(0, 2, 'گزارش روزانه بارگیری میتر', bold)
+        sheet.write(1, 2, s_start_date, bold)
+        col_index = 3
+
+        sheet.write(col_index, 0, 'تعداد', bold)
+        sheet.write(col_index, 1, 'مقدار میتر', bold)
+        sheet.write(col_index, 2, 'توتالایزر انتهایی', bold)
+        sheet.write(col_index, 3, 'توتالایزر ابتدایی', bold)
+        sheet.write(col_index, 4, 'میتر', bold)
+
+    # data = {'meter_no': int(meter_no),
+    #         'first_totalizer': first_totalizer,
+    #         'last_totalizer': last_totalizer,
+    #         'meter_amounts': meter_amounts,
+    #         'truck_count': truck_count,
+    #         }
+        col_index += 1
+        for data in meter_data:
+            sheet.write(col_index, 0, data['truck_count'], )
+            sheet.write(col_index, 1, data['meter_amounts'], )
+            sheet.write(col_index, 2, data['last_totalizer'], )
+            sheet.write(col_index, 3, data['first_totalizer'], )
+            sheet.write(col_index, 4, data['meter_no'] if data['meter_no'] else 'Master', )
+            col_index += 1
+        sheet.write(col_index, 0, truck_count_sum, bold)
+        sheet.write(col_index, 1, meter_amount_sum, bold)
+        sheet.write(col_index, 4, 'جمع خالص بارگیری شده از میتر', bold)
+        col_index += 1
+        sheet.write(col_index, 1, totalizer_weighbridge_sum, bold)
+        sheet.write(col_index, 4, 'جمع خالص میتر در بارگیری از باسکول', bold)
+        col_index += 1
+        sheet.write(col_index, 1, totalizer_sum, bold)
+        sheet.write(col_index, 4, 'مقدار اسناد بارگیری توسط میتر و باسکول', bold)
+        col_index += 1
+        sheet.write(col_index, 1, metre_weighbridget_deff, bold)
+        sheet.write(col_index, 4, 'اختلاف بارگیری میتر و باسکول با اسناد صادر شده', bold)
 
     # ########################################################################################
     def date_converter(self, date_time, lang):
@@ -137,5 +181,3 @@ class ReportSdPayanehNaftiMeterReport(models.AbstractModel):
         month = int(round(month, 0))
         total = int(round(total, 0))
         return day, month, total
-
-
