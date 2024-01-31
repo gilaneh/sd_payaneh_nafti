@@ -44,6 +44,10 @@ class SdPayanehNaftiReportContractDaily(models.TransientModel):
         read_form = self.read()[0]
         data = {'form_data': read_form}
         return self.env.ref('sd_payaneh_nafti.contract_daily_report').report_action(self, data=data)
+    def cargo_document_xls_report(self):
+        read_form = self.read()[0]
+        data = {'form_data': read_form}
+        return self.env.ref('sd_payaneh_nafti.contract_daily_xls_report').report_action(self, data=data)
 
     # @api.depends('report_date')
     # @api.onchange('report_date')

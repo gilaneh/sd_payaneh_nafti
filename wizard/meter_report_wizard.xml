@@ -43,7 +43,7 @@
 
                     <footer>
                         <button name="process_report" string="Generate" type="object" class="btn btn-primary mx-1"/>
-                        <button name="process_xls_report" string="Export Excel" type="object" class="btn btn-primary mx-1"/>
+                        <button name="process_xls_report" string="Excel" type="object" class="btn btn-primary mx-1"/>
                         <button string="Cancel" special="cancel" class="btn-secondary"/>
                     </footer>
 
