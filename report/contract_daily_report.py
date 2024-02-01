@@ -15,8 +15,12 @@ class ReportSdPayanehNaftiContractDailyReport(models.AbstractModel):
     _description = 'Contract Daily Report'
 
     # ########################################################################################
+    def get_report_values(self, docids=None, data=None):
+        return self._get_report_values(docids, data)
+
+    # ########################################################################################
     @api.model
-    def _get_report_values(self, docids, data=None):
+    def _get_report_values(self, docids=None, data=None):
         errors = []
         doc_data_list = []
         PAGE_LINES = 25

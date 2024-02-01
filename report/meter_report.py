@@ -15,6 +15,10 @@ class ReportSdPayanehNaftiMeterReport(models.AbstractModel):
     _description = 'Meter Report'
 
     # ########################################################################################
+    def get_report_values(self, docids=None, data=None):
+        return self._get_report_values(docids, data)
+
+    # ########################################################################################
     @api.model
     def _get_report_values(self, docids, data=None):
         errors = []
@@ -41,14 +45,16 @@ class ReportSdPayanehNaftiMeterReport(models.AbstractModel):
             return {
                 'errors': [_(f'No record have found for selected date: {s_start_date} ')],
             }
-        for rec in this_date_input:
-            print(f'{rec.document_no} : {rec.totalizer_difference}    meter: {rec.meter_no}')
+        # for rec in this_date_input:
+            # print(f'{rec.document_no} : {rec.totalizer_difference}    meter: {rec.meter_no}')
 
         meter_no_list = ['1', '2', '3', '4', '5', '6', '7', '8', '0']
         meter_data = []
+        meter_inputs = []
         meter_amount_sum = 0
         truck_count_sum = 0
         for meter_no in meter_no_list:
+            meter_inputs.append((meter_no, sorted(list([ii for ii in this_date_input if ii.meter_no == meter_no]), key=lambda input: input.totalizer_start)))
             truck_count = len(list([ii.totalizer_start for ii in this_date_input if ii.meter_no == meter_no]))
             truck_count_sum = truck_count_sum + truck_count
             totalizer_start = sorted(list([ii.totalizer_start for ii in this_date_input if ii.meter_no == meter_no]))
@@ -86,6 +92,7 @@ class ReportSdPayanehNaftiMeterReport(models.AbstractModel):
             'doc_ids': docids,
             'doc_model': 'sd_payaneh_nafti.input_info',
             'meter_data': meter_data,
+            'meter_inputs': meter_inputs,
             'meter_comment': meter_comment,
             'report_date_show': s_start_date,
             'meter_amount_sum': meter_amount_sum,
