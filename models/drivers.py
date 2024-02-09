@@ -28,6 +28,13 @@ class SdPayanehNaftiDrivers(models.Model):
     image_1920 = fields.Image()
 
 
+    @api.constrains( 'card_no')
+    def _check_project_unique(self):
+        record_count = self.search_count([('card_no', '=', self.card_no),
+                                           ('id', '!=', self.id)])
+        if record_count > 0:
+            raise ValidationError("Record already exists!")
+
     # todo: resizing image
     # @api.onchange('image_1920')
     def image_resize(self):

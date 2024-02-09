@@ -33,7 +33,7 @@
             <field name="name">Basic Registration List</field>
             <field name="model">sd_payaneh_nafti.contract_registration</field>
             <field name="arch" type="xml">
-                <form>
+                <form js_class="remove_action_button">
                     <header>
                         <button name="create_loading_request"  string="Create Loading Request" type="object"
                                 class="oe_highlight" data-hotkey="l"/>

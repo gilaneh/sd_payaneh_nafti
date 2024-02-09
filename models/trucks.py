@@ -23,6 +23,14 @@ class SdPayanehNaftiTrucks(models.Model):
     card_no = fields.Char()
     description = fields.Html()
 
+
+    @api.constrains('name')
+    def _check_project_unique(self):
+        record_count = self.search_count([('name', '=', self.name),
+                                           ('id', '!=', self.id)])
+        if record_count > 0:
+            raise ValidationError("Record already exists!")
+
     @api.model
     def create(self, vals):
         vals['name'] = f'[ {vals.get("plate_4")}  {vals.get("plate_3")}  {vals.get("plate_2")} ]  [ {vals.get("plate_1")} ]'
@@ -55,4 +63,5 @@ class SdPayanehNaftiTrucks(models.Model):
         a = self.plate_4
         if a and (not a.isdigit() or ( a.isdigit() and (int(a) > 100 or int(a) < 11))):
             raise ValidationError(_(f'[{a}] Not acceptable'))
+
 

@@ -360,6 +360,8 @@ class SdPayanehNaftiInputInfo(models.Model):
             vals['sp_gr'] = spgr.spgr
         else:
             raise ValidationError(_('Add a "SP.GR." from the main menu'))
+        if vals.get('meter_no').lower() == 'master':
+            vals['meter_no'] = 0
         return super(SdPayanehNaftiInputInfo, self).create(vals)
 
     def write(self, vals):
