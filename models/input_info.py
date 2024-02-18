@@ -179,6 +179,8 @@ class SdPayanehNaftiInputInfo(models.Model):
         self._ctl_cpl()
 
     def set_spgr(self):
+        # if not self.env.user.has_group('sd_payaneh_nafti.group_sd_payaneh_nafti_operators'):
+        #     return
         spgr = self.env['sd_payaneh_nafti.spgr'].search([], order='id desc', limit=1)
         if len(spgr) == 1:
             self.sp_gr = spgr.spgr
@@ -360,7 +362,7 @@ class SdPayanehNaftiInputInfo(models.Model):
             vals['sp_gr'] = spgr.spgr
         else:
             raise ValidationError(_('Add a "SP.GR." from the main menu'))
-        if vals.get('meter_no').lower() == 'master':
+        if vals.get('meter_no') and type(vals.get('meter_no')) == 'str' and vals.get('meter_no').lower() == 'master':
             vals['meter_no'] = 0
         return super(SdPayanehNaftiInputInfo, self).create(vals)
 
