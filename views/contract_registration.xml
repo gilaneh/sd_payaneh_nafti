@@ -13,6 +13,7 @@
                     </header>
                     <field name="registration_no" class="sd_en1" />
                     <field name="contract_no" />
+                    <field name="letter_no" />
                     <field name="order_no" />
                     <field name="buyer" />
                     <field name="unit" />
@@ -24,6 +25,8 @@
                     <field name="end_date" />
                     <field name="first_extend_end_date" />
                     <field name="second_extend_end_date" />
+                    <field name="destination" />
+                    <field name="contractors" widget="many2many_tags" />
 
                 </tree>
             </field>
