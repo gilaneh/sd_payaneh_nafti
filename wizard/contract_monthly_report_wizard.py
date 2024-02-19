@@ -20,6 +20,7 @@ class SdPayanehNaftiReportContractMonthly(models.TransientModel):
     year = fields.Selection(lambda self: gc.get_years_pr() if self.env.context.get('lang') == 'fa_IR' else gc.get_years(),
                             string='Year', required=True,
                             default=lambda self: self._year_selector())
+    days = fields.Selection(selection='_day_select')
 
     registration_no = fields.Many2one('sd_payaneh_nafti.contract_registration', required=True,
                                       domain=[('loading_type', '=', 'internal')])
@@ -32,6 +33,35 @@ class SdPayanehNaftiReportContractMonthly(models.TransientModel):
     #                             default=lambda self: 'fa_IR' if self.env.context.get('lang') == 'fa_IR' else 'en_US')
 
     # #############################################################################
+
+    # @api.onchange('year')
+    def _day_select(self):
+        lst = []
+        if self.year == '1401':
+
+            lst = [('a', 'A'), ]
+        elif self.year == '1402':
+
+            lst = [('a', 'A'), ('b', 'B'), ('c', 'C')]
+        print(f'\n+++++++++++++> _day_select lst: {lst}')
+        return lst
+    @api.onchange('year')
+    def _day_select1(self):
+        lst = []
+        if self.year == '1401':
+
+            lst = [('a', 'A'), ]
+        elif self.year == '1402':
+
+            lst = [('a', 'A'), ('b', 'B'), ('c', 'C')]
+        print(f'\n+++++++++++++>_day_select 1 lst: {lst}')
+        return
+
+    @api.onchange('registration_no')
+    def _registration_no(self):
+        pass
+
+
 
     @api.onchange('loading_type')
     def _reg_domain(self):

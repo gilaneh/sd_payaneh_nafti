@@ -31,6 +31,9 @@ class ReportSdPayanehNaftiContractMonthly(models.AbstractModel):
         year = form_data.get('year')
         month = form_data.get('month')
         loading_type = form_data.get('loading_type')
+        # input_records_all = self.env['sd_payaneh_nafti.input_info'].search([('registration_no', '=', registration_no)],order='loading_date')
+        # first_loading_date = input_records_all[0].loading_date
+        # last_loading_date = input_records_all[-1].loading_date
 
         if calendar == 'fa_IR':
             first_day = jdatetime.date(int(year), int(month), 1)
@@ -40,6 +43,7 @@ class ReportSdPayanehNaftiContractMonthly(models.AbstractModel):
             s_first_day = jdatetime.date.fromgregorian(date=first_day).strftime("%Y/%m/%d")
             s_last_day = jdatetime.date.fromgregorian(date=last_day).strftime("%Y/%m/%d")
 
+
         else:
             date_format = '%Y-%m-%d'
             start_date = datetime.strptime(f'{year}-{month}-1', date_format).date()
@@ -48,6 +52,7 @@ class ReportSdPayanehNaftiContractMonthly(models.AbstractModel):
             last_day = next_month - timedelta(days=next_month.day)
             s_first_day = first_day.strftime("%Y-%m-%d")
             s_last_day = last_day.strftime("%Y-%m-%d")
+
         date_of_range = [first_day + timedelta(days=delta) for delta in range((last_day - first_day).days + 1)]
 
         input_records = self.env['sd_payaneh_nafti.input_info'].search([('loading_date', '>=', first_day),
@@ -195,7 +200,7 @@ class ReportSdPayanehNaftiContractMonthly(models.AbstractModel):
             'loading_type': loading_type,
 
             'doc_data_list': doc_data_list,
-            'dates': [s_first_day, s_last_day],
+            'dates': [s_start_date, s_end_date],
 
             # 'input_record': input_record,
             'errors': errors,

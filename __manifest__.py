@@ -74,6 +74,7 @@
         # 'wizard/loading_info_wizard.xml',
         'data/registration_sequence.xml',
         'data/input_sequence.xml',
+        'data/spgr_data.xml',
         # 'data/lockers_sequence.xml',
         'data/cargo_types_data.xml',
 

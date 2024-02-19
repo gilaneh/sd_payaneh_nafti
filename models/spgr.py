@@ -13,7 +13,7 @@ class SdPayanehNaftiSpgr(models.Model):
 
     active = fields.Boolean(default=True)
     spgr = fields.Float(required=True, digits=[1, 4])
-    spgr_date = fields.Date(required=True, default=lambda self: datetime.now(pytz.timezone(self.env.context.get('tz'))) )
+    spgr_date = fields.Date(required=True, default=lambda self: datetime.now(pytz.timezone(self.env.context.get('tz', 'Asia/Tehran'))) )
     api_a = fields.Float(digits=[1, 2], store=True)
     description = fields.Char()
 

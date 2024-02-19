@@ -75,7 +75,7 @@ class ReportSdPayanehNaftiMonthly(models.AbstractModel):
 
         registration_nos = sorted(list({rec.registration_no.registration_no for rec in input_records}))
         # print(f'\nregistration_codes:{registration_nos}\n')
-
+        row_data_temp = []
         for index, reg_no in enumerate(registration_nos):
             data = [rec for rec in input_records if rec.registration_no.registration_no == reg_no]
             final_gsv_l = [rec.final_gsv_l for rec in input_records if rec.registration_no.registration_no == reg_no]
@@ -84,16 +84,19 @@ class ReportSdPayanehNaftiMonthly(models.AbstractModel):
             # for d in data:
             d = data[0]
             reg = d.registration_no
-            unit = dict(reg._fields['unit']._description_selection(self.env)).get(reg.unit)
-            loading_type = dict(reg._fields['loading_type']._description_selection(self.env)).get(reg.loading_type)
-            contract_type = dict(reg._fields['contract_type']._description_selection(self.env)).get(reg.contract_type)
+            # unit = dict(reg._fields['unit']._description_selection(self.env)).get(reg.unit)
+            # loading_type = dict(reg._fields['loading_type']._description_selection(self.env)).get(reg.loading_type)
+            # contract_type = dict(reg._fields['contract_type']._description_selection(self.env)).get(reg.contract_type)
+            unit = reg.unit
+            loading_type = reg.loading_type
+            contract_type = reg.contract_type
 
             row_data_lines.append((index + 1,
-                                   d.registration_no.letter_no,
-                                   d.registration_no.contract_no,
-                                   d.registration_no.order_no,
-                                   d.registration_no.buyer.name,
-                                   d.registration_no.amount,
+                                   d.registration_no.letter_no if d.registration_no.letter_no  else '',
+                                   d.registration_no.contract_no if d.registration_no.contract_no  else '',
+                                   d.registration_no.order_no if d.registration_no.order_no else '',
+                                   d.registration_no.buyer.name if d.registration_no.buyer.name else '',
+                                   d.registration_no.amount if d.registration_no.amount else '',
                                    unit,
                                    loading_type,
                                    contract_type,
@@ -101,26 +104,21 @@ class ReportSdPayanehNaftiMonthly(models.AbstractModel):
                                    round(sum(final_gsv_b), 2),
                                    round(sum(final_mt), 3),
                                    len(data),
+
                                    ))
-            # print(f' | {index + 1: ^3}'
-            #       f' | {reg_no: ^6}'
-            #       f' | {d.id: ^6}'
-            #       f' | {d.registration_no.letter_no: ^9}'
-            #       f' | {d.registration_no.contract_no: ^9}'
-            #       f' | {d.registration_no.order_no: ^5}'
-            #       f' | {d.registration_no.buyer.name: ^30}'
-            #       f' | {d.registration_no.amount: ^8}'
-            #       f' | {d.registration_no.unit: ^8}'
-            #       f' | {d.registration_no.contract_type: ^10}'
-            #       f' | {int(sum(final_gsv_l)): >10}'
-            #       f' | {round(sum(final_gsv_b), 2): >10}'
-            #       f' | {round(sum(final_mt), 3): >10}'
-            #       f' | {len(data): >3}'
-            #       )
-        final_gsv_l_stock = [rec.final_gsv_l for rec in input_records if rec.registration_no.contract_type == 'stock']
-        final_gsv_l_general = [rec.final_gsv_l for rec in input_records if rec.registration_no.contract_type == 'general']
-        final_gsv_l_internal = [rec.final_gsv_l for rec in input_records if rec.registration_no.loading_type == 'internal']
-        final_gsv_l_export = [rec.final_gsv_l for rec in input_records if rec.registration_no.loading_type == 'export']
+
+
+        final_gsv_l_stock_1 = [rec[9] for rec in row_data_lines if rec[8] == 'stock']
+        print(f'''
+            final_gsv_l_stock_1: {final_gsv_l_stock_1}
+
+
+''')
+            # final_gsv_l_stock_1: {sum(final_gsv_l_stock_1)}
+        final_gsv_l_stock = [int(rec.final_gsv_l) for rec in input_records if rec.registration_no.contract_type == 'stock']
+        final_gsv_l_general = [int(rec.final_gsv_l) for rec in input_records if rec.registration_no.contract_type == 'general']
+        final_gsv_l_internal = [int(rec.final_gsv_l) for rec in input_records if rec.registration_no.loading_type == 'internal']
+        final_gsv_l_export = [int(rec.final_gsv_l) for rec in input_records if rec.registration_no.loading_type == 'export']
         final_gsv_b_stock = [rec.final_gsv_b for rec in input_records if rec.registration_no.contract_type == 'stock']
         final_gsv_b_general = [rec.final_gsv_b for rec in input_records if rec.registration_no.contract_type == 'general']
         final_gsv_b_internal = [rec.final_gsv_b for rec in input_records if rec.registration_no.loading_type == 'internal']
