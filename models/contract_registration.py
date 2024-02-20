@@ -14,7 +14,7 @@ class SdPayanehNaftiContractInfo(models.Model):
     _order = 'registration_no desc'
     _rec_name = 'registration_no'
 
-    registration_no = fields.Char(required=True, copy=False, readonly=True, default=lambda self: _('New'))
+    registration_no = fields.Char(required=True, copy=False, readonly=False, default=lambda self: _('New'))
     letter_no = fields.Char(required=True,)
     contract_no = fields.Char(required=True,)
     bill_of_lading = fields.Char(required=False,)
@@ -71,8 +71,10 @@ class SdPayanehNaftiContractInfo(models.Model):
             rec.order_no = rec.bill_of_lading
     @api.model
     def create(self, vals):
-        if vals.get('registration_no', _('New')) == _('New'):
-            vals['registration_no'] = self.env['ir.sequence'].next_by_code('sd_payaneh_nafti.contract_registration') or _('New')
+        # todo: it is disabled for parallel data entry of excel and this system.
+
+        # if vals.get('registration_no', _('New')) == _('New'):
+        #     vals['registration_no'] = self.env['ir.sequence'].next_by_code('sd_payaneh_nafti.contract_registration') or _('New')
 
         return super(SdPayanehNaftiContractInfo, self).create(vals)
 

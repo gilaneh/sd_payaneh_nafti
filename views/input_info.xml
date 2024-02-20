@@ -22,6 +22,9 @@
                     <field name="contractor" />
                     <field name="driver" />
                     <field name="buyer" />
+                    <field name="meter_no" groups="base.group_system" optional="hide"/>
+                    <field name="totalizer_start" groups="base.group_system" optional="hide"/>
+                    <field name="totalizer_end" groups="base.group_system" optional="hide"/>
                     <field name="temperature" groups="base.group_system" optional="hide"/>
                     <field name="final_tov_l" groups="base.group_system" optional="hide"/>
                     <field name="final_gsv_l" groups="base.group_system" optional="hide"/>
@@ -245,14 +248,16 @@
                         <button name="print_cargo_document" states="cargo_document" string="Print Cargo Document" type="object"
                                 class="oe_highlight" />
                         <button name="input_done" states="cargo_document" string="Done" type="object"
-                                class="oe_highlight" />
+                                class="oe_highlight"  />
+                        <button name="input_finished"  string="Finished" type="object"
+                                class="oe_highlight" groups="sd_payaneh_nafti.group_sd_payaneh_nafti_admins" />
 
 
                         <field name="state" widget="statusbar"
                                statusbar_visible="draft,loading_permit,loading_info,cargo_document,done"
                                force_save="1"/>
                     </header>
-                    <sheet>
+                    <sheet >
                         <div name="button_box" class="oe_button_box">
                             <button string="Contract" name="get_contract_registration" class="oe_stat_button"
                                     type="object" icon="fa-file-text-o" context="{'registration_no':registration_no}">
@@ -282,7 +287,10 @@
                              attrs="{'invisible': [('truck_black_list', '=', False)]}">
                             Warning: Truck is in BLACK LIST.
                         </div>
-
+                        <div class="text-center bg-danger-light py-3 rounded"
+                             attrs="{'invisible': [('state', '!=', 'finished')]}">
+                            Warning: Finished document is not editable.
+                        </div>
 
 
                         <div class="oe_title">
@@ -291,7 +299,7 @@
                         </div>
                         <group string="General Information">
                             <group>
-                                <field name="request_date" />
+                                <field name="request_date" attrs="{'readonly': [('state', 'in', ['finished'])]}"/>
                                 <field name="registration_no"
                                        options="{'no_quick_create':True, 'no_create_edit': True, 'no_open': True}"/>
                         <field name="date_validation" invisible="1"/>
@@ -435,7 +443,11 @@
                             </page>
                         </notebook>
                     </sheet>
-
+                   <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
                 </form>
             </field>
         </record>
@@ -549,6 +561,7 @@
                     <field name="buyer" />
                     <field name="driver" />
                     <field name="truck_no" />
+                    <field name="meter_no" />
                     <filter string="Last Week" name="last_week" domain="[('loading_date', '&gt;=', datetime.datetime.now() - datetime.timedelta(days=7))]"/>
                     <group>
                         <filter string="Registration" name="registration_no_group" context="{'group_by': 'registration_no'}" />
@@ -556,6 +569,7 @@
                         <filter string="Contractor" name="contractors_group" context="{'group_by': 'contractor'}" />
                         <filter string="Driver" name="driver_group" context="{'group_by': 'driver'}" />
                         <filter string="Truck" name="truck_no_group" context="{'group_by': 'truck_no'}" />
+                        <filter string="Meter No" name="meter_no_group" context="{'group_by': 'meter_no'}" />
                         <filter string="Request Date" name="request_date_group" context="{'group_by': 'request_date'}" />
                     </group>
                 </search>

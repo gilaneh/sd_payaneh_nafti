@@ -148,9 +148,11 @@ class SdPayanehNaftiReportMeterReport(models.TransientModel):
                                            if rec.meter_no == meter_no]),
                                      key=lambda r: r[1])
             for index in range(len(mismatch_record) - 1):
-                if abs(mismatch_record[index][2] - mismatch_record[index + 1][1] ) > 0:
+                if abs(mismatch_record[index][2] - mismatch_record[index + 1][1] ) > 1:
                     r1 = mismatch_record[index]
                     r2 = mismatch_record[index + 1]
+                    r_12 = self.env['sd_payaneh_nafti.input_info'].search(
+                        [('meter_no', '=', meter_no),('totalizer_start', '>', r1[2]), ('totalizer_end', '<', r2[1]) ], order='totalizer_start')
                     mismatch = mismatch + f'''
                                         <div class="row border-bottom"> 
                                             <div class="col-3">  {r1[0]} </div>
@@ -165,6 +167,20 @@ class SdPayanehNaftiReportMeterReport(models.TransientModel):
                                             <div class="col-3">  {r2[3]} </div>           
                                         </div>
                                         '''
+                    for r in r_12:
+                        mismatch = mismatch + f'''
+                                        <div class="row border-bottom"> 
+                                            <div class="col-3">  {meter_no} </div>
+                                            <div class="col-3 text-danger">  {r.totalizer_start} </div>
+                                            <div class="col-3 text-danger">  {r.totalizer_end} </div>
+                                            <div class="col-3">  {r.document_no} </div>           
+                                        </div>
+                                        '''
+                    mismatch = mismatch + f'''
+                                    <div class="row border-bottom"> 
+                                        <div class="col-12 border border-dark">  </div>      
+                                    </div>
+                                    '''
             self.mismatch = ''
             if mismatch != '':
                 self.mismatch = f'''

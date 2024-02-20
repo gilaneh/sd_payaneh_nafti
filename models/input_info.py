@@ -32,13 +32,14 @@ class SdPayanehNaftiInputInfo(models.Model):
         ('truck_black_list', 'Truck'),
         ('out_of_date', 'Out of Date'),
         ('amount_limit', 'Amount Limit'),
+        ('finished', 'Finished'),
         ],
         string='Status', index=True, readonly=True, tracking=True,
         copy=False, default='draft', required=True, group_expand='_expand_groups', )
     remain_amount = fields.Float(compute='_remain_amount')
     remain_amount_approx = fields.Float(compute='_remain_amount')
     amount = fields.Float()
-    document_no = fields.Integer(required=True, copy=False, readonly=True, default=lambda self: 0)
+    document_no = fields.Integer(required=True, copy=False, readonly=False, default=lambda self: 0)
     request_date = fields.Date(default=lambda self: date.today(), required=True,)
     registration_no = fields.Many2one('sd_payaneh_nafti.contract_registration', required=True,
                                       default=lambda self: self.env.context.get('registration_no', False))
@@ -73,8 +74,8 @@ class SdPayanehNaftiInputInfo(models.Model):
 
     loading_no = fields.Char(copy=False, readonly=True, )
     # todo: timezone
-    loading_date = fields.Date(copy=False, readonly=False,)
-    loading_info_date = fields.Date(copy=False, default=lambda self: date.today())
+    loading_date = fields.Date(copy=False, readonly=False, default=lambda self: self.request_date)
+    loading_info_date = fields.Date(copy=False, default=lambda self: self.request_date)
     # driver = fields.Char(required=True,)
 
     sp_gr = fields.Float( string='SP. GR.', required=True, default=0.7252, store=True, readonly=True)
@@ -221,10 +222,12 @@ class SdPayanehNaftiInputInfo(models.Model):
             else:
                 used_amounts = 0
 
+
             amount = rec.registration_no.amount if rec.registration_no.init_amount == 0 else rec.registration_no.init_amount
             rec.remain_amount = amount - used_amounts
             rec.remain_amount_approx = amount - used_amounts - requested_approx_amount
-            rec.amount = rec.final_gsv_b if rec.registration_no.unit == 'barrel' else rec.final_mt
+            if rec.state != 'finished':
+                rec.amount = rec.final_gsv_b if rec.registration_no.unit == 'barrel' else rec.final_mt
 
             # if rec.remain_amount_approx < 0:
             #     raise ValidationError(_(f'Document No: {rec.document_no}'
@@ -353,23 +356,36 @@ class SdPayanehNaftiInputInfo(models.Model):
 
     @api.model
     def create(self, vals):
-        if vals.get('document_no', 0) == 0:
-            vals['document_no'] = self.env['ir.sequence'].next_by_code('sd_payaneh_nafti.input_info') or 0
+
+
+        # todo: it is disabled for parallel data entry of excel and this system.
+        # if vals.get('document_no', 0) == 0:
+        #     vals['document_no'] = self.env['ir.sequence'].next_by_code('sd_payaneh_nafti.input_info') or 0
+
             # todo: timezone, last ours of 29'th of Esfand might show a wrong date, maybe first of next year
             # vals['loading_no'] = str(jdatetime.date.today().year) + f"/{int(vals['document_no']):07d}"
+
+
+
         spgr = self.env['sd_payaneh_nafti.spgr'].search([], order='id desc', limit=1)
         if len(spgr) == 1:
             vals['sp_gr'] = spgr.spgr
         else:
             raise ValidationError(_('Add a "SP.GR." from the main menu'))
-        if vals.get('meter_no') and type(vals.get('meter_no')) == 'str' and vals.get('meter_no').lower() == 'master':
-            vals['meter_no'] = 0
+        if vals.get('meter_no') and type(vals.get('meter_no')) == str and vals.get('meter_no').lower() == 'master':
+            vals['meter_no'] = '0'
         return super(SdPayanehNaftiInputInfo, self).create(vals)
 
     def write(self, vals):
         # Changing the compartment_1 means that there are loading info entry. So, it moves the state to cargo_document.
         if vals.get('compartment_1') or vals.get('compartment_locker_1'):
             vals['state'] = 'cargo_document'
+        if not self.env.is_admin() and self.state == 'finished':
+#             print(f'''
+#                 vals: {vals}
+# ''')
+            raise ValidationError(_('Finished record is not editable!'))
+
         return super(SdPayanehNaftiInputInfo, self).write(vals)
 
     def get_contract_registration(self):
@@ -424,12 +440,17 @@ class SdPayanehNaftiInputInfo(models.Model):
         for rec in self:
             rec.write({'state': 'done'})
 
+
+    def input_finished(self):
+        for rec in self:
+            rec.write({'state': 'finished'})
+
     @api.model
     def get_requests(self):
         today_date = date.today()
         print(f'------------> today_date: {today_date}')
 
-        open_requests = self.search([('state', '!=', 'done')])
+        open_requests = self.search([('state', 'not in', ['done', 'finished'])])
         this_day_requests = self.search([('request_date', '=', today_date)])
 
         # todo: amount is not comparable between contracts with different unit type.
