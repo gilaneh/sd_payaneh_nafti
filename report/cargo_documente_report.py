@@ -73,12 +73,12 @@ class ReportSdPayanehNaftiCargoDocument(models.AbstractModel):
                 'front_container': input_record.front_container,
                 'middle_container': input_record.middle_container,
                 'back_container': input_record.back_container,
-                'total': input_record.total ,
+                'total': input_record.total,
                 'loading_no': input_record.loading_no,
             }
             doc_data_list.append((input_record, doc_data))
 
-        print('***' * 30, 'doc_data_list\n', context.get('lang'),  doc_data_list)
+        # print('***' * 30, 'doc_data_list\n', context.get('lang'),  doc_data_list)
         company_logo = f'/web/image/res.partner/{1}/image_128/'
         return {
             'docs': input_records,

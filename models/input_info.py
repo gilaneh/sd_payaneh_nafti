@@ -433,7 +433,7 @@ class SdPayanehNaftiInputInfo(models.Model):
         }
 
     def print_cargo_document(self):
-        data = {'form_data': {'document_no': (0, self.document_no)}}
+        data = {'form_data': {'document_no': (0, self.document_no), 'calendar': 'fa_IR'}}
         return self.env.ref('sd_payaneh_nafti.cargo_document_report').report_action(self, data=data)
 
     def input_done(self):
