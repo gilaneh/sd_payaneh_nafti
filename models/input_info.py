@@ -9,6 +9,8 @@ from colorama import Fore
 import jdatetime
 import math
 import logging
+import pytz
+
 
 cpl_counter = 0
 def _cpl_counter():
@@ -40,7 +42,7 @@ class SdPayanehNaftiInputInfo(models.Model):
     remain_amount_approx = fields.Float(compute='_remain_amount')
     amount = fields.Float()
     document_no = fields.Integer(required=True, copy=False, readonly=False, default=lambda self: 0)
-    request_date = fields.Date(default=lambda self: date.today(), required=True,)
+    request_date = fields.Date(default=lambda self: datetime.now(pytz.timezone(self.env.context.get('tz', 'Asia/Tehran'))), required=True,)
     registration_no = fields.Many2one('sd_payaneh_nafti.contract_registration', required=True,
                                       default=lambda self: self.env.context.get('registration_no', False))
     date_validation = fields.Boolean(related='registration_no.date_validation', store=False)
@@ -75,7 +77,7 @@ class SdPayanehNaftiInputInfo(models.Model):
     loading_no = fields.Char(copy=False, readonly=True, )
     # todo: timezone
     loading_date = fields.Date(copy=False, readonly=False, default=lambda self: self.request_date)
-    loading_info_date = fields.Date(copy=False, default=lambda self: self.request_date)
+    loading_info_date = fields.Date(copy=False, default=lambda self: datetime.now(pytz.timezone(self.env.context.get('tz', 'Asia/Tehran'))))
     # driver = fields.Char(required=True,)
 
     sp_gr = fields.Float( string='SP. GR.', required=True, default=0.7252, store=True, readonly=True)
@@ -407,7 +409,7 @@ class SdPayanehNaftiInputInfo(models.Model):
         # In input info for, there is a button named "Loading Permit" which updates some fields.
         for rec in self:
             loading_no = str(jdatetime.date.today().year) + f"/{int(rec.document_no):07d}"
-            loading_date = date.today()
+            loading_date = datetime.now(pytz.timezone(self.env.context.get('tz', 'Asia/Tehran'))).date()
             rec.write({'state': 'loading_permit', 'loading_no': loading_no, 'loading_date': loading_date })
 
     def print_loading_permit(self):

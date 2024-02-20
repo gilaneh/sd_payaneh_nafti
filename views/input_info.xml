@@ -465,7 +465,7 @@
                         </div>
                     <group>
                         <group>
-                            <field name="loading_info_date"/>
+                            <field name="loading_info_date" required="1"/>
                             <field name="sp_gr" digits="[4,4]"/>
                             <field name="correction_factor" />
                             <field name="temperature" />
