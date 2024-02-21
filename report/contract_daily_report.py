@@ -101,7 +101,7 @@ class ReportSdPayanehNaftiContractDailyReport(models.AbstractModel):
         #                   f'\n used_amounts: {used_amounts}'
         #                   f'\n ')
 
-        input_records_day = tuple(filter(lambda rec: rec.loading_date == report_day, input_records))
+        input_records_day = tuple(filter(lambda rec: rec.request_date == report_day, input_records))
         # print(f'\n input_records: {len(input_records)} \n {input_records} \ninput_records_day {len(input_records_day)}\n {input_records_day}\n')
         inputs_list = []
         pages = []
