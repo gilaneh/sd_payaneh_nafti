@@ -42,6 +42,12 @@ class SdPayanehNaftiContractInfo(models.Model):
     date_validation = fields.Boolean(default=True, compute='_date_validation')
     description = fields.Char()
 
+    @api.constrains('registration_no')
+    def _check_registration_no_unique(self):
+        # It makes sure the document number is unique
+        record_count = self.search_count([('registration_no', '=', self.registration_no), ('id', '!=', self.id)])
+        if record_count > 0:
+            raise ValidationError("Record already exists!")
     @api.depends('registration_no')
     def _date_validation(self):
         for rec in self:
@@ -75,8 +81,18 @@ class SdPayanehNaftiContractInfo(models.Model):
 
         # if vals.get('registration_no', _('New')) == _('New'):
         #     vals['registration_no'] = self.env['ir.sequence'].next_by_code('sd_payaneh_nafti.contract_registration') or _('New')
-
+        if vals.get('registration_no') == 0:
+            raise ValidationError(_('Registration No'))
         return super(SdPayanehNaftiContractInfo, self).create(vals)
+
+    def write(self, vals):
+        # todo: it is disabled for parallel data entry of excel and this system.
+
+        # if vals.get('registration_no', _('New')) == _('New'):
+        #     vals['registration_no'] = self.env['ir.sequence'].next_by_code('sd_payaneh_nafti.contract_registration') or _('New')
+        if vals.get('registration_no') == 0:
+            raise ValidationError(_('Registration No'))
+        return super(SdPayanehNaftiContractInfo, self).write(vals)
 
     def get_inputs(self):
         self.ensure_one()

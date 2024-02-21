@@ -366,7 +366,8 @@ class SdPayanehNaftiInputInfo(models.Model):
 
             # todo: timezone, last ours of 29'th of Esfand might show a wrong date, maybe first of next year
             # vals['loading_no'] = str(jdatetime.date.today().year) + f"/{int(vals['document_no']):07d}"
-
+        if vals.get('document_no') == 0:
+            raise ValidationError(_('Document No'))
 
 
         spgr = self.env['sd_payaneh_nafti.spgr'].search([], order='id desc', limit=1)
@@ -374,6 +375,7 @@ class SdPayanehNaftiInputInfo(models.Model):
             vals['sp_gr'] = spgr.spgr
         else:
             raise ValidationError(_('Add a "SP.GR." from the main menu'))
+
         if vals.get('meter_no') and type(vals.get('meter_no')) == str and vals.get('meter_no').lower() == 'master':
             vals['meter_no'] = '0'
         return super(SdPayanehNaftiInputInfo, self).create(vals)
@@ -387,7 +389,8 @@ class SdPayanehNaftiInputInfo(models.Model):
 #                 vals: {vals}
 # ''')
             raise ValidationError(_('Finished record is not editable!'))
-
+        if vals.get('document_no') == 0:
+            raise ValidationError(_('Document No'))
         return super(SdPayanehNaftiInputInfo, self).write(vals)
 
     def get_contract_registration(self):

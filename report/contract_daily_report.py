@@ -38,7 +38,8 @@ class ReportSdPayanehNaftiContractDailyReport(models.AbstractModel):
             calendar = context.get('lang')
         else:
             registration_no = form_data.get('registration_no')[1]
-            contract_record = self.env['sd_payaneh_nafti.contract_registration'].search([('registration_no', '=', registration_no)])
+            contract_record = self.env['sd_payaneh_nafti.contract_registration'].search([
+                ('registration_no', '=', registration_no)])
             # calendar = form_data.get('calendar')
             docids = [contract_record.id]
         # REPORT DATE
@@ -72,7 +73,7 @@ class ReportSdPayanehNaftiContractDailyReport(models.AbstractModel):
                 'errors': [_(f'No record have found for contract {registration_no} on selected date: {s_start_date} ')],
             }
 
-        input_records_behind_date = tuple(filter(lambda rec: rec.loading_date <= report_day, input_records))
+        input_records_behind_date = tuple(filter(lambda rec: rec.request_date <= report_day, input_records))
         registration = input_records[0].registration_no
         if loading_type == 'internal':
             unit = dict(registration._fields['unit']._description_selection(self.env)).get(registration.unit)
