@@ -76,7 +76,7 @@ class ReportSdPayanehNaftiDaily(models.AbstractModel):
             remain_tanks = int((d.registration_no.amount - int(sum(final_gsv_b_all)) )/200)
             row_data_lines.append((index + 1,
                                    d.registration_no.contract_no,
-                                   d.registration_no.order_no,
+                                   d.registration_no.order_no if d.registration_no.order_no else '',
                                    d.registration_no.buyer.name,
                                    d_start_date,
                                    d_end_date,
