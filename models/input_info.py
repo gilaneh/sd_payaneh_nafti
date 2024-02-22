@@ -385,13 +385,14 @@ class SdPayanehNaftiInputInfo(models.Model):
         # Changing the compartment_1 means that there are loading info entry. So, it moves the state to cargo_document.
         if vals.get('compartment_1') or vals.get('compartment_locker_1'):
             vals['state'] = 'cargo_document'
+
         if not self.env.is_admin() and self.state == 'finished':
-#             print(f'''
-#                 vals: {vals}
-# ''')
             raise ValidationError(_('Finished record is not editable!'))
-        if vals.get('document_no') == 0:
+
+        doc_no = vals.get('document_no', None)
+        if doc_no is not None and (doc_no == 0 or doc_no > 99999):
             raise ValidationError(_('Document No'))
+
         return super(SdPayanehNaftiInputInfo, self).write(vals)
 
     def get_contract_registration(self):
