@@ -60,7 +60,7 @@ class ReportSdPayanehNaftiMeterXlsReport(models.AbstractModel):
         num_format_4_bold = workbook.add_format({"num_format": '0.0000','bold': True,})
         sheet.set_column('A:Z', 15)
         sheet.right_to_left()
-        row = iter(list(range(300)))
+        row = iter(list(range(3000)))
         col = 0
         sheet.write(next(row), col + 1, 'گزارش میتر', bold)
         sheet.write(next(row), col + 1, report_data['report_date_show'], bold)
@@ -134,6 +134,41 @@ class ReportSdPayanehNaftiMeterXlsReport(models.AbstractModel):
                 sheet.write(row_no, col + 10, meter_input.registration_no.registration_no, )
                 totalizer_end = meter_input.totalizer_end
                 row_no = next(row)
+
+
+        row_no = next(row)
+        sheet.write(row_no, col, f' باسکول ', bold_center_bg)
+        sheet.write(row_no, col + 1, 'توتالایزر ابتدایی', bold_center_bg)
+        sheet.write(row_no, col + 2, 'توتالایزر انتهایی', bold_center_bg)
+        sheet.write(row_no, col + 3, 'مقدار میتر', bold_center_bg)
+        sheet.write(row_no, col + 4, 'اختلاف توتالایزر', bold_center_bg)
+        sheet.write(row_no, col + 5, 'باسکول دارد', bold_center_bg)
+        sheet.write(row_no, col + 6, 'وزن خالی نفتکش', bold_center_bg)
+        sheet.write(row_no, col + 7, 'وزن پر نفتکش', bold_center_bg)
+        sheet.write(row_no, col + 8, 'وزن خالص نفتکش', bold_center_bg)
+        sheet.write(row_no, col + 9, 'شماره سند', bold_center_bg)
+        sheet.write(row_no, col + 10, 'شماره قرارداد', bold_center_bg)
+        row_no = next(row)
+
+        for index, meter_input in enumerate(report_data['totalizer_weighbridge']):
+            diff_s = False
+            diff_e = False
+            totalizer_difference = 0
+
+
+            sheet.write(row_no, col, 'باسکول', bold_center)
+            sheet.write(row_no, col + 1, meter_input.totalizer_start, warning_bg if diff_s else '')
+            sheet.write(row_no, col + 2, meter_input.totalizer_end, warning_bg if diff_e else '' )
+            sheet.write(row_no, col + 3, meter_input.totalizer_difference, )
+            sheet.write(row_no, col + 4, totalizer_difference, )
+            sheet.write(row_no, col + 5, meter_input.weighbridge, center )
+            sheet.write(row_no, col + 6, meter_input.tanker_empty_weight, )
+            sheet.write(row_no, col + 7, meter_input.tanker_full_weight, )
+            sheet.write(row_no, col + 8, meter_input.tanker_pure_weight, )
+            sheet.write(row_no, col + 9, meter_input.document_no, )
+            sheet.write(row_no, col + 10, meter_input.registration_no.registration_no, )
+            row_no = next(row)
+
 
         row_no = next(row)
         sheet.write(row_no, col + 1, '', warning_bg )
