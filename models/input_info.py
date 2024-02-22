@@ -72,7 +72,7 @@ class SdPayanehNaftiInputInfo(models.Model):
                                               ('f', 'F'),
                                               ('g', 'G'),
                                               ('h', 'H'),
-                                              ], required=True,)
+                                              ], required=True, default='h')
 
     loading_no = fields.Char(copy=False, readonly=True, )
     # todo: timezone

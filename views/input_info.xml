@@ -88,7 +88,7 @@
                             <group>
                                 <separator string="General Information"/>
                                 <field name="document_no" />
-                                <field name="loading_no" />
+                                <field name="loading_no" readonly="0"/>
                                 <field name="loading_date" />
                                 <field name="registration_no"
                                        options="{'no_quick_create':True, 'no_create_edit': True, 'no_open': True}"/>

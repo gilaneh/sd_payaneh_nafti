@@ -55,9 +55,14 @@ class ReportSdPayanehNaftiContractMonthly(models.AbstractModel):
 
         date_of_range = [first_day + timedelta(days=delta) for delta in range((last_day - first_day).days + 1)]
 
-        input_records = self.env['sd_payaneh_nafti.input_info'].search([('loading_date', '>=', first_day),
-                                                                        ('loading_date', '<=', last_day),
+        input_records = self.env['sd_payaneh_nafti.input_info'].search([('request_date', '>=', first_day),
+                                                                        ('request_date', '<=', last_day),
                                                                         ('registration_no', '=', registration_no)],)
+        # r_1674 = list([(rec, rec.registration_no, rec.document_no) for rec in input_records if registration_no == 1674])
+        # print('+++++++++++++++++++++')
+        # for r in r_1674:
+        #     print(r)
+        # print()
         if len(input_records) == 0:
             return{
                 'errors': [_(f'No record have found for selected time duration: {s_first_day} to {s_last_day}')],

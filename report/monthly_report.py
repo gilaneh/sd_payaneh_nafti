@@ -92,28 +92,22 @@ class ReportSdPayanehNaftiMonthly(models.AbstractModel):
             contract_type = reg.contract_type
 
             row_data_lines.append((index + 1,
-                                   d.registration_no.letter_no if d.registration_no.letter_no  else '',
-                                   d.registration_no.contract_no if d.registration_no.contract_no  else '',
-                                   d.registration_no.order_no if d.registration_no.order_no else '',
-                                   d.registration_no.buyer.name if d.registration_no.buyer.name else '',
-                                   d.registration_no.amount if d.registration_no.amount else '',
-                                   unit,
-                                   loading_type,
-                                   contract_type,
-                                   int(sum(final_gsv_l)),
-                                   round(sum(final_gsv_b), 2),
-                                   round(sum(final_mt), 3),
-                                   len(data),
-
+                                   d.registration_no.letter_no or '',
+                                   d.registration_no.contract_no or '',
+                                   d.registration_no.order_no or '',
+                                   d.registration_no.buyer.name or '',
+                                   d.registration_no.amount or 0,
+                                   self.type_name(unit, calendar),
+                                   self.type_name(loading_type, calendar),
+                                   self.type_name(contract_type, calendar),
+                                   int(sum(final_gsv_l)) or 0,
+                                   round(sum(final_gsv_b), 2) or 0,
+                                   round(sum(final_mt), 3) or 0,
+                                   len(data) or 0,
                                    ))
 
-
         final_gsv_l_stock_1 = [rec[9] for rec in row_data_lines if rec[8] == 'stock']
-        print(f'''
-            final_gsv_l_stock_1: {final_gsv_l_stock_1}
 
-
-''')
             # final_gsv_l_stock_1: {sum(final_gsv_l_stock_1)}
         final_gsv_l_stock = [int(rec.final_gsv_l) for rec in input_records if rec.registration_no.contract_type == 'stock']
         final_gsv_l_general = [int(rec.final_gsv_l) for rec in input_records if rec.registration_no.contract_type == 'general']
@@ -150,130 +144,6 @@ class ReportSdPayanehNaftiMonthly(models.AbstractModel):
 
         }
 
-        # print('-' * 150)
-
-        # print(f'| {sum(final_gsv_l_stock)}'
-        #       f'| {sum(final_gsv_l_general)}'
-        #       f'| {sum(final_gsv_l_internal)}'
-        #       f'| {sum(final_gsv_l_export)}'
-        #       )
-        # print(f' | {" ": ^3}'
-        #       f' | {" ": ^6}'
-        #       f' | {" ": ^6}'
-        #       f' | {" ": ^9}'
-        #       f' | {" ": ^9}'
-        #       f' | {" ": ^5}'
-        #       f' | {" ": ^30}'
-        #       f' | {" ": ^8}'
-        #       f' | {" ": ^8}'
-        #       f' | {" ": ^10}'
-        #       f' | {int(sum(final_gsv_l_stock)): >10}'
-        #       f' | {int(sum(final_gsv_b_stock)): >10}'
-        #       f' | {int(sum(final_mt_stock)): >10}'
-        #       f' | {len(final_gsv_l_stock): >3}'
-        #       )
-        # print(f' | {" ": ^3}'
-        #       f' | {" ": ^6}'
-        #       f' | {" ": ^6}'
-        #       f' | {" ": ^9}'
-        #       f' | {" ": ^9}'
-        #       f' | {" ": ^5}'
-        #       f' | {" ": ^30}'
-        #       f' | {" ": ^8}'
-        #       f' | {" ": ^8}'
-        #       f' | {" ": ^10}'
-        #       f' | {int(sum(final_gsv_l_general)): >10}'
-        #       f' | {int(sum(final_gsv_b_general)): >10}'
-        #       f' | {int(sum(final_mt_general)): >10}'
-        #       f' | {len(final_gsv_l_general): >3}'
-        #       )
-        # print(f' | {" ": ^3}'
-        #       f' | {" ": ^6}'
-        #       f' | {" ": ^6}'
-        #       f' | {" ": ^9}'
-        #       f' | {" ": ^9}'
-        #       f' | {" ": ^5}'
-        #       f' | {" ": ^30}'
-        #       f' | {" ": ^8}'
-        #       f' | {" ": ^8}'
-        #       f' | {" ": ^10}'
-        #       f' | {int(sum(final_gsv_l_general) + sum(final_gsv_l_stock)): >10}'
-        #       f' | {int(sum(final_gsv_b_general) + sum(final_gsv_b_stock)): >10}'
-        #       f' | {int(sum(final_mt_general) + sum(final_mt_stock)): >10}'
-        #       f' | {len(final_gsv_l_general) + len(final_gsv_l_stock): >3}'
-        #       )
-        # print(f' | {" ": ^3}'
-        #       f' | {" ": ^6}'
-        #       f' | {" ": ^6}'
-        #       f' | {" ": ^9}'
-        #       f' | {" ": ^9}'
-        #       f' | {" ": ^5}'
-        #       f' | {" ": ^30}'
-        #       f' | {" ": ^8}'
-        #       f' | {" ": ^8}'
-        #       f' | {" ": ^10}'
-        #       f' | {int(sum(final_gsv_l_internal)): >10}'
-        #       f' | {int(sum(final_gsv_b_internal)): >10}'
-        #       f' | {int(sum(final_mt_internal)): >10}'
-        #       f' | {len(final_gsv_l_internal): >3}'
-        #       )
-        # print(f' | {" ": ^3}'
-        #       f' | {" ": ^6}'
-        #       f' | {" ": ^6}'
-        #       f' | {" ": ^9}'
-        #       f' | {" ": ^9}'
-        #       f' | {" ": ^5}'
-        #       f' | {" ": ^30}'
-        #       f' | {" ": ^8}'
-        #       f' | {" ": ^8}'
-        #       f' | {" ": ^10}'
-        #       f' | {int(sum(final_gsv_l_export)): >10}'
-        #       f' | {int(sum(final_gsv_b_export)): >10}'
-        #       f' | {int(sum(final_mt_export)): >10}'
-        #       f' | {len(final_gsv_l_export): >3}'
-        #       )
-
-
-
-
-
-        # if len(input_record) > 1:
-        #     errors.append(_('[ERROR] There is more than one record'))
-        # elif len(input_record) == 1:
-        # for input_record in input_records:
-        #     issue_date = input_record.loading_date
-        #     if calendar == 'fa_IR':
-        #         issue_date = jdatetime.date.fromgregorian(date=issue_date).strftime('%Y/%m/%d')
-        #     tanker_no = {'plate_1': input_record.plate_1,
-        #                  'plate_2': input_record.plate_2,
-        #                  'plate_3': input_record.plate_3,
-        #                  'plate_4': input_record.plate_4,
-        #                  }
-        #     contract_no = str(input_record.registration_no.contract_no)
-        #     if input_record.registration_no.order_no:
-        #         contract_no += '-' + str(input_record.registration_no.order_no)
-        #
-        #     doc_data = {
-        #                 # 'buyer': str(input_record.buyer.name),
-        #                 # 'contractor': str(input_record.contractor.name),
-        #                 'document_no': input_record.document_no,
-        #                 'contract_no': contract_no,
-        #                 'user_name': self.env.user.name,
-        #                 'tanker_no': tanker_no,
-        #                 'driver': input_record.driver,
-        #                 'contract_type': input_record.registration_no.contract_type,
-        #                 'cargo_type': input_record.registration_no.cargo_type.name,
-        #                 'front_container': input_record.front_container,
-        #                 'middle_container': input_record.middle_container,
-        #                 'back_container': input_record.back_container,
-        #                 'total': input_record.total,
-        #                 'issue_date': issue_date,
-        #                 'loading_no': input_record.loading_no,
-        #                 }
-        #     doc_data_list.append((input_record, doc_data))
-        # else:
-        #     input_record = []
-        #     errors.append(_('[ERROR] There is no record'))
         company_logo = f'/web/image/res.partner/{1}/image_128/'
         doc_data_list = [('', '')]
         # errors = ['test error']
@@ -299,6 +169,45 @@ class ReportSdPayanehNaftiMonthly(models.AbstractModel):
             date_time = {'date': date_time.strftime("%Y/%m/%d"),
                         'time': date_time.strftime("%H:%M:%S")}
         return date_time
+
+    # ########################################################################################
+    def type_name(self, data, calendar):
+        if calendar == 'fa_IR':
+            if data == 'stock':
+                r = 'بورس'
+            elif data == 'general':
+                r = 'عمومی'
+            elif data == 'internal':
+                r = 'داخلی'
+            elif data == 'export':
+                r = 'صادراتی'
+            elif data == 'barrel':
+                r = 'بشکه'
+            elif data == 'metric_ton':
+                r = 'متریک تن'
+            else:
+                r = ''
+        else:
+            if data == 'stock':
+                r = 'Stock'
+            elif data == 'general':
+                r = 'General'
+            elif data == 'internal':
+                r = 'Internal'
+            elif data == 'export':
+                r = 'Export'
+            elif data == 'barrel':
+                r = 'Barrel'
+            elif data == 'metric_ton':
+                r = 'Metric Ton'
+            else:
+                r = ''
+        return r
+
+
+
+
+
 
     # ########################################################################################
     def _table_record(self, items, start_date, first_day, last_day, record_type=False):
