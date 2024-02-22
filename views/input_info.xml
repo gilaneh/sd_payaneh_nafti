@@ -222,7 +222,11 @@
                     <field name="contractor" />
                     <field name="driver" />
                     <field name="truck_no" />
-                    <field name="total" groups="base.group_system" optional="hide" />
+                    <field name="meter_no" optional="hide"/>
+                    <field name="totalizer_start" optional="hide"/>
+                    <field name="totalizer_end" optional="hide"/>
+                    <field name="totalizer_difference" optional="hide"/>
+                    <field name="total"  optional="hide" />
                     <field name="temperature" groups="base.group_system" optional="hide"/>
                     <field name="final_tov_l" groups="base.group_system" optional="hide"/>
                     <field name="final_gsv_l" groups="base.group_system" optional="hide"/>

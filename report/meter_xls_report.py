@@ -85,6 +85,7 @@ class ReportSdPayanehNaftiMeterXlsReport(models.AbstractModel):
         row_no = next(row)
         sheet.write(row_no, col, 'جمع خالص میتر در بارگیری از باسکول', bold)
         sheet.write(row_no, col + 3, report_data['totalizer_weighbridge_sum'], bold)
+        sheet.write(row_no, col + 4, report_data['totalizer_weighbridge_count'], bold_center)
         row_no = next(row)
         sheet.write(row_no, col, 'مقدار اسناد بارگیری توسط میتر و باسکول', bold)
         sheet.write(row_no, col + 3, report_data['totalizer_sum'], bold)

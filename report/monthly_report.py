@@ -73,7 +73,7 @@ class ReportSdPayanehNaftiMonthly(models.AbstractModel):
         docids = [input_records.ids]
 
 
-        registration_nos = sorted(list({rec.registration_no.registration_no for rec in input_records}))
+        registration_nos = sorted(list({rec.registration_no.registration_no for rec in input_records }))
         # print(f'\nregistration_codes:{registration_nos}\n')
         row_data_temp = []
         for index, reg_no in enumerate(registration_nos):

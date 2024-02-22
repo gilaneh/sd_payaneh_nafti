@@ -24,6 +24,10 @@ class SdPayanehNaftiMeterData(models.Model):
         for rec in self:
             input_info = self.env['sd_payaneh_nafti.input_info'].search([('loading_date', '=', rec.report_date),
                                                                          ('meter_no', '=', rec.meter),])
+            # todo: maximum number of totalizer is 99,999,999. It means that sometimes the totalizer_end would be
+            #  less than totalizer_start. This is corrected on loading_info form. But it is needed to be corrected
+            #  on meter reprot too.
+
             totalizer_start = list([ii.totalizer_start for ii in input_info])
             totalizer_end = list([ii.totalizer_end for ii in input_info])
             rec.first_totalizer = min(totalizer_start) if totalizer_start else 0

@@ -152,6 +152,14 @@ class SdPayanehNaftiInputInfo(models.Model):
         #     if len(drivers) == 1:
         #         rec.write({'driver_name': drivers.id})
 
+    @api.onchange('meter_no')
+    def onchange_meter_no(self):
+        last_input = self.search([('meter_no', '=', self.meter_no),
+                                  ('totalizer_end', '>', 0)],
+                                 order='totalizer_end desc', limit=1)
+        if last_input:
+            self.totalizer_start = last_input.totalizer_end
+
     @api.onchange('document_no')
     def onchange_document_no(self):
         self.set_spgr()
@@ -342,7 +350,12 @@ class SdPayanehNaftiInputInfo(models.Model):
     def _totalizer_difference(self):
         # It calculates the totalizer difference based on totalizer start amount and its end amount
         for rec in self:
-            rec.totalizer_difference = rec.totalizer_end - rec.totalizer_start
+            if rec.totalizer_end == 0:
+                rec.totalizer_difference = 0
+            elif rec.totalizer_end > rec.totalizer_start:
+                rec.totalizer_difference = rec.totalizer_end - rec.totalizer_start
+            else:
+                rec.totalizer_difference = 100000000 + rec.totalizer_end - rec.totalizer_start
 
     @api.onchange('tanker_full_weight', 'tanker_empty_weight')
     def _tanker_pure_weight(self):

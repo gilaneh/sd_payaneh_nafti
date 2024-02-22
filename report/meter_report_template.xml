@@ -73,6 +73,7 @@
                                                             <div  class="row border-bottom border-secondary mx-0 pt-1">
                                                                 <div class="col-8 text-right" >جمع خالص میتر در بارگیری از باسکول </div>
                                                                 <div class="col-2" t-esc="'{:,d}'.format(totalizer_weighbridge_sum)"></div>
+                                                                <div class="col-2" t-esc="totalizer_weighbridge_count"></div>
                                                             </div>
                                                             <div  class="row border-bottom border-secondary mx-0 pt-1">
                                                                 <div class="col-8 text-right" >مقدار اسناد بارگیری توسط میتر و باسکول</div>
