@@ -366,7 +366,8 @@ class SdPayanehNaftiInputInfo(models.Model):
 
             # todo: timezone, last ours of 29'th of Esfand might show a wrong date, maybe first of next year
             # vals['loading_no'] = str(jdatetime.date.today().year) + f"/{int(vals['document_no']):07d}"
-        if vals.get('document_no') == 0:
+        doc_no = vals.get('document_no', 0)
+        if doc_no == 0 or doc_no < 10000 or doc_no > 99999:
             raise ValidationError(_('Document No'))
 
 
