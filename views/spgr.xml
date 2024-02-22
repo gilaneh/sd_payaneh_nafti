@@ -67,9 +67,9 @@
         <!-- ==================================================  Menu ====================-->
 
         <menuitem name="spgr"
-                  sequence="20"
+                  sequence="50"
                   id="spgr_menu"
-                  parent="process_menu"
+                  parent="settings_menu"
                   action="action_window_spgr"/>
 
 <!--        <menuitem name="Actions"-->

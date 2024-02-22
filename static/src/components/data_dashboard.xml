@@ -22,11 +22,11 @@
                         </div>
                     </div>
                     <div class="row">
-                        <DataCards onClick="viewSpgr" name="'SP.GR.'" status="state.spgr.status" value="state.spgr.value"/>
+                        <DataCards onClick="viewSpgr" name="'SP.GR.'" status="state.spgr.status" value="state.spgr.value" actionService="actionService"/>
 
                     </div>
                     <div class="row">
-                        <DataCards onClick="viewContracts" name="'Open Contracts'" status="state.contracts.status" value="state.contracts.value"/>
+                        <DataCards onClick="viewContracts" name="'Open Contracts'" status="state.contracts.status" value="state.contracts.value" actionService="actionService"/>
                         <DataCards name="'Remain Amount'" status="state.remain_amount.status" value="state.remain_amount.value"/>
 <!--                        <DataCards onClick="viewThisDayRequests"  name="'This day requests'" status="state.this_day_requests_count.status" value="state.this_day_requests_count.value"/>-->
                         <DataCards name="'Open Requests'" status="state.open_requests.status" value="state.open_requests.value"/>
@@ -34,10 +34,10 @@
 
                     </div>
                     <div class="row">
-                        <DataCards onClick="viewNewRequests" name="'New Requests'" status="state.new_requests.status" value="state.new_requests.value"/>
-                        <DataCards onClick="viewLoadingPermit" name="'Loading Permits'" status="state.loading_permit.status" value="state.loading_permit.value"/>
-                        <DataCards onClick="viewLoadingInfo" name="'Loading Info'" status="state.loading_info.status" value="state.loading_info.value"/>
-                        <DataCards onClick="viewCargoDocument" name="'Cargo Document'" status="state.cargo_document.status" value="state.cargo_document.value"/>
+                        <DataCards onClick="viewNewRequests" name="'New Requests'" status="state.new_requests.status" value="state.new_requests.value" actionService="actionService"/>
+                        <DataCards onClick="viewLoadingPermit" name="'Loading Permits'" status="state.loading_permit.status" value="state.loading_permit.value" actionService="actionService"/>
+                        <DataCards onClick="viewLoadingInfo" name="'Loading Info'" status="state.loading_info.status" value="state.loading_info.value" actionService="actionService"/>
+                        <DataCards onClick="viewCargoDocument" name="'Cargo Document'" status="state.cargo_document.status" value="state.cargo_document.value" actionService="actionService"/>
 
                     </div>
 

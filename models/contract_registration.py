@@ -14,7 +14,9 @@ class SdPayanehNaftiContractInfo(models.Model):
     _order = 'registration_no desc'
     _rec_name = 'registration_no'
 
-    registration_no = fields.Char(required=True, copy=False, readonly=False, default=lambda self: _('New'))
+    # registration_no = fields.Char(required=True, copy=False, readonly=False, default=lambda self: _('New'))
+    registration_no = fields.Char(required=True, copy=False, readonly=False,
+                default=lambda self: int(self.search([], order='registration_no desc', limit=1).registration_no) + 1)
     letter_no = fields.Char(required=True,)
     contract_no = fields.Char(required=True,)
     bill_of_lading = fields.Char(required=False,)

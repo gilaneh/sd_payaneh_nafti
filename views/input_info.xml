@@ -599,6 +599,61 @@
             <field name="context">{'search_default_registration_no_group': 0}</field>
         </record>
 
+        <record model="ir.actions.act_window" id="action_window_input_info_1_new">
+            <field name="name">New Request</field>
+            <field name="res_model">sd_payaneh_nafti.input_info</field>
+            <field name="view_mode">tree,form,pivot,graph</field>
+            <field name="domain">[('state', 'in', ['draft'])]</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('sd_payaneh_nafti_input_info_list_1')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('sd_payaneh_nafti_input_info_form_1')})]"/>
+            <field name="context">{'search_default_registration_no_group': 0}</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_window_input_info_1_loading_permit">
+            <field name="name">Loading Permit State</field>
+            <field name="res_model">sd_payaneh_nafti.input_info</field>
+            <field name="view_mode">tree,form,pivot,graph</field>
+            <field name="domain">[('state', 'in', ['loading_permit'])]</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('sd_payaneh_nafti_input_info_list_1')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('sd_payaneh_nafti_input_info_form_1')})]"/>
+            <field name="context">{'search_default_registration_no_group': 0}</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_window_input_info_1_loading_info">
+            <field name="name">Loading Info State</field>
+            <field name="res_model">sd_payaneh_nafti.input_info</field>
+            <field name="view_mode">tree,form,pivot,graph</field>
+            <field name="domain">[('state', 'in', ['loading_info'])]</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('sd_payaneh_nafti_input_info_list_1')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('sd_payaneh_nafti_input_info_form_1')})]"/>
+            <field name="context">{'search_default_registration_no_group': 0}</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_window_input_info_1_cargo">
+            <field name="name">Document Cargo State</field>
+            <field name="res_model">sd_payaneh_nafti.input_info</field>
+            <field name="view_mode">tree,form,pivot,graph</field>
+            <field name="domain">[('state', 'in', ['document_cargo'])]</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('sd_payaneh_nafti_input_info_list_1')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('sd_payaneh_nafti_input_info_form_1')})]"/>
+            <field name="context">{'search_default_registration_no_group': 0}</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_window_input_info_1_done">
+            <field name="name">Done State</field>
+            <field name="res_model">sd_payaneh_nafti.input_info</field>
+            <field name="view_mode">tree,form,pivot,graph</field>
+            <field name="domain">[('state', 'in', ['done']),('request_date', '&gt;', datetime.datetime.now() - datetime.timedelta(days=5))]</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('sd_payaneh_nafti_input_info_list_1')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('sd_payaneh_nafti_input_info_form_1')})]"/>
+            <field name="context">{'search_default_registration_no_group': 0}</field>
+        </record>
+
         <record model="ir.actions.act_window" id="action_window_input_info_manage">
             <field name="name">Input Information Manage</field>
             <field name="res_model">sd_payaneh_nafti.input_info</field>
@@ -617,22 +672,56 @@
 
         <!-- ==================================================  Menu ====================-->
 
+
+        <menuitem name="New Request"
+                  sequence="30"
+                  id="sd_payaneh_nafti.input_info_1_menu_new"
+                  parent="sd_payaneh_nafti.payaneh_root_menu"
+                  action="action_window_input_info_1_new"/>
+
+        <menuitem name="Loading Permit"
+                  sequence="40"
+                  id="sd_payaneh_nafti.input_info_1_menu_loading_permit"
+                  parent="sd_payaneh_nafti.payaneh_root_menu"
+                  action="action_window_input_info_1_loading_permit"/>
+
+        <menuitem name="Loading Info"
+                  sequence="50"
+                  id="sd_payaneh_nafti.input_info_1_menu_loading_info"
+                  parent="sd_payaneh_nafti.payaneh_root_menu"
+                  action="action_window_input_info_1_loading_info"/>
+
+        <menuitem name="Cargo Document"
+                  sequence="60"
+                  id="sd_payaneh_nafti.input_info_1_menu_cargo"
+                  parent="sd_payaneh_nafti.payaneh_root_menu"
+                  action="action_window_input_info_1_cargo"/>
+
+        <menuitem name="Done"
+                  sequence="70"
+                  id="sd_payaneh_nafti.input_info_1_menu_done"
+                  parent="sd_payaneh_nafti.payaneh_root_menu"
+                  action="action_window_input_info_1_done"/>
+
+
+
         <menuitem name="Input Info"
                   sequence="20"
                   id="sd_payaneh_nafti.input_info_1_menu"
-                  parent="sd_payaneh_nafti.process_menu"
+                  parent="sd_payaneh_nafti.settings_menu"
                   action="action_window_input_info_1"/>
 
         <menuitem name="Input Info all"
                   sequence="30"
                   id="sd_payaneh_nafti.input_info_menu"
-                  parent="sd_payaneh_nafti.process_menu"
+                  parent="sd_payaneh_nafti.settings_menu"
                   groups="base.group_system"
                   action="action_window_input_info"/>
+
         <menuitem name="Input Info Manage"
                   sequence="40"
                   id="sd_payaneh_nafti.input_info_manage_menu"
-                  parent="sd_payaneh_nafti.process_menu"
+                  parent="sd_payaneh_nafti.settings_menu"
                   groups="base.group_system"
                   action="action_window_input_info_manage"/>
 

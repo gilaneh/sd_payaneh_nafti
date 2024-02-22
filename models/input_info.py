@@ -41,7 +41,8 @@ class SdPayanehNaftiInputInfo(models.Model):
     remain_amount = fields.Float(compute='_remain_amount')
     remain_amount_approx = fields.Float(compute='_remain_amount')
     amount = fields.Float()
-    document_no = fields.Integer(required=True, copy=False, readonly=False, default=lambda self: 0)
+    document_no = fields.Integer(required=True, copy=False, readonly=False,
+                                 default=lambda self: self.search([], order='document_no desc', limit=1).document_no + 1)
     request_date = fields.Date(default=lambda self: datetime.now(pytz.timezone(self.env.context.get('tz', 'Asia/Tehran'))), required=True,)
     registration_no = fields.Many2one('sd_payaneh_nafti.contract_registration', required=True,
                                       default=lambda self: self.env.context.get('registration_no', False))

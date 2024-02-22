@@ -152,6 +152,20 @@
 
         <!-- ==================================================  Action Window ====================-->
 
+        <record model="ir.actions.act_window" id="action_window_contract_registration_open">
+            <field name="name">Open Contracts</field>
+            <field name="res_model">sd_payaneh_nafti.contract_registration</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">['|','|',
+                ('end_date', '&gt;', datetime.datetime.now()),
+                '&amp;', ('first_extend_end_date', '!=', False), ('first_extend_end_date', '&gt;', datetime.datetime.now()),
+                '&amp;',('first_extend_end_date', '!=', False), ('second_extend_end_date', '&gt;', datetime.datetime.now()),
+                ]
+            </field>
+            <field name="context">{'search_default_live_contracts': 0,'search_default_buyer_group': 1,}</field>
+
+        </record>
+
         <record model="ir.actions.act_window" id="action_window_contract_registration">
             <field name="name">Contract Registration</field>
             <field name="res_model">sd_payaneh_nafti.contract_registration</field>
@@ -162,10 +176,16 @@
 
         <!-- ==================================================  Menu ====================-->
 
+        <menuitem name="Open Contracts"
+                  sequence = "10"
+                  id="sd_payaneh_nafti.contract_registration_menu_open"
+                  parent="sd_payaneh_nafti.payaneh_root_menu"
+                  action="action_window_contract_registration_open"/>
+
         <menuitem name="Contract Registration"
                   sequence = "10"
                   id="sd_payaneh_nafti.contract_registration_menu"
-                  parent="sd_payaneh_nafti.process_menu"
+                  parent="sd_payaneh_nafti.settings_menu"
                   action="action_window_contract_registration"/>
 
 <!--        <menuitem name="Actions"-->

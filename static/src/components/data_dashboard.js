@@ -96,8 +96,10 @@ export class DataDashboard extends Component {
         this.state.loading_info.value = requests.loading_info;
         this.state.cargo_document.value = requests.cargo_document;
     }
+
     viewSpgr(){
-            this.actionService = useService("action")
+//        console.log('viewSpgr', this)
+//            this.actionService = useService("action")
 
         this.actionService.doAction({
             name: "SPGR",
@@ -111,7 +113,7 @@ export class DataDashboard extends Component {
         });
         }
     viewContracts(){
-        this.actionService = useService("action")
+//        this.actionService = useService("action")
         let today = moment().locale('en').format('YYYY/MM/DD')
         console.log('today:',  today, moment.locale())
         let domain = ['|','|',['end_date', '>', today],
@@ -134,7 +136,7 @@ export class DataDashboard extends Component {
         });
     }
     viewThisDayRequests(){
-        this.actionService = useService("action")
+//        this.actionService = useService("action")
         let today = moment().locale('en').format('YYYY/MM/DD')
         let domain = [['request_date', '=', today]]
         this.actionService.doAction({
@@ -151,7 +153,7 @@ export class DataDashboard extends Component {
 
 
     viewNewRequests(){
-            this.actionService = useService("action")
+//            this.actionService = useService("action")
         let domain = [['state', '=', 'draft']]
 
         this.actionService.doAction({
@@ -166,7 +168,7 @@ export class DataDashboard extends Component {
         });
         }
     viewLoadingPermit(){
-            this.actionService = useService("action")
+//            this.actionService = useService("action")
         let domain = [['state', '=', 'loading_permit']]
 
         this.actionService.doAction({
@@ -181,7 +183,7 @@ export class DataDashboard extends Component {
         });
         }
     viewLoadingInfo(){
-            this.actionService = useService("action")
+//            this.actionService = useService("action")
         let domain = [['state', '=', 'loading_info']]
 
         this.actionService.doAction({
@@ -196,7 +198,7 @@ export class DataDashboard extends Component {
         });
         }
     viewCargoDocument(){
-            this.actionService = useService("action")
+//            this.actionService = useService("action")
         let domain = [['state', '=', 'cargo_document']]
 
         this.actionService.doAction({
@@ -205,7 +207,7 @@ export class DataDashboard extends Component {
 //            res_id: this.actionId,
             views: [[false, "list"], [false, "form"]],
             type: "ir.actions.act_window",
-            view_mode: "list",
+            view_mode: "list,form",
             domain: domain,
             target: "current",
         });

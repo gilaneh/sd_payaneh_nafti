@@ -23,7 +23,8 @@ class SdPayanehNaftiDrivers(models.Model):
 
     name = fields.Char(required=True,)
     description = fields.Char()
-    card_no = fields.Char()
+    melli_code = fields.Char(required=False,)
+    card_no = fields.Char(required=True,)
     # image_1920 = fields.Image(default=_default_image)
     image_1920 = fields.Image()
 
