@@ -77,7 +77,7 @@ class ReportSdPayanehNaftiContractMonthly(models.AbstractModel):
             unit = dict(registration._fields['unit'].selection).get(registration.unit)
 
         header = {
-            'contract_no': registration.contract_no,
+            'contract_no': registration.contract_no + f'-{registration.order_no}' if registration.order_no else '',
             'amount': registration.amount,
             'unit': unit,
             'buyer': registration.buyer.name,
