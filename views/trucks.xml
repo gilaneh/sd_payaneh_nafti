@@ -58,6 +58,10 @@
                         </group>
                         <group>
                             <field name="card_no" />
+                            <field name="front_container" />
+                            <field name="middle_container" />
+                            <field name="back_container" />
+                            <field name="total" />
 
                         </group>
 

@@ -34,6 +34,7 @@
             </field>
         </record>
 
+
         <record model="ir.ui.view" id="sd_payaneh_nafti_input_info_manage_list">
             <field name="name">Input Information Mange</field>
             <field name="model">sd_payaneh_nafti.input_info</field>

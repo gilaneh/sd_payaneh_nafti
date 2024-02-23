@@ -21,9 +21,17 @@ class SdPayanehNaftiTrucks(models.Model):
     plate_3 = fields.Char(required=True,)
     plate_4 = fields.Char(required=True,)
     card_no = fields.Char()
+    front_container = fields.Integer(required=True, default=12000)
+    middle_container = fields.Integer(required=True, default=8000)
+    back_container = fields.Integer(required=True, default=12000)
+    total = fields.Integer(compute='_total')
     description = fields.Html()
 
-
+    @api.onchange('front_container', 'middle_container', 'back_container')
+    def _total(self):
+        # It calculates the total amount of tanker containers
+        for rec in self:
+            rec.total = rec.front_container + rec.middle_container + rec.back_container
     @api.constrains('name')
     def _check_project_unique(self):
         record_count = self.search_count([('name', '=', self.name),

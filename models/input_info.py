@@ -61,6 +61,9 @@ class SdPayanehNaftiInputInfo(models.Model):
     plate_2 = fields.Char(related='truck_no.plate_2',)
     plate_3 = fields.Char(related='truck_no.plate_3',)
     plate_4 = fields.Char(related='truck_no.plate_4',)
+    # front_container = fields.Integer(related='truck_no.front_container')
+    # middle_container = fields.Integer(related='truck_no.middle_container')
+    # back_container = fields.Integer(related='truck_no.back_container')
     front_container = fields.Integer(required=True,)
     middle_container = fields.Integer(required=True,)
     back_container = fields.Integer(required=True,)
@@ -151,6 +154,12 @@ class SdPayanehNaftiInputInfo(models.Model):
         #     drivers = drivers_model.search([('name', '=', rec.driver)])
         #     if len(drivers) == 1:
         #         rec.write({'driver_name': drivers.id})
+
+    @api.onchange('truck_no')
+    def _truck_changed(self):
+        self.front_container = self.truck_no.front_container
+        self.middle_container = self.truck_no.middle_container
+        self.back_container = self.truck_no.back_container
 
     @api.onchange('meter_no')
     def onchange_meter_no(self):
