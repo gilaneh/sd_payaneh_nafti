@@ -649,7 +649,7 @@
             <field name="name">Document Cargo State</field>
             <field name="res_model">sd_payaneh_nafti.input_info</field>
             <field name="view_mode">tree,form,pivot,graph</field>
-            <field name="domain">[('state', 'in', ['document_cargo'])]</field>
+            <field name="domain">[('state', 'in', ['cargo_document'])]</field>
             <field name="view_ids" eval="[(5, 0, 0),
                 (0, 0, {'view_mode': 'tree', 'view_id': ref('sd_payaneh_nafti_input_info_list_1')}),
                 (0, 0, {'view_mode': 'form', 'view_id': ref('sd_payaneh_nafti_input_info_form_1')})]"/>
