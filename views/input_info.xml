@@ -481,14 +481,22 @@
 
                         </group>
                         <group>
-                                <field name="weighbridge" />
+                                <field name="weighbridge" required="1" />
+                                <separator/>
+<!--                            <label for="totalizer_start"/>-->
+<!--                                <div class="row">-->
+                                    <field name="totalizer_lasts" readonly="1"/>
 
-                                <field name="totalizer_start"
-                                       attrs="{'invisible': [('weighbridge', '=', 'yes')], 'required':[('weighbridge', '=', 'no')]}"/>
-                                <field name="totalizer_end"
-                                       attrs="{'invisible': [('weighbridge', '=', 'yes')], 'required':[('weighbridge', '=', 'no')]}"/>
-                                <field name="totalizer_difference"
-                                       attrs="{'invisible': [('weighbridge', '=', 'yes')], 'required':[('weighbridge', '=', 'no')]}"/>
+                                    <field name="totalizer_start"
+                                           attrs="{'invisible': [('weighbridge', '=', '1')], 'required':[('weighbridge', '=', 'no')]}"/>
+                                <separator/>
+<!--                                </div>-->
+                                    <field name="totalizer_end"
+                                           attrs="{'invisible': [('weighbridge', '=', '1')], 'required':[('weighbridge', '=', 'no')]}"/>
+                                    <field name="totalizer_difference"
+                                           attrs="{'invisible': [('weighbridge', '=', '1')], 'required':[('weighbridge', '=', 'no')]}"/>
+
+                                <separator/>
 
                                 <field name="tanker_empty_weight"
                                        attrs="{'invisible': [('weighbridge', '=', 'no')], 'required':[('weighbridge', '=', 'yes')]}"/>

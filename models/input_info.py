@@ -100,8 +100,9 @@ class SdPayanehNaftiInputInfo(models.Model):
                                   ('8', '8'),
                                   ('0', 'Master'),
                                   ], required=False,)
+    totalizer_lasts = fields.Html(required=False, readonly=True)
     totalizer_start = fields.Integer(required=False,)
-    totalizer_end = fields.Integer(required=False,)
+    totalizer_end = fields.Integer(required=False, help="The last Totalizer End as start")
     totalizer_difference = fields.Integer(required=False, compute='_totalizer_difference')
     weighbridge = fields.Selection([('no', 'No'), ('yes', 'Yes')], default='no')
     tanker_empty_weight = fields.Integer(required=False,)
@@ -165,9 +166,10 @@ class SdPayanehNaftiInputInfo(models.Model):
     def onchange_meter_no(self):
         last_input = self.search([('meter_no', '=', self.meter_no),
                                   ('totalizer_end', '>', 0)],
-                                 order='totalizer_end desc', limit=1)
+                                 order='id,totalizer_end desc', limit=5)
         if last_input:
-            self.totalizer_start = last_input.totalizer_end
+            self.totalizer_start = last_input[0].totalizer_end
+            self.totalizer_lasts = f'{last_input[1].totalizer_end:,}<br>{last_input[2].totalizer_end:,}<br>{last_input[3].totalizer_end:,}'
 
     @api.onchange('document_no')
     def onchange_document_no(self):
