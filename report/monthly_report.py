@@ -13,6 +13,8 @@ class ReportSdPayanehNaftiMonthly(models.AbstractModel):
     _description = 'Monthly Report'
 
     # ########################################################################################
+    def get_report_values(self, docids, data=None):
+        return self._get_report_values(docids, data)
     @api.model
     def _get_report_values(self, docids, data=None):
         errors = []

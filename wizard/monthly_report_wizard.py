@@ -31,6 +31,12 @@ class SdPayanehNaftiReportMonthly(models.TransientModel):
         data = {'form_data': read_form}
 
         return self.env.ref('sd_payaneh_nafti.monthly_report').report_action(self, data=data)
+    # #############################################################################
+    def monthly_xls_report(self):
+        read_form = self.read()[0]
+        data = {'form_data': read_form}
+
+        return self.env.ref('sd_payaneh_nafti.monthly_xls_report').report_action(self, data=data)
 
 
     def _year_selector(self):
