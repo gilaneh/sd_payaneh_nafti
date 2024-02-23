@@ -74,6 +74,7 @@ class ReportSdPayanehNaftiMeterReport(models.AbstractModel):
             meter_data.append(data)
 
         totalizer_weighbridge = list([t for t in this_date_input if t.weighbridge == 'yes'])
+        totalizer_weighbridge = sorted(totalizer_weighbridge, key=lambda r: (r.meter_no, r.totalizer_start))
         totalizer_weighbridge_count = len(totalizer_weighbridge)
         totalizer_weighbridge_sum = sum(list([r.totalizer_difference for r in totalizer_weighbridge]))
         totalizer_sum = sum(list([t.totalizer_difference for t in this_date_input]))

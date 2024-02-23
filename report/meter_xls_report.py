@@ -156,7 +156,7 @@ class ReportSdPayanehNaftiMeterXlsReport(models.AbstractModel):
             totalizer_difference = 0
 
 
-            sheet.write(row_no, col, 'باسکول', bold_center)
+            sheet.write(row_no, col, meter_input.meter_no, bold_center)
             sheet.write(row_no, col + 1, meter_input.totalizer_start, warning_bg if diff_s else '')
             sheet.write(row_no, col + 2, meter_input.totalizer_end, warning_bg if diff_e else '' )
             sheet.write(row_no, col + 3, meter_input.totalizer_difference, )

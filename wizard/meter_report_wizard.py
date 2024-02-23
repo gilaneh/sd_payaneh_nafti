@@ -72,6 +72,7 @@ class SdPayanehNaftiReportMeterReport(models.TransientModel):
         else:
             self.meter_comment = ''
 
+        # todo: data must be taken from 'report.sd_payaneh_nafti.meter_report_template'
 
         this_date_input = self.env['sd_payaneh_nafti.input_info'].search([('loading_info_date', '=', self.meter_report_date),])
         meter_no_list = [ '1', '2', '3', '4', '5', '6', '7', '8', '0']
@@ -88,12 +89,14 @@ class SdPayanehNaftiReportMeterReport(models.TransientModel):
                 '''
         meter_amount_sum = 0
         truck_count_sum = 0
+        meter_data_inputs = list(filter(lambda r: r.weighbridge == 'no', this_date_input))
+
         for meter_no in meter_no_list:
 
-            truck_count = len(list([ii.totalizer_start for ii in this_date_input if ii.meter_no == meter_no]))
+            truck_count = len(list([ii.totalizer_start for ii in meter_data_inputs if ii.meter_no == meter_no]))
             truck_count_sum = truck_count_sum + truck_count
-            totalizer_start = sorted(list([ii.totalizer_start for ii in this_date_input if ii.meter_no == meter_no]))
-            totalizer_end = sorted(list([ii.totalizer_end for ii in this_date_input if ii.meter_no == meter_no]))
+            totalizer_start = sorted(list([ii.totalizer_start for ii in meter_data_inputs if ii.meter_no == meter_no]))
+            totalizer_end = sorted(list([ii.totalizer_end for ii in meter_data_inputs if ii.meter_no == meter_no]))
             first_totalizer = min(totalizer_start) if totalizer_start else 0
             last_totalizer = max(totalizer_end) if totalizer_end else 0
             meter_amounts = last_totalizer - first_totalizer
@@ -114,8 +117,10 @@ class SdPayanehNaftiReportMeterReport(models.TransientModel):
                     '''
             meter_data = meter_data + data
 
-        totalizer_weighbridge_sum = sum(list([t.totalizer_difference for t in this_date_input if t.weighbridge == 'yes']))
-        totalizer_sum = sum(list([t.totalizer_difference for t in this_date_input ]))
+        totalizer_weighbridge = list([t for t in this_date_input if t.weighbridge == 'yes'])
+        totalizer_weighbridge_count = len(totalizer_weighbridge)
+        totalizer_weighbridge_sum = sum(list([r.totalizer_difference for r in totalizer_weighbridge]))
+        totalizer_sum = sum(list([t.totalizer_difference for t in this_date_input]))
 
         metre_weighbridget_deff = meter_amount_sum + totalizer_weighbridge_sum - totalizer_sum
 
@@ -129,6 +134,7 @@ class SdPayanehNaftiReportMeterReport(models.TransientModel):
                 <div class="row border-dark border-bottom">
                     <div class="col-8 text-right">جمع خالص میتر در بارگیری از باسکول</div>
                     <div class="col-2">{totalizer_weighbridge_sum}</div>
+                    <div class="col-2">{totalizer_weighbridge_count}</div>
                 </div>
                 <div class="row border-dark border-bottom">
                     <div class="col-8 text-right">مقدار اسناد بارگیری توسط میتر و باسکول</div>
