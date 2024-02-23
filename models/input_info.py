@@ -169,7 +169,10 @@ class SdPayanehNaftiInputInfo(models.Model):
                                  order='id,totalizer_end desc', limit=5)
         if last_input:
             self.totalizer_start = last_input[0].totalizer_end
-            self.totalizer_lasts = f'{last_input[1].totalizer_end:,}<br>{last_input[2].totalizer_end:,}<br>{last_input[3].totalizer_end:,}'
+            totalizer_lasts = []
+            for rec in last_input:
+                totalizer_lasts.append(f'{rec.totalizer_end:,}<br>')
+            self.totalizer_lasts = ''.join(totalizer_lasts)
 
     @api.onchange('document_no')
     def onchange_document_no(self):
