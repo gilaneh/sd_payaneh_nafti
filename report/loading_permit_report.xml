@@ -45,5 +45,16 @@
         <field name="binding_type">report</field>
 
     </record>
+    <record id="loading_permit_html_report" model="ir.actions.report">
+        <field name="name">Loading Permit</field>
+        <field name="model">sd_payaneh_nafti.input_info</field>
+        <field name="report_type">qweb-html</field>
+<!--        <field name="report_type">xlsx</field>-->
+<!--        <field name="report_type">qweb-pdf</field>-->
+        <field name="report_name">sd_payaneh_nafti.loading_permit_report_template</field>
+        <field name="report_file">sd_payaneh_nafti.loading_permit_report_template</field>
+        <field name="print_report_name">'LoadingPermit-%s' % object.document_no </field>
+        <field name="paperformat_id" ref="loading_permit_report_a5"/>
+    </record>
 
 </odoo>

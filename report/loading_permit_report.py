@@ -55,7 +55,7 @@ class ReportSdPayanehNaftiLoadingPermit(models.AbstractModel):
             doc_data = {
                         # 'buyer': str(input_record.buyer.name),
                         # 'contractor': str(input_record.contractor.name),
-                        'document_no': input_record.document_no,
+                        'document_no': str(input_record.document_no),
                         'contract_no': contract_no,
                         'user_name': self.env.user.name,
                         'tanker_no': tanker_no,

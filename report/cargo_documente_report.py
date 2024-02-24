@@ -54,7 +54,7 @@ class ReportSdPayanehNaftiCargoDocument(models.AbstractModel):
                 contract_no += '-' + str(input_record.registration_no.order_no)
 
             doc_data = {
-                'document_no': input_record.document_no,
+                'document_no': str(input_record.document_no),
                 'contract_no': contract_no,
                 'issue_date': issue_date,
                 'issue_time': date_time['time'],
