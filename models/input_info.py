@@ -41,21 +41,21 @@ class SdPayanehNaftiInputInfo(models.Model):
     remain_amount = fields.Float(compute='_remain_amount')
     remain_amount_approx = fields.Float(compute='_remain_amount')
     amount = fields.Float()
-    document_no = fields.Integer(required=True, copy=False, readonly=False,
+    document_no = fields.Integer(required=True, copy=False, readonly=False, tracking=True,
                                  default=lambda self: self.search([], order='document_no desc', limit=1).document_no + 1)
     request_date = fields.Date(default=lambda self: datetime.now(pytz.timezone(self.env.context.get('tz', 'Asia/Tehran'))), required=True,)
-    registration_no = fields.Many2one('sd_payaneh_nafti.contract_registration', required=True,
+    registration_no = fields.Many2one('sd_payaneh_nafti.contract_registration', required=True, tracking=True,
                                       default=lambda self: self.env.context.get('registration_no', False))
     date_validation = fields.Boolean(related='registration_no.date_validation', store=False)
     contract_no = fields.Char(related='registration_no.contract_no',)
     order_no = fields.Char(related='registration_no.order_no')
     buyer = fields.Many2one(related='registration_no.buyer')
     contractors = fields.Many2many(related='registration_no.contractors')
-    contractor = fields.Many2one('sd_payaneh_nafti.contractors', required=True,)
+    contractor = fields.Many2one('sd_payaneh_nafti.contractors', required=True, tracking=True,)
     driver = fields.Many2one('sd_payaneh_nafti.drivers', required=True,)
     driver_black_list = fields.Boolean(related='driver.black_list')
     card_no = fields.Char(related='driver.card_no')
-    truck_no = fields.Many2one('sd_payaneh_nafti.trucks', required=True,)
+    truck_no = fields.Many2one('sd_payaneh_nafti.trucks', required=True, tracking=True,)
     truck_black_list = fields.Boolean(related='truck_no.black_list')
     plate_1 = fields.Char(related='truck_no.plate_1',)
     plate_2 = fields.Char(related='truck_no.plate_2',)
@@ -76,7 +76,7 @@ class SdPayanehNaftiInputInfo(models.Model):
                                               ('f', 'F'),
                                               ('g', 'G'),
                                               ('h', 'H'),
-                                              ], required=True, default='h')
+                                              ], required=True, default='h', tracking=True)
 
     loading_no = fields.Char(copy=False, readonly=True, )
     # todo: timezone
@@ -84,11 +84,11 @@ class SdPayanehNaftiInputInfo(models.Model):
     loading_info_date = fields.Date(copy=False, default=lambda self: datetime.now(pytz.timezone(self.env.context.get('tz', 'Asia/Tehran'))))
     # driver = fields.Char(required=True,)
 
-    sp_gr = fields.Float( string='SP. GR.', required=True, default=0.7252, store=True, readonly=True)
+    sp_gr = fields.Float( string='SP. GR.', required=True, default=0.3, store=True, readonly=True)
     # sp_gr = fields.Many2one('sd_payaneh_nafti.spgr', string='SP. GR.', required=True, default=0.7252)
-    temperature = fields.Integer(string='Temp. (C)', required=True, default=30)
+    temperature = fields.Integer(string='Temp. (C)', required=True, default=30, tracking=True)
     temperature_f = fields.Float(string='Temp. (F)', compute='_temperature_f', digits=(12, 1))
-    pressure = fields.Float(string='Pressure (bar)', required=True, default=2.5)
+    pressure = fields.Float(string='Pressure (bar)', required=True, default=2.5, tracking=True)
     pressure_psi = fields.Integer(compute='_pressure_psi')
     meter_no = fields.Selection([ ('1', '1'),
                                   ('2', '2'),
@@ -99,20 +99,20 @@ class SdPayanehNaftiInputInfo(models.Model):
                                   ('7', '7'),
                                   ('8', '8'),
                                   ('0', 'Master'),
-                                  ], required=False,)
+                                  ], required=False, tracking=True,)
     totalizer_lasts = fields.Html(required=False, readonly=True)
-    totalizer_start = fields.Integer(required=False,)
-    totalizer_end = fields.Integer(required=False, help="The last Totalizer End as start")
+    totalizer_start = fields.Integer(required=False, tracking=True,)
+    totalizer_end = fields.Integer(required=False, tracking=True, help="The last Totalizer End as start")
     totalizer_difference = fields.Integer(required=False, compute='_totalizer_difference')
-    weighbridge = fields.Selection([('no', 'No'), ('yes', 'Yes')], default='no')
-    tanker_empty_weight = fields.Integer(required=False,)
-    tanker_full_weight = fields.Integer(required=False,)
+    weighbridge = fields.Selection([('no', 'No'), ('yes', 'Yes')], default='no', tracking=True)
+    tanker_empty_weight = fields.Integer(required=False, tracking=True,)
+    tanker_full_weight = fields.Integer(required=False, tracking=True,)
     tanker_pure_weight = fields.Integer(required=False, compute='_tanker_pure_weight')
-    evacuation_box_seal = fields.Char(required=False, default='SPT')
-    compartment_1 = fields.Char(required=False, default='SPT')
-    compartment_2 = fields.Char(required=False, default='SPT')
-    compartment_3 = fields.Char(required=False, default='SPT')
-    correction_factor = fields.Float(digits=(12, 5), required=True, default=1.0)
+    evacuation_box_seal = fields.Char(required=False, default='SPT', tracking=True)
+    compartment_1 = fields.Char(required=False, default='SPT', tracking=True)
+    compartment_2 = fields.Char(required=False, default='SPT', tracking=True)
+    compartment_3 = fields.Char(required=False, default='SPT', tracking=True)
+    correction_factor = fields.Float(digits=(12, 5), required=True, default=1.0, tracking=True)
     # api_box_locker = fields.Many2one('sd_payaneh_nafti.lockers')
     # compartment_locker_1 = fields.Many2one('sd_payaneh_nafti.lockers')
     # compartment_locker_2 = fields.Many2one('sd_payaneh_nafti.lockers')

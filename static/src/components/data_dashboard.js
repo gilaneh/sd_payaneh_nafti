@@ -11,7 +11,7 @@
 
 export class DataDashboard extends Component {
     setup(){
-//        console.log('company:', this.env.services)
+        console.log('company:', this.env.services)
 
         this.state = useState({
             spgr: {
