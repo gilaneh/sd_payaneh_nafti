@@ -246,16 +246,17 @@
                     <header>
                         <button name="loading_permit" states="draft" string="Loading Permit" type="object"
                                 class="oe_highlight" data-hotkey="l"/>
-                        <button name="print_loading_permit" states="loading_permit,loading_info" string="Print Loading Permit" type="object"
+                        <button name="print_loading_permit" states="loading_permit,loading_info,done" string="Print Loading Permit" type="object"
                                 class="oe_highlight" />
-                        <button name="loading_info" states="loading_info,cargo_document" string="Loading Info" type="object"
+                        <button name="loading_info" states="loading_info,cargo_document,done" string="Loading Info" type="object"
                                 class="oe_highlight" />
-                        <button name="print_cargo_document" states="cargo_document" string="Print Cargo Document" type="object"
+                        <button name="print_cargo_document" states="cargo_document,done" string="Print Cargo Document" type="object"
                                 class="oe_highlight" />
-                        <button name="input_done" states="cargo_document" string="Done" type="object"
+                        <button name="input_done" states="cargo_document,finished" string="Done" type="object"
                                 class="oe_highlight"  />
                         <button name="input_finished"  string="Finished" type="object"
                                 class="oe_highlight" groups="sd_payaneh_nafti.group_sd_payaneh_nafti_admins" />
+
 
 
                         <field name="state" widget="statusbar"
