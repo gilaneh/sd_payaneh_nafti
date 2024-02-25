@@ -55,113 +55,43 @@ class ReportSdPayanehNaftiMonthlyXlsReport(models.AbstractModel):
         sheet.write(row_no, col + 1, 'گزارش ماهیانه', bold)
         sheet.write(row_no, col + 3, report_data['dates'][0], bold)
         sheet.write(row_no, col + 5, report_data['dates'][1], bold)
-        return
         next(row)
-        sheet.write(row_no, col, 'میتر', bold_center_bg)
-        sheet.write(row_no, col + 1, 'توتالایزر ابتدایی', bold_center_bg)
-        sheet.write(row_no, col + 2, 'توتالایزر انتهایی', bold_center_bg)
-        sheet.write(row_no, col + 3, 'مقدار میتر', bold_center_bg)
-        sheet.write(row_no, col + 4, 'تعداد', bold_center_bg)
-        row_no = next(row)
-        for data in report_data['meter_data']:
-            sheet.write(row_no, col, data['meter_no'] if data['meter_no'] else 'Master', center)
-            sheet.write(row_no, col + 1, data['first_totalizer'], )
-            sheet.write(row_no, col + 2, data['last_totalizer'], )
-            sheet.write(row_no, col + 3, data['meter_amounts'], )
-            sheet.write(row_no, col + 4, data['truck_count'], center)
-            row_no = next(row)
-        sheet.write(row_no, col, 'جمع خالص بارگیری شده از میتر', bold)
-        sheet.write(row_no, col + 3, report_data['meter_amount_sum'], bold)
-        sheet.write(row_no, col + 4, report_data['truck_count_sum'], bold_center)
-        row_no = next(row)
-        sheet.write(row_no, col, 'جمع خالص میتر در بارگیری از باسکول', bold)
-        sheet.write(row_no, col + 3, report_data['totalizer_weighbridge_sum'], bold)
-        sheet.write(row_no, col + 4, report_data['totalizer_weighbridge_count'], bold_center)
-        row_no = next(row)
-        sheet.write(row_no, col, 'مقدار اسناد بارگیری توسط میتر و باسکول', bold)
-        sheet.write(row_no, col + 3, report_data['totalizer_sum'], bold)
-        row_no = next(row)
-        sheet.write(row_no, col, 'اختلاف بارگیری میتر و باسکول با اسناد صادر شده', bold)
-        sheet.write(row_no, col + 3, report_data['metre_weighbridget_deff'], bold)
-
-        next(row)
-        next(row)
-        next(row)
-        for meter_no, meter_inputs in report_data['meter_inputs']:
-            row_no = next(row)
-            sheet.write(row_no, col, f' میتر {meter_no if meter_no else "Master"}', bold_center_bg)
-            sheet.write(row_no, col + 1, 'توتالایزر ابتدایی', bold_center_bg)
-            sheet.write(row_no, col + 2, 'توتالایزر انتهایی', bold_center_bg)
-            sheet.write(row_no, col + 3,  'مقدار میتر', bold_center_bg)
-            sheet.write(row_no, col + 4,  'اختلاف توتالایزر', bold_center_bg)
-            sheet.write(row_no, col + 5, 'باسکول دارد', bold_center_bg)
-            sheet.write(row_no, col + 6, 'وزن خالی نفتکش', bold_center_bg )
-            sheet.write(row_no, col + 7, 'وزن پر نفتکش', bold_center_bg)
-            sheet.write(row_no, col + 8, 'وزن خالص نفتکش', bold_center_bg)
-            sheet.write(row_no, col + 9, 'شماره سند', bold_center_bg)
-            sheet.write(row_no, col + 10, 'شماره قرارداد', bold_center_bg)
-            row_no = next(row)
-            totalizer_end = 'first'
-            for index, meter_input in enumerate(meter_inputs):
-                diff_s = False
-                diff_e = False
-                totalizer_difference = 0
-                if totalizer_end != 'first' and totalizer_end != meter_input.totalizer_start:
-                    diff_s = True
-                    totalizer_difference = meter_input.totalizer_start - totalizer_end
-                if index > 0 and index + 1 != len(meter_inputs) and meter_input.totalizer_end != meter_inputs[index + 1].totalizer_start:
-                    diff_e = True
-
-                sheet.write(row_no, col, meter_no, bold_center)
-                sheet.write(row_no, col + 1, meter_input.totalizer_start, warning_bg if diff_s else '')
-                sheet.write(row_no, col + 2, meter_input.totalizer_end, warning_bg if diff_e else '' )
-                sheet.write(row_no, col + 3, meter_input.totalizer_difference, )
-                sheet.write(row_no, col + 4, totalizer_difference, )
-                sheet.write(row_no, col + 5, meter_input.weighbridge, center )
-                sheet.write(row_no, col + 6, meter_input.tanker_empty_weight, )
-                sheet.write(row_no, col + 7, meter_input.tanker_full_weight, )
-                sheet.write(row_no, col + 8, meter_input.tanker_pure_weight, )
-                sheet.write(row_no, col + 9, meter_input.document_no, )
-                sheet.write(row_no, col + 10, meter_input.registration_no.registration_no, )
-                totalizer_end = meter_input.totalizer_end
-                row_no = next(row)
-
-
-        row_no = next(row)
-        sheet.write(row_no, col, f' باسکول ', bold_center_bg)
-        sheet.write(row_no, col + 1, 'توتالایزر ابتدایی', bold_center_bg)
-        sheet.write(row_no, col + 2, 'توتالایزر انتهایی', bold_center_bg)
-        sheet.write(row_no, col + 3, 'مقدار میتر', bold_center_bg)
-        sheet.write(row_no, col + 4, 'اختلاف توتالایزر', bold_center_bg)
-        sheet.write(row_no, col + 5, 'باسکول دارد', bold_center_bg)
-        sheet.write(row_no, col + 6, 'وزن خالی نفتکش', bold_center_bg)
-        sheet.write(row_no, col + 7, 'وزن پر نفتکش', bold_center_bg)
-        sheet.write(row_no, col + 8, 'وزن خالص نفتکش', bold_center_bg)
-        sheet.write(row_no, col + 9, 'شماره سند', bold_center_bg)
-        sheet.write(row_no, col + 10, 'شماره قرارداد', bold_center_bg)
         row_no = next(row)
 
-        for index, meter_input in enumerate(report_data['totalizer_weighbridge']):
-            diff_s = False
-            diff_e = False
-            totalizer_difference = 0
+
+        sheet.write(row_no, col, f' ردیف ', bold_center_bg)
+        sheet.write(row_no, col + 1, 'شماره نامه', bold_center_bg)
+        sheet.write(row_no, col + 2, 'شماره قرارداد', bold_center_bg)
+        sheet.write(row_no, col + 3, 'شماره حواله', bold_center_bg)
+        sheet.write(row_no, col + 4, 'خریدار ', bold_center_bg)
+        sheet.write(row_no, col + 5, 'مقدار ', bold_center_bg)
+        sheet.write(row_no, col + 6, 'واحد ', bold_center_bg)
+        sheet.write(row_no, col + 7, 'نوع ارسال ', bold_center_bg)
+        sheet.write(row_no, col + 8, 'نوع فروش', bold_center_bg)
+        sheet.write(row_no, col + 9, 'G.S.V. LITER', bold_center_bg)
+        sheet.write(row_no, col + 10, 'G.S.V. BBLS', bold_center_bg)
+        sheet.write(row_no, col + 11, 'M.T.', bold_center_bg)
+        sheet.write(row_no, col + 12, 'تعداد تانکر', bold_center_bg)
 
 
-            sheet.write(row_no, col, meter_input.meter_no, bold_center)
-            sheet.write(row_no, col + 1, meter_input.totalizer_start, warning_bg if diff_s else '')
-            sheet.write(row_no, col + 2, meter_input.totalizer_end, warning_bg if diff_e else '' )
-            sheet.write(row_no, col + 3, meter_input.totalizer_difference, )
-            sheet.write(row_no, col + 4, totalizer_difference, )
-            sheet.write(row_no, col + 5, meter_input.weighbridge, center )
-            sheet.write(row_no, col + 6, meter_input.tanker_empty_weight, )
-            sheet.write(row_no, col + 7, meter_input.tanker_full_weight, )
-            sheet.write(row_no, col + 8, meter_input.tanker_pure_weight, )
-            sheet.write(row_no, col + 9, meter_input.document_no, )
-            sheet.write(row_no, col + 10, meter_input.registration_no.registration_no, )
+        # return
+
+        for row_data_line in report_data['row_data_lines']:
+            col = 0
             row_no = next(row)
 
+            sheet.write(row_no, col, row_data_line[0], bold_center)
+            sheet.write(row_no, col + 1, row_data_line[1], bold_center)
+            sheet.write(row_no, col + 2, row_data_line[2], bold_center)
+            sheet.write(row_no, col + 3, row_data_line[3], bold_center)
+            sheet.write(row_no, col + 4, row_data_line[4], bold_center)
+            sheet.write(row_no, col + 5, row_data_line[5], bold_center)
+            sheet.write(row_no, col + 6, row_data_line[6], bold_center)
+            sheet.write(row_no, col + 7, row_data_line[7], bold_center)
+            sheet.write(row_no, col + 8, row_data_line[8], bold_center)
+            sheet.write(row_no, col + 9, row_data_line[9], bold_center)
+            sheet.write(row_no, col + 10, row_data_line[10], bold_center)
+            sheet.write(row_no, col + 11, row_data_line[11], bold_center)
+            sheet.write(row_no, col + 12, row_data_line[12], bold_center)
 
-        row_no = next(row)
-        sheet.write(row_no, col + 1, '', warning_bg )
-        sheet.write(row_no, col + 2, 'سلول نارنجی نشان دهنده اختلاف مابین پایان توتالایزیر یک سند و شروع تولاتایزر سند دیگر می باشد',  )
 
