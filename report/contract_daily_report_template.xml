@@ -246,7 +246,7 @@
                 <td class="px-1" t-esc="'%.5f' % row_data_line.cpl"></td>
                 <td class="px-1" t-esc="'%d' % row_data_line.final_tov_l"></td>
                 <td class="px-1" t-esc="'%d' % row_data_line.final_gsv_l"></td>
-                <td class="px-1" t-esc="'%d' % row_data_line.final_gsv_b"></td>
+                <td class="px-1" t-esc="'%d' % round(row_data_line.final_gsv_b)"></td>
                 <td class="px-1" t-esc="'%.5f' % row_data_line.tab_13"></td>
                 <td class="px-1" t-esc="'%.3f' % row_data_line.final_mt"></td>
                 <td class="px-1" t-esc="row_data_line.loading_no"></td>
