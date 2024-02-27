@@ -482,8 +482,9 @@ class SdPayanehNaftiInputInfo(models.Model):
 
     @api.model
     def get_requests(self):
-        today_date = date.today()
-        print(f'------------> today_date: {today_date}')
+        # today_date = date.today()
+        today_date = datetime.now(pytz.timezone(self.env.context.get('tz', 'Asia/Tehran'))).date()
+        # print(f'------------> today_date: {today_date}')
 
         open_requests = self.search([('state', 'not in', ['done', 'finished'])])
         this_day_requests = self.search([('request_date', '=', today_date)])

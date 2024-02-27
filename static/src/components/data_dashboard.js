@@ -95,6 +95,8 @@ export class DataDashboard extends Component {
         this.state.loading_permit.value = requests.loading_permit;
         this.state.loading_info.value = requests.loading_info;
         this.state.cargo_document.value = requests.cargo_document;
+        this.state.this_day_requests_count.status = moment().format("jYYYY/jMM/jDD");
+
     }
 
     viewSpgr(){
