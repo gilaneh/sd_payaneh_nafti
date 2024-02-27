@@ -149,6 +149,7 @@ export class DataDashboard extends Component {
             type: "ir.actions.act_window",
             view_mode: "list",
             domain: domain,
+            context: {'search_default_meter_no_group': 1},
             target: "current",
         });
     }
