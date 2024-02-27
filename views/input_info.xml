@@ -613,6 +613,18 @@
             <field name="context">{'search_default_registration_no_group': 0}</field>
         </record>
 
+        <record model="ir.actions.act_window" id="action_window_input_info_1_today">
+            <field name="name">All Requests of Today</field>
+            <field name="res_model">sd_payaneh_nafti.input_info</field>
+            <field name="view_mode">tree,form,pivot,graph</field>
+<!--            <field name="domain">[('request_date', '=', datetime.datetime.now())]</field>-->
+            <field name="domain">[('request_date', '=', context_today().strftime('%Y-%m-%d'))]</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('sd_payaneh_nafti_input_info_list_1')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('sd_payaneh_nafti_input_info_form_1')})]"/>
+            <field name="context">{'search_default_meter_no_group': 1}</field>
+        </record>
+
         <record model="ir.actions.act_window" id="action_window_input_info_1_new">
             <field name="name">New Request</field>
             <field name="res_model">sd_payaneh_nafti.input_info</field>
@@ -687,8 +699,14 @@
         <!-- ==================================================  Menu ====================-->
 
 
-        <menuitem name="New Request"
+        <menuitem name="Today"
                   sequence="30"
+                  id="sd_payaneh_nafti.input_info_1_menu_today"
+                  parent="sd_payaneh_nafti.payaneh_root_menu"
+                  action="action_window_input_info_1_today"/>
+
+        <menuitem name="New Request"
+                  sequence="35"
                   id="sd_payaneh_nafti.input_info_1_menu_new"
                   parent="sd_payaneh_nafti.payaneh_root_menu"
                   action="action_window_input_info_1_new"/>
