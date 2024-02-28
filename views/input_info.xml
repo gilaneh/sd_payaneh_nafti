@@ -576,7 +576,13 @@
                     <field name="driver" />
                     <field name="truck_no" />
                     <field name="meter_no" />
-                    <filter string="Last Week" name="last_week" domain="[('loading_date', '&gt;=', datetime.datetime.now() - datetime.timedelta(days=7))]"/>
+                    <filter string="Last Week" name="last_week" domain="[('request_date', '&gt;=', datetime.datetime.now() - datetime.timedelta(days=7))]"/>
+                    <filter string="Today" name="today" domain="[('request_date', '=', context_today().strftime('%Y-%m-%d'))]"/>
+                    <filter string="Yesterday" name="yesterday" domain="[('request_date', '=', (context_today() - datetime.timedelta(days=1)).strftime('%Y-%m-%d'))]"/>
+                    <filter string="2 Days ago" name="2_days_ago" domain="[('request_date', '=', (context_today() - datetime.timedelta(days=2)).strftime('%Y-%m-%d'))]"/>
+                    <filter string="3 Days ago" name="3_days_ago" domain="[('request_date', '=', (context_today() - datetime.timedelta(days=3)).strftime('%Y-%m-%d'))]"/>
+                    <filter string="4 Days ago" name="4_days_ago" domain="[('request_date', '=', (context_today() - datetime.timedelta(days=4)).strftime('%Y-%m-%d'))]"/>
+                    <filter string="5 Days ago" name="5_days_ago" domain="[('request_date', '=', (context_today() - datetime.timedelta(days=5)).strftime('%Y-%m-%d'))]"/>
                     <group>
                         <filter string="Registration" name="registration_no_group" context="{'group_by': 'registration_no'}" />
                         <filter string="Buyer" name="buyer_group" context="{'group_by': 'buyer'}" />
