@@ -28,7 +28,10 @@
                     </div>
                     <div class="row">
 <!--                        <DataCards name="'Remain Amount'" status="state.remain_amount.status" value="state.remain_amount.value"/>-->
-                        <DataCards onClick="viewThisDayRequests"  name="'This day requests'" status="state.this_day_requests_count.status" value="state.this_day_requests_count.value"  actionService="actionService"/>
+                        <DataCards onClick="()=>viewThisDayRequests(0)"   status="state.this_day_requests_count.status" value="state.this_day_requests_count.value"  actionService="actionService"/>
+                        <DataCards onClick="()=>viewThisDayRequests(-1)"  status="state.one_day_ago_count.status" value="state.one_day_ago_count.value"  actionService="actionService"/>
+                        <DataCards onClick="()=>viewThisDayRequests(-2)"  status="state.two_days_ago_count.status" value="state.two_days_ago_count.value"  actionService="actionService"/>
+                        <DataCards onClick="()=>viewThisDayRequests(-3)"  status="state.three_days_ago_count.status" value="state.three_days_ago_count.value"  actionService="actionService"/>
 <!--                        <DataCards name="'Open Requests'" status="state.open_requests.status" value="state.open_requests.value"/>-->
 <!--                        <DataCards name="'This day amount'" status="state.this_day_requests_amount.status" value="state.this_day_requests_amount.value"/>-->
 

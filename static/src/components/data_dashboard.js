@@ -31,7 +31,19 @@ export class DataDashboard extends Component {
                 status: "",
             },
             this_day_requests_count: {
-                value: 110,
+                value: 0,
+                status: "",
+            },
+            one_day_ago_count: {
+                value: 0,
+                status: "",
+            },
+            two_days_ago_count: {
+                value: 0,
+                status: "",
+            },
+            three_days_ago_count: {
+                value: 0,
                 status: "",
             },
             this_day_requests_amount: {
@@ -90,12 +102,18 @@ export class DataDashboard extends Component {
 //        this.state.spgr.status = moment(spgr[0].spgr_date).format("jYYYY/jMM/jDD");
         this.state.open_requests.value = requests.open_requests;
         this.state.this_day_requests_count.value = requests.this_day_requests_count;
+        this.state.one_day_ago_count.value = requests.one_day_ago_count;
+        this.state.two_days_ago_count.value = requests.two_days_ago_count;
+        this.state.three_days_ago_count.value = requests.three_days_ago_count;
         this.state.this_day_requests_amount.value = requests.this_day_requests_amount;
         this.state.new_requests.value = requests.new_requests;
         this.state.loading_permit.value = requests.loading_permit;
         this.state.loading_info.value = requests.loading_info;
         this.state.cargo_document.value = requests.cargo_document;
         this.state.this_day_requests_count.status = moment().format("jYYYY/jMM/jDD");
+        this.state.one_day_ago_count.status = moment().subtract(1, 'days').format("jYYYY/jMM/jDD");
+        this.state.two_days_ago_count.status = moment().subtract(2, 'days').format("jYYYY/jMM/jDD");
+        this.state.three_days_ago_count.status = moment().subtract(3, 'days').format("jYYYY/jMM/jDD");
 
     }
 
@@ -137,9 +155,10 @@ export class DataDashboard extends Component {
             target: "current",
         });
     }
-    viewThisDayRequests(){
+    viewThisDayRequests(day=0){
 //        this.actionService = useService("action")
-        let today = moment().locale('en').format('YYYY/MM/DD')
+        console.log('viewThisDayRequests', day)
+        let today = moment().locale('en').add(day, 'days').format('YYYY/MM/DD')
         let domain = [['request_date', '=', today]]
         this.actionService.doAction({
             name: "This day Requests",

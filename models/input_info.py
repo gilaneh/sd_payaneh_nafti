@@ -494,6 +494,9 @@ class SdPayanehNaftiInputInfo(models.Model):
         #   amount for metric tone is calculated based on final_mt
         #   so the remain amount of this two type of contracts should not be sum up.
         this_day_loaded = self.search([('loading_info_date', '=', today_date)])
+        one_day_ago_loaded = self.search([('loading_info_date', '=', today_date - timedelta(days=1))])
+        two_days_ago_loaded = self.search([('loading_info_date', '=', today_date- timedelta(days=2))])
+        three_days_ago_loaded = self.search([('loading_info_date', '=', today_date- timedelta(days=3))])
         this_day_requests_amount = round(sum([rec.amount for rec in this_day_loaded ]), 2)
         this_day_requests_amount = 0
 
@@ -509,6 +512,9 @@ class SdPayanehNaftiInputInfo(models.Model):
         data = {
             'open_requests': len(open_requests),
             'this_day_requests_count': this_day_requests_count,
+            'one_day_ago_count': len(one_day_ago_loaded),
+            'two_days_ago_count': len(two_days_ago_loaded),
+            'three_days_ago_count': len(three_days_ago_loaded),
             'this_day_requests_amount': this_day_requests_amount,
             'new_requests': new_requests,
             'loading_permit': loading_permit,
