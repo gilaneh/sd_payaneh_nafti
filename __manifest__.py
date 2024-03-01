@@ -19,7 +19,7 @@
     'version': '1.2.4',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'web', 'mail'],
+    'depends': ['base', 'web', 'mail', 'barcodes'],
 
     # always loaded
     'data': [
@@ -49,7 +49,7 @@
         'wizard/loading_permit_report_wizard.xml',
         'report/monthly_report_template.xml',
         'report/monthly_report.xml',
-        'wizard/monthly_report_wizard.xml',
+         'wizard/monthly_report_wizard.xml',
         'report/contract_monthly_report_template_export.xml',
         'report/contract_monthly_report_template.xml',
         'report/contract_monthly_report.xml',
