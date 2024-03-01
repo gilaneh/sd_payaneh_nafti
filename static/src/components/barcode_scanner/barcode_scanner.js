@@ -23,23 +23,44 @@ patch(DataDashboard.prototype, 'data_dashboard',{
         Component.env.bus.on('barcode_scanned', this, this._onBarcodeScanned);
 
     },
-    async _viewInputInfo(document_no){
-        const res_id = await this.orm.searchRead("sd_payaneh_nafti.input_info", [['document_no', '=', document_no]],['id'])
-        console.log('_viewInputInfo', document_no, res_id)
-
+    async _viewInputInfo(barcode){
+        const INPUT_INFO = 200;
+        const CONTRACT_REGISTRATION = 210;
+        let prefix = barcode.slice(0, 3)
+        let code_no = barcode.slice(4)
         let today = moment().locale('en').format('YYYY/MM/DD')
-        let domain = [['document_no', '=', document_no]]
-        this.actionService.doAction({
-            name: "This day Requests",
-            res_model: "sd_payaneh_nafti.input_info",
-            res_id: res_id[0].id,
-            views: [ [false, "form"]],
-            type: "ir.actions.act_window",
-            view_mode: "form",
-            domain: domain,
-//            context: {'search_default_meter_no_group': 1},
-            target: "new",
-        });
+        let res_id;
+        let domain;
+//        console.log('_viewInputInfo', document_no, prefix)
+        if (prefix == INPUT_INFO){
+            res_id = await this.orm.searchRead("sd_payaneh_nafti.input_info", [['document_no', '=', code_no]],['id'])
+//            domain = [['document_no', '=', document_no]]
+            this.actionService.doAction({
+                name: "",
+                res_model: "sd_payaneh_nafti.input_info",
+                res_id: res_id[0].id,
+                views: [ [false, "form"]],
+                type: "ir.actions.act_window",
+                view_mode: "form",
+//                domain: domain,
+    //            context: {'search_default_meter_no_group': 1},
+                target: "new",
+            });
+        }else if (prefix == CONTRACT_REGISTRATION){
+            res_id = await this.orm.searchRead("sd_payaneh_nafti.contract_registration", [['registration_no', '=', code_no]],['id'])
+            this.actionService.doAction({
+                name: "",
+                res_model: "sd_payaneh_nafti.contract_registration",
+                res_id: res_id[0].id,
+                views: [ [false, "form"]],
+                type: "ir.actions.act_window",
+                view_mode: "form",
+//                domain: domain,
+    //            context: {'search_default_meter_no_group': 1},
+                target: "new",
+            });
+        }
+
     },
 
 })

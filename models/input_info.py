@@ -411,7 +411,7 @@ class SdPayanehNaftiInputInfo(models.Model):
 
     def write(self, vals):
         # Changing the compartment_1 means that there are loading info entry. So, it moves the state to cargo_document.
-        if vals.get('compartment_1') or vals.get('compartment_locker_1'):
+        if vals.get('meter_no') or vals.get('compartment_locker_1'):
             vals['state'] = 'cargo_document'
 
         if not self.env.is_admin() and self.state == 'finished':

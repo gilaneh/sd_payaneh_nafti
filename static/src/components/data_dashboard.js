@@ -1,18 +1,19 @@
 /** @odoo-module */
     import { registry } from "@web/core/registry"
     const { Component, useRef, onMounted, useState } = owl
-    const { useEnv, onWillStart } = owl.hooks;
+    const { useEnv, onWillStart, onWillUnmount } = owl.hooks;
 
     import { useService } from "@web/core/utils/hooks"
     import { DataCards } from "./data_cards/data_cards"
-    import { InputCards } from "./input_cards/input_cards"
+//    import { InputCards } from "./input_cards/input_cards"
     const { DateTime, Settings } = luxon;
 
     const SERVER_DATE_FORMAT = "yyyy-MM-dd";
 
 export class DataDashboard extends Component {
     setup(){
-        console.log('company:', this.env.services)
+        let self = this;
+//        console.log('company:', this.env.services)
 
         this.state = useState({
             spgr: {
@@ -71,21 +72,28 @@ export class DataDashboard extends Component {
                 value: 0,
                 status: "",
             },
-            openInputInfo: {
-                value: 0,
-                status: "",
-            },
+//            openInputInfo: {
+//                value: 0,
+//                status: "",
+//            },
         })
 
         this.orm = useService("orm")
         this.actionService = useService("action")
-
+        let getRequestsInterval;
         onWillStart(async ()=>{
             await this.getSpgr()
             await this.getContracts()
             await this.getRequests()
+            getRequestsInterval = setInterval(this.getRequests, 30000)
+//            console.log('onWillStart', getRequestsInterval)
+        })
+        onWillUnmount(function(){
+//            console.log('onWillUnmount', getRequestsInterval)
+            clearInterval(getRequestsInterval)
         })
         this.viewSpgr = this.viewSpgr.bind(this);
+        this.getRequests = this.getRequests.bind(this);
         this.viewContracts = this.viewContracts.bind(this);
         this.viewThisDayRequests = this.viewThisDayRequests.bind(this);
         this.viewNewRequests = this.viewNewRequests.bind(this);
@@ -110,6 +118,8 @@ export class DataDashboard extends Component {
         this.state.remain_amount.value = contracts.remain_amount;
     }
     async getRequests(){
+//            console.log('getRequests:',  )
+
         let requests = await this.orm.call("sd_payaneh_nafti.input_info", "get_requests", [],{})
         requests = JSON.parse(requests)
 //        console.log('requests:', requests,  )
@@ -245,41 +255,9 @@ export class DataDashboard extends Component {
             target: "current",
         });
         }
-    async openInputInfo(e){
-//        console.log('openInputInfo', e)
-        let value = e.target.value;
-        if (e.target.tagName == 'BUTTON'){
-            value = e.target.previousSibling.value
-        }
-        if( e.keyCode == 13 || e.target.tagName == 'BUTTON'){
-            if(Number.isInteger(Number(value))){
-                this.state.openInputInfo.status = ''
-                const document = await this.orm.searchRead("sd_payaneh_nafti.input_info", [['document_no','=', Number(value)]],['id'])
-                if (document.length == 1){
-//                    console.log('document:', Number(value), document)
-                    this.actionService.doAction({
-//                                name: "Cargo Document",
-                        res_model: "sd_payaneh_nafti.input_info",
-                        res_id: document[0].id,
-                        views: [[false, "form"]],
-                        type: "ir.actions.act_window",
-                        view_mode: "form",
-//                                domain: domain,
-                        target: "new",
-                    });
-                }else{
-                    this.state.openInputInfo.status = 'Not found'
-                }
-            }else{
-                this.state.openInputInfo.status = 'Not found'
-            }
-
-//            console.log('openInputInfo value:', e.target.value, this)
-        }
-    }
 
 }
 
 DataDashboard.template = "data_dashboard"
-DataDashboard.components = { DataCards, InputCards }
+DataDashboard.components = { DataCards }
 registry.category("actions").add("data_dashboard", DataDashboard)
