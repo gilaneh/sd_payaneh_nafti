@@ -70,10 +70,10 @@ class ReportSdPayanehNaftiDaily(models.AbstractModel):
                                                                              ('loading_date', '<=', start_date)])
 
             final_gsv_b_all = [rec.final_gsv_b for rec in reg_inputs_all ]
-            sum_final_gsv_b = int(sum(final_gsv_b))
+            sum_final_gsv_b = round(sum(final_gsv_b))
             tanks_count = len(data)
-            remain_amount = d.registration_no.amount - int(sum(final_gsv_b_all))
-            remain_tanks = int((d.registration_no.amount - int(sum(final_gsv_b_all)) )/200)
+            remain_amount = d.registration_no.amount - round(sum(final_gsv_b_all))
+            remain_tanks = round((d.registration_no.amount - round(sum(final_gsv_b_all)) )/200)
             row_data_lines.append((index + 1,
                                    d.registration_no.contract_no,
                                    d.registration_no.order_no if d.registration_no.order_no else '',

@@ -102,7 +102,7 @@ class ReportSdPayanehNaftiMonthly(models.AbstractModel):
                                    self.type_name(unit, calendar),
                                    self.type_name(loading_type, calendar),
                                    self.type_name(contract_type, calendar),
-                                   int(sum(final_gsv_l)) or 0,
+                                   round(sum(final_gsv_l)) or 0,
                                    round(sum(final_gsv_b), 2) or 0,
                                    round(sum(final_mt), 3) or 0,
                                    len(data) or 0,
@@ -124,22 +124,22 @@ class ReportSdPayanehNaftiMonthly(models.AbstractModel):
         final_mt_internal = [rec.final_mt for rec in input_records if rec.registration_no.loading_type == 'internal']
         final_mt_export = [rec.final_mt for rec in input_records if rec.registration_no.loading_type == 'export']
         footer_data = {
-            'final_gsv_l_stock': int(sum(final_gsv_l_stock)),
+            'final_gsv_l_stock': round(sum(final_gsv_l_stock)),
             'final_gsv_b_stock': round(sum(final_gsv_b_stock), 2),
             'final_mt_stock': round(sum(final_mt_stock), 3),
             'tank_count_stock': len(final_gsv_l_stock),
 
-            'final_gsv_l_general': int(sum(final_gsv_l_general)),
+            'final_gsv_l_general': round(sum(final_gsv_l_general)),
             'final_gsv_b_general': round(sum(final_gsv_b_general), 2),
             'final_mt_general': round(sum(final_mt_general), 3),
             'tank_count_general': len(final_gsv_l_general),
 
-            'final_gsv_l_internal': int(sum(final_gsv_l_internal)),
+            'final_gsv_l_internal': round(sum(final_gsv_l_internal)),
             'final_gsv_b_internal': round(sum(final_gsv_b_internal), 2),
             'final_mt_internal': round(sum(final_mt_internal), 3),
             'tank_count_internal': len(final_gsv_l_internal),
 
-            'final_gsv_l_export': int(sum(final_gsv_l_export)),
+            'final_gsv_l_export': round(sum(final_gsv_l_export)),
             'final_gsv_b_export': round(sum(final_gsv_b_export), 2),
             'final_mt_export': round(sum(final_mt_export), 3),
             'tank_count_export': len(final_gsv_l_export),
