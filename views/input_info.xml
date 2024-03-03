@@ -17,7 +17,9 @@
 
                     <field name="document_no" />
                     <field name="loading_no" />
+                    <field name="request_date" />
                     <field name="loading_date" />
+                    <field name="loading_info_date" />
                     <field name="registration_no" />
                     <field name="contractor" />
                     <field name="driver" />
@@ -47,8 +49,8 @@
                     </header>
 <!--                    <field name="active" invisible="1"/>-->
 
-                    <field name="create_date" />
-                    <field name="write_date" />
+<!--                    <field name="create_date" />-->
+<!--                    <field name="write_date" />-->
                     <field name="document_no" />
                     <field name="loading_no" />
                     <field name="loading_date" />
