@@ -86,11 +86,12 @@ class ReportSdPayanehNaftiDaily(models.AbstractModel):
                                    remain_amount,
                                    remain_tanks,
                                    ))
-            footer_data['total_gsv_l'] += sum_final_gsv_b
+            footer_data['total_gsv_l'] += sum(final_gsv_b)
             footer_data['total_tanks'] += tanks_count
             footer_data['total_remain'] += d.registration_no.amount - (sum(final_gsv_b_all))
             footer_data['total_remain_tanks'] += remain_amount/200
 
+        footer_data['total_gsv_l'] = round(footer_data['total_gsv_l'])
         footer_data['total_remain'] = round(footer_data['total_remain'])
         footer_data['total_remain_tanks'] = round(footer_data['total_remain_tanks'])
 
