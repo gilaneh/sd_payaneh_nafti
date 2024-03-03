@@ -53,6 +53,7 @@
 <!--                    <field name="write_date" />-->
                     <field name="document_no" />
                     <field name="loading_no" />
+                    <field name="request_date" />
                     <field name="loading_date" />
                     <field name="loading_info_date" />
                     <field name="registration_no" />
