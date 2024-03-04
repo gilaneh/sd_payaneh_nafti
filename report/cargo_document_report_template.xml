@@ -21,9 +21,9 @@
                                     <div class="text-center">
                                         <div style="display:block; position:absolute;padding:0; margin:0px;
                                             padding-top:10px; padding-bottom:10px; text-align:center;">
-                                            <img t-att-src="'/report/barcode/Code128/c]'+doc_data['contract_no']+']'+doc_data['document_no']"
+                                            <img t-att-src="'/report/barcode/Code128/210_'+doc_data['document_no']"
                                                  style="width:350px;height:25px" t-att-alt="doc_data['document_no']"/>
-                                        <div style="font-family: sans-serif !important;" t-esc="'cargo: '+doc_data['contract_no']+' '+doc_data['document_no']"></div>
+                                        <div style="font-family: sans-serif !important;" t-esc="'cargo: ' + doc_data['document_no']"></div>
                                         </div>
 
                                         <div class="mt-0">

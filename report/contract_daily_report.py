@@ -47,6 +47,7 @@ class ReportSdPayanehNaftiContractDailyReport(models.AbstractModel):
         report_date = form_data.get('report_date') if 'report_date' in form_data.keys() else False
         date_format = '%Y-%m-%d'
         report_date = datetime.strptime(report_date, date_format).date()
+        g_start_date = report_date.strftime("%Y%m%d")
 
         if calendar == 'fa_IR':
             first_day = jdatetime.date.fromgregorian(date=report_date).replace(day=1)
@@ -156,11 +157,14 @@ class ReportSdPayanehNaftiContractDailyReport(models.AbstractModel):
 
         print(f'''
 
-          contract_record:
+contract_record:
 {contract_record}
           
-          errors:
+errors:
 {errors}
+
+g_start_date:
+{g_start_date}  {type(g_start_date)}
 
 ''')
 
@@ -169,6 +173,7 @@ class ReportSdPayanehNaftiContractDailyReport(models.AbstractModel):
             'docs': contract_record,
             'doc_ids': docids,
             'doc_model': 'sd_payaneh_nafti.input_info',
+            'report_date_g': g_start_date,
             'report_date': s_start_date,
             'loading_type': loading_type,
 

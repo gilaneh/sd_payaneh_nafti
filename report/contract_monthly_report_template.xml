@@ -5,7 +5,9 @@
         <template id="contract_monthly_report_page_header">
             <div class="text-center">
                 <div style="display:block; position:absolute;padding:0; margin:0px; padding-top:10px; padding-bottom:10px; text-align:center;">
-                    <img t-att-src="'/report/barcode/Code128/'+header['contract_no']" style="width:250px;height:25px" t-att-alt="header['contract_no']"/>
+                    <img t-att-src="'/report/barcode/Code128/230_'+g_date+'_'+registration_no" style="width:350px;height:25px" t-att-alt="header['contract_no']"/>
+                    <div style="font-family: sans-serif !important;" t-esc="'Monthly: ' + g_date + ' ' + registration_no"></div>
+
                 </div>
                 <div>
                     <img alt="Logo" t-att-src="'/logo?company=1'" t-att-alt="''"

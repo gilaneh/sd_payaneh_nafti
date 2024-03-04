@@ -42,6 +42,8 @@ class ReportSdPayanehNaftiContractMonthly(models.AbstractModel):
             first_day = first_day.togregorian()
             s_first_day = jdatetime.date.fromgregorian(date=first_day).strftime("%Y/%m/%d")
             s_last_day = jdatetime.date.fromgregorian(date=last_day).strftime("%Y/%m/%d")
+            g_first_day = first_day.strftime("%Y%m%d")
+            g_last_day = last_day.strftime("%Y%m%d")
 
 
         else:
@@ -52,7 +54,8 @@ class ReportSdPayanehNaftiContractMonthly(models.AbstractModel):
             last_day = next_month - timedelta(days=next_month.day)
             s_first_day = first_day.strftime("%Y-%m-%d")
             s_last_day = last_day.strftime("%Y-%m-%d")
-
+            g_first_day = first_day.strftime("%Y%m%d")
+            g_last_day = last_day.strftime("%Y%m%d")
         date_of_range = [first_day + timedelta(days=delta) for delta in range((last_day - first_day).days + 1)]
 
         input_records = self.env['sd_payaneh_nafti.input_info'].search([('request_date', '>=', first_day),
@@ -205,6 +208,8 @@ class ReportSdPayanehNaftiContractMonthly(models.AbstractModel):
             'loading_type': loading_type,
 
             'doc_data_list': doc_data_list,
+            'registration_no': registration.registration_no,
+            'g_date': f'{g_first_day}_{g_last_day}',
             'dates': [s_start_date, s_end_date],
 
             # 'input_record': input_record,

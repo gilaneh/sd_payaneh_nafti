@@ -7,8 +7,10 @@
             <div class="row mb-1 mx-0">
                 <div class="col-4">
                     <div style="padding:0; margin:0px; padding-top:0px; padding-bottom:10px; text-align:center;">
-                            <img t-att-src="'/report/barcode/Code128/'+contract_record['contract_no']" style="width:250px;height:25px" t-att-alt="contract_record['contract_no']"/>
-                        </div>
+                            <img t-att-src="'/report/barcode/Code128/220_'+report_date_g+'_'+contract_record['registration_no']" style="width:350px;height:25px" t-att-alt="contract_record['contract_no']"/>
+                        <div style="font-family: sans-serif !important;" t-esc="'Contract Daily: ' + report_date_g + ' ' + contract_record['registration_no']"></div>
+
+                    </div>
                     <div class="row">
                         <div class="col-3">Buyer:</div>
                         <div class="col-9 h4"
