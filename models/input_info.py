@@ -110,10 +110,10 @@ class SdPayanehNaftiInputInfo(models.Model):
     tanker_empty_weight = fields.Integer(required=False, tracking=True,)
     tanker_full_weight = fields.Integer(required=False, tracking=True,)
     tanker_pure_weight = fields.Integer(required=False, compute='_tanker_pure_weight')
-    evacuation_box_seal = fields.Char(required=False, default='SPT', tracking=True)
-    compartment_1 = fields.Char(required=False, default='SPT', tracking=True)
-    compartment_2 = fields.Char(required=False, default='SPT', tracking=True)
-    compartment_3 = fields.Char(required=False, default='SPT', tracking=True)
+    evacuation_box_seal = fields.Char(required=False,  tracking=True)
+    compartment_1 = fields.Char(required=False,  tracking=True)
+    compartment_2 = fields.Char(required=False,  tracking=True)
+    compartment_3 = fields.Char(required=False, tracking=True)
     correction_factor = fields.Float(digits=(12, 5), required=True, default=1.0, tracking=True)
     # api_box_locker = fields.Many2one('sd_payaneh_nafti.lockers')
     # compartment_locker_1 = fields.Many2one('sd_payaneh_nafti.lockers')
@@ -163,6 +163,21 @@ class SdPayanehNaftiInputInfo(models.Model):
         self.front_container = self.truck_no.front_container
         self.middle_container = self.truck_no.middle_container
         self.back_container = self.truck_no.back_container
+
+    @api.onchange('evacuation_box_seal')
+    def onchange_evacuation_box_seal(self):
+        locker = self.evacuation_box_seal
+        locker_base = locker[:3]
+        locker_number = locker[3:]
+        if not locker_number.isdigit():
+            raise ValidationError(_('Locker is not ends with a number'))
+        locker_number = int(locker_number)
+        self.compartment_1 = f'{locker_base}{locker_number + 1}'
+        self.compartment_2 = f'{locker_base}{locker_number + 2}'
+        self.compartment_3 = f'{locker_base}{locker_number + 3}'
+
+
+
 
     @api.onchange('meter_no')
     def onchange_meter_no(self):
