@@ -169,14 +169,19 @@ class SdPayanehNaftiInputInfo(models.Model):
         locker = self.evacuation_box_seal
         locker_base = locker[:5]
         locker_number = locker[5:]
-        if not locker_number.isdigit():
-            raise ValidationError(_('Locker is not ends with a number'))
-        locker_number = int(locker_number)
-        self.compartment_1 = f'{locker_base}{locker_number + 1}'
-        self.compartment_2 = f'{locker_base}{locker_number + 2}'
-        self.compartment_3 = f'{locker_base}{locker_number + 3}'
+        # if not locker_number.isdigit():
+        #     raise ValidationError(_('Locker is not ends with a number'))
+        # locker_number = int(locker_number)
+        # self.compartment_1 = f'{locker_base}{locker_number + 1}'
+        # self.compartment_2 = f'{locker_base}{locker_number + 2}'
+        # self.compartment_3 = f'{locker_base}{locker_number + 3}'
 
+        print(f'''
+            locker: {locker}
+            locker_base: {locker_base}
+            locker_number: {locker_number}
 
+''')
 
 
     @api.onchange('meter_no')
