@@ -167,8 +167,8 @@ class SdPayanehNaftiInputInfo(models.Model):
     @api.onchange('evacuation_box_seal')
     def onchange_evacuation_box_seal(self):
         locker = self.evacuation_box_seal
-        locker_base = locker[:3]
-        locker_number = locker[3:]
+        locker_base = locker[:5]
+        locker_number = locker[5:]
         if not locker_number.isdigit():
             raise ValidationError(_('Locker is not ends with a number'))
         locker_number = int(locker_number)
