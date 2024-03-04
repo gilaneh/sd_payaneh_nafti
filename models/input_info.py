@@ -168,13 +168,21 @@ class SdPayanehNaftiInputInfo(models.Model):
     def onchange_meter_no(self):
         last_input = self.search([('meter_no', '=', self.meter_no),
                                   ('totalizer_end', '>', 0)],
-                                 order='id,totalizer_end desc', limit=5)
+                                 order='document_no desc,totalizer_end desc', limit=5)
         if last_input:
             self.totalizer_start = last_input[0].totalizer_end
             totalizer_lasts = []
+            totalizer_lasts.append(f'<div class="row border-top border-bottom mx-0 sd_ltr">'
+                                   f'<div class="col px-1">Document No</div>'
+                                   f'<div class="col px-1">Totalizer End</div>'
+                                   f'</div>')
             for rec in last_input:
-                totalizer_lasts.append(f'[{rec.document_no}][{rec.totalizer_end:,}]<br>')
+                totalizer_lasts.append(f'<div class="row border-bottom mx-0 sd_ltr">'
+                                       f'<div class="col px-1">{rec.document_no}</div>'
+                                       f'<div class="col px-1">{rec.totalizer_end:,}</div>'
+                                       f'</div>')
             self.totalizer_lasts = ''.join(totalizer_lasts)
+            self.totalizer_lasts = f'<div class="sd_ltr" style="font-family: sarif">{self.totalizer_lasts}<div>'
 
     @api.onchange('document_no')
     def onchange_document_no(self):
