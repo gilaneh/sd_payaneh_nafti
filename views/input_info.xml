@@ -250,7 +250,7 @@
                     <header>
                         <button name="loading_permit" states="draft" string="Loading Permit" type="object"
                                 class="oe_highlight" data-hotkey="l"/>
-                        <button name="print_loading_permit" states="loading_permit,loading_info,done" string="Print Loading Permit" type="object"
+                        <button name="print_loading_permit" states="loading_permit,loading_info,cargo_document,done" string="Print Loading Permit" type="object"
                                 class="oe_highlight" />
                         <button name="loading_info" states="loading_info,cargo_document,done" string="Loading Info" type="object"
                                 class="oe_highlight" />

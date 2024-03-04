@@ -173,7 +173,7 @@ class SdPayanehNaftiInputInfo(models.Model):
             self.totalizer_start = last_input[0].totalizer_end
             totalizer_lasts = []
             for rec in last_input:
-                totalizer_lasts.append(f'{rec.totalizer_end:,}<br>')
+                totalizer_lasts.append(f'[{rec.document_no}][{rec.totalizer_end:,}]<br>')
             self.totalizer_lasts = ''.join(totalizer_lasts)
 
     @api.onchange('document_no')
