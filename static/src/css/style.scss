@@ -1,6 +1,8 @@
 .sd_ltr, .sd_ltr a, .sd_ltr p {
 //     unicode-bidi: plaintext;
-direction: initial;
+    font-family: system-ui !important;
+    direction: initial !important;
+    text-align: initial !important;
 }
 
 .black_list {

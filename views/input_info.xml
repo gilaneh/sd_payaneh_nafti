@@ -514,10 +514,10 @@
                     </group>
                     <group string="Lockers">
                         <group>
-                                <field name="evacuation_box_seal" required="1"/>
-                                <field name="compartment_1" required="1"/>
-                                <field name="compartment_2" required="1"/>
-                                <field name="compartment_3" required="1"/>
+                                <field name="evacuation_box_seal" required="1" class="sd_ltr"/>
+                                <field name="compartment_1" required="1" class="sd_ltr"/>
+                                <field name="compartment_2" required="1" class="sd_ltr"/>
+                                <field name="compartment_3" required="1" class="sd_ltr"/>
                         </group>
                         <group>
 <!--                                <field name="api_box_locker" />-->
