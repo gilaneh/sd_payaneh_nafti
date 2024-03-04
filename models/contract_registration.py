@@ -14,9 +14,9 @@ class SdPayanehNaftiContractInfo(models.Model):
     _order = 'registration_no desc'
     _rec_name = 'registration_no'
 
-    # registration_no = fields.Char(required=True, copy=False, readonly=False, default=lambda self: _('New'))
-    registration_no = fields.Char(required=True, copy=False, readonly=False, tracking=True,
-                default=lambda self: int(self.search([], order='registration_no desc', limit=1).registration_no) + 1)
+    registration_no = fields.Char(required=True, copy=False, readonly=True, default=lambda self: _('New'))
+    # registration_no = fields.Char(required=True, copy=False, readonly=False, tracking=True,
+    #             default=lambda self: int(self.search([], order='registration_no desc', limit=1).registration_no) + 1)
     letter_no = fields.Char(required=True, tracking=True,)
     contract_no = fields.Char(required=True, tracking=True,)
     bill_of_lading = fields.Char(required=False,)
@@ -81,10 +81,10 @@ class SdPayanehNaftiContractInfo(models.Model):
     def create(self, vals):
         # todo: it is disabled for parallel data entry of excel and this system.
 
-        # if vals.get('registration_no', _('New')) == _('New'):
-        #     vals['registration_no'] = self.env['ir.sequence'].next_by_code('sd_payaneh_nafti.contract_registration') or _('New')
-        if vals.get('registration_no') == 0:
-            raise ValidationError(_('Registration No'))
+        if vals.get('registration_no', _('New')) == _('New'):
+            vals['registration_no'] = self.env['ir.sequence'].next_by_code('sd_payaneh_nafti.contract_registration') or _('New')
+        # if vals.get('registration_no') == 0:
+        #     raise ValidationError(_('Registration No'))
         return super(SdPayanehNaftiContractInfo, self).create(vals)
 
     def write(self, vals):

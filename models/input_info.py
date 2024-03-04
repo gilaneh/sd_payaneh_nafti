@@ -41,8 +41,10 @@ class SdPayanehNaftiInputInfo(models.Model):
     remain_amount = fields.Float(compute='_remain_amount')
     remain_amount_approx = fields.Float(compute='_remain_amount')
     amount = fields.Float()
-    document_no = fields.Integer(required=True, copy=False, readonly=False, tracking=True,
-                                 default=lambda self: self.search([], order='document_no desc', limit=1).document_no + 1)
+    document_no = fields.Integer(required=True, copy=False, readonly=True, tracking=True,
+                                 default=lambda self: 0)
+    # document_no = fields.Integer(required=True, copy=False, readonly=False, tracking=True,
+    #                              default=lambda self: self.search([], order='document_no desc', limit=1).document_no + 1)
     request_date = fields.Date(default=lambda self: datetime.now(pytz.timezone(self.env.context.get('tz', 'Asia/Tehran'))), required=True,)
     registration_no = fields.Many2one('sd_payaneh_nafti.contract_registration', required=True, tracking=True,
                                       default=lambda self: self.env.context.get('registration_no', False))
@@ -389,14 +391,14 @@ class SdPayanehNaftiInputInfo(models.Model):
 
 
         # todo: it is disabled for parallel data entry of excel and this system.
-        # if vals.get('document_no', 0) == 0:
-        #     vals['document_no'] = self.env['ir.sequence'].next_by_code('sd_payaneh_nafti.input_info') or 0
+        if vals.get('document_no', 0) == 0:
+            vals['document_no'] = self.env['ir.sequence'].next_by_code('sd_payaneh_nafti.input_info') or 0
 
             # todo: timezone, last ours of 29'th of Esfand might show a wrong date, maybe first of next year
             # vals['loading_no'] = str(jdatetime.date.today().year) + f"/{int(vals['document_no']):07d}"
-        doc_no = vals.get('document_no', 0)
-        if doc_no == 0 or doc_no < 10000 or doc_no > 99999:
-            raise ValidationError(_('Document No'))
+        # doc_no = vals.get('document_no', 0)
+        # if doc_no == 0 or doc_no < 10000 or doc_no > 99999:
+        #     raise ValidationError(_('Document No'))
 
 
         spgr = self.env['sd_payaneh_nafti.spgr'].search([], order='id desc', limit=1)
