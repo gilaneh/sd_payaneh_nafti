@@ -167,22 +167,18 @@ class SdPayanehNaftiInputInfo(models.Model):
     @api.onchange('evacuation_box_seal')
     def onchange_evacuation_box_seal(self):
         locker = self.evacuation_box_seal
-        locker_base = locker[:5]
-        locker_number = locker[5:]
-        # if not locker_number.isdigit():
-        #     raise ValidationError(_('Locker is not ends with a number'))
-        # locker_number = int(locker_number)
-        # self.compartment_1 = f'{locker_base}{locker_number + 1}'
-        # self.compartment_2 = f'{locker_base}{locker_number + 2}'
-        # self.compartment_3 = f'{locker_base}{locker_number + 3}'
-
-        print(f'''
-            locker: {locker}
-            locker_base: {locker_base}
-            locker_number: {locker_number}
-
-''')
-
+        if len(locker) > 6:
+            locker_base = locker[:5]
+            locker_number = locker[5:]
+            if locker_number.isdigit():
+                locker_number = int(locker_number)
+                self.compartment_1 = f'{locker_base}{locker_number + 1}'
+                self.compartment_2 = f'{locker_base}{locker_number + 2}'
+                self.compartment_3 = f'{locker_base}{locker_number + 3}'
+            else:
+                logging.error(f'[onchange_evacuation_box_seal]: {locker} : {locker_number} is not number ')
+        else:
+            logging.error(f'[onchange_evacuation_box_seal]: Length of [{locker}] is less than 6')
 
     @api.onchange('meter_no')
     def onchange_meter_no(self):
