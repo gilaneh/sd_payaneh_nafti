@@ -220,6 +220,8 @@
 
                     <field name="document_no" class="text-center" />
                     <field name="request_date" class="text-center" />
+                                        <field name="loading_date" />
+                    <field name="loading_info_date" />
                     <field name="amount" class="text-center" sum="Total"/>
                     <field name="registration_no" class="text-center" />
                     <field name="buyer" />
