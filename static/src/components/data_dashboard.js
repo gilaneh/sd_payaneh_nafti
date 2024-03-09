@@ -1,7 +1,7 @@
 /** @odoo-module */
     import { registry } from "@web/core/registry"
-    const { Component, useRef, onMounted, useState } = owl
-    const { useEnv, onWillStart, onWillUnmount } = owl.hooks;
+    const { Component, useRef, useState } = owl
+    const { useEnv, onWillStart, onMounted, onWillUnmount } = owl.hooks;
     import { session } from "@web/session";
     import { useService } from "@web/core/utils/hooks"
     import { DataCards } from "./data_cards/data_cards"
@@ -13,6 +13,8 @@
 export class DataDashboard extends Component {
     setup(){
         let self = this;
+        let loadingEvent;
+        let loadingPlanCard;
         console.log('session:', session)
 
         this.state = useState({
@@ -97,9 +99,17 @@ export class DataDashboard extends Component {
             getRequestsInterval = setInterval(this.getRequests, 30000)
 //            console.log('onWillStart', getRequestsInterval)
         })
+        onMounted(()=> {
+            loadingPlanCard = document.querySelector('.loading_plan_card')
+//            console.log('loadingPlanCard', this, loadingPlanCard)
+            loadingEvent = loadingPlanCard.addEventListener('click', self._onLoadingPlanCard)
+            self.loading_plan_detail()
+
+        })
         onWillUnmount(function(){
 //            console.log('onWillUnmount', getRequestsInterval)
             clearInterval(getRequestsInterval)
+            loadingPlanCard.removeEventListener('click', loadingEvent)
         })
         this.viewSpgr = this.viewSpgr.bind(this);
         this.loadPlan = this.loadPlan.bind(this);
@@ -111,6 +121,8 @@ export class DataDashboard extends Component {
         this.viewLoadingInfo = this.viewLoadingInfo.bind(this);
         this.viewCargoDocument = this.viewCargoDocument.bind(this);
         this.openInputInfo = this.openInputInfo.bind(this);
+        this._onLoadingPlanCard = this._onLoadingPlanCard.bind(this);
+
 
     }
     async getSpgr(){
@@ -122,11 +134,36 @@ export class DataDashboard extends Component {
         loadingPlan(e){
         console.log('date:', e)
     }
+    loading_plan_detail(){
+        let loadingPlanDetail = document.querySelector('.loading_plan_detail')
+        let plans = await this.orm.call("sd_payaneh_nafti.loading_plan", "loading_plans_detail", [],{})
+
+
+    }
+    _onLoadingPlanCard(ev){
+        if(ev.target.classList.contains('loading_plan') || ev.target.parentElement.classList.contains('loading_plan') ){
+            if(ev.target.parentElement.dataset.date){
+                let domain = [['record_date', '=', ev.target.parentElement.dataset.date]]
+                this.actionService.doAction({
+                    name: "Loading Plan",
+                    res_model: "sd_payaneh_nafti.loading_plan",
+        //            res_id: this.actionId,
+                    views: [[false, "list"],],
+                    type: "ir.actions.act_window",
+                    view_mode: "list",
+                    domain: domain,
+//                    context: {'search_default_meter_no_group': 1},
+                    target: "current",
+                });
+            }
+
+        }
+    }
     async loadPlan(){
         let self = this;
         let plans = await this.orm.call("sd_payaneh_nafti.loading_plan", "loading_plans", [],{})
         plans = JSON.parse(plans)
-        console.log('plans:', plans)
+//        console.log('plans:', plans)
         let link = ''
             link += `
             <div class="col">
@@ -142,7 +179,7 @@ export class DataDashboard extends Component {
 
             link += `
             <div class="col" style="cursor: pointer;">
-                <div class="row small border-bottom plans_row loading_plan" value="${r.date}"  >
+                <div class="row small border-bottom plans_row loading_plan" data-date="${r.date}"  >
                     <div class="col-6  px-1">${r.s_date}</div>
                     <div class="col-3  px-1">${r.remain_amount}</div>
                     <div class="col-3  px-1">${r.allocated}</div>
@@ -225,7 +262,7 @@ export class DataDashboard extends Component {
     }
     viewThisDayRequests(day=0){
 //        this.actionService = useService("action")
-        console.log('viewThisDayRequests', day)
+//        console.log('viewThisDayRequests', day)
         let today = moment().locale('en').add(day, 'days').format('YYYY/MM/DD')
         let domain = [['request_date', '=', today]]
         this.actionService.doAction({

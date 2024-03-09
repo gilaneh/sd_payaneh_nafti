@@ -38,6 +38,17 @@ class SdPayanehNaftiInputInfo(models.Model):
         ],
         string='Status', index=True, readonly=True, tracking=True,
         copy=False, default='draft', required=True, group_expand='_expand_groups', )
+    shift = fields.Selection([
+        ('shift_1', 'Shift 1'),
+        ('shift_2', 'Shift 2'),
+        ('shift_3', 'Shift 3'),
+        ('shift_4', 'Shift 4'),
+        ('shift_5', 'Shift 5'),
+        ('shift_6', 'Shift 6'),
+
+        ],
+        string='Shift', index=True, tracking=True,
+        copy=False, default=lambda self: self.shift_selector(), required=True, )
     remain_amount = fields.Float(compute='_remain_amount')
     remain_amount_approx = fields.Float(compute='_remain_amount')
     amount = fields.Float()
@@ -158,6 +169,23 @@ class SdPayanehNaftiInputInfo(models.Model):
         #     if len(drivers) == 1:
         #         rec.write({'driver_name': drivers.id})
 
+    def shift_selector(self):
+        shift = 1
+        the_time = datetime.now(pytz.timezone(self.env.context.get('tz', 'Asia/Tehran'))).time()
+        if the_time < the_time.replace(hour=7, minute=0, second=0, microsecond=0):
+            shift = 1
+        elif the_time < the_time.replace(hour=9, minute=30, second=0, microsecond=0):
+            shift = 2
+        elif the_time < the_time.replace(hour=12, minute=0, second=0, microsecond=0):
+            shift = 3
+        elif the_time < the_time.replace(hour=18, minute=0, second=0, microsecond=0):
+            shift = 4
+        elif the_time < the_time.replace(hour=21, minute=0, second=0, microsecond=0):
+            shift = 5
+        elif the_time >= the_time.replace(hour=21, minute=0, second=0, microsecond=0):
+            shift = 6
+
+        return f'shift_{shift}'
     @api.onchange('truck_no')
     def _truck_changed(self):
         self.front_container = self.truck_no.front_container

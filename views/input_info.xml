@@ -311,6 +311,7 @@
                         </div>
                         <group string="General Information">
                             <group>
+                                <field name="shift"/>
                                 <field name="request_date" attrs="{'readonly': [('state', 'in', ['finished'])]}"/>
                                 <field name="registration_no"
                                        options="{'no_quick_create':True, 'no_create_edit': True, 'no_open': True}"/>

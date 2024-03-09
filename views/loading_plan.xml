@@ -7,20 +7,27 @@
             <field name="name">Loading Plan List</field>
             <field name="model">sd_payaneh_nafti.loading_plan</field>
             <field name="arch" type="xml">
-                <tree editable="bottom" delete="1" multi_edit="1" >
-                    <field name="record_date" />
-                    <field name="registration_no" />
+                <tree editable="bottom" create="0" multi_edit="1" >
+                    <field name="record_date" readonly="1" />
+                    <field name="registration_no" readonly="1"/>
                     <field name="contract_unit" />
                     <field name="contract_amount" />
                     <field name="contract_remain_amount" />
                     <field name="remain_tankers" sum="Tanks"/>
-                    <field name="total" sum="Total" />
-                    <field name="shift_1" sum="Shift 1" />
-                    <field name="shift_2" sum="Shift 1" />
-                    <field name="shift_3" sum="Shift 1" />
-                    <field name="shift_4" sum="Shift 1" />
-                    <field name="shift_5" sum="Shift 1" />
-                    <field name="shift_6" sum="Shift 1" />
+                    <field name="plan" sum="Plan" />
+                    <field name="load" sum="Load" decoration-danger="load &gt; plan" decoration-bf="load &gt; plan"/>
+                    <field name="plan_1" sum="Plan 1" />
+                    <field name="load_1" sum="Load 1" decoration-danger="load_1 &gt; plan_1" decoration-bf="load_1 &gt; plan_1"/>
+                    <field name="plan_2" sum="Plan 2" />
+                    <field name="load_2" sum="Load 2" decoration-danger="load_2 &gt; plan_2" decoration-bf="load_2 &gt; plan_2"/>
+                    <field name="plan_3" sum="Plan 3" />
+                    <field name="load_3" sum="Load 3" decoration-danger="load_3 &gt; plan_3" decoration-bf="load_3 &gt; plan_3"/>
+                    <field name="plan_4" sum="Plan 4" />
+                    <field name="load_4" sum="Load 4" decoration-danger="load_4 &gt; plan_4" decoration-bf="load_4 &gt; plan_4"/>
+                    <field name="plan_5" sum="Plan 5" />
+                    <field name="load_5" sum="Load 5" decoration-danger="load_5 &gt; plan_5" decoration-bf="load_5 &gt; plan_5"/>
+                    <field name="plan_6" sum="Plan 6" />
+                    <field name="load_6" sum="Load 6" decoration-danger="load_6 &gt; plan_6" decoration-bf="load_6 &gt; plan_6"/>
 
                 </tree>
             </field>
