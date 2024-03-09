@@ -102,6 +102,7 @@ export class DataDashboard extends Component {
             clearInterval(getRequestsInterval)
         })
         this.viewSpgr = this.viewSpgr.bind(this);
+        this.loadPlan = this.loadPlan.bind(this);
         this.getRequests = this.getRequests.bind(this);
         this.viewContracts = this.viewContracts.bind(this);
         this.viewThisDayRequests = this.viewThisDayRequests.bind(this);
@@ -118,8 +119,11 @@ export class DataDashboard extends Component {
         this.state.spgr.status = moment(spgr[0].spgr_date).format("jYYYY/jMM/jDD");
         this.state.spgr.value = spgr[0].spgr;
     }
+        loadingPlan(e){
+        console.log('date:', e)
+    }
     async loadPlan(){
-
+        let self = this;
         let plans = await this.orm.call("sd_payaneh_nafti.loading_plan", "loading_plans", [],{})
         plans = JSON.parse(plans)
         console.log('plans:', plans)
@@ -134,12 +138,12 @@ export class DataDashboard extends Component {
             </div>
             `;
         plans.data.forEach( r => {
-        console.log('plans:', r)
+//        console.log('plans:', r)
 
             link += `
             <div class="col">
-                <div class="row small border-bottom">
-                    <div class="col-6  px-1">${r.date}</div>
+                <div class="row small border-bottom plans_row loading_plan" value="${r.date}" >
+                    <div class="col-6  px-1">${r.s_date}</div>
                     <div class="col-3  px-1">${r.remain_amount}</div>
                     <div class="col-3  px-1">${r.allocated}</div>
                 </div>
@@ -149,6 +153,7 @@ export class DataDashboard extends Component {
 //        this.state.load_plan.link = `<div class="row">${link}</div>`
         this.state.load_plan.link = link
     }
+
     async getContracts(){
         let contracts = await this.orm.call("sd_payaneh_nafti.contract_registration", "get_contracts", [],{})
         contracts = JSON.parse(contracts)

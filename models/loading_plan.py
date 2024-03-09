@@ -84,7 +84,8 @@ class SdPayanehNaftiLoadingPlan(models.Model):
 
             print(f'/n the_day: {the_day}\n remain_amount: {remain_amount}\n allocated: {allocated}')
             plan_data.append({'index': day,
-                              'date': self.convert_date(the_day, lang),
+                              'date': the_day.strftime("%Y-%m-%d"),
+                              's_date': self.convert_date(the_day, lang),
                               'remain_amount': round(sum(remain_amount) / 200),
                               'allocated': sum(allocated) ,
                               })
