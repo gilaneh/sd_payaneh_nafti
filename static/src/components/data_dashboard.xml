@@ -24,7 +24,7 @@
                     <div class="row">
                         <DataCards  name="''" status="state.username.status"  />
                         <DataCards onClick="viewSpgr" name="'SP.GR.'" status="state.spgr.status" value="state.spgr.value" />
-                        <DataCards onClick="loadingPlan" name="'Load Plan'" link="state.load_plan.link" />
+                        <DataCards name="'Load Plan'" link="state.load_plan.link" />
                         <DataCards onClick="viewContracts" name="'Open Contracts'" status="state.contracts.status" value="state.contracts.value" />
                     </div>
                     <div class="row">

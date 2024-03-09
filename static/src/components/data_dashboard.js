@@ -141,8 +141,8 @@ export class DataDashboard extends Component {
 //        console.log('plans:', r)
 
             link += `
-            <div class="col">
-                <div class="row small border-bottom plans_row loading_plan" value="${r.date}" >
+            <div class="col" style="cursor: pointer;">
+                <div class="row small border-bottom plans_row loading_plan" value="${r.date}"  >
                     <div class="col-6  px-1">${r.s_date}</div>
                     <div class="col-3  px-1">${r.remain_amount}</div>
                     <div class="col-3  px-1">${r.allocated}</div>
