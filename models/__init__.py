@@ -16,3 +16,4 @@ from . import contract_registration
 from . import meter_data
 from . import lockers
 from . import spgr
+from . import loading_plan

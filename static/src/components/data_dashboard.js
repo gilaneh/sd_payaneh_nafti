@@ -2,7 +2,7 @@
     import { registry } from "@web/core/registry"
     const { Component, useRef, onMounted, useState } = owl
     const { useEnv, onWillStart, onWillUnmount } = owl.hooks;
-
+    import { session } from "@web/session";
     import { useService } from "@web/core/utils/hooks"
     import { DataCards } from "./data_cards/data_cards"
 //    import { InputCards } from "./input_cards/input_cards"
@@ -13,9 +13,17 @@
 export class DataDashboard extends Component {
     setup(){
         let self = this;
-//        console.log('company:', this.env.services)
+        console.log('session:', session)
 
         this.state = useState({
+            username: {
+                value: '',
+                status: session.name
+            },
+            load_plan: {
+                value: '',
+                link: '<a href="https://google.com">12/17</a>'
+            },
             spgr: {
                 value: 0.7722,
                 status: "1402/10/01",
@@ -83,6 +91,7 @@ export class DataDashboard extends Component {
         let getRequestsInterval;
         onWillStart(async ()=>{
             await this.getSpgr()
+            await this.loadPlan()
             await this.getContracts()
             await this.getRequests()
             getRequestsInterval = setInterval(this.getRequests, 30000)
@@ -108,6 +117,37 @@ export class DataDashboard extends Component {
 //        console.log('spgr:', spgr, spgr[0].spgr, spgr[0].spgr_date)
         this.state.spgr.status = moment(spgr[0].spgr_date).format("jYYYY/jMM/jDD");
         this.state.spgr.value = spgr[0].spgr;
+    }
+    async loadPlan(){
+
+        let plans = await this.orm.call("sd_payaneh_nafti.loading_plan", "loading_plans", [],{})
+        plans = JSON.parse(plans)
+        console.log('plans:', plans)
+        let link = ''
+            link += `
+            <div class="col">
+                <div class="row small border-bottom">
+                    <div class="col-6  px-1">Date</div>
+                    <div class="col-3  px-1">Total</div>
+                    <div class="col-3  px-1">Plan</div>
+                </div>
+            </div>
+            `;
+        plans.data.forEach( r => {
+        console.log('plans:', r)
+
+            link += `
+            <div class="col">
+                <div class="row small border-bottom">
+                    <div class="col-6  px-1">${r.date}</div>
+                    <div class="col-3  px-1">${r.remain_amount}</div>
+                    <div class="col-3  px-1">${r.allocated}</div>
+                </div>
+            </div>
+            `;
+        } )
+//        this.state.load_plan.link = `<div class="row">${link}</div>`
+        this.state.load_plan.link = link
     }
     async getContracts(){
         let contracts = await this.orm.call("sd_payaneh_nafti.contract_registration", "get_contracts", [],{})

@@ -5,7 +5,7 @@
 <!--        <div class="h1 text-center">Payaneh Data Dashboard</div>-->
             <div class="row m-1 m-lg-3">
                 <div class="col-lg-8">
-                    <div class="row">
+                    <div class="row text-center">
                         <div class="col m-0 p-0">
                             <div class="shadow border rounded m-2 p-2 p-lg-4 bg-white text-center">
                                 <div class="d-flex align-items-center">
@@ -22,7 +22,9 @@
                         </div>
                     </div>
                     <div class="row">
+                        <DataCards name="''" status="state.username.status"  />
                         <DataCards onClick="viewSpgr" name="'SP.GR.'" status="state.spgr.status" value="state.spgr.value" />
+                        <DataCards name="'Load Plan'" link="state.load_plan.link" />
                         <DataCards onClick="viewContracts" name="'Open Contracts'" status="state.contracts.status" value="state.contracts.value" />
                     </div>
                     <div class="row">

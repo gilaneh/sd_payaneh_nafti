@@ -77,6 +77,7 @@
         'data/spgr_data.xml',
         # 'data/lockers_sequence.xml',
         'data/cargo_types_data.xml',
+        'views/loading_plan.xml',
 
     ],
     'assets': {

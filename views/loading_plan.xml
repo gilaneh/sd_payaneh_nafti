@@ -1,0 +1,86 @@
+<odoo>
+    <data>
+
+         <!-- ==================================================  sd_payaneh_nafti.loading_plan ====================-->
+
+        <record model="ir.ui.view" id="sd_payaneh_nafti_loading_plan_list">
+            <field name="name">Loading Plan List</field>
+            <field name="model">sd_payaneh_nafti.loading_plan</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom" delete="1" multi_edit="1" >
+                    <field name="record_date" />
+                    <field name="registration_no" />
+                    <field name="contract_unit" />
+                    <field name="contract_amount" />
+                    <field name="contract_remain_amount" />
+                    <field name="remain_tankers" sum="Tanks"/>
+                    <field name="total" sum="Total" />
+                    <field name="shift_1" sum="Shift 1" />
+                    <field name="shift_2" sum="Shift 1" />
+                    <field name="shift_3" sum="Shift 1" />
+                    <field name="shift_4" sum="Shift 1" />
+                    <field name="shift_5" sum="Shift 1" />
+                    <field name="shift_6" sum="Shift 1" />
+
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="sd_payaneh_nafti_loading_plan_form">
+            <field name="name">Loading Plan Form</field>
+            <field name="model">sd_payaneh_nafti.loading_plan</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                    <field name="record_date" />
+                    <field name="registration_no" />
+
+                    </group>
+
+                </form>
+            </field>
+        </record>
+
+        <!-- ==================================================  Search ====================-->
+
+        <record model="ir.ui.view" id="sd_payaneh_nafti_loading_plan_list_search">
+            <field name="name">Loading Plan Search</field>
+            <field name="model">sd_payaneh_nafti.loading_plan</field>
+            <field name="arch" type="xml">
+                <search string="loading_plan">
+                    <field name="record_date" />
+<!--                    <field name="description" />-->
+
+                    <filter string="Tomorrow" name="tomorrow" domain="[('record_date', '=', (context_today() + datetime.timedelta(days=1)).strftime('%Y-%m-%d'))]"/>
+                    <filter string="Today" name="today" domain="[('record_date', '=', context_today().strftime('%Y-%m-%d'))]"/>
+                    <filter string="Yesterday" name="yesterday" domain="[('record_date', '=', (context_today() - datetime.timedelta(days=1)).strftime('%Y-%m-%d'))]"/>
+
+                </search>
+            </field>
+        </record>
+
+
+        <!-- ==================================================  Action Window ====================-->
+
+        <record model="ir.actions.act_window" id="action_window_loading_plan">
+            <field name="name">Loading Plan</field>
+            <field name="res_model">sd_payaneh_nafti.loading_plan</field>
+            <field name="view_mode">tree</field>
+            <field name="context">{'search_default_today': 1}</field>
+
+        </record>
+
+        <!-- ==================================================  Menu ====================-->
+
+        <menuitem name="Loading Plan"
+                  sequence="50"
+                  id="loading_plan_menu"
+                  parent="settings_menu"
+                  action="action_window_loading_plan"/>
+
+<!--        <menuitem name="Actions"-->
+<!--                  id="sd_payaneh_nafti.actions_setting_menu"-->
+<!--                  parent="sd_payaneh_nafti.settings_menu"/>-->
+
+
+    </data>
+</odoo>
