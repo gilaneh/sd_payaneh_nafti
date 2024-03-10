@@ -103,7 +103,7 @@ export class DataDashboard extends Component {
             loadingPlanCard = document.querySelector('.loading_plan_card')
 //            console.log('loadingPlanCard', this, loadingPlanCard)
             loadingEvent = loadingPlanCard.addEventListener('click', self._onLoadingPlanCard)
-            self.loading_plan_detail()
+//            self.loading_plan_detail()
 
         })
         onWillUnmount(function(){
