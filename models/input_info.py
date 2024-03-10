@@ -196,8 +196,8 @@ class SdPayanehNaftiInputInfo(models.Model):
     def onchange_evacuation_box_seal(self):
         locker = self.evacuation_box_seal
         if locker and len(locker) > 6:
-            locker_base = locker[:5]
-            locker_number = locker[5:]
+            locker_base = locker[:3]
+            locker_number = locker[3:]
             if locker_number.isdigit():
                 locker_number = int(locker_number)
                 self.compartment_1 = f'{locker_base}{locker_number + 1}'
