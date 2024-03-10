@@ -243,6 +243,7 @@ export class DataDashboard extends Component {
         this.state.two_days_ago_count.status = moment().subtract(2, 'days').format("jYYYY/jMM/jDD");
         this.state.three_days_ago_count.status = moment().subtract(3, 'days').format("jYYYY/jMM/jDD");
 
+        this.loadPlan()
     }
     viewSpgr(){
 //        console.log('viewSpgr', this)
