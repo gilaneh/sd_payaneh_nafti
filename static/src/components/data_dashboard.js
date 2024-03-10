@@ -5,6 +5,7 @@
     import { session } from "@web/session";
     import { useService } from "@web/core/utils/hooks"
     import { DataCards } from "./data_cards/data_cards"
+    import { DataPlans } from "./data_plans/data_plans"
 //    import { InputCards } from "./input_cards/input_cards"
     const { DateTime, Settings } = luxon;
 
@@ -25,6 +26,9 @@ export class DataDashboard extends Component {
             load_plan: {
                 value: '',
                 link: '<a href="https://google.com">12/17</a>'
+            },
+            plan_detail:{
+                status: ''
             },
             spgr: {
                 value: 0.7722,
@@ -122,6 +126,7 @@ export class DataDashboard extends Component {
         this.viewCargoDocument = this.viewCargoDocument.bind(this);
         this.openInputInfo = this.openInputInfo.bind(this);
         this._onLoadingPlanCard = this._onLoadingPlanCard.bind(this);
+        this.viewTodayLoadingPlan = this.viewTodayLoadingPlan.bind(this);
 
 
     }
@@ -138,6 +143,22 @@ export class DataDashboard extends Component {
         let loadingPlanDetail = document.querySelector('.loading_plan_detail')
         let plans = await this.orm.call("sd_payaneh_nafti.loading_plan", "loading_plans_detail", [],{})
 
+
+    }
+    viewTodayLoadingPlan(theDate){
+    let today = moment().locale('en').format('YYYY/MM/DD')
+        let domain = [['record_date', '=', today]]
+        this.actionService.doAction({
+            name: "Loading Plan",
+            res_model: "sd_payaneh_nafti.loading_plan",
+//            res_id: this.actionId,
+            views: [[false, "list"],],
+            type: "ir.actions.act_window",
+            view_mode: "list",
+            domain: domain,
+//                    context: {'search_default_meter_no_group': 1},
+            target: "current",
+        });
 
     }
     _onLoadingPlanCard(ev){
@@ -163,7 +184,8 @@ export class DataDashboard extends Component {
         let self = this;
         let plans = await this.orm.call("sd_payaneh_nafti.loading_plan", "loading_plans", [],{})
         plans = JSON.parse(plans)
-//        console.log('plans:', plans)
+        console.log('plans:', plans)
+        this.state.plan_detail.status = plans.plan_detail
         let link = ''
             link += `
             <div class="col">
@@ -341,5 +363,5 @@ export class DataDashboard extends Component {
 }
 
 DataDashboard.template = "data_dashboard"
-DataDashboard.components = { DataCards }
+DataDashboard.components = { DataCards, DataPlans }
 registry.category("actions").add("data_dashboard", DataDashboard)

@@ -51,7 +51,7 @@
 
                 </div>
                 <div class="col-lg-4">
-                    <div class="loading_plan_detail"></div>
+                        <DataPlans onClick="viewTodayLoadingPlan" name="'Plan Details'" status="state.plan_detail.status"  />
 
 
                 </div>

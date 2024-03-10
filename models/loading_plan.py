@@ -18,27 +18,30 @@ class SdPayanehNaftiLoadingPlan(models.Model):
     contract_unit = fields.Selection(related='registration_no.unit')
     contract_amount = fields.Integer(related='registration_no.amount')
     contract_remain_amount = fields.Integer(related='registration_no.remain_amount')
-    remain_tankers = fields.Integer(compute="_remain_tankers")
+    remain_tankers = fields.Integer(compute="_remain_tankers", store=False)
     plan_1 = fields.Integer()
     plan_2 = fields.Integer()
     plan_3 = fields.Integer()
     plan_4 = fields.Integer()
     plan_5 = fields.Integer()
     plan_6 = fields.Integer()
-    plan = fields.Integer(compute='_compute_plan')
+    plan = fields.Integer(compute='_compute_plan', store=False)
 
-    load_1 = fields.Integer(compute='_compute_load')
-    load_2 = fields.Integer(compute='_compute_load')
-    load_3 = fields.Integer(compute='_compute_load')
-    load_4 = fields.Integer(compute='_compute_load')
-    load_5 = fields.Integer(compute='_compute_load')
-    load_6 = fields.Integer(compute='_compute_load')
-    load = fields.Integer(compute='_compute_load')
+    load_1 = fields.Integer(compute='_compute_load', store=False)
+    load_2 = fields.Integer(compute='_compute_load', store=False)
+    load_3 = fields.Integer(compute='_compute_load', store=False)
+    load_4 = fields.Integer(compute='_compute_load', store=False)
+    load_5 = fields.Integer(compute='_compute_load', store=False)
+    load_6 = fields.Integer(compute='_compute_load', store=False)
+    load = fields.Integer(compute='_compute_load', store=False)
 
+    @api.depends( 'record_date' )
     def _compute_load(self):
         the_day = list({rec.record_date for rec in self})[0]
-        print(f'>>>>>>>>      load      {the_day}          ')
-        loadings = self.env['sd_payaneh_nafti.input_info'].search([('request_date', '=', the_day )])
+        the_day = datetime.now(pytz.timezone(self.env.context.get('tz', 'Asia/Tehran')))
+        # print(f'>>>>>>>>      load      {the_day}          ')
+        loadings = self.env['sd_payaneh_nafti.input_info'].search([('request_date', '=', the_day)])
+        print(f'>>>>>>>>>>>>>>>>\n{len(loadings)}\n')
 
         for rec in self:
             rec.load_1 = len(list([r for r in loadings if r.registration_no == rec.registration_no and r.shift == 'shift_1']))
@@ -48,6 +51,7 @@ class SdPayanehNaftiLoadingPlan(models.Model):
             rec.load_5 = len(list([r for r in loadings if r.registration_no == rec.registration_no and  r.shift == 'shift_5']))
             rec.load_6 = len(list([r for r in loadings if r.registration_no == rec.registration_no and  r.shift == 'shift_6']))
             rec.load = len(list([r for r in loadings if r.registration_no == rec.registration_no]))
+    @api.depends('record_date')
     def _remain_tankers(self):
         for rec in self:
             if rec.contract_unit == 'barrel':
@@ -92,18 +96,16 @@ class SdPayanehNaftiLoadingPlan(models.Model):
         end_day = datetime.now(pytz.timezone(self.env.context.get('tz', 'Asia/Tehran'))).date() + timedelta(days=3)
         plans = self.sudo().search([('record_date', '>=', start_day),
                                     ('record_date', '<=', end_day), ])
-#         print(f'''
-#             plans: {plans[0].registration_no.remain_amount}
-#             plans: {plans[0].record_date}
-# ''')
-
+        # for plan in plans:
+        # #     # print(f'>>>>> plans: {plan.registration_no.registration_no:^6}  {plan.record_date:^12} plan: {plan.load:>5}  load: {plan.load:>5}')
+        #     _ = plan.load
         plan_data = []
         for day in range(3):
             the_day = start_day + timedelta(days=day)
             remain_amount = list([rec.registration_no.remain_amount for rec in plans if rec.record_date == the_day])
             allocated = list([rec.plan for rec in plans if rec.record_date == the_day])
 
-            print(f'/n the_day: {the_day}\n remain_amount: {remain_amount}\n allocated: {allocated}')
+            # print(f'/n the_day: {the_day}\n remain_amount: {remain_amount}\n allocated: {allocated}')
             plan_data.append({'index': day,
                               'date': the_day.strftime("%Y-%m-%d"),
                               's_date': self.convert_date(the_day, lang),
@@ -114,9 +116,24 @@ class SdPayanehNaftiLoadingPlan(models.Model):
             #     contracts: day: {day} {the_day}
             # ''')
         plan_detail = []
-        the_day_rec = list([rec for rec in plans if rec.record_date == start_day])
+        the_day_rec = list([rec for rec in plans if rec.record_date == start_day and (rec.plan > 0 or rec.load > 0)])
 
-        data = {'data': plan_data, 'plan_detail': plan_detail}
+        plan_detail = list([{'buyer':rec.registration_no.buyer.name,
+                               'reg_no': rec.registration_no.registration_no,
+                               'plan': rec.plan,
+                               'load': rec.load,
+                               }
+                              for rec in the_day_rec  ])
+        plan_total = sum(list([rec.plan for rec in the_day_rec]))
+        load_total = sum(list([rec.load for rec in the_day_rec]))
+        plan_detail.append({'buyer': '', 'reg_no': '', 'plan': plan_total, 'load': load_total })
+#         print(f'''
+#         plan_detail: {plan_detail}
+# ''')
+        # plan_detail.append(contracts)
+        data = {'data': plan_data,
+                'plan_detail': plan_detail,
+                }
 
         return json.dumps(data)
 
