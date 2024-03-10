@@ -134,7 +134,7 @@ export class DataDashboard extends Component {
         loadingPlan(e){
         console.log('date:', e)
     }
-    loading_plan_detail(){
+    async loading_plan_detail(){
         let loadingPlanDetail = document.querySelector('.loading_plan_detail')
         let plans = await this.orm.call("sd_payaneh_nafti.loading_plan", "loading_plans_detail", [],{})
 
