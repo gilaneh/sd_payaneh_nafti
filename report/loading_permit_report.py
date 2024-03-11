@@ -38,7 +38,10 @@ class ReportSdPayanehNaftiLoadingPermit(models.AbstractModel):
         #     errors.append(_('[ERROR] There is more than one record'))
         # elif len(input_record) == 1:
         for input_record in input_records:
+            # if not input_record.loading_date:
+            #     raise ValidationError(_(f'There is no Loading Date for {input_record.registration_no.registration_no}'))
             issue_date = input_record.loading_date
+
             if calendar == 'fa_IR':
                 issue_date = jdatetime.date.fromgregorian(date=issue_date).strftime('%Y/%m/%d')
             tanker_no = {'plate_1': input_record.plate_1,
