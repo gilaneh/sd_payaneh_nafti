@@ -224,7 +224,10 @@
         <template id="loading_permit_report_template">
             <t t-call="web.basic_layout" t-lang="lang">
                 <t t-foreach="docs" t-as="o">
-                    <t t-call="sd_payaneh_nafti.loading_permit_report_data"/>
+                <div t-if="errors != []" class="mx-auto text-center mt-5">
+                        <div  style="direction: ltr" t-esc="errors[0]"></div>
+                    </div>
+                    <t t-if="errors == []" t-call="sd_payaneh_nafti.loading_permit_report_data"/>
                 </t>
             </t>
         </template>

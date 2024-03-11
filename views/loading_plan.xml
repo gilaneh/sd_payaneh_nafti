@@ -9,7 +9,9 @@
             <field name="arch" type="xml">
                 <tree editable="bottom" create="0" multi_edit="1" >
                     <field name="record_date" readonly="1" />
+                    <field name="buyer" width="300px"/>
                     <field name="registration_no" readonly="1"/>
+                    <field name="contract_no" readonly="1"/>
                     <field name="contract_unit" />
                     <field name="contract_amount" />
                     <field name="contract_remain_amount" />

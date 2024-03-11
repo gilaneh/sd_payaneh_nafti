@@ -15,6 +15,8 @@ class SdPayanehNaftiLoadingPlan(models.Model):
 
     record_date = fields.Date(default=lambda self: datetime.now(pytz.timezone(self.env.context.get('tz', 'Asia/Tehran'))), required=True,)
     registration_no = fields.Many2one('sd_payaneh_nafti.contract_registration')
+    buyer = fields.Char(related='registration_no.buyer.name')
+    contract_no = fields.Char(related='registration_no.contract_no')
     contract_unit = fields.Selection(related='registration_no.unit')
     contract_amount = fields.Integer(related='registration_no.amount')
     contract_remain_amount = fields.Integer(related='registration_no.remain_amount')
@@ -38,19 +40,21 @@ class SdPayanehNaftiLoadingPlan(models.Model):
     @api.depends( 'record_date' )
     def _compute_load(self):
         the_day = list({rec.record_date for rec in self})[0]
-        the_day = datetime.now(pytz.timezone(self.env.context.get('tz', 'Asia/Tehran')))
+        the_day = datetime.now(pytz.timezone(self.env.context.get('tz', 'Asia/Tehran'))) - timedelta(days=3)
         # print(f'>>>>>>>>      load      {the_day}          ')
-        loadings = self.env['sd_payaneh_nafti.input_info'].search([('request_date', '=', the_day)])
-        print(f'>>>>>>>>>>>>>>>>\n{len(loadings)}\n')
+        input_all = self.env['sd_payaneh_nafti.input_info'].search([('request_date', '>', the_day)])
+        # input_all = self.env['sd_payaneh_nafti.input_info'].search([])
+        # print(f'>>>>>>>>>>>>>>>>\n{len(loadings)}\n')
 
         for rec in self:
-            rec.load_1 = len(list([r for r in loadings if r.registration_no == rec.registration_no and r.shift == 'shift_1']))
-            rec.load_2 = len(list([r for r in loadings if r.registration_no == rec.registration_no and r.shift == 'shift_2']))
-            rec.load_3 = len(list([r for r in loadings if r.registration_no == rec.registration_no and  r.shift == 'shift_3']))
-            rec.load_4 = len(list([r for r in loadings if r.registration_no == rec.registration_no and  r.shift == 'shift_4']))
-            rec.load_5 = len(list([r for r in loadings if r.registration_no == rec.registration_no and  r.shift == 'shift_5']))
-            rec.load_6 = len(list([r for r in loadings if r.registration_no == rec.registration_no and  r.shift == 'shift_6']))
-            rec.load = len(list([r for r in loadings if r.registration_no == rec.registration_no]))
+            inputs = list([in_rec for in_rec in input_all if in_rec.request_date == rec.record_date])
+            rec.load_1 = len(list([r for r in inputs if r.registration_no == rec.registration_no and r.shift == 'shift_1']))
+            rec.load_2 = len(list([r for r in inputs if r.registration_no == rec.registration_no and r.shift == 'shift_2']))
+            rec.load_3 = len(list([r for r in inputs if r.registration_no == rec.registration_no and  r.shift == 'shift_3']))
+            rec.load_4 = len(list([r for r in inputs if r.registration_no == rec.registration_no and  r.shift == 'shift_4']))
+            rec.load_5 = len(list([r for r in inputs if r.registration_no == rec.registration_no and  r.shift == 'shift_5']))
+            rec.load_6 = len(list([r for r in inputs if r.registration_no == rec.registration_no and  r.shift == 'shift_6']))
+            rec.load = len(list([r for r in inputs if r.registration_no == rec.registration_no]))
     @api.depends('record_date')
     def _remain_tankers(self):
         for rec in self:

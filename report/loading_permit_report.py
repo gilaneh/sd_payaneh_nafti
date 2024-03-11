@@ -38,7 +38,9 @@ class ReportSdPayanehNaftiLoadingPermit(models.AbstractModel):
         #     errors.append(_('[ERROR] There is more than one record'))
         # elif len(input_record) == 1:
         for input_record in input_records:
-            # if not input_record.loading_date:
+            if not input_record.loading_date:
+                errors = [_(f'There is no Loading Data for {input_record.registration_no.registration_no} on {date_time.get("date", "")}')]
+                continue
             #     raise ValidationError(_(f'There is no Loading Date for {input_record.registration_no.registration_no}'))
             issue_date = input_record.loading_date
 

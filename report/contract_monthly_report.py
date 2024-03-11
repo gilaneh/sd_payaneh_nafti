@@ -45,7 +45,6 @@ class ReportSdPayanehNaftiContractMonthly(models.AbstractModel):
             g_first_day = first_day.strftime("%Y%m%d")
             g_last_day = last_day.strftime("%Y%m%d")
 
-
         else:
             date_format = '%Y-%m-%d'
             start_date = datetime.strptime(f'{year}-{month}-1', date_format).date()
