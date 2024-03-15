@@ -17,6 +17,7 @@ class SdPayanehNaftiLoadingPlan(models.Model):
     registration_no = fields.Many2one('sd_payaneh_nafti.contract_registration')
     buyer = fields.Char(related='registration_no.buyer.name')
     contract_no = fields.Char(related='registration_no.contract_no')
+    destination = fields.Char(related='registration_no.destination.name')
     contract_unit = fields.Selection(related='registration_no.unit')
     contract_amount = fields.Integer(related='registration_no.amount')
     contract_remain_amount = fields.Integer(related='registration_no.remain_amount')
@@ -123,6 +124,7 @@ class SdPayanehNaftiLoadingPlan(models.Model):
         the_day_rec = list([rec for rec in plans if rec.record_date == start_day and (rec.plan > 0 or rec.load > 0)])
 
         plan_detail = list([{'buyer':rec.registration_no.buyer.name,
+                               'destination': rec.registration_no.destination.name,
                                'reg_no': rec.registration_no.registration_no,
                                'plan': rec.plan,
                                'load': rec.load,

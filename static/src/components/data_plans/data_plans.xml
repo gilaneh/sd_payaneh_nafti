@@ -16,7 +16,8 @@
                 </div>
                 <t t-foreach="props.status" t-as="row_data" t-key="row_data">
                     <div class="row mx-1 border-bottom">
-                        <div class="col-6" t-esc="row_data.buyer"></div>
+                        <div class="col-6" t-esc="row_data.destination"></div>
+<!--                        <div class="col-6" t-esc="row_data.buyer"></div>-->
                         <div class="col-2" t-esc="row_data.reg_no"></div>
                         <div class="col-2" t-esc="row_data.plan"></div>
                         <div class="col-2" t-esc="row_data.load"></div>
