@@ -157,9 +157,9 @@
             <field name="res_model">sd_payaneh_nafti.contract_registration</field>
             <field name="view_mode">tree,form</field>
             <field name="domain">['|','|',
-                ('end_date', '&gt;', datetime.datetime.now()),
-                '&amp;', ('first_extend_end_date', '!=', False), ('first_extend_end_date', '&gt;', datetime.datetime.now()),
-                '&amp;',('first_extend_end_date', '!=', False), ('second_extend_end_date', '&gt;', datetime.datetime.now()),
+                ('end_date', '&gt;=', datetime.datetime.now()),
+                '&amp;', ('first_extend_end_date', '!=', False), ('first_extend_end_date', '&gt;=', datetime.datetime.now()),
+                '&amp;',('first_extend_end_date', '!=', False), ('second_extend_end_date', '&gt;=', datetime.datetime.now()),
                 ]
             </field>
             <field name="context">{'search_default_live_contracts': 0,'search_default_buyer_group': 1,}</field>
