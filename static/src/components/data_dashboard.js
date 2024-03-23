@@ -264,9 +264,9 @@ export class DataDashboard extends Component {
 //        this.actionService = useService("action")
         let today = moment().locale('en').format('YYYY/MM/DD')
         console.log('today:',  today, moment.locale())
-        let domain = ['|','|',['end_date', '>', today],
-        ['first_extend_end_date', '>', today],
-        ['second_extend_end_date', '>', today],
+        let domain = ['|','|',['end_date', '>=', today],
+        ['first_extend_end_date', '>=', today],
+        ['second_extend_end_date', '>=', today],
         ]
 //        this.orm = useService("orm")
 //        this.orm.call("sd_payaneh_nafti.contract_registration", "dash_get_inputs", [],{})
