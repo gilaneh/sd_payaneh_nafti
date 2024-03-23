@@ -131,9 +131,9 @@ class SdPayanehNaftiContractInfo(models.Model):
     @api.model
     def get_contracts(self):
         today_date = date.today()
-        open_contracts = self.search(['|', '|', ('end_date', '>', today_date),
-                                        ('first_extend_end_date', '>', today_date),
-                                        ('second_extend_end_date', '>', today_date),
+        open_contracts = self.search(['|', '|', ('end_date', '>=', today_date),
+                                        ('first_extend_end_date', '>=', today_date),
+                                        ('second_extend_end_date', '>=', today_date),
                                         ('remain_amount', '>', 0),
                                         ])
 
