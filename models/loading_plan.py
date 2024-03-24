@@ -99,8 +99,8 @@ class SdPayanehNaftiLoadingPlan(models.Model):
         lang = self.env.context.get('lang', 'en_US')
         start_day = datetime.now(pytz.timezone(self.env.context.get('tz', 'Asia/Tehran'))).date()
         end_day = datetime.now(pytz.timezone(self.env.context.get('tz', 'Asia/Tehran'))).date() + timedelta(days=3)
-        plans = self.sudo().search([('record_date', '>=', start_day),
-                                    ('record_date', '<=', end_day), ])
+        plans = self.sudo().search([('record_date', '>', start_day),
+                                    ('record_date', '<', end_day), ])
         # for plan in plans:
         # #     # print(f'>>>>> plans: {plan.registration_no.registration_no:^6}  {plan.record_date:^12} plan: {plan.load:>5}  load: {plan.load:>5}')
         #     _ = plan.load

@@ -136,14 +136,12 @@ export class DataDashboard extends Component {
         this.state.spgr.status = moment(spgr[0].spgr_date).format("jYYYY/jMM/jDD");
         this.state.spgr.value = spgr[0].spgr;
     }
-        loadingPlan(e){
-        console.log('date:', e)
+    loadingPlan(e){
+        console.log('date:', e);
     }
     async loading_plan_detail(){
         let loadingPlanDetail = document.querySelector('.loading_plan_detail')
         let plans = await this.orm.call("sd_payaneh_nafti.loading_plan", "loading_plans_detail", [],{})
-
-
     }
     viewTodayLoadingPlan(theDate){
     let today = moment().locale('en').format('YYYY/MM/DD')
@@ -184,7 +182,7 @@ export class DataDashboard extends Component {
         let self = this;
         let plans = await this.orm.call("sd_payaneh_nafti.loading_plan", "loading_plans", [],{})
         plans = JSON.parse(plans)
-        console.log('plans:', plans)
+//        console.log('plans:', plans)
         this.state.plan_detail.status = plans.plan_detail
         let link = ''
             link += `
@@ -212,7 +210,6 @@ export class DataDashboard extends Component {
 //        this.state.load_plan.link = `<div class="row">${link}</div>`
         this.state.load_plan.link = link
     }
-
     async getContracts(){
         let contracts = await this.orm.call("sd_payaneh_nafti.contract_registration", "get_contracts", [],{})
         contracts = JSON.parse(contracts)
@@ -360,7 +357,6 @@ export class DataDashboard extends Component {
             target: "current",
         });
         }
-
 }
 
 DataDashboard.template = "data_dashboard"
