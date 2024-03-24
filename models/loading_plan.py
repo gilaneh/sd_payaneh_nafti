@@ -12,6 +12,7 @@ class SdPayanehNaftiLoadingPlan(models.Model):
     _name = 'sd_payaneh_nafti.loading_plan'
     _description = 'sd_payaneh_nafti.loading_plan'
     _inherit = ['mail.thread', 'mail.activity.mixin']
+    _order = 'record_date desc'
 
     record_date = fields.Date(default=lambda self: datetime.now(pytz.timezone(self.env.context.get('tz', 'Asia/Tehran'))), required=True,)
     registration_no = fields.Many2one('sd_payaneh_nafti.contract_registration')
