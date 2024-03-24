@@ -43,10 +43,8 @@ class SdPayanehNaftiLoadingPlan(models.Model):
     def _compute_load(self):
         the_day = list({rec.record_date for rec in self})[0]
         the_day = datetime.now(pytz.timezone(self.env.context.get('tz', 'Asia/Tehran'))) - timedelta(days=3)
-        # print(f'>>>>>>>>      load      {the_day}          ')
         input_all = self.env['sd_payaneh_nafti.input_info'].search([('request_date', '>', the_day)])
         # input_all = self.env['sd_payaneh_nafti.input_info'].search([])
-        # print(f'>>>>>>>>>>>>>>>>\n{len(loadings)}\n')
 
         for rec in self:
             inputs = list([in_rec for in_rec in input_all if in_rec.request_date == rec.record_date])
@@ -74,13 +72,13 @@ class SdPayanehNaftiLoadingPlan(models.Model):
         end_day = datetime.now(pytz.timezone(self.env.context.get('tz', 'Asia/Tehran'))) + timedelta(days=3)
         for day in range(3):
             the_day = start_day + timedelta(days=day)
-            contracts = self.env['sd_payaneh_nafti.contract_registration'].sudo().search([ '|', '|',
-                                                                                          ('end_date', '>=', the_day),
-                                                                                          ('first_extend_end_date', '>=', the_day),
-                                                                                          ('second_extend_end_date', '>=', the_day),
-
-                                                                                          ])
-            contracts = list([rec for rec in contracts if rec.remain_amount > 100])
+            contracts = self.env['sd_payaneh_nafti.contract_registration']\
+                .sudo().search([ '|', '|',
+                              ('end_date', '>=', the_day),
+                              ('first_extend_end_date', '>=', the_day),
+                              ('second_extend_end_date', '>=', the_day),
+                              ])
+            # contracts = list([rec for rec in contracts if rec.remain_amount > 100])
             the_day_records = self.sudo().search([('record_date', '=', the_day)])
             the_day_records_reg_ids = list([rec.registration_no.id for rec in the_day_records])
             # print(f'/n LLLLL{the_day} {the_day_records_reg_ids}')
@@ -89,10 +87,6 @@ class SdPayanehNaftiLoadingPlan(models.Model):
             for contract in lost_contracts:
                 self.create({'record_date': the_day,
                              'registration_no': contract.id})
-
-                # print(f'''
-                #     contract: {contract}
-                # ''')
 
     @api.model
     def loading_plans(self):
@@ -103,7 +97,6 @@ class SdPayanehNaftiLoadingPlan(models.Model):
         plans = self.sudo().search([('record_date', '>=', start_day),
                                     ('record_date', '<=', end_day), ])
         # for plan in plans:
-        # #     # print(f'>>>>> plans: {plan.registration_no.registration_no:^6}  {plan.record_date:^12} plan: {plan.load:>5}  load: {plan.load:>5}')
         #     _ = plan.load
         plan_data = []
         for day in range(3):
